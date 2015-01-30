@@ -10,5 +10,5 @@ void PlayFailSound(void) {
 }
 
 void PlayPassSound(void) {
- system("omxplayer /root/NetBeansProjects/ManualKBTest/beep-05.wav >/dev/null");   
+ system("omxplayer /root/NetBeansProjects/ManualKBTest/button-2.wav >/dev/null");   
 }
