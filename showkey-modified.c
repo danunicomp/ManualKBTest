@@ -41,12 +41,7 @@ get_mode(void) {
 	 // default:
 	//    m = _("?UNKNOWN?"); break;
 	}
-//	printf(_("kb mode was %s\n"), m);
-//	if (oldkbmode != K_XLATE) {
-//	    printf(_("[ if you are trying this under X, it might not work\n"
-//		     "since the X server is also reading /dev/console ]\n"));
-//	}
-//	printf("\n");
+
 }
 
 static void
@@ -71,22 +66,6 @@ die(int x) {
 static void
 watch_dog(int x) {
 	clean_up();
-	return;
-}
-
-static void
-usage(void) {
-	fprintf(stderr, _(
-"showkey version \n\n"
-"usage: showkey [options...]\n"
-"\n"
-"valid options are:\n"
-"\n"
-"	-h --help	display this help text\n"
-"	-a --ascii	display the decimal/octal/hex values of the keys\n"
-"	-s --scancodes	display only the raw scan-codes\n"
-"	-k --keycodes	display only the interpreted keycodes (default)\n"
-));
 	return;
 }
 

@@ -36,7 +36,7 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 # Object Files
 OBJECTFILES= \
 	${OBJECTDIR}/_ext/1543287360/getfd.o \
-	${OBJECTDIR}/_ext/1543287360/showkeybuf.o \
+	${OBJECTDIR}/_ext/1543287360/showkey-modified.o \
 	${OBJECTDIR}/clsNewKeyboard.o \
 	${OBJECTDIR}/main.o \
 	${OBJECTDIR}/readkeycodes.o \
@@ -72,10 +72,10 @@ ${OBJECTDIR}/_ext/1543287360/getfd.o: /root/NetBeansProjects/ManualKBTest/getfd.
 	${RM} "$@.d"
 	$(COMPILE.c) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/1543287360/getfd.o /root/NetBeansProjects/ManualKBTest/getfd.c
 
-${OBJECTDIR}/_ext/1543287360/showkeybuf.o: /root/NetBeansProjects/ManualKBTest/showkeybuf.c 
+${OBJECTDIR}/_ext/1543287360/showkey-modified.o: /root/NetBeansProjects/ManualKBTest/showkey-modified.c 
 	${MKDIR} -p ${OBJECTDIR}/_ext/1543287360
 	${RM} "$@.d"
-	$(COMPILE.c) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/1543287360/showkeybuf.o /root/NetBeansProjects/ManualKBTest/showkeybuf.c
+	$(COMPILE.c) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/1543287360/showkey-modified.o /root/NetBeansProjects/ManualKBTest/showkey-modified.c
 
 ${OBJECTDIR}/clsNewKeyboard.o: clsNewKeyboard.cpp 
 	${MKDIR} -p ${OBJECTDIR}

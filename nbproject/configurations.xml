@@ -22,7 +22,7 @@
         <itemPath>/root/NetBeansProjects/ManualKBTest/getfd.c</itemPath>
         <itemPath>/root/NetBeansProjects/ManualKBTest/getfd.h</itemPath>
         <itemPath>nls.h</itemPath>
-        <itemPath>/root/NetBeansProjects/ManualKBTest/showkeybuf.c</itemPath>
+        <itemPath>/root/NetBeansProjects/ManualKBTest/showkey-modified.c</itemPath>
       </logicalFolder>
       <itemPath>clsNewKeyboard.cpp</itemPath>
       <itemPath>main.cpp</itemPath>
@@ -66,7 +66,7 @@
             tool="3"
             flavor2="0">
       </item>
-      <item path="/root/NetBeansProjects/ManualKBTest/showkeybuf.c"
+      <item path="/root/NetBeansProjects/ManualKBTest/showkey-modified.c"
             ex="false"
             tool="0"
             flavor2="0">
@@ -125,7 +125,7 @@
             tool="3"
             flavor2="0">
       </item>
-      <item path="/root/NetBeansProjects/ManualKBTest/showkeybuf.c"
+      <item path="/root/NetBeansProjects/ManualKBTest/showkey-modified.c"
             ex="false"
             tool="0"
             flavor2="0">
