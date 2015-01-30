@@ -10,7 +10,6 @@
     <logicalFolder name="ResourceFiles"
                    displayName="Resource Files"
                    projectFiles="true">
-      <itemPath>103.wse.ini</itemPath>
       <itemPath>104.wse</itemPath>
       <itemPath>122-UB40B5A.wse</itemPath>
       <itemPath>config.txt</itemPath>
@@ -19,19 +18,18 @@
     <logicalFolder name="SourceFiles"
                    displayName="Source Files"
                    projectFiles="true">
+      <logicalFolder name="f1" displayName="Showkey C" projectFiles="true">
+        <itemPath>/root/NetBeansProjects/ManualKBTest/getfd.c</itemPath>
+        <itemPath>/root/NetBeansProjects/ManualKBTest/getfd.h</itemPath>
+        <itemPath>nls.h</itemPath>
+        <itemPath>/root/NetBeansProjects/ManualKBTest/showkey.c</itemPath>
+        <itemPath>/root/NetBeansProjects/ManualKBTest/showkeybuf.c</itemPath>
+      </logicalFolder>
       <itemPath>beeptest.cpp</itemPath>
-      <itemPath>clsKeyboard.cpp</itemPath>
       <itemPath>clsNewKeyboard.cpp</itemPath>
-      <itemPath>/root/NetBeansProjects/ManualKBTest/getfd.c</itemPath>
-      <itemPath>/root/NetBeansProjects/ManualKBTest/getfd.h</itemPath>
       <itemPath>getwse.cpp</itemPath>
       <itemPath>main.cpp</itemPath>
-      <itemPath>nls.h</itemPath>
-      <itemPath>old-main.cpp</itemPath>
       <itemPath>readkeycodes.cpp</itemPath>
-      <itemPath>readwse.cpp</itemPath>
-      <itemPath>/root/NetBeansProjects/ManualKBTest/showkey.c</itemPath>
-      <itemPath>/root/NetBeansProjects/ManualKBTest/showkeybuf.c</itemPath>
     </logicalFolder>
     <logicalFolder name="TestFiles"
                    displayName="Test Files"
@@ -79,8 +77,6 @@
             ex="false"
             tool="0"
             flavor2="0">
-      </item>
-      <item path="103.wse.ini" ex="false" tool="3" flavor2="0">
       </item>
       <item path="104.wse" ex="false" tool="3" flavor2="0">
       </item>
@@ -145,8 +141,6 @@
             ex="false"
             tool="0"
             flavor2="0">
-      </item>
-      <item path="103.wse.ini" ex="false" tool="3" flavor2="0">
       </item>
       <item path="104.wse" ex="false" tool="3" flavor2="0">
       </item>
