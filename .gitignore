@@ -1,3 +1,7 @@
+# Compiler Files
+*.o
+*.o.d
+
 # Windows image file caches
 Thumbs.db
 ehthumbs.db
