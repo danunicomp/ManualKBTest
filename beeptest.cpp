@@ -6,9 +6,9 @@ int testsound(void)
 }
 
 void PlayFailSound(void) {
- system("omxplayer /root/NetBeansProjects/ManualKBTest/beep-05.wav >/dev/null");   
+ system("omxplayer /root/NetBeansProjects/ManualKBTest/snd-fail.wav >/dev/null");   
 }
 
 void PlayPassSound(void) {
- system("omxplayer /root/NetBeansProjects/ManualKBTest/button-2.wav >/dev/null");   
+ system("omxplayer /root/NetBeansProjects/ManualKBTest/snd-pass.wav >/dev/null");   
 }

@@ -23,7 +23,8 @@ extern "C" int GetKeyBuffer (void);
 
 int main ()
 {
- 
+
+    const string ConfigPath = "/root/NetBeansProjects/ManualKBTest/";
 
     int kbstat;
     clsNewKeyboard NewKeyboard;
