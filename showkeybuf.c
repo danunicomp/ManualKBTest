@@ -62,7 +62,7 @@ clean_up(void) {
 }
 
 int
-die2(int x) {
+die(int x) {
 //	printf(_("caught signal %i, cleaning up...\n"), x);
 	clean_up();
 	return x;

@@ -36,12 +36,11 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 # Object Files
 OBJECTFILES= \
 	${OBJECTDIR}/_ext/1543287360/getfd.o \
-	${OBJECTDIR}/_ext/1543287360/showkey.o \
 	${OBJECTDIR}/_ext/1543287360/showkeybuf.o \
-	${OBJECTDIR}/beeptest.o \
 	${OBJECTDIR}/clsNewKeyboard.o \
 	${OBJECTDIR}/main.o \
-	${OBJECTDIR}/readkeycodes.o
+	${OBJECTDIR}/readkeycodes.o \
+	${OBJECTDIR}/sound.o
 
 
 # C Compiler Flags
@@ -73,20 +72,10 @@ ${OBJECTDIR}/_ext/1543287360/getfd.o: /root/NetBeansProjects/ManualKBTest/getfd.
 	${RM} "$@.d"
 	$(COMPILE.c) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/1543287360/getfd.o /root/NetBeansProjects/ManualKBTest/getfd.c
 
-${OBJECTDIR}/_ext/1543287360/showkey.o: /root/NetBeansProjects/ManualKBTest/showkey.c 
-	${MKDIR} -p ${OBJECTDIR}/_ext/1543287360
-	${RM} "$@.d"
-	$(COMPILE.c) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/1543287360/showkey.o /root/NetBeansProjects/ManualKBTest/showkey.c
-
 ${OBJECTDIR}/_ext/1543287360/showkeybuf.o: /root/NetBeansProjects/ManualKBTest/showkeybuf.c 
 	${MKDIR} -p ${OBJECTDIR}/_ext/1543287360
 	${RM} "$@.d"
 	$(COMPILE.c) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/1543287360/showkeybuf.o /root/NetBeansProjects/ManualKBTest/showkeybuf.c
-
-${OBJECTDIR}/beeptest.o: beeptest.cpp 
-	${MKDIR} -p ${OBJECTDIR}
-	${RM} "$@.d"
-	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/beeptest.o beeptest.cpp
 
 ${OBJECTDIR}/clsNewKeyboard.o: clsNewKeyboard.cpp 
 	${MKDIR} -p ${OBJECTDIR}
@@ -102,6 +91,11 @@ ${OBJECTDIR}/readkeycodes.o: readkeycodes.cpp
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/readkeycodes.o readkeycodes.cpp
+
+${OBJECTDIR}/sound.o: sound.cpp 
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/sound.o sound.cpp
 
 # Subprojects
 .build-subprojects:

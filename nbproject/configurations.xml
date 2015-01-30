@@ -22,14 +22,12 @@
         <itemPath>/root/NetBeansProjects/ManualKBTest/getfd.c</itemPath>
         <itemPath>/root/NetBeansProjects/ManualKBTest/getfd.h</itemPath>
         <itemPath>nls.h</itemPath>
-        <itemPath>/root/NetBeansProjects/ManualKBTest/showkey.c</itemPath>
         <itemPath>/root/NetBeansProjects/ManualKBTest/showkeybuf.c</itemPath>
       </logicalFolder>
-      <itemPath>beeptest.cpp</itemPath>
       <itemPath>clsNewKeyboard.cpp</itemPath>
-      <itemPath>getwse.cpp</itemPath>
       <itemPath>main.cpp</itemPath>
       <itemPath>readkeycodes.cpp</itemPath>
+      <itemPath>sound.cpp</itemPath>
     </logicalFolder>
     <logicalFolder name="TestFiles"
                    displayName="Test Files"
@@ -68,11 +66,6 @@
             tool="3"
             flavor2="0">
       </item>
-      <item path="/root/NetBeansProjects/ManualKBTest/showkey.c"
-            ex="false"
-            tool="0"
-            flavor2="0">
-      </item>
       <item path="/root/NetBeansProjects/ManualKBTest/showkeybuf.c"
             ex="false"
             tool="0"
@@ -81,8 +74,6 @@
       <item path="104.wse" ex="false" tool="3" flavor2="0">
       </item>
       <item path="122-UB40B5A.wse" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="beeptest.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="clsNewKeyboard.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -95,6 +86,8 @@
       <item path="nls.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="readkeycodes.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="sound.cpp" ex="false" tool="1" flavor2="0">
       </item>
     </conf>
     <conf name="Release" type="1">
@@ -132,11 +125,6 @@
             tool="3"
             flavor2="0">
       </item>
-      <item path="/root/NetBeansProjects/ManualKBTest/showkey.c"
-            ex="false"
-            tool="0"
-            flavor2="0">
-      </item>
       <item path="/root/NetBeansProjects/ManualKBTest/showkeybuf.c"
             ex="false"
             tool="0"
@@ -146,8 +134,6 @@
       </item>
       <item path="122-UB40B5A.wse" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="beeptest.cpp" ex="false" tool="1" flavor2="0">
-      </item>
       <item path="clsKeyboard.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="clsNewKeyboard.cpp" ex="false" tool="1" flavor2="0">
@@ -156,13 +142,13 @@
       </item>
       <item path="config.txt" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="getwse.cpp" ex="false" tool="1" flavor2="0">
-      </item>
       <item path="main.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="nls.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="readkeycodes.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="sound.cpp" ex="false" tool="1" flavor2="0">
       </item>
     </conf>
   </confs>

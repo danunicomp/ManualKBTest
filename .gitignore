@@ -1,6 +1,8 @@
 # Compiler Files
 *.o
 *.o.d
+build
+dist
 
 # Windows image file caches
 Thumbs.db
