@@ -3,13 +3,18 @@
 #include <string>
 #include <vector>
 #include <algorithm>  
+#include <iostream>
+#include <sstream>
+#include <string>
+#include <fstream>
+#include <unistd.h>
 #include "clsNewKeyboard.h"
 #include "clsConfig.h"
 
 using namespace std;
 
-const string ConfigPath = "/root/NetBeansProjects/ManualKBTest/";
-const string ConfigFilename = "config.txt";
+
+//const string ConfigFilename = "config.txt";
 
 extern "C" int GetSingleKey (void);
 extern "C" int GetKeyBuffer (void);
@@ -24,17 +29,22 @@ int testsound(void);
 void PlayPassSound(void);
 void PlayFailSound(void);
 
+std::string FindInstallPath();
+
+const string ConfigPath = FindInstallPath().c_str();
+// const string ConfigFilename = "/root/NetBeansProjects/ManualKBTest/config.txt";
 
 
 int main ()
 {
-
+string ConfigFilename = ConfigPath;
+ConfigFilename.append("config.txt");
 
     
     int kbstat;
     clsNewKeyboard NewKeyboard;
     clsConfig CurrentConfig;
-    CurrentConfig.ReadConfig(ConfigFilename);
+
     
     int done =0, x = 0;
     while (1 && done != 1) {
@@ -84,7 +94,13 @@ int main ()
                         break;
                 }
                 clean_up();
-                break;                 
+                break;  
+             case 8:
+                    
+              //       CurrentConfig.ReadConfig(FindInstallPath()+ConfigFilename);
+                 CurrentConfig.ReadConfig(ConfigFilename);
+                  //   cout << "PATH: " << FindInstallPath() << endl;
+                     break;
 //            case 12:
 //                cout << "Begin pressing keys" << endl;
 //                kbstat = readcodes(NewKeyboard.KeysKeycode, NewKeyboard.KeysPosition);
@@ -133,4 +149,33 @@ int main ()
          }    
     }
     cout << "Exiting program.." << endl;
+}
+
+
+///=============================================================================
+std::string FindInstallPath()
+{
+    std::string sret="";
+    int pid = (int)getpid();
+    bool b=false;
+    std::string sf, s;
+    std::stringstream ss;
+    ss << "/proc/" << pid << "/maps";
+    sf = ss.str();
+    std::ifstream ifs(sf.c_str());
+    size_t pos1, pos2;
+    while (!b && ifs.good())
+    {
+        std::getline(ifs, s);
+        if ((pos1 = s.rfind("manualkbtest")) != std::string::npos)
+        {
+            if ((pos2 = s.find_first_of('/')) != std::string::npos)
+            sret = s.substr(pos2, pos1 - pos2);
+            b = true;
+        }
+    }
+    if (!b) sret = "";
+    ifs.close();
+    // cout << sret;
+    return sret;
 }

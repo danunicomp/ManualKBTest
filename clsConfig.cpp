@@ -11,6 +11,7 @@
 #include <iostream>
 #include "clsConfig.h"
 
+
 using namespace std;
 
 clsConfig::clsConfig() {
@@ -33,12 +34,23 @@ int clsConfig::ReadConfig(string filename) {
         vector<string> v; 
         int i = 0;
         int temp;
+        string property;
+        
         while (getline(inputFile, line)) 
         {
-            if (line[0] != '#') {
-        //        cout << "LINE: " << line  << endl;
-                clsConfig::split(line, '\t', v); 
-
+            if (line[0] != '#' && line[0] != '\n' && line[0] != '\0') {
+                cout << "LINE: " << line  << endl;
+                clsConfig::split(line, ',', v); 
+               
+                property =  v.at(PROPERTY);
+                if (property == "version" ) {
+                    Version = v.at(PROP_VALUE);
+                }
+                if (property == "pnlist" ) {
+                    PartNumberList = v.at(PROP_VALUE);
+                }
+               
+                               
 ///                KeysPosition.push_back(v.at(UKB_POSITION));
 //                temp = atoi(v.at(UKB_KEYCODE).c_str());
 //                KeysKeycode.push_back(temp);
@@ -46,16 +58,19 @@ int clsConfig::ReadConfig(string filename) {
 
                 v.clear();
             }
+            
         }
+        cout << "Version: " << Version << endl;
+        cout << "Part Numbers: " << PartNumberList << endl;
+        
         return(1);
-    } catch(...) {
-        cout << "Problem opening file" << endl;
+    } catch(std::exception const& e) {
+        cout << "*****Problem opening file: " << filename << endl;
+        cout << "There was an error: " << e.what() << endl;
         return(0);
     }
         
 }
-
-
 
 void clsConfig::split(const string& s, char c, vector<string>& v) {
 
