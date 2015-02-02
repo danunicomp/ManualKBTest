@@ -8,6 +8,9 @@
 #include <string>
 #include <fstream>
 #include <unistd.h>
+
+
+
 #include "clsNewKeyboard.h"
 #include "clsConfig.h"
 
@@ -33,7 +36,6 @@ std::string FindInstallPath();
 
 const string ConfigPath = FindInstallPath().c_str();
 // const string ConfigFilename = "/root/NetBeansProjects/ManualKBTest/config.txt";
-
 
 int main ()
 {
@@ -179,3 +181,7 @@ std::string FindInstallPath()
     // cout << sret;
     return sret;
 }
+
+
+
+

@@ -9,6 +9,8 @@
 #include <fstream>
 #include <vector>
 #include <iostream>
+#include "unicomp.h"
+
 #include "clsConfig.h"
 
 
@@ -38,6 +40,7 @@ int clsConfig::ReadConfig(string filename) {
         
         while (getline(inputFile, line)) 
         {
+            strip(line,line);
             if (line[0] != '#' && line[0] != '\n' && line[0] != '\0') {
                 cout << "LINE: " << line  << endl;
                 clsConfig::split(line, ',', v); 

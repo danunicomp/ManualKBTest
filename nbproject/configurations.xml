@@ -7,6 +7,7 @@
       <itemPath>/root/NetBeansProjects/ManualKBTest/clsConfig.h</itemPath>
       <itemPath>clsKeyboard.h</itemPath>
       <itemPath>clsNewKeyboard.h</itemPath>
+      <itemPath>/root/NetBeansProjects/ManualKBTest/unicomp.h</itemPath>
     </logicalFolder>
     <logicalFolder name="ResourceFiles"
                    displayName="Resource Files"
@@ -84,6 +85,11 @@
             tool="0"
             flavor2="0">
       </item>
+      <item path="/root/NetBeansProjects/ManualKBTest/unicomp.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
       <item path="104.wse" ex="false" tool="3" flavor2="0">
       </item>
       <item path="11MT845.wse" ex="false" tool="3" flavor2="0">
@@ -153,6 +159,11 @@
       <item path="/root/NetBeansProjects/ManualKBTest/showkey-modified.c"
             ex="false"
             tool="0"
+            flavor2="0">
+      </item>
+      <item path="/root/NetBeansProjects/ManualKBTest/unicomp.h"
+            ex="false"
+            tool="3"
             flavor2="0">
       </item>
       <item path="104.wse" ex="false" tool="3" flavor2="0">
