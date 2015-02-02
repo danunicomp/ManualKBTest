@@ -4,5 +4,5 @@
 #	PROPERTY NAME AND VALUE NEED TO BE SEPARATED BY A TAB, NOT SPACES, TAB!!
 #
 #
-wsedir  /usr/root/
-    
+wsedir,/usr/root/
+KB,11MT845,11MT845.wse

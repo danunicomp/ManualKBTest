@@ -35,6 +35,7 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 
 # Object Files
 OBJECTFILES= \
+	${OBJECTDIR}/_ext/1543287360/clsConfig.o \
 	${OBJECTDIR}/_ext/1543287360/getfd.o \
 	${OBJECTDIR}/_ext/1543287360/showkey-modified.o \
 	${OBJECTDIR}/clsNewKeyboard.o \
@@ -66,6 +67,11 @@ LDLIBSOPTIONS=
 ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/manualkbtest: ${OBJECTFILES}
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
 	${LINK.cc} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/manualkbtest ${OBJECTFILES} ${LDLIBSOPTIONS}
+
+${OBJECTDIR}/_ext/1543287360/clsConfig.o: /root/NetBeansProjects/ManualKBTest/clsConfig.cpp 
+	${MKDIR} -p ${OBJECTDIR}/_ext/1543287360
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/1543287360/clsConfig.o /root/NetBeansProjects/ManualKBTest/clsConfig.cpp
 
 ${OBJECTDIR}/_ext/1543287360/getfd.o: /root/NetBeansProjects/ManualKBTest/getfd.c 
 	${MKDIR} -p ${OBJECTDIR}/_ext/1543287360

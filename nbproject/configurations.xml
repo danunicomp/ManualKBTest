@@ -4,6 +4,7 @@
     <logicalFolder name="HeaderFiles"
                    displayName="Header Files"
                    projectFiles="true">
+      <itemPath>/root/NetBeansProjects/ManualKBTest/clsConfig.h</itemPath>
       <itemPath>clsKeyboard.h</itemPath>
       <itemPath>clsNewKeyboard.h</itemPath>
     </logicalFolder>
@@ -24,6 +25,7 @@
         <itemPath>nls.h</itemPath>
         <itemPath>/root/NetBeansProjects/ManualKBTest/showkey-modified.c</itemPath>
       </logicalFolder>
+      <itemPath>/root/NetBeansProjects/ManualKBTest/clsConfig.cpp</itemPath>
       <itemPath>clsNewKeyboard.cpp</itemPath>
       <itemPath>main.cpp</itemPath>
       <itemPath>readkeycodes.cpp</itemPath>
@@ -51,6 +53,16 @@
       </toolsSet>
       <compileType>
       </compileType>
+      <item path="/root/NetBeansProjects/ManualKBTest/clsConfig.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="/root/NetBeansProjects/ManualKBTest/clsConfig.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
       <item path="/root/NetBeansProjects/ManualKBTest/getfd.c"
             ex="false"
             tool="0"
@@ -110,6 +122,16 @@
           <developmentMode>5</developmentMode>
         </asmTool>
       </compileType>
+      <item path="/root/NetBeansProjects/ManualKBTest/clsConfig.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="/root/NetBeansProjects/ManualKBTest/clsConfig.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
       <item path="/root/NetBeansProjects/ManualKBTest/getfd.c"
             ex="false"
             tool="0"
