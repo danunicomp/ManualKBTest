@@ -13,8 +13,14 @@ public:
     clsConfig();
     clsConfig(const clsConfig& orig);
     virtual ~clsConfig();
+    int ReadConfig(std::string filename);
+    std::vector<std::string> WSEFiles;
+    std::vector<std::string> PartNumbers;
+    std::vector<std::string> ConfigFilename;
+     void split(const std::string& s, char c, std::vector<std::string>& v);
+     
 private:
-
+    
 };
 
 #endif	/* CLSCONFIG_H */

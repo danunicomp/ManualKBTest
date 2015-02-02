@@ -4,9 +4,15 @@
 #include <vector>
 #include <algorithm>  
 #include "clsNewKeyboard.h"
+#include "clsConfig.h"
 
 using namespace std;
 
+const string ConfigPath = "/root/NetBeansProjects/ManualKBTest/";
+const string ConfigFilename = "config.txt";
+
+extern "C" int GetSingleKey (void);
+extern "C" int GetKeyBuffer (void);
 
 int readcodes(vector<int>& keycodes, vector<string>& positions);
 int TestNewKeyboard(vector<int>& keycodes, vector<string>& positions);
@@ -18,16 +24,18 @@ int testsound(void);
 void PlayPassSound(void);
 void PlayFailSound(void);
 
-extern "C" int GetSingleKey (void);
-extern "C" int GetKeyBuffer (void);
+
 
 int main ()
 {
 
-    const string ConfigPath = "/root/NetBeansProjects/ManualKBTest/";
 
+    
     int kbstat;
     clsNewKeyboard NewKeyboard;
+    clsConfig CurrentConfig;
+    CurrentConfig.ReadConfig(ConfigFilename);
+    
     int done =0, x = 0;
     while (1 && done != 1) {
         int menu;
@@ -45,6 +53,8 @@ int main ()
 //        cout << "5 - TEST WHOLE KEYBOARD WITH NEW SHOWKEY" << endl;
 //        cout << "6 - SHOW WHOLE BUFFER (New Showkey)" << endl;
 //        cout << "7 - TEST SOUND" << endl;
+        cout << endl;
+        cout << "8 - Test Config" << endl;
         cout << endl;
         cout << "Chose: ";
         cin >> menu;

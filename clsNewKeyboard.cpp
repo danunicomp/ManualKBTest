@@ -69,10 +69,5 @@ int clsNewKeyboard::ReadWSE(string filename) {
         cout << "Problem opening file" << endl;
         return(0);
     }
-    
-//    for (i = 0; i < KeysKeycode.size(); ++i)
-//    {
-//        cout << "All: " << KeysKeycode.at(i) << endl;
-//    }
-    
+        
 }

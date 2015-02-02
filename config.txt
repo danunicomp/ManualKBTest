@@ -1,8 +1,10 @@
 #
 #
 #	CONFIG FILE. COMMENTS START WITH #
-#	PROPERTY NAME AND VALUE NEED TO BE SEPARATED BY A TAB, NOT SPACES, TAB!!
+#	PROPERTY NAME AND VALUE NEED TO BE SEPARATED BY A COMMA
 #
 #
-wsedir,/usr/root/
-KB,11MT845,11MT845.wse
+version,0.81b
+configdir,/usr/root/
+pnlist,partnumbers.ini
+

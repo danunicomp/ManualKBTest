@@ -12,6 +12,7 @@
                    displayName="Resource Files"
                    projectFiles="true">
       <itemPath>104.wse</itemPath>
+      <itemPath>11MT845.wse</itemPath>
       <itemPath>122-UB40B5A.wse</itemPath>
       <itemPath>config.txt</itemPath>
       <itemPath>/root/NetBeansProjects/ManualKBTest/partnumbers.ini</itemPath>
@@ -85,6 +86,8 @@
       </item>
       <item path="104.wse" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="11MT845.wse" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="122-UB40B5A.wse" ex="false" tool="3" flavor2="0">
       </item>
       <item path="clsNewKeyboard.cpp" ex="false" tool="1" flavor2="0">
@@ -153,6 +156,8 @@
             flavor2="0">
       </item>
       <item path="104.wse" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="11MT845.wse" ex="false" tool="3" flavor2="0">
       </item>
       <item path="122-UB40B5A.wse" ex="false" tool="3" flavor2="0">
       </item>
