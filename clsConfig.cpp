@@ -9,6 +9,7 @@
 #include <fstream>
 #include <vector>
 #include <iostream>
+
 #include "unicomp.h"
 
 #include "clsConfig.h"
@@ -27,10 +28,15 @@ clsConfig::~clsConfig() {
 }
 
 int clsConfig::ReadConfig(string filename) {
-    string line;
+    string line, pathandfile;
     vector<string> config; 
+    pathandfile = ExecutablePath;
+    ConfigFilename = filename;
+    pathandfile.append(ConfigFilename);
+    
+  //  cout << "FILE: " << pathandfile << endl;
     try {
-        ifstream inputFile(filename.c_str());
+        ifstream inputFile(pathandfile.c_str());
 
 
         vector<string> v; 
@@ -40,10 +46,10 @@ int clsConfig::ReadConfig(string filename) {
         
         while (getline(inputFile, line)) 
         {
-            strip(line,line);
+            unicomp::strip(line,line);
             if (line[0] != '#' && line[0] != '\n' && line[0] != '\0') {
-                cout << "LINE: " << line  << endl;
-                clsConfig::split(line, ',', v); 
+ //               cout << "LINE: " << line  << endl;
+                unicomp::uni_split(line, ',', v); 
                
                 property =  v.at(PROPERTY);
                 if (property == "version" ) {
@@ -52,19 +58,10 @@ int clsConfig::ReadConfig(string filename) {
                 if (property == "pnlist" ) {
                     PartNumberList = v.at(PROP_VALUE);
                 }
-               
-                               
-///                KeysPosition.push_back(v.at(UKB_POSITION));
-//                temp = atoi(v.at(UKB_KEYCODE).c_str());
-//                KeysKeycode.push_back(temp);
-//                KeysDescription.push_back(v.at(UKB_DESCRIPTION));
-
                 v.clear();
             }
             
         }
-        cout << "Version: " << Version << endl;
-        cout << "Part Numbers: " << PartNumberList << endl;
         
         return(1);
     } catch(std::exception const& e) {
@@ -75,15 +72,4 @@ int clsConfig::ReadConfig(string filename) {
         
 }
 
-void clsConfig::split(const string& s, char c, vector<string>& v) {
 
-   string::size_type i = 0; 
-   string::size_type j = s.find(c); 
-   while (j != string::npos) { 
-      v.push_back(s.substr(i, j-i)); 
-      i = ++j; 
-      j = s.find(c, j); 
-      if (j == string::npos) 
-         v.push_back(s.substr(i, s.length( ))); 
-   } 
-} 

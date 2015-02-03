@@ -8,26 +8,18 @@
 #include <iostream>  // just temporary
 #include <string>
 #include <cstdlib>
+#include "unicomp.h"
 #include "clsNewKeyboard.h"
 
+
 using namespace std;
+using namespace unicomp;
 
 void clsNewKeyboard::test(string testinput){
     
 }
 
-void clsNewKeyboard::split(const string& s, char c, vector<string>& v) {
 
-   string::size_type i = 0; 
-   string::size_type j = s.find(c); 
-   while (j != string::npos) { 
-      v.push_back(s.substr(i, j-i)); 
-      i = ++j; 
-      j = s.find(c, j); 
-      if (j == string::npos) 
-         v.push_back(s.substr(i, s.length( ))); 
-   } 
-} 
 
 clsNewKeyboard::clsNewKeyboard() {
     KeyboardSelected = 0;
@@ -54,7 +46,7 @@ int clsNewKeyboard::ReadWSE(string filename) {
         {
             if (line[0] != '#') {
         //        cout << "LINE: " << line  << endl;
-                clsNewKeyboard::split(line, '\t', v); 
+                unicomp::uni_split(line, '\t', v); 
 
                 KeysPosition.push_back(v.at(UKB_POSITION));
                 temp = atoi(v.at(UKB_KEYCODE).c_str());

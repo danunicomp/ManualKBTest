@@ -31,7 +31,7 @@ public:
     
     bool KeyboardSelected;
     
-    void split(const std::string& s, char c, std::vector<std::string>& v);
+   // void split(const std::string& s, char c, std::vector<std::string>& v);
     void test(std::string);
     
 private:

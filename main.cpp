@@ -9,7 +9,7 @@
 #include <fstream>
 #include <unistd.h>
 
-
+#include "unicomp.h"
 
 #include "clsNewKeyboard.h"
 #include "clsConfig.h"
@@ -39,8 +39,8 @@ const string ConfigPath = FindInstallPath().c_str();
 
 int main ()
 {
-string ConfigFilename = ConfigPath;
-ConfigFilename.append("config.txt");
+//string ConfigFilename = ConfigPath;
+const string ConfigFilename="config.txt";
 
     
     int kbstat;
@@ -98,11 +98,13 @@ ConfigFilename.append("config.txt");
                 clean_up();
                 break;  
              case 8:
-                    
-              //       CurrentConfig.ReadConfig(FindInstallPath()+ConfigFilename);
-                 CurrentConfig.ReadConfig(ConfigFilename);
-                  //   cout << "PATH: " << FindInstallPath() << endl;
-                     break;
+                CurrentConfig.ExecutablePath = FindInstallPath().c_str();
+                CurrentConfig.ReadConfig(ConfigFilename);
+                cout << "Exe Path: " << CurrentConfig.ExecutablePath << endl;
+                cout << "Config file: " << CurrentConfig.ConfigFilename << endl;
+                cout << "Version: " << CurrentConfig.Version << endl;
+                cout << "Part Numbers: " << CurrentConfig.PartNumberList << endl;
+                break;
 //            case 12:
 //                cout << "Begin pressing keys" << endl;
 //                kbstat = readcodes(NewKeyboard.KeysKeycode, NewKeyboard.KeysPosition);
