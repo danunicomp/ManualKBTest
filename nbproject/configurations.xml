@@ -54,6 +54,13 @@
         <rebuildPropChanged>false</rebuildPropChanged>
       </toolsSet>
       <compileType>
+        <asmTool>
+          <warningLevel>2</warningLevel>
+        </asmTool>
+        <linkerTool>
+          <output>${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/manualkbtest</output>
+          <commandlineTool>g++</commandlineTool>
+        </linkerTool>
       </compileType>
       <item path="/root/NetBeansProjects/ManualKBTest/clsConfig.cpp"
             ex="false"
@@ -130,7 +137,27 @@
         <asmTool>
           <developmentMode>5</developmentMode>
         </asmTool>
+        <linkerTool>
+          <output>${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/manualkbtest</output>
+        </linkerTool>
       </compileType>
+      <packaging>
+        <packType>Tar</packType>
+        <packFileList>
+          <packFileListElem type="File"
+                            to="${PACKAGE_TOP_DIR}bin/${OUTPUT_BASENAME}"
+                            from="${OUTPUT_PATH}"
+                            perm="755"
+                            owner="root"
+                            group="bin"/>
+          <packFileListElem type="File"
+                            to="${PACKAGE_TOP_DIR}config.txt"
+                            from="/root/NetBeansProjects/ManualKBTest/config.txt"
+                            perm="644"
+                            owner="root"
+                            group="bin"/>
+        </packFileList>
+      </packaging>
       <item path="/root/NetBeansProjects/ManualKBTest/clsConfig.cpp"
             ex="false"
             tool="1"

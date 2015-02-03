@@ -9,7 +9,7 @@
 #include <fstream>
 #include <vector>
 #include <iostream>
-
+#include <string>
 #include "unicomp.h"
 
 #include "clsConfig.h"
@@ -60,9 +60,7 @@ int clsConfig::ReadConfig(string filename) {
                 }
                 v.clear();
             }
-            
         }
-        
         return(1);
     } catch(std::exception const& e) {
         cout << "*****Problem opening file: " << filename << endl;
