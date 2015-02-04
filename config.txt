@@ -7,3 +7,5 @@
 version,0.81b
 configdir,/usr/root/
 pnlist,partnumbers.ini
+WSE,11MT845,WSE-11MT845.csv
+WSE,11A1234,WSE-RANDOM.csv

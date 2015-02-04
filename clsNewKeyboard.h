@@ -15,6 +15,12 @@
 #define UKB_KEYCODE 1
 #define UKB_DESCRIPTION 2
 
+#define UKB2_POSITION 1
+#define UKB2_KEYCODE 0
+#define UKB2_DESCRIPTION 2
+
+
+
 class clsNewKeyboard {
 public:
     clsNewKeyboard();
@@ -22,9 +28,11 @@ public:
     virtual ~clsNewKeyboard();
     
     int ReadWSE(std::string);
+    int NewReadWSE(std::string);
     
     std::string WSEFilename;
     std::string SingleKey[3];
+    std::string FirmWareNumber;
     std::vector<std::string> KeysPosition;
     std::vector<int> KeysKeycode;
     std::vector<std::string> KeysDescription;

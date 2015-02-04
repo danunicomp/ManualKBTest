@@ -28,6 +28,10 @@ clsConfig::~clsConfig() {
 }
 
 int clsConfig::ReadConfig(string filename) {
+    
+    WSEFiles.clear();
+    PartNumbers.clear();
+    
     string line, pathandfile;
     vector<string> config; 
     pathandfile = ExecutablePath;
@@ -37,8 +41,7 @@ int clsConfig::ReadConfig(string filename) {
   //  cout << "FILE: " << pathandfile << endl;
     try {
         ifstream inputFile(pathandfile.c_str());
-
-
+        if (! inputFile.good()) return 0;
         vector<string> v; 
         int i = 0;
         int temp;
@@ -57,6 +60,10 @@ int clsConfig::ReadConfig(string filename) {
                 }
                 if (property == "pnlist" ) {
                     PartNumberList = v.at(PROP_VALUE);
+                }
+                if (property== "WSE") {
+                    PartNumbers.push_back(unicomp::toupper(v.at(PROP_VALUE))) ;
+                    WSEFiles.push_back(v.at(PROP_VALUE_SEC)) ;
                 }
                 v.clear();
             }

@@ -14,7 +14,9 @@
                    projectFiles="true">
       <itemPath>104.wse</itemPath>
       <itemPath>11MT845.wse</itemPath>
+      <itemPath>11MT845_tabs.wse</itemPath>
       <itemPath>122-UB40B5A.wse</itemPath>
+      <itemPath>/root/NetBeansProjects/ManualKBTest/WSE-11MT845.csv</itemPath>
       <itemPath>config.txt</itemPath>
       <itemPath>/root/NetBeansProjects/ManualKBTest/partnumbers.ini</itemPath>
     </logicalFolder>
@@ -62,6 +64,11 @@
           <commandlineTool>g++</commandlineTool>
         </linkerTool>
       </compileType>
+      <item path="/root/NetBeansProjects/ManualKBTest/WSE-11MT845.csv"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
       <item path="/root/NetBeansProjects/ManualKBTest/clsConfig.cpp"
             ex="false"
             tool="1"
@@ -100,6 +107,8 @@
       <item path="104.wse" ex="false" tool="3" flavor2="0">
       </item>
       <item path="11MT845.wse" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="11MT845_tabs.wse" ex="false" tool="3" flavor2="0">
       </item>
       <item path="122-UB40B5A.wse" ex="false" tool="3" flavor2="0">
       </item>
@@ -158,6 +167,11 @@
                             group="bin"/>
         </packFileList>
       </packaging>
+      <item path="/root/NetBeansProjects/ManualKBTest/WSE-11MT845.csv"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
       <item path="/root/NetBeansProjects/ManualKBTest/clsConfig.cpp"
             ex="false"
             tool="1"
@@ -196,6 +210,8 @@
       <item path="104.wse" ex="false" tool="3" flavor2="0">
       </item>
       <item path="11MT845.wse" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="11MT845_tabs.wse" ex="false" tool="3" flavor2="0">
       </item>
       <item path="122-UB40B5A.wse" ex="false" tool="3" flavor2="0">
       </item>

@@ -3,7 +3,6 @@
 #include <string>
 #include <vector>
 #include <algorithm>  
-#include <iostream>
 #include <sstream>
 #include <string>
 #include <fstream>
@@ -32,9 +31,7 @@ int testsound(void);
 void PlayPassSound(void);
 void PlayFailSound(void);
 
-std::string FindInstallPath();
-
-const string ConfigPath = FindInstallPath().c_str();
+const string ConfigPath = unicomp::FindInstallPath("manualkbtest").c_str();
 // const string ConfigFilename = "/root/NetBeansProjects/ManualKBTest/config.txt";
 
 int main ()
@@ -49,8 +46,19 @@ const string ConfigFilename="config.txt";
 
     
     int done =0, x = 0;
+    // Read Config File
+    cout << "Loading Config...";
+    CurrentConfig.ExecutablePath = unicomp::FindInstallPath(ConfigFilename).c_str();
+    if ( ! CurrentConfig.ReadConfig(ConfigFilename)) {
+        cout << "ERROR OPENING CONFIG FILE: " << ConfigFilename << endl;
+        exit(0);
+    }
+    cout << "OK" << endl;
+    
     while (1 && done != 1) {
         int menu;
+        cout << endl;
+        cout << "Unicomp Manual Keyboard Test, Version " << CurrentConfig.Version << endl;
         cout << "MENU" << endl;
         if (NewKeyboard.KeyboardSelected) {
             cout << "Current Part Number: " << NewKeyboard.WSEFilename << endl;
@@ -98,13 +106,18 @@ const string ConfigFilename="config.txt";
                 clean_up();
                 break;  
              case 8:
-                CurrentConfig.ExecutablePath = FindInstallPath().c_str();
+                CurrentConfig.ExecutablePath = unicomp::FindInstallPath(ConfigFilename).c_str();
                 CurrentConfig.ReadConfig(ConfigFilename);
                 cout << "Exe Path: " << CurrentConfig.ExecutablePath << endl;
                 cout << "Config file: " << CurrentConfig.ConfigFilename << endl;
                 cout << "Version: " << CurrentConfig.Version << endl;
                 cout << "Part Numbers: " << CurrentConfig.PartNumberList << endl;
                 break;
+             case 9: //Show Partnumbers Found
+                 for(x=0; x<CurrentConfig.PartNumbers.size(); ++x) {
+                     cout << "Part Number: " << CurrentConfig.PartNumbers[x] << "\t" << CurrentConfig.WSEFiles[x] <<  endl;
+                 }
+                 break;
 //            case 12:
 //                cout << "Begin pressing keys" << endl;
 //                kbstat = readcodes(NewKeyboard.KeysKeycode, NewKeyboard.KeysPosition);
@@ -156,33 +169,7 @@ const string ConfigFilename="config.txt";
 }
 
 
-///=============================================================================
-std::string FindInstallPath()
-{
-    std::string sret="";
-    int pid = (int)getpid();
-    bool b=false;
-    std::string sf, s;
-    std::stringstream ss;
-    ss << "/proc/" << pid << "/maps";
-    sf = ss.str();
-    std::ifstream ifs(sf.c_str());
-    size_t pos1, pos2;
-    while (!b && ifs.good())
-    {
-        std::getline(ifs, s);
-        if ((pos1 = s.rfind("manualkbtest")) != std::string::npos)
-        {
-            if ((pos2 = s.find_first_of('/')) != std::string::npos)
-            sret = s.substr(pos2, pos1 - pos2);
-            b = true;
-        }
-    }
-    if (!b) sret = "";
-    ifs.close();
-    // cout << sret;
-    return sret;
-}
+
 
 
 

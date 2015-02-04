@@ -9,14 +9,22 @@
 #include <string>
 #include <ctype.h>
 #include <vector>
+#include <sstream>
+#include <locale>
 
 #ifndef UNICOMP_H
 #define	UNICOMP_H
 
 namespace unicomp
 {
+  ///Strip leading and tailiing
   inline void strip(const std::string& in, std::string& out);
+  ///Split a delimanated string
   inline void uni_split(const std::string& s, char c, std::vector<std::string>& v);
+  ///Find path where current exe is. Used to find config file
+  inline std::string FindInstallPath(std::string exename);
+  /// Convert a string to upper case.
+  inline std::string strtoupper(std::string& str);
   //so forth...
 }
 
@@ -41,6 +49,7 @@ void unicomp::strip(const std::string& in, std::string& out)
     out.assign(b, e);
 }
 
+///Split a delimanated string
 void unicomp::uni_split(const std::string& s, char c, std::vector<std::string>& v) {
 
    std::string::size_type i = 0; 
@@ -53,6 +62,47 @@ void unicomp::uni_split(const std::string& s, char c, std::vector<std::string>& 
          v.push_back(s.substr(i, s.length( ))); 
    } 
 } 
+
+///Find path where current exe is. Used to find config file
+std::string unicomp::FindInstallPath(std::string exename)
+{
+    std::string sret="";
+    int pid = (int)getpid();
+    bool b=false;
+    std::string sf, s;
+    std::stringstream ss;
+    ss << "/proc/" << pid << "/maps";
+    sf = ss.str();
+    std::ifstream ifs(sf.c_str());
+    size_t pos1, pos2;
+    while (!b && ifs.good())
+    {
+        std::getline(ifs, s);
+        if ((pos1 = s.rfind("manualkbtest")) != std::string::npos)
+        {
+            if ((pos2 = s.find_first_of('/')) != std::string::npos)
+            sret = s.substr(pos2, pos1 - pos2);
+            b = true;
+        }
+    }
+    if (!b) sret = "";
+    ifs.close();
+    // cout << sret;
+    return sret;
+}
+
+/// Convert a string to upper case.
+/// if already is uppercase, ignores.
+std::string unicomp::strtoupper(std::string& str)
+{
+	std::locale settings;
+	std::string converted;
+
+	for(short i = 0; i < str.size(); ++i)
+		converted += (std::toupper(str[i], settings));
+	
+	return converted;
+}
 
 #endif	/* UNICOMP_H */
 

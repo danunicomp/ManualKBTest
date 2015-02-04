@@ -11,6 +11,7 @@
 
 #define PROPERTY 0
 #define PROP_VALUE 1
+#define PROP_VALUE_SEC 2
 
 class clsConfig {
 public:
