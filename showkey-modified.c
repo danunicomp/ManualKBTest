@@ -168,7 +168,7 @@ int GetKeyBuffer (void) {
         int t;
         int kc;
 	while (1) {
-//		alarm(10);
+		alarm(10);
 		n = read(fd, buf, sizeof(buf));
                // clean_up();
                // return buf;
@@ -177,7 +177,7 @@ int GetKeyBuffer (void) {
 			
 			char *s;
 
-			s = (buf[i] & 0x80) ? _("release") : _("press");
+			s = (buf[i] & 0x80) ? _("break") : _("make");
 
 			if (i+2 < n && (buf[i] & 0x7f) == 0
 				&& (buf[i+1] & 0x80) != 0
@@ -189,14 +189,14 @@ int GetKeyBuffer (void) {
 				kc = (buf[i] & 0x7f);
 				i++;
 			}
-                        if (s == "press") {
+                        if (s == "make") {
                             //printf("%i\t%i\t%i\t%i\t %i\t%i\t%i\t%i",buf[0], buf[1], buf[2], buf[3], buf[4], buf[5], buf[6], buf[7]);
  //                           printf("%s   \t", s);
 
 
                             for (t=0;t<sizeof(buf);++t) {
-                                if (buf[t] > 127) buf[t] = 0;
-    //                            printf("%i\t", buf[t]);
+ //                               if (buf[t] > 127) buf[t] = 0;
+                               printf("%i\t", buf[t]);
                                 if (buf[1] !=0 ) kc = buf[1];  // for double keycode
                                 buf[t] = 0;  //flush buffer
                             }
@@ -206,7 +206,7 @@ int GetKeyBuffer (void) {
                             //printf("BUffer 0: %i\tBuf 1: %i\n", buf[0], buf[1]);
                             
                             
-                           //xxx kc = buf[0];
+                           // kc = buf[0];
 /*
                             printf("Buffer 1: %i\t",buf[1]);
                             printf("Buffer 2: %i\t",buf[2]);

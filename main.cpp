@@ -13,6 +13,16 @@
 #include "clsNewKeyboard.h"
 #include "clsConfig.h"
 
+// Define control keys as part of a 16 bit number
+#define LEFT_SHIFT  32768   // 1000 0000 0000 0000  0x8000
+#define LEFT_CTRL   16384   // 0100 0000 0000 0000  0x4000
+#define LEFT_ALT    8192    // 0010 0000 0000 0000  0x2000 
+#define LEFT_GUI    4096    // 0001 0000 0000 0000  0x1000
+#define RIGHT_SHIFT 2048    // 0000 1000 0000 0000  0x0800
+#define RIGHT_CTRL  1024    // 0000 0100 0000 0000  0x0400
+#define RIGHT_ALT   512     // 0000 0010 0000 0000  0x0200
+#define RIGHT_GUI   256     // 0000 0001 0000 0000  0x0100
+
 using namespace std;
 
 
@@ -70,7 +80,7 @@ const string ConfigFilename="config.txt";
         cout << "2 - START TEST (New showkey function)" << endl;
 //        cout << "3 - SHOW KEYS (debugging)" << endl;
 //        cout << "4 - Getting Single Key" << endl;
-//        cout << "5 - TEST WHOLE KEYBOARD WITH NEW SHOWKEY" << endl;
+        cout << "5 - DEBUG - SHOW BUFFER" << endl;
 //        cout << "6 - SHOW WHOLE BUFFER (New Showkey)" << endl;
 //        cout << "7 - TEST SOUND" << endl;
         cout << endl;
@@ -81,6 +91,7 @@ const string ConfigFilename="config.txt";
 
          int keypressed;
          int keycode, exits;
+     ofstream outFile;      
          switch (menu) {
             case 1:
                 NewKeyboard.WSEFilename = "/root/NetBeansProjects/ManualKBTest/122-UB40B5A.wse";
@@ -143,22 +154,46 @@ const string ConfigFilename="config.txt";
 //                    }
 //               done = 1;
 //                break;
-//             case 6:
-//                 while(1) {
-//                    if (keycode == 45) ++exits;
-//                    else exits =0;
-//                    if (exits == 3) break;
-//                    keycode = GetKeyBuffer();
-//                   printf("\nBuffer Dump: ");
+            
+             case 5:
+                while(1) {
+
+                if (keycode == 45) ++exits;
+                else exits =0;
+                if (exits == 3) break;
+                keycode = GetKeyBuffer();
+                printf("\nBuffer Dump: ");
+                 for (x=0; x<18; ++x)  {
+//                     printf("%i\t", kbbuf[x]);    
+                  }
+                cout << keycode << endl; 
+                outFile << keycode << endl;
+                        
+                 }
+                 break;
+             case 6: 
+                
+                     
+                 outFile.open("output.txt");
+             
+                 
+                 
+                 while(1) {
+                      
+                    if (keycode == 45) ++exits;
+                    else exits =0;
+                    if (exits == 3) break;
+                    keycode = GetKeyBuffer();
+ //                  printf("\nBuffer Dump: ");
 //                    for (x=0; x<18; ++x)  {
 //                        printf("%i\t", kbbuf[x]);    
 //                    }
-//                     cout << "Keycode: " << keycode << endl; 
-//                 }
-//                 break;
-//             case 7:
-//               testsound();
-//                 break;
+                        cout << keycode << endl; 
+                        outFile << keycode << endl;
+                        
+                 }
+                 
+             break;
              default:
                 done = 1;
                  clean_up();

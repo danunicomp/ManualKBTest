@@ -62,7 +62,7 @@ int clsConfig::ReadConfig(string filename) {
                     PartNumberList = v.at(PROP_VALUE);
                 }
                 if (property== "WSE") {
-                    PartNumbers.push_back(unicomp::toupper(v.at(PROP_VALUE))) ;
+                    PartNumbers.push_back(unicomp::strtoupper(v.at(PROP_VALUE))) ;
                     WSEFiles.push_back(v.at(PROP_VALUE_SEC)) ;
                 }
                 v.clear();
