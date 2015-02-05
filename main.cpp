@@ -29,7 +29,10 @@ using namespace std;
 //const string ConfigFilename = "config.txt";
 
 extern "C" int GetSingleKey (void);
-extern "C" int GetKeyBuffer (void);
+extern "C" int GetKeyCode (void);
+extern "C" int * GetWholeBuffer (void);
+extern "C" int * FullBuffer (void);
+
 
 int readcodes(vector<int>& keycodes, vector<string>& positions);
 int TestNewKeyboard(vector<int>& keycodes, vector<string>& positions);
@@ -91,6 +94,7 @@ const string ConfigFilename="config.txt";
 
          int keypressed;
          int keycode, exits;
+          int * wholebuffer;
      ofstream outFile;      
          switch (menu) {
             case 1:
@@ -156,20 +160,26 @@ const string ConfigFilename="config.txt";
 //                break;
             
              case 5:
-                while(1) {
-
-                if (keycode == 45) ++exits;
-                else exits =0;
-                if (exits == 3) break;
-                keycode = GetKeyBuffer();
-                printf("\nBuffer Dump: ");
-                 for (x=0; x<18; ++x)  {
-//                     printf("%i\t", kbbuf[x]);    
-                  }
-                cout << keycode << endl; 
-                outFile << keycode << endl;
+                outFile.open("output.txt");
+             
+                 while(1) {
+                        wholebuffer = FullBuffer();
+                        if (wholebuffer[0] == 45) ++exits;
+                        else exits = 0;
+                        if (exits == 3) break;
                         
+                    printf("\nWhole Buffer:\t");
+                    for (x=0; x<18; ++x)  {
+                    cout << wholebuffer[x] << "\t";
+                     
+                //     printf("New Buf: %i\t", wholebuffer[x]);    
+                  }
+//                cout << "BufferKeycode : " << keycode << endl;
+                        
+  //              outFile << wholebuffer << endl;
+          //            free(wholebuffer)  ;
                  }
+                outFile.close();
                  break;
              case 6: 
                 
@@ -183,7 +193,7 @@ const string ConfigFilename="config.txt";
                     if (keycode == 45) ++exits;
                     else exits =0;
                     if (exits == 3) break;
-                    keycode = GetKeyBuffer();
+                    keycode = GetKeyCode();
  //                  printf("\nBuffer Dump: ");
 //                    for (x=0; x<18; ++x)  {
 //                        printf("%i\t", kbbuf[x]);    

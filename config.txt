@@ -4,7 +4,7 @@
 #	PROPERTY NAME AND VALUE NEED TO BE SEPARATED BY A COMMA
 #
 #
-version,0.81b
+version,0.82
 configdir,/usr/root/
 pnlist,partnumbers.ini
 WSE,11MT845,WSE-11MT845.csv

@@ -19,7 +19,7 @@ float linvel=0, rotvel=0;
 
 using namespace std;
 extern "C" int GetSingleKey (void);
-extern "C" int GetKeyBuffer (void);
+extern "C" int GetKeyCode (void);
 
 void clean_up ( void ) {
 	//printf("CLEANING UP\n");
@@ -100,7 +100,7 @@ int TestNewKeyboard(vector<int>& keycodes, vector<string>& positions)
         /* Wait until a key is pressed or released */
         
         //keycode = GetSingleKey();
-        keycode = GetKeyBuffer();
+        keycode = GetKeyCode();
         
         if (keycode == 45) ++exits;
         else exits =0;
