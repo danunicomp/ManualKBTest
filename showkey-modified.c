@@ -56,7 +56,7 @@ clean_up(void) {
 	if (tcsetattr(fd, 0, &old) == -1)
 //		perror("tcsetattr");
 	close(fd);
-  //      return;
+        return;
 }
 
 int
@@ -367,42 +367,39 @@ int * FullBuffer (void) {
 				kc = (buf[i] & 0x7f);
 				i++;
 			}
-                        if (s == "make") {
+                       // if (s == "make") {
                             //printf("%i\t%i\t%i\t%i\t %i\t%i\t%i\t%i",buf[0], buf[1], buf[2], buf[3], buf[4], buf[5], buf[6], buf[7]);
                           printf("%s\t", s);
-
+                   //       return buf;
 
 //      *******************   PRINTS BUFFER
                             for (t=0;t<sizeof(buf);++t) {
                              //  printf("Old %i\t", buf[t]);
                                newbuf[t] = buf[t];
                              
-                          //     printf("New %i\t", newbuf[t]);
-                                if (buf[1] !=0 ) kc = buf[1];  // for double keycode
-                                buf[t] = 0;  //flush buffer
+                    //        printf("New %i\t", newbuf[t]);
+                  //              if (buf[1] !=0 ) kc = buf[1];  // for double keycode
+                              buf[t] = 0;  //flush buffer
                             }
 
                             
-  //                       printf("\n");
+                     // printf("\n");
                            
 
 
   //                          if (kc > 127) kc = kc-128;    
   //                          printf(_("keycode %3d %s\n"), kc, s);
                             //die(kc);
-              //           clean_up();
+                      clean_up();
                             close(fd);
                             return newbuf;
-                        } 
-                        else
-                        {
-                    //        printf("%s   \t", s);
+                       // } 
+                       // else
+                       // {
+                     //      printf("%s   \t", s);
                      //       printf("%i\t%i\n", buf[0], buf[1]);
-                        }
+                       // }
                         
 		}
 	}
-die2(kc);
-	clean_up();
-	return 0;
 }

@@ -170,14 +170,14 @@ const string ConfigFilename="config.txt";
                         
                     printf("\nWhole Buffer:\t");
                     for (x=0; x<18; ++x)  {
-                    cout << wholebuffer[x] << "\t";
-                     
-                //     printf("New Buf: %i\t", wholebuffer[x]);    
-                  }
+                            cout << wholebuffer[x] << "\t";
+                            wholebuffer[x] = 999;
+                            //     printf("New Buf: %i\t", wholebuffer[x]);    
+                        }
 //                cout << "BufferKeycode : " << keycode << endl;
                         
-  //              outFile << wholebuffer << endl;
-          //            free(wholebuffer)  ;
+                    cout << endl;
+                   free(wholebuffer)  ;
                  }
                 outFile.close();
                  break;
