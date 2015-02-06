@@ -28,6 +28,7 @@ namespace unicomp
   inline std::string FindInstallPath(std::string exename);
   /// Convert a string to upper case.
   inline std::string strtoupper(std::string& str);
+  inline std::string int_array_to_string(int int_array[], int size_of_array);
   //so forth...
 }
 
@@ -107,5 +108,12 @@ std::string unicomp::strtoupper(std::string& str)
 	return converted;
 }
 
+std::string unicomp::int_array_to_string(int int_array[], int size_of_array) {
+  std::ostringstream oss("");
+  for (int temp = 0; temp < size_of_array; temp++)
+    oss << int_array[temp] << " ";
+  return oss.str();
+
+}
 #endif	/* UNICOMP_H */
 

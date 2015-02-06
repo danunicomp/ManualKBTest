@@ -179,7 +179,7 @@ int GetKeyCode (void) {
                         
 		}
 	}
-die2(kc);
+
 	clean_up();
 	return 0;
 }
@@ -298,9 +298,9 @@ int * GetWholeBuffer (void) {
 		}
                 
 	}
-die2(kc);
-	clean_up();
-	return 0;
+        
+                            clean_up();
+                            return 0;
 }
 
 int * FullBuffer (void) {
@@ -314,7 +314,7 @@ int * FullBuffer (void) {
 	//unsigned char buf[9];	/* divisible by 3 */
      
         static char buf[18];
-        int *newbuf = malloc(sizeof(int) * 18); 
+        int *newbuf = malloc(sizeof(int) * 19); 
         
 	int i, n;
 
@@ -346,7 +346,7 @@ int * FullBuffer (void) {
         int t;
         int kc;
 	while (1) {
-		alarm(10);
+		alarm(20);
 		n = read(fd, buf, sizeof(buf));
                // clean_up();
                // return buf;
@@ -355,7 +355,7 @@ int * FullBuffer (void) {
 			
 			char *s;
 
-			s = (buf[i] & 0x80) ? _("break") : _("make");
+			s = (buf[i] & 0x80) ? _("BREAK") : _("MAKE");
 
 			if (i+2 < n && (buf[i] & 0x7f) == 0
 				&& (buf[i+1] & 0x80) != 0
@@ -369,10 +369,12 @@ int * FullBuffer (void) {
 			}
                        // if (s == "make") {
                             //printf("%i\t%i\t%i\t%i\t %i\t%i\t%i\t%i",buf[0], buf[1], buf[2], buf[3], buf[4], buf[5], buf[6], buf[7]);
-                          printf("%s\t", s);
+ //                         printf("%s ", s);
                    //       return buf;
 
 //      *******************   PRINTS BUFFER
+                        if (s=="MAKE") newbuf[18] = 1999;
+                        else newbuf[18] = 999;
                             for (t=0;t<sizeof(buf);++t) {
                              //  printf("Old %i\t", buf[t]);
                                newbuf[t] = buf[t];
@@ -381,7 +383,7 @@ int * FullBuffer (void) {
                   //              if (buf[1] !=0 ) kc = buf[1];  // for double keycode
                               buf[t] = 0;  //flush buffer
                             }
-
+                          
                             
                      // printf("\n");
                            
