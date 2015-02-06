@@ -55,6 +55,7 @@ int main ()
 //string ConfigFilename = ConfigPath;
 const string ConfigFilename="config.txt";
 
+  int currentline=0;
     string newfilename;
     int kbstat;
     clsNewKeyboard NewKeyboard;
@@ -94,6 +95,7 @@ const string ConfigFilename="config.txt";
         cout << "6 - RECORD NEW KEYBOARD" << endl;
         cout << endl;
         cout << "8 - Test Config" << endl;
+        cout << "12 - NEW TEST" << endl;
         cout << endl;
         cout << "Chose: ";
         cin >> menu;
@@ -187,10 +189,9 @@ const string ConfigFilename="config.txt";
                 outFile.close();
                  break;
             case 6:  //Record new keyboard
-                
                 cout << endl << "Enter new Filename: ";
-          //      getline (cin, newfilename);
-             cin >> newfilename;
+                cin >> newfilename;
+                newfilename = unicomp::strtoupper(newfilename);
                 outFile.open(newfilename.c_str());
                 usleep(1000000);
                 cout << endl << "Begin pressing keys in order." << endl;
@@ -211,17 +212,43 @@ const string ConfigFilename="config.txt";
                     outFile << bufferline << endl;
                     if (wholebuffer[18] == 1999) cout << "Make:  " << wholebuffer[0] << endl;
                     if (wholebuffer[18] == 999) cout << "Break: " << endl;
-                    // cout << "Buffer Line: " << bufferline << endl;
-                     
-                     
-                   // for (x=0; x<18; ++x)  {
-                   //     outFile << wholebuffer[x] << " ";   
-                   //   cout << wholebuffer[x] << " ";
-                   // }
- //                       cout << keycode << endl; 
- //                       outFile << keycode << endl;
                 }
              break;
+             case 12:
+                 cout << endl << "Enter Firmware number: " ;
+                 cin >> NewKeyboard.FirmWareNumber;
+                 NewKeyboard.FirmWareNumber = unicomp::strtoupper(NewKeyboard.FirmWareNumber);
+                 NewKeyboard.WSEFilename = CurrentConfig.ExecutablePath;
+                 NewKeyboard.WSEFilename.append(NewKeyboard.FirmWareNumber);
+                 cout << "Firmware: " << NewKeyboard.WSEFilename << endl;
+//                if (NewKeyboard.ReadWSE(NewKeyboard.WSEFilename)) {
+//                    cout << "Loaded " << NewKeyboard.KeysKeycode.size() << " Keys from File: " << NewKeyboard.WSEFilename << endl;
+//                    NewKeyboard.KeyboardSelected = 1;
+//                }
+                
+                 NewKeyboard.ReadFirmware(NewKeyboard.WSEFilename);
+                 cout << "Begin pressing keys" << endl; 
+                 usleep(900000);
+               
+                 while (currentline < NewKeyboard.InputLines.size()) {
+                     wholebuffer = FullBuffer();
+                     bufferline = unicomp::int_array_to_string(wholebuffer, 19);
+                    if (wholebuffer[0] == 45) ++exits;
+                    else exits =0;
+                    if (exits == 3) break;
+                                       cout << "Read: " << bufferline << "\t" << "Expected: " << NewKeyboard.InputLines[currentline] << endl;
+                     if (bufferline == NewKeyboard.InputLines[currentline] ) {
+                        cout << "Key #" << currentline << " Good" << endl;
+                     } else {
+                         //cout << "Bad" << endl;
+                           cout << "FAIL  FAIL FAIL FAIL" << endl;
+                         break;
+                     }
+                 
+                     ++currentline;
+                 }
+                 cout << endl << "PASS  PASS PASSS" << endl;
+                 break;
              default:
                 done = 1;
                  clean_up();
@@ -230,10 +257,3 @@ const string ConfigFilename="config.txt";
     }
     cout << "Exiting program.." << endl;
 }
-
-
-
-
-
-
-

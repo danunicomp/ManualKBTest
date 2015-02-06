@@ -25,10 +25,13 @@ class clsNewKeyboard {
 public:
     clsNewKeyboard();
     clsNewKeyboard(const clsNewKeyboard& orig);
+    
     virtual ~clsNewKeyboard();
     
     int ReadWSE(std::string);
     int NewReadWSE(std::string);
+    
+    int ReadFirmware(std::string);
     
     std::string WSEFilename;
     std::string SingleKey[3];
@@ -36,6 +39,8 @@ public:
     std::vector<std::string> KeysPosition;
     std::vector<int> KeysKeycode;
     std::vector<std::string> KeysDescription;
+    
+    std::vector<std::string> InputLines;
     
     bool KeyboardSelected;
     
