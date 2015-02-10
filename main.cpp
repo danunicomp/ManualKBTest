@@ -14,7 +14,7 @@
 
 using namespace std;
 
-const string VERSION = "0.9.140220d";
+const string VERSION = "0.9.140220e";
 const string CONFIG_FILE = "config.txt";
 const string EXE_FILE = "manualkbtest";
 

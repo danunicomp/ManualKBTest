@@ -25,34 +25,33 @@ struct termios old;
  */
 static void
 get_mode(void) {
-        char *m;
+    char *m;
 
-	if (ioctl(fd, KDGKBMODE, &oldkbmode)) {
-		perror("KDGKBMODE");
-		return;
-	}
-	switch(oldkbmode) {
-	  case K_RAW:
-	    m = "RAW"; break;
-	  case K_XLATE:
-	    m = "XLATE"; break;
-	  case K_MEDIUMRAW:
-	    m = "MEDIUMRAW"; break;
-	  case K_UNICODE:
-	    m = "UNICODE"; break;
-	}
-
+    if (ioctl(fd, KDGKBMODE, &oldkbmode)) {
+            perror("KDGKBMODE");
+            return;
+    }
+    switch(oldkbmode) {
+        case K_RAW:
+            m = "RAW"; break;
+        case K_XLATE:
+            m = "XLATE"; break;
+        case K_MEDIUMRAW:
+            m = "MEDIUMRAW"; break;
+        case K_UNICODE:
+            m = "UNICODE"; break;
+    }
 }
 
 static void
 clean_up(void) {
-	if (ioctl(fd, KDSKBMODE, oldkbmode)) {
-		return;
-	}
-	if (tcsetattr(fd, 0, &old) == -1)
-		perror("tcsetattr");
-	close(fd);
+    if (ioctl(fd, KDSKBMODE, oldkbmode)) {
         return;
+    }
+    if (tcsetattr(fd, 0, &old) == -1)
+        perror("tcsetattr");
+    close(fd);
+    return;
 }
 
 int
@@ -103,8 +102,7 @@ int * FullBuffer (void) {
             return 0;
     }
     /* show keycodes - 2.6 allows 3-byte reports */
-    int t;
-    int kc;
+    int t, kc;
     while (1) {
         alarm(100);
         n = read(fd, buf, sizeof(buf));
