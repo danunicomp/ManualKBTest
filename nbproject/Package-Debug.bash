@@ -54,7 +54,7 @@ function copyFileToTmpDir
 
 # Setup
 cd "${TOP}"
-mkdir -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/package
+mkdir -p ${CND_DISTDIR}/${CND_CONF}/package
 rm -rf ${NBTMPDIR}
 mkdir -p ${NBTMPDIR}
 
@@ -66,9 +66,9 @@ copyFileToTmpDir "${OUTPUT_PATH}" "${NBTMPDIR}/${PACKAGE_TOP_DIR}bin/${OUTPUT_BA
 
 # Generate tar file
 cd "${TOP}"
-rm -f ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/package/manualkbtest.tar
+rm -f ${CND_DISTDIR}/${CND_CONF}/package/manualkbtest.tar
 cd ${NBTMPDIR}
-tar -vcf ../../../../${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/package/manualkbtest.tar *
+tar -vcf ../../../../${CND_DISTDIR}/${CND_CONF}/package/manualkbtest.tar *
 checkReturnCode
 
 # Cleanup

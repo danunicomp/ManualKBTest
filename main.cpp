@@ -24,14 +24,16 @@
 
 using namespace std;
 
+const string VERSION = "0.9.140220d";
+const string CONFIG_FILE = "config.txt";
+const string EXE_FILE = "manualkbtest";
 
 //const string ConfigFilename = "config.txt";
 
-extern "C" int GetSingleKey (void);
-extern "C" int GetKeyCode (void);
+//extern "C" int GetSingleKey (void);
+//extern "C" int GetKeyCode (void);
 extern "C" int * GetWholeBuffer (void);
 extern "C" int * FullBuffer (void );
-
 
 int readcodes(vector<int>& keycodes, vector<string>& positions);
 int TestNewKeyboard(vector<int>& keycodes, vector<string>& positions);
@@ -43,33 +45,34 @@ int testsound(void);
 void PlayPassSound(void);
 void PlayFailSound(void);
 
-const string VERSION = "0.9b";
-const string ConfigPath = unicomp::FindInstallPath("manualkbtest").c_str();
+const string ConfigPath = unicomp::FindInstallPath(EXE_FILE).c_str();
 // const string ConfigFilename = "/home/pi/ManualKBTest/config.txt";
 
 int main ()
 {
-//string ConfigFilename = ConfigPath;
-const string ConfigFilename="config.txt";
+    //string ConfigFilename = ConfigPath;
+    const string ConfigFilename="config.txt";
 
-  int currentline=0;
+    int currentline = 0;
     string newfilename;
     int kbstat;
     clsNewKeyboard NewKeyboard;
     clsConfig CurrentConfig;
-
     
     int done =0, x = 0;
+    
+    char YN;  //for "are you sure" questions
+    
+    CurrentConfig.Version = VERSION;
+    
     // Read Config File
     cout << "Loading Config...";
-    CurrentConfig.ExecutablePath = unicomp::FindInstallPath(ConfigFilename).c_str();
-    if ( ! CurrentConfig.ReadConfig(ConfigFilename)) {
-        cout << "ERROR OPENING CONFIG FILE: " << ConfigFilename << endl;
+    CurrentConfig.ExecutablePath = unicomp::FindInstallPath(CONFIG_FILE).c_str();
+    if ( ! CurrentConfig.ReadConfig(CONFIG_FILE)) {
+        cout << "ERROR OPENING CONFIG FILE: " << CONFIG_FILE << endl;
         exit(0);
     }
     cout << "OK" << endl;
-    
-    CurrentConfig.Version = VERSION;
     
     while (1 && done != 1) {
         int menu;
@@ -127,8 +130,8 @@ const string ConfigFilename="config.txt";
                 clean_up();
                 break;  
              case 8:
-                CurrentConfig.ExecutablePath = unicomp::FindInstallPath(ConfigFilename).c_str();
-                CurrentConfig.ReadConfig(ConfigFilename);
+ //               CurrentConfig.ExecutablePath = unicomp::FindInstallPath(ConfigFilename).c_str();
+ //               CurrentConfig.ReadConfig(ConfigFilename);
                 cout << "Exe Path: " << CurrentConfig.ExecutablePath << endl;
                 cout << "Config file: " << CurrentConfig.ConfigFilename << endl;
                 cout << "Version: " << CurrentConfig.Version << endl;
@@ -186,29 +189,34 @@ const string ConfigFilename="config.txt";
                 outFile.close();
                  break;
             case 6:  //Record new keyboard
-                cout << endl << "Enter new Filename: ";
-                cin >> newfilename;
-                newfilename = unicomp::strtoupper(newfilename);
-                outFile.open(newfilename.c_str());
-                usleep(1000000);
-                cout << endl << "Begin pressing keys in order." << endl;
-                cout << "Hold X for a few seconds to end" << endl << endl;
-                while(1) {
-                    wholebuffer = FullBuffer();
-                    
-                    bufferline = unicomp::int_array_to_string(wholebuffer, 19);
-                   
-                    if (wholebuffer[0] == 45) ++exits;
-                    else exits =0;
-                    if (exits == 3) {
-                        outFile.close();
-                        cout << endl << "will have to edit file: " << newfilename << endl;
-                        cout << "to remove last few rows that start with 45" << endl;
-                        break;
+                cout << "Are you sure you want to record new keyboard? (Y/N) ";
+                cin >> YN;
+                
+                if (YN == 'y' || YN == 'Y') {
+                    cout << endl << "Enter new Filename: ";
+                    cin >> newfilename;
+                    newfilename = unicomp::strtoupper(newfilename);
+                    outFile.open(newfilename.c_str());
+                    usleep(1000000);
+                    cout << endl << "Begin pressing keys in order." << endl;
+                    cout << "Hold X for a few seconds to end" << endl << endl;
+                    while(1) {
+                        wholebuffer = FullBuffer();
+
+                        bufferline = unicomp::int_array_to_string(wholebuffer, 19);
+
+                        if (wholebuffer[0] == 45) ++exits;
+                        else exits =0;
+                        if (exits == 3) {
+                            outFile.close();
+                            cout << endl << "will have to edit file: " << newfilename << endl;
+                            cout << "to remove last few rows that start with 45" << endl;
+                            break;
+                        }
+                        outFile << bufferline << endl;
+                        if (wholebuffer[18] == 1999) cout << "Make:  " << wholebuffer[0] << endl;
+                        if (wholebuffer[18] == 999) cout << "Break: " << endl;
                     }
-                    outFile << bufferline << endl;
-                    if (wholebuffer[18] == 1999) cout << "Make:  " << wholebuffer[0] << endl;
-                    if (wholebuffer[18] == 999) cout << "Break: " << endl;
                 }
              break;
              case 12:

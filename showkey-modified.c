@@ -19,7 +19,6 @@ int fd;
 int oldkbmode;
 struct termios old;
 
-
 /*
  * version 0.81 of showkey would restore kbmode unconditially to XLATE,
  * thus making the console unusable when it was called under X.
@@ -41,8 +40,6 @@ get_mode(void) {
 	    m = "MEDIUMRAW"; break;
 	  case K_UNICODE:
 	    m = "UNICODE"; break;
-	 // default:
-	//    m = _("?UNKNOWN?"); break;
 	}
 
 }
@@ -50,26 +47,24 @@ get_mode(void) {
 static void
 clean_up(void) {
 	if (ioctl(fd, KDSKBMODE, oldkbmode)) {
-//		perror("KDSKBMODE");
 		return;
 	}
 	if (tcsetattr(fd, 0, &old) == -1)
-//		perror("tcsetattr");
+		perror("tcsetattr");
 	close(fd);
         return;
 }
 
 int
 die(int x) {
-//	printf(_("caught signal %i, cleaning up...\n"), x);
-	clean_up();
-	return x;
+    clean_up();
+    return x;
 }
 
 static void
 watch_dog(int x) {
-	clean_up();
-	return;
+    clean_up();
+    return;
 }
 
 int GetKeyCode (void) {
@@ -80,10 +75,8 @@ int GetKeyCode (void) {
 	int print_ascii = 0;
 
 	struct termios new;
-	//unsigned char buf[9];	/* divisible by 3 */
      
         static char buf[18];
-   //      char* buf = malloc(sizeof(char) * 18); 
         
 	int i, n;
 
@@ -101,7 +94,6 @@ int GetKeyCode (void) {
 	new.c_lflag &= ~ (ICANON | ECHO | ISIG);
 	new.c_iflag = 0;
         
-	// new.c_cc[VMIN] = sizeof(buf);
         new.c_cc[VMIN] = 1;
 	new.c_cc[VTIME] = 1;	/* 0.1 sec intercharacter timeout */
 
@@ -112,19 +104,12 @@ int GetKeyCode (void) {
 		return 0;
 	}
 
-//	printf(_("press any key (program terminates 10s after last keypress)...\n"));
-
-	/* show scancodes */
-
-
 	/* show keycodes - 2.6 allows 3-byte reports */
         int t;
         int kc;
 	while (1) {
-		alarm(10);
+		alarm(100);
 		n = read(fd, buf, sizeof(buf));
-               // clean_up();
-               // return buf;
 		i = 0;
 		while (i < n) {
 			
@@ -156,17 +141,8 @@ int GetKeyCode (void) {
 
                             
                          printf("\n");
-                            //printf("BUffer 0: %i\tBuf 1: %i\n", buf[0], buf[1]);
-                            
-                            
-                           // kc = buf[0];
-/*
-                            printf("Buffer 1: %i\t",buf[1]);
-                            printf("Buffer 2: %i\t",buf[2]);
-                            printf("Buffer 3: %i\t",buf[3]);
-*/
-  //                          if (kc > 127) kc = kc-128;    
-  //                          printf(_("keycode %3d %s\n"), kc, s);
+
+
                             die(kc);
                             close(fd);
                             return kc;
@@ -236,7 +212,7 @@ int * GetWholeBuffer (void) {
         int t;
         int kc;
 	while (1) {
-		alarm(10);
+		alarm(100);
 		n = read(fd, newbuf, sizeof(newbuf));
                // clean_up();
                // return buf;
@@ -346,7 +322,7 @@ int * FullBuffer (void) {
         int t;
         int kc;
 	while (1) {
-		alarm(20);
+		alarm(100);
 		n = read(fd, buf, sizeof(buf));
                // clean_up();
                // return buf;

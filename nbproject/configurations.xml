@@ -32,7 +32,7 @@
       <itemPath>/home/pi/ManualKBTest/clsConfig.cpp</itemPath>
       <itemPath>clsNewKeyboard.cpp</itemPath>
       <itemPath>main.cpp</itemPath>
-      <itemPath>readkeycodes.cpp</itemPath>
+      <itemPath>/home/pi/ManualKBTest/readkeycodes.cpp</itemPath>
       <itemPath>sound.cpp</itemPath>
     </logicalFolder>
     <logicalFolder name="TestFiles"
@@ -53,7 +53,7 @@
       <toolsSet>
         <compilerSet>default</compilerSet>
         <dependencyChecking>true</dependencyChecking>
-        <rebuildPropChanged>false</rebuildPropChanged>
+        <rebuildPropChanged>true</rebuildPropChanged>
       </toolsSet>
       <compileType>
         <asmTool>
@@ -64,6 +64,18 @@
           <commandlineTool>g++</commandlineTool>
         </linkerTool>
       </compileType>
+      <packaging>
+        <packType>Tar</packType>
+        <output>${CND_DISTDIR}/${CND_CONF}/package/manualkbtest.tar</output>
+        <packFileList>
+          <packFileListElem type="File"
+                            to="${PACKAGE_TOP_DIR}bin/${OUTPUT_BASENAME}"
+                            from="${OUTPUT_PATH}"
+                            perm="755"
+                            owner="root"
+                            group="bin"/>
+        </packFileList>
+      </packaging>
       <item path="/home/pi/ManualKBTest/WSE-11MT845.csv"
             ex="false"
             tool="3"
@@ -74,24 +86,20 @@
             tool="1"
             flavor2="0">
       </item>
-      <item path="/home/pi/ManualKBTest/clsConfig.h"
-            ex="false"
-            tool="3"
-            flavor2="0">
+      <item path="/home/pi/ManualKBTest/clsConfig.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="/home/pi/ManualKBTest/getfd.c"
-            ex="false"
-            tool="0"
-            flavor2="0">
+      <item path="/home/pi/ManualKBTest/getfd.c" ex="false" tool="0" flavor2="0">
       </item>
-      <item path="/home/pi/ManualKBTest/getfd.h"
-            ex="false"
-            tool="3"
-            flavor2="0">
+      <item path="/home/pi/ManualKBTest/getfd.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="/home/pi/ManualKBTest/partnumbers.ini"
             ex="false"
             tool="3"
+            flavor2="0">
+      </item>
+      <item path="/home/pi/ManualKBTest/readkeycodes.cpp"
+            ex="false"
+            tool="1"
             flavor2="0">
       </item>
       <item path="/home/pi/ManualKBTest/showkey-modified.c"
@@ -99,10 +107,7 @@
             tool="0"
             flavor2="0">
       </item>
-      <item path="/home/pi/ManualKBTest/unicomp.h"
-            ex="false"
-            tool="3"
-            flavor2="0">
+      <item path="/home/pi/ManualKBTest/unicomp.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="104.wse" ex="false" tool="3" flavor2="0">
       </item>
@@ -121,8 +126,6 @@
       <item path="main.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="nls.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="readkeycodes.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="sound.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -147,7 +150,7 @@
           <developmentMode>5</developmentMode>
         </asmTool>
         <linkerTool>
-          <output>${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/manualkbtest</output>
+          <output>${CND_DISTDIR}/${CND_CONF}/manualkbtest</output>
         </linkerTool>
       </compileType>
       <packaging>
@@ -177,24 +180,20 @@
             tool="1"
             flavor2="0">
       </item>
-      <item path="/home/pi/ManualKBTest/clsConfig.h"
-            ex="false"
-            tool="3"
-            flavor2="0">
+      <item path="/home/pi/ManualKBTest/clsConfig.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="/home/pi/ManualKBTest/getfd.c"
-            ex="false"
-            tool="0"
-            flavor2="0">
+      <item path="/home/pi/ManualKBTest/getfd.c" ex="false" tool="0" flavor2="0">
       </item>
-      <item path="/home/pi/ManualKBTest/getfd.h"
-            ex="false"
-            tool="3"
-            flavor2="0">
+      <item path="/home/pi/ManualKBTest/getfd.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="/home/pi/ManualKBTest/partnumbers.ini"
             ex="false"
             tool="3"
+            flavor2="0">
+      </item>
+      <item path="/home/pi/ManualKBTest/readkeycodes.cpp"
+            ex="false"
+            tool="1"
             flavor2="0">
       </item>
       <item path="/home/pi/ManualKBTest/showkey-modified.c"
@@ -202,10 +201,7 @@
             tool="0"
             flavor2="0">
       </item>
-      <item path="/home/pi/ManualKBTest/unicomp.h"
-            ex="false"
-            tool="3"
-            flavor2="0">
+      <item path="/home/pi/ManualKBTest/unicomp.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="104.wse" ex="false" tool="3" flavor2="0">
       </item>
@@ -226,8 +222,6 @@
       <item path="main.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="nls.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="readkeycodes.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="sound.cpp" ex="false" tool="1" flavor2="0">
       </item>
