@@ -97,39 +97,22 @@ int clsNewKeyboard::ReadWSE(string filename) {
 
 int clsNewKeyboard::ReadFirmware(std::string filename="")
 {
-    string line;
+    string line = "";
     if (filename=="") filename=WSEFilename.c_str();
     
     ifstream inputFile(filename.c_str());
-    //vector<string> v; 
     
-            int i = 0;
-        int temp;
-        InputLines.clear();
-        cout << "Filename: " << WSEFilename;
-        while (getline(inputFile, line)) 
-        {
-            if (line[0] != '#' && line[0] != '\0' && line[0] != '\n' && line != "") {
-        //        cout << "LINE: " << line  << endl;
-         
-                InputLines.push_back(line);
-                //cout << "Test: " << line << endl;
-                
-
-                
-                
-             //   unicomp::uni_split(line, '\t', v); 
-
-            //    KeysPosition.push_back(v.at(UKB_POSITION));
-             //   temp = atoi(v.at(UKB_KEYCODE).c_str());
-             //   KeysKeycode.push_back(temp);
-             //   KeysDescription.push_back(v.at(UKB_DESCRIPTION));
-
-             //   v.clear();
-            }
-        }
-       for (i=0;i<InputLines.size();++i) {
-//           cout << "Test: " << InputLines[i] << endl;
-        }
+    // Check if problem file exists
+    if (! inputFile.is_open()) {
+        return 0;
+    }
     
+    InputLines.clear();
+    while (getline(inputFile, line)) 
+    {
+        if (line[0] != '#' && line[0] != '\0' && line[0] != '\n' && line != "") {
+            InputLines.push_back(line);
+        }
+    }
+    return 1;
 }

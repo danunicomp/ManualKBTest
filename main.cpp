@@ -12,16 +12,6 @@
 #include "clsNewKeyboard.h"
 #include "clsConfig.h"
 
-// Define control keys as part of a 16 bit number
-#define LEFT_SHIFT  32768   // 1000 0000 0000 0000  0x8000
-#define LEFT_CTRL   16384   // 0100 0000 0000 0000  0x4000
-#define LEFT_ALT    8192    // 0010 0000 0000 0000  0x2000 
-#define LEFT_GUI    4096    // 0001 0000 0000 0000  0x1000
-#define RIGHT_SHIFT 2048    // 0000 1000 0000 0000  0x0800
-#define RIGHT_CTRL  1024    // 0000 0100 0000 0000  0x0400
-#define RIGHT_ALT   512     // 0000 0010 0000 0000  0x0200
-#define RIGHT_GUI   256     // 0000 0001 0000 0000  0x0100
-
 using namespace std;
 
 const string VERSION = "0.9.140220d";
@@ -50,8 +40,8 @@ const string ConfigPath = unicomp::FindInstallPath(EXE_FILE).c_str();
 
 int main ()
 {
-    //string ConfigFilename = ConfigPath;
-    const string ConfigFilename="config.txt";
+//  string ConfigFilename = ConfigPath;
+//  const string ConfigFilename="config2.txt";
 
     int currentline = 0;
     string newfilename;
@@ -60,6 +50,7 @@ int main ()
     clsConfig CurrentConfig;
     
     int done =0, x = 0;
+    int result;
     
     char YN;  //for "are you sure" questions
     
@@ -100,20 +91,20 @@ int main ()
         cout << "Chose: ";
         cin >> menu;
 
-         int keypressed;
-         int keycode, exits;
-          int * wholebuffer;
-          string bufferline;
-     ofstream outFile;      
-         switch (menu) {
+        int keypressed;
+        int keycode, exits;
+        int * wholebuffer;
+        string bufferline;
+        ofstream outFile;      
+        switch (menu) {
             case 1:
                 NewKeyboard.WSEFilename = "/home/pi/ManualKBTest/122-UB40B5A.wse";
                 if (NewKeyboard.ReadWSE(NewKeyboard.WSEFilename)) {
                     cout << "Loaded " << NewKeyboard.KeysKeycode.size() << " Keys from File: " << NewKeyboard.WSEFilename << endl;
                     NewKeyboard.KeyboardSelected = 1;
                 }
-                 break;
-             case 2:
+                break;
+            case 2:
                 cout << "Begin pressing keys" << endl;
                 kbstat = TestNewKeyboard(NewKeyboard.KeysKeycode, NewKeyboard.KeysPosition);
                 switch (kbstat){
@@ -121,73 +112,46 @@ int main ()
                         cout << "***************************  FAIL" << endl;
                         PlayFailSound();
                         break;
+                    
                     case 1:
-                       
                         cout << "PASS PASS PASS PASS" << endl;
                          PlayPassSound();
                         break;
                 }
                 clean_up();
                 break;  
-             case 8:
- //               CurrentConfig.ExecutablePath = unicomp::FindInstallPath(ConfigFilename).c_str();
- //               CurrentConfig.ReadConfig(ConfigFilename);
+
+            case 8:
                 cout << "Exe Path: " << CurrentConfig.ExecutablePath << endl;
                 cout << "Config file: " << CurrentConfig.ConfigFilename << endl;
                 cout << "Version: " << CurrentConfig.Version << endl;
                 cout << "Part Numbers: " << CurrentConfig.PartNumberList << endl;
                 break;
-             case 9: //Show Partnumbers Found
-                 for(x=0; x<CurrentConfig.PartNumbers.size(); ++x) {
-                     cout << "Part Number: " << CurrentConfig.PartNumbers[x] << "\t" << CurrentConfig.WSEFiles[x] <<  endl;
-                 }
-                 break;
-//            case 12:
-//                cout << "Begin pressing keys" << endl;
-//                kbstat = readcodes(NewKeyboard.KeysKeycode, NewKeyboard.KeysPosition);
-//
-//                switch (kbstat){
-//                    case 0:
-//                        cout << "FAIL" << endl;
-//                        break;
-//                    case 1:
-//                        cout << "PASS" << endl;
-//                        break;
-//                }
-//                clean_up();
-//                break;
-//            case 3:
-//                 showkeys();
-//                 clean_up();
-//                 break;
-//            case 4:
-//                  int x;
-//                    for (x=0; x<20; ++x)  {
-//                        printf("Key Pressed: %i\n", GetSingleKey());    
-//                    }
-//               done = 1;
-//                break;
+
+            case 9: //Show Partnumbers Found
+                for(x=0; x<CurrentConfig.PartNumbers.size(); ++x) {
+                    cout << "Part Number: " << CurrentConfig.PartNumbers[x] << "\t" << CurrentConfig.WSEFiles[x] <<  endl;
+                }
+                break;
             
-             case 5:
+            case 5:
                 outFile.open("output.txt");
              
-                 while(1) {
+                while(1) {
                         wholebuffer = FullBuffer();
                         if (wholebuffer[0] == 45) ++exits;
                         else exits = 0;
                         if (exits == 3) break;
                     for (x=0; x<5; ++x)  {
-                            cout << wholebuffer[x] << "\t";
-                            wholebuffer[x] = 999;
+                        cout << wholebuffer[x] << "\t";
+                        wholebuffer[x] = 999;
                             //     printf("New Buf: %i\t", wholebuffer[x]);    
                         }
-//                cout << "BufferKeycode : " << keycode << endl;
-                        
                     cout << endl;
-                   free(wholebuffer)  ;
-                 }
+                    free(wholebuffer)  ;
+                }
                 outFile.close();
-                 break;
+                break;
             case 6:  //Record new keyboard
                 cout << "Are you sure you want to record new keyboard? (Y/N) ";
                 cin >> YN;
@@ -218,47 +182,53 @@ int main ()
                         if (wholebuffer[18] == 999) cout << "Break: " << endl;
                     }
                 }
-             break;
-             case 12:
-                 cout << endl << "Enter Firmware number: " ;
-                 cin >> NewKeyboard.FirmWareNumber;
-                 NewKeyboard.FirmWareNumber = unicomp::strtoupper(NewKeyboard.FirmWareNumber);
-                 NewKeyboard.WSEFilename = CurrentConfig.ExecutablePath;
-                 NewKeyboard.WSEFilename.append(NewKeyboard.FirmWareNumber);
-                 cout << "Firmware: " << NewKeyboard.WSEFilename << endl;
-//                if (NewKeyboard.ReadWSE(NewKeyboard.WSEFilename)) {
-//                    cout << "Loaded " << NewKeyboard.KeysKeycode.size() << " Keys from File: " << NewKeyboard.WSEFilename << endl;
-//                    NewKeyboard.KeyboardSelected = 1;
-//                }
+            break;
+             
+            case 12:
+                cout << endl << "Enter Firmware number: " ;
+                cin >> NewKeyboard.FirmWareNumber;
+                NewKeyboard.FirmWareNumber = unicomp::strtoupper(NewKeyboard.FirmWareNumber);
+                NewKeyboard.WSEFilename = CurrentConfig.ExecutablePath;
+                NewKeyboard.WSEFilename.append(NewKeyboard.FirmWareNumber);
+                cout << "Firmware: " << NewKeyboard.WSEFilename << endl;
                 
-                 NewKeyboard.ReadFirmware(NewKeyboard.WSEFilename);
-                 cout << "Begin pressing keys" << endl; 
-                 usleep(900000);
-               
-                 while (currentline < NewKeyboard.InputLines.size()) {
-                     wholebuffer = FullBuffer();
-                     bufferline = unicomp::int_array_to_string(wholebuffer, 19);
-                    if (wholebuffer[0] == 45) ++exits;
-                    else exits =0;
-                    if (exits == 3) break;
-                                       cout << "Read: " << bufferline << "\t" << "Expected: " << NewKeyboard.InputLines[currentline] << endl;
-                     if (bufferline == NewKeyboard.InputLines[currentline] ) {
-                        cout << "Key #" << currentline << " Good" << endl;
-                     } else {
-                         //cout << "Bad" << endl;
-                           cout << "FAIL  FAIL FAIL FAIL" << endl;
-                         break;
-                     }
-                 
-                     ++currentline;
-                 }
-                 cout << endl << "PASS  PASS PASSS" << endl;
-                 break;
-             default:
+                if (NewKeyboard.ReadFirmware(NewKeyboard.WSEFilename)) {
+                    result=1;
+                    usleep(900000);
+                    currentline = 0;
+                    cout << "Begin pressing keys" << endl; 
+                    while (currentline < NewKeyboard.InputLines.size()) {
+                        wholebuffer = FullBuffer();
+                        bufferline = unicomp::int_array_to_string(wholebuffer, 19);
+                        if (wholebuffer[0] == 45) ++exits;
+                        else exits =0;
+                        if (exits == 3) break;
+                        cout << "Read: " << bufferline << "\t" << "Expected: " << NewKeyboard.InputLines[currentline] << endl;
+                        if (bufferline == NewKeyboard.InputLines[currentline] ) {
+                            cout << "Key #" << currentline << " Good" << endl;
+                        } else {
+                             //cout << "Bad" << endl;
+                            cout << "FAIL  FAIL FAIL FAIL" << endl;
+                            result=0;
+                            PlayFailSound();
+                            break;
+                        }
+                        ++currentline;
+                    }
+                    if (result == 1) {
+                        cout << endl << "PASS  PASS PASSS" << endl;
+                        PlayPassSound();
+                    }
+                }
+                else {
+                    cout << "Problem opening file: " << NewKeyboard.WSEFilename << endl;
+                }
+                break;
+            default:
                 done = 1;
-                 clean_up();
-                 break;                 
-         }    
+                clean_up();
+                break;                 
+        }    
     }
     cout << "Exiting program.." << endl;
 }
