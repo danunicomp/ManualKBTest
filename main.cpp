@@ -70,13 +70,7 @@ int main ()
         cout << endl;
         cout << "Unicomp Manual Keyboard Test, Version " << CurrentConfig.Version << endl;
         cout << "MENU" << endl;
-        if (NewKeyboard.KeyboardSelected) {
-            cout << "Current Part Number: " << NewKeyboard.WSEFilename << endl;
-            cout << "1 - CHANGE PART NUMBER" << endl;
-        }
-        else {
-             cout << "1 - SELECT PART NUMBER" << endl;
-        }
+        cout << "1 - NEW TEST" << endl;
         cout << "2 - START TEST (New showkey function)" << endl;
 //        cout << "3 - SHOW KEYS (debugging)" << endl;
 //        cout << "4 - Getting Single Key" << endl;
@@ -86,24 +80,24 @@ int main ()
         cout << "6 - RECORD NEW KEYBOARD" << endl;
         cout << endl;
         cout << "8 - Test Config" << endl;
-        cout << "12 - NEW TEST" << endl;
+
+        if (NewKeyboard.KeyboardSelected) {
+            cout << "Current Part Number: " << NewKeyboard.WSEFilename << endl;
+            cout << "13 - CHANGE PART NUMBER" << endl;
+        }
+        else {
+            cout << "13 - SELECT PART NUMBER" << endl;
+        }
         cout << endl;
         cout << "Chose: ";
         cin >> menu;
 
-        int keypressed;
-        int keycode, exits;
+        int exits;
         int * wholebuffer;
         string bufferline;
         ofstream outFile;      
         switch (menu) {
-            case 1:
-                NewKeyboard.WSEFilename = "/home/pi/ManualKBTest/122-UB40B5A.wse";
-                if (NewKeyboard.ReadWSE(NewKeyboard.WSEFilename)) {
-                    cout << "Loaded " << NewKeyboard.KeysKeycode.size() << " Keys from File: " << NewKeyboard.WSEFilename << endl;
-                    NewKeyboard.KeyboardSelected = 1;
-                }
-                break;
+
             case 2:
                 cout << "Begin pressing keys" << endl;
                 kbstat = TestNewKeyboard(NewKeyboard.KeysKeycode, NewKeyboard.KeysPosition);
@@ -115,7 +109,7 @@ int main ()
                     
                     case 1:
                         cout << "PASS PASS PASS PASS" << endl;
-                         PlayPassSound();
+                        PlayPassSound();
                         break;
                 }
                 clean_up();
@@ -184,7 +178,7 @@ int main ()
                 }
             break;
              
-            case 12:
+            case 1:
                 cout << endl << "Enter Firmware number: " ;
                 cin >> NewKeyboard.FirmWareNumber;
                 NewKeyboard.FirmWareNumber = unicomp::strtoupper(NewKeyboard.FirmWareNumber);
@@ -223,6 +217,14 @@ int main ()
                 else {
                     cout << "Problem opening file: " << NewKeyboard.WSEFilename << endl;
                 }
+                break;
+
+                case 13:  //Obsolete
+                    NewKeyboard.WSEFilename = "/home/pi/ManualKBTest/122-UB40B5A.wse";
+                    if (NewKeyboard.ReadWSE(NewKeyboard.WSEFilename)) {
+                        cout << "Loaded " << NewKeyboard.KeysKeycode.size() << " Keys from File: " << NewKeyboard.WSEFilename << endl;
+                        NewKeyboard.KeyboardSelected = 1;
+                    }
                 break;
             default:
                 done = 1;
