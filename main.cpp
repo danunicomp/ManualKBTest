@@ -22,7 +22,7 @@ const string EXE_FILE = "manualkbtest";
 
 //extern "C" int GetSingleKey (void);
 //extern "C" int GetKeyCode (void);
-extern "C" int * GetWholeBuffer (void);
+//extern "C" int * GetWholeBuffer (void);
 extern "C" int * FullBuffer (void );
 
 int readcodes(vector<int>& keycodes, vector<string>& positions);
@@ -202,7 +202,7 @@ int main ()
                             cout << "Key #" << currentline << " Good" << endl;
                         } else {
                              //cout << "Bad" << endl;
-                            cout << "FAIL  FAIL FAIL FAIL" << endl;
+                            cout << endl << "FAIL  FAIL FAIL FAIL" << endl;
                             result=0;
                             PlayFailSound();
                             break;
