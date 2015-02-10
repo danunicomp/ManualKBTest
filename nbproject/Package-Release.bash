@@ -65,7 +65,7 @@ copyFileToTmpDir "${OUTPUT_PATH}" "${NBTMPDIR}/${PACKAGE_TOP_DIR}bin/${OUTPUT_BA
 
 cd "${TOP}"
 makeDirectory "${NBTMPDIR}/manualkbtest"
-copyFileToTmpDir "/root/NetBeansProjects/ManualKBTest/config.txt" "${NBTMPDIR}/${PACKAGE_TOP_DIR}config.txt" 0644
+copyFileToTmpDir "/home/pi/ManualKBTest/config.txt" "${NBTMPDIR}/${PACKAGE_TOP_DIR}config.txt" 0644
 
 
 # Generate tar file

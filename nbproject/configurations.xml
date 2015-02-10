@@ -4,10 +4,10 @@
     <logicalFolder name="HeaderFiles"
                    displayName="Header Files"
                    projectFiles="true">
-      <itemPath>/root/NetBeansProjects/ManualKBTest/clsConfig.h</itemPath>
+      <itemPath>/home/pi/ManualKBTest/clsConfig.h</itemPath>
       <itemPath>clsKeyboard.h</itemPath>
       <itemPath>clsNewKeyboard.h</itemPath>
-      <itemPath>/root/NetBeansProjects/ManualKBTest/unicomp.h</itemPath>
+      <itemPath>/home/pi/ManualKBTest/unicomp.h</itemPath>
     </logicalFolder>
     <logicalFolder name="ResourceFiles"
                    displayName="Resource Files"
@@ -16,20 +16,20 @@
       <itemPath>11MT845.wse</itemPath>
       <itemPath>11MT845_tabs.wse</itemPath>
       <itemPath>122-UB40B5A.wse</itemPath>
-      <itemPath>/root/NetBeansProjects/ManualKBTest/WSE-11MT845.csv</itemPath>
+      <itemPath>/home/pi/ManualKBTest/WSE-11MT845.csv</itemPath>
       <itemPath>config.txt</itemPath>
-      <itemPath>/root/NetBeansProjects/ManualKBTest/partnumbers.ini</itemPath>
+      <itemPath>/home/pi/ManualKBTest/partnumbers.ini</itemPath>
     </logicalFolder>
     <logicalFolder name="SourceFiles"
                    displayName="Source Files"
                    projectFiles="true">
       <logicalFolder name="f1" displayName="Showkey C" projectFiles="true">
-        <itemPath>/root/NetBeansProjects/ManualKBTest/getfd.c</itemPath>
-        <itemPath>/root/NetBeansProjects/ManualKBTest/getfd.h</itemPath>
+        <itemPath>/home/pi/ManualKBTest/getfd.c</itemPath>
+        <itemPath>/home/pi/ManualKBTest/getfd.h</itemPath>
         <itemPath>nls.h</itemPath>
-        <itemPath>/root/NetBeansProjects/ManualKBTest/showkey-modified.c</itemPath>
+        <itemPath>/home/pi/ManualKBTest/showkey-modified.c</itemPath>
       </logicalFolder>
-      <itemPath>/root/NetBeansProjects/ManualKBTest/clsConfig.cpp</itemPath>
+      <itemPath>/home/pi/ManualKBTest/clsConfig.cpp</itemPath>
       <itemPath>clsNewKeyboard.cpp</itemPath>
       <itemPath>main.cpp</itemPath>
       <itemPath>readkeycodes.cpp</itemPath>
@@ -64,42 +64,42 @@
           <commandlineTool>g++</commandlineTool>
         </linkerTool>
       </compileType>
-      <item path="/root/NetBeansProjects/ManualKBTest/WSE-11MT845.csv"
+      <item path="/home/pi/ManualKBTest/WSE-11MT845.csv"
             ex="false"
             tool="3"
             flavor2="0">
       </item>
-      <item path="/root/NetBeansProjects/ManualKBTest/clsConfig.cpp"
+      <item path="/home/pi/ManualKBTest/clsConfig.cpp"
             ex="false"
             tool="1"
             flavor2="0">
       </item>
-      <item path="/root/NetBeansProjects/ManualKBTest/clsConfig.h"
+      <item path="/home/pi/ManualKBTest/clsConfig.h"
             ex="false"
             tool="3"
             flavor2="0">
       </item>
-      <item path="/root/NetBeansProjects/ManualKBTest/getfd.c"
+      <item path="/home/pi/ManualKBTest/getfd.c"
             ex="false"
             tool="0"
             flavor2="0">
       </item>
-      <item path="/root/NetBeansProjects/ManualKBTest/getfd.h"
+      <item path="/home/pi/ManualKBTest/getfd.h"
             ex="false"
             tool="3"
             flavor2="0">
       </item>
-      <item path="/root/NetBeansProjects/ManualKBTest/partnumbers.ini"
+      <item path="/home/pi/ManualKBTest/partnumbers.ini"
             ex="false"
             tool="3"
             flavor2="0">
       </item>
-      <item path="/root/NetBeansProjects/ManualKBTest/showkey-modified.c"
+      <item path="/home/pi/ManualKBTest/showkey-modified.c"
             ex="false"
             tool="0"
             flavor2="0">
       </item>
-      <item path="/root/NetBeansProjects/ManualKBTest/unicomp.h"
+      <item path="/home/pi/ManualKBTest/unicomp.h"
             ex="false"
             tool="3"
             flavor2="0">
@@ -161,48 +161,48 @@
                             group="bin"/>
           <packFileListElem type="File"
                             to="${PACKAGE_TOP_DIR}config.txt"
-                            from="/root/NetBeansProjects/ManualKBTest/config.txt"
+                            from="/home/pi/ManualKBTest/config.txt"
                             perm="644"
                             owner="root"
                             group="bin"/>
         </packFileList>
       </packaging>
-      <item path="/root/NetBeansProjects/ManualKBTest/WSE-11MT845.csv"
+      <item path="/home/pi/ManualKBTest/WSE-11MT845.csv"
             ex="false"
             tool="3"
             flavor2="0">
       </item>
-      <item path="/root/NetBeansProjects/ManualKBTest/clsConfig.cpp"
+      <item path="/home/pi/ManualKBTest/clsConfig.cpp"
             ex="false"
             tool="1"
             flavor2="0">
       </item>
-      <item path="/root/NetBeansProjects/ManualKBTest/clsConfig.h"
+      <item path="/home/pi/ManualKBTest/clsConfig.h"
             ex="false"
             tool="3"
             flavor2="0">
       </item>
-      <item path="/root/NetBeansProjects/ManualKBTest/getfd.c"
+      <item path="/home/pi/ManualKBTest/getfd.c"
             ex="false"
             tool="0"
             flavor2="0">
       </item>
-      <item path="/root/NetBeansProjects/ManualKBTest/getfd.h"
+      <item path="/home/pi/ManualKBTest/getfd.h"
             ex="false"
             tool="3"
             flavor2="0">
       </item>
-      <item path="/root/NetBeansProjects/ManualKBTest/partnumbers.ini"
+      <item path="/home/pi/ManualKBTest/partnumbers.ini"
             ex="false"
             tool="3"
             flavor2="0">
       </item>
-      <item path="/root/NetBeansProjects/ManualKBTest/showkey-modified.c"
+      <item path="/home/pi/ManualKBTest/showkey-modified.c"
             ex="false"
             tool="0"
             flavor2="0">
       </item>
-      <item path="/root/NetBeansProjects/ManualKBTest/unicomp.h"
+      <item path="/home/pi/ManualKBTest/unicomp.h"
             ex="false"
             tool="3"
             flavor2="0">

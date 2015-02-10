@@ -4,7 +4,6 @@
 #include <vector>
 #include <algorithm>  
 #include <sstream>
-#include <string>
 #include <fstream>
 #include <unistd.h>
 
@@ -12,8 +11,6 @@
 
 #include "clsNewKeyboard.h"
 #include "clsConfig.h"
-
-
 
 // Define control keys as part of a 16 bit number
 #define LEFT_SHIFT  32768   // 1000 0000 0000 0000  0x8000
@@ -48,7 +45,7 @@ void PlayFailSound(void);
 
 const string VERSION = "0.9b";
 const string ConfigPath = unicomp::FindInstallPath("manualkbtest").c_str();
-// const string ConfigFilename = "/root/NetBeansProjects/ManualKBTest/config.txt";
+// const string ConfigFilename = "/home/pi/ManualKBTest/config.txt";
 
 int main ()
 {
@@ -107,7 +104,7 @@ const string ConfigFilename="config.txt";
      ofstream outFile;      
          switch (menu) {
             case 1:
-                NewKeyboard.WSEFilename = "/root/NetBeansProjects/ManualKBTest/122-UB40B5A.wse";
+                NewKeyboard.WSEFilename = "/home/pi/ManualKBTest/122-UB40B5A.wse";
                 if (NewKeyboard.ReadWSE(NewKeyboard.WSEFilename)) {
                     cout << "Loaded " << NewKeyboard.KeysKeycode.size() << " Keys from File: " << NewKeyboard.WSEFilename << endl;
                     NewKeyboard.KeyboardSelected = 1;

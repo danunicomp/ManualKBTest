@@ -35,9 +35,9 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 
 # Object Files
 OBJECTFILES= \
-	${OBJECTDIR}/_ext/1543287360/clsConfig.o \
-	${OBJECTDIR}/_ext/1543287360/getfd.o \
-	${OBJECTDIR}/_ext/1543287360/showkey-modified.o \
+	${OBJECTDIR}/_ext/356084796/clsConfig.o \
+	${OBJECTDIR}/_ext/356084796/getfd.o \
+	${OBJECTDIR}/_ext/356084796/showkey-modified.o \
 	${OBJECTDIR}/clsNewKeyboard.o \
 	${OBJECTDIR}/main.o \
 	${OBJECTDIR}/readkeycodes.o \
@@ -68,20 +68,20 @@ ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/manualkbtest: ${OBJECTFILES}
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
 	g++ -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/manualkbtest ${OBJECTFILES} ${LDLIBSOPTIONS}
 
-${OBJECTDIR}/_ext/1543287360/clsConfig.o: /root/NetBeansProjects/ManualKBTest/clsConfig.cpp 
-	${MKDIR} -p ${OBJECTDIR}/_ext/1543287360
+${OBJECTDIR}/_ext/356084796/clsConfig.o: /home/pi/ManualKBTest/clsConfig.cpp 
+	${MKDIR} -p ${OBJECTDIR}/_ext/356084796
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/1543287360/clsConfig.o /root/NetBeansProjects/ManualKBTest/clsConfig.cpp
+	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/356084796/clsConfig.o /home/pi/ManualKBTest/clsConfig.cpp
 
-${OBJECTDIR}/_ext/1543287360/getfd.o: /root/NetBeansProjects/ManualKBTest/getfd.c 
-	${MKDIR} -p ${OBJECTDIR}/_ext/1543287360
+${OBJECTDIR}/_ext/356084796/getfd.o: /home/pi/ManualKBTest/getfd.c 
+	${MKDIR} -p ${OBJECTDIR}/_ext/356084796
 	${RM} "$@.d"
-	$(COMPILE.c) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/1543287360/getfd.o /root/NetBeansProjects/ManualKBTest/getfd.c
+	$(COMPILE.c) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/356084796/getfd.o /home/pi/ManualKBTest/getfd.c
 
-${OBJECTDIR}/_ext/1543287360/showkey-modified.o: /root/NetBeansProjects/ManualKBTest/showkey-modified.c 
-	${MKDIR} -p ${OBJECTDIR}/_ext/1543287360
+${OBJECTDIR}/_ext/356084796/showkey-modified.o: /home/pi/ManualKBTest/showkey-modified.c 
+	${MKDIR} -p ${OBJECTDIR}/_ext/356084796
 	${RM} "$@.d"
-	$(COMPILE.c) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/1543287360/showkey-modified.o /root/NetBeansProjects/ManualKBTest/showkey-modified.c
+	$(COMPILE.c) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/356084796/showkey-modified.o /home/pi/ManualKBTest/showkey-modified.c
 
 ${OBJECTDIR}/clsNewKeyboard.o: clsNewKeyboard.cpp 
 	${MKDIR} -p ${OBJECTDIR}
