@@ -14,7 +14,7 @@
 
 using namespace std;
 
-const string VERSION = "0.9.140220e";
+const string VERSION = "0.9.140221b";
 const string CONFIG_FILE = "config.txt";
 const string EXE_FILE = "manualkbtest";
 
@@ -46,7 +46,7 @@ int main ()
     int currentline = 0;
     string newfilename;
     int kbstat;
-    clsNewKeyboard NewKeyboard;
+ //   clsNewKeyboard NewKeyboard;
     clsConfig CurrentConfig;
     
     int done =0, x = 0;
@@ -67,6 +67,7 @@ int main ()
     
     while (1 && done != 1) {
         int menu;
+        clsNewKeyboard NewKeyboard;
         cout << endl;
         cout << "Unicomp Manual Keyboard Test, Version " << CurrentConfig.Version << endl;
         cout << "MENU" << endl;

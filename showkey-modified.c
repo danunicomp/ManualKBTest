@@ -104,7 +104,7 @@ int * FullBuffer (void) {
     /* show keycodes - 2.6 allows 3-byte reports */
     int t, kc;
     while (1) {
-        alarm(100);
+     //   alarm(100);
         n = read(fd, buf, sizeof(buf));
         i = 0;
         while (i < n) {
@@ -174,7 +174,7 @@ int GetKeyCode (void) {
         int t;
         int kc;
 	while (1) {
-		alarm(100);
+//		alarm(100);
 		n = read(fd, buf, sizeof(buf));
 		i = 0;
 		while (i < n) {
