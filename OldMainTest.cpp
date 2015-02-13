@@ -31,7 +31,7 @@ void OldTest(clsConfig * CurrentConfig) {
     
 
     
-    cout << "OK" << endl;
+
     int done =0, x = 0;
     int result;
     char YN;  //for "are you sure" questions

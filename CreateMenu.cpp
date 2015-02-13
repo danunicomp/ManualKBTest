@@ -34,7 +34,7 @@ CreateMenu::~CreateMenu() {
 }
 
 void CreateMenu::Display(void) {
-    std::cout << "===========" << m_title << "==========" << std::endl;
+    std::cout << "=== " << m_title << " ===" << std::endl;
     std::cout << "\n";
 
     for (int i = 0; i < m_textEntries.size(); i++)

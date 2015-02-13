@@ -4,6 +4,9 @@
  *
  * Created on February 2, 2015, 7:46 AM
  */
+#include <string>
+#include <iostream>
+#include <vector>
 
 #ifndef CLSCONFIG_H
 #define	CLSCONFIG_H
