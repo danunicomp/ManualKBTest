@@ -7,6 +7,7 @@
       <itemPath>/home/pi/ManualKBTest/CreateMenu.h</itemPath>
       <itemPath>/home/pi/ManualKBTest/clsConfig.h</itemPath>
       <itemPath>clsKeyboard.h</itemPath>
+      <itemPath>/home/pi/ManualKBTest/clsKeyboardTest.h</itemPath>
       <itemPath>clsNewKeyboard.h</itemPath>
       <itemPath>/home/pi/ManualKBTest/unicomp.h</itemPath>
     </logicalFolder>
@@ -33,6 +34,7 @@
       <itemPath>/home/pi/ManualKBTest/CreateMenu.cpp</itemPath>
       <itemPath>/home/pi/ManualKBTest/OldMainTest.cpp</itemPath>
       <itemPath>/home/pi/ManualKBTest/clsConfig.cpp</itemPath>
+      <itemPath>/home/pi/ManualKBTest/clsKeyboardTest.cpp</itemPath>
       <itemPath>clsNewKeyboard.cpp</itemPath>
       <itemPath>main.cpp</itemPath>
       <itemPath>/home/pi/ManualKBTest/readkeycodes.cpp</itemPath>
@@ -106,6 +108,16 @@
             flavor2="0">
       </item>
       <item path="/home/pi/ManualKBTest/clsConfig.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="/home/pi/ManualKBTest/clsKeyboardTest.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="/home/pi/ManualKBTest/clsKeyboardTest.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
       </item>
       <item path="/home/pi/ManualKBTest/getfd.c" ex="false" tool="0" flavor2="0">
       </item>
@@ -213,6 +225,16 @@
             flavor2="0">
       </item>
       <item path="/home/pi/ManualKBTest/clsConfig.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="/home/pi/ManualKBTest/clsKeyboardTest.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="/home/pi/ManualKBTest/clsKeyboardTest.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
       </item>
       <item path="/home/pi/ManualKBTest/getfd.c" ex="false" tool="0" flavor2="0">
       </item>

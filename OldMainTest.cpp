@@ -15,8 +15,9 @@
 
 using namespace std;
 
-const string VERSION = "0.9.14.0222-E";
-const string CONFIG_FILE = "config.txt";
+extern const std::string VERSION;
+
+
 const string EXE_FILE = "manualkbtest";
 const string ConfigPath = unicomp::FindInstallPath(EXE_FILE).c_str();
 
@@ -26,18 +27,9 @@ void clean_up ( void );
 void PlayPassSound(void);
 void PlayFailSound(void);
 
-void OldTest(void) {
+void OldTest(clsConfig * CurrentConfig) {
     
-    clsConfig CurrentConfig;
 
-    CurrentConfig.Version = VERSION;
-    // Read Config File
-    cout << "Loading Config...";
-    CurrentConfig.ExecutablePath = unicomp::FindInstallPath(CONFIG_FILE).c_str();
-    if ( ! CurrentConfig.ReadConfig(CONFIG_FILE)) {
-        cout << "ERROR OPENING CONFIG FILE: " << CONFIG_FILE << endl;
-        return;
-    }
     
     cout << "OK" << endl;
     int done =0, x = 0;
@@ -49,7 +41,7 @@ void OldTest(void) {
         int menu;
         clsNewKeyboard NewKeyboard;
         cout << endl;
-        cout << "Unicomp Manual Keyboard Test, Version " << CurrentConfig.Version << endl;
+        cout << "Unicomp Manual Keyboard Test, Version " << CurrentConfig->Version << endl;
         cout << "MENU" << endl;
         cout << "1 - NEW TEST" << endl;
  //       cout << "2 - START TEST (New showkey function)" << endl;
@@ -97,15 +89,15 @@ void OldTest(void) {
 //                break;  
 
         case 8:
-            cout << "Exe Path: " << CurrentConfig.ExecutablePath << endl;
-            cout << "Config file: " << CurrentConfig.ConfigFilename << endl;
-            cout << "Version: " << CurrentConfig.Version << endl;
-            cout << "Part Numbers: " << CurrentConfig.PartNumberList << endl;
+            cout << "Exe Path: " << CurrentConfig->ExecutablePath << endl;
+            cout << "Config file: " << CurrentConfig->ConfigFilename << endl;
+            cout << "Version: " << CurrentConfig->Version << endl;
+            cout << "Part Numbers: " << CurrentConfig->PartNumberList << endl;
             break;
 
         case 9: //Show Partnumbers Found
-            for(x=0; x<CurrentConfig.PartNumbers.size(); ++x) {
-                cout << "Part Number: " << CurrentConfig.PartNumbers[x] << "\t" << CurrentConfig.WSEFiles[x] <<  endl;
+            for(x=0; x<CurrentConfig->PartNumbers.size(); ++x) {
+                cout << "Part Number: " << CurrentConfig->PartNumbers[x] << "\t" << CurrentConfig->WSEFiles[x] <<  endl;
             }
             break;
 
@@ -163,7 +155,7 @@ void OldTest(void) {
             cout << endl << "Enter Firmware number: " ;
             cin >> NewKeyboard.FirmWareNumber;
             NewKeyboard.FirmWareNumber = unicomp::strtoupper(NewKeyboard.FirmWareNumber);
-            NewKeyboard.WSEFilename = CurrentConfig.ExecutablePath;
+            NewKeyboard.WSEFilename = CurrentConfig->ExecutablePath;
             NewKeyboard.WSEFilename.append(NewKeyboard.FirmWareNumber);
             cout << "Firmware: " << NewKeyboard.WSEFilename << endl;
 

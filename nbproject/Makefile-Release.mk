@@ -38,6 +38,7 @@ OBJECTFILES= \
 	${OBJECTDIR}/_ext/356084796/CreateMenu.o \
 	${OBJECTDIR}/_ext/356084796/OldMainTest.o \
 	${OBJECTDIR}/_ext/356084796/clsConfig.o \
+	${OBJECTDIR}/_ext/356084796/clsKeyboardTest.o \
 	${OBJECTDIR}/_ext/356084796/getfd.o \
 	${OBJECTDIR}/_ext/356084796/readkeycodes.o \
 	${OBJECTDIR}/_ext/356084796/showkey-modified.o \
@@ -84,6 +85,11 @@ ${OBJECTDIR}/_ext/356084796/clsConfig.o: /home/pi/ManualKBTest/clsConfig.cpp
 	${MKDIR} -p ${OBJECTDIR}/_ext/356084796
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -std=c++98 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/356084796/clsConfig.o /home/pi/ManualKBTest/clsConfig.cpp
+
+${OBJECTDIR}/_ext/356084796/clsKeyboardTest.o: /home/pi/ManualKBTest/clsKeyboardTest.cpp 
+	${MKDIR} -p ${OBJECTDIR}/_ext/356084796
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -std=c++98 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/356084796/clsKeyboardTest.o /home/pi/ManualKBTest/clsKeyboardTest.cpp
 
 ${OBJECTDIR}/_ext/356084796/getfd.o: /home/pi/ManualKBTest/getfd.c 
 	${MKDIR} -p ${OBJECTDIR}/_ext/356084796
