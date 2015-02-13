@@ -4,6 +4,7 @@
     <logicalFolder name="HeaderFiles"
                    displayName="Header Files"
                    projectFiles="true">
+      <itemPath>/home/pi/ManualKBTest/CreateMenu.h</itemPath>
       <itemPath>/home/pi/ManualKBTest/clsConfig.h</itemPath>
       <itemPath>clsKeyboard.h</itemPath>
       <itemPath>clsNewKeyboard.h</itemPath>
@@ -29,6 +30,8 @@
         <itemPath>nls.h</itemPath>
         <itemPath>/home/pi/ManualKBTest/showkey-modified.c</itemPath>
       </logicalFolder>
+      <itemPath>/home/pi/ManualKBTest/CreateMenu.cpp</itemPath>
+      <itemPath>/home/pi/ManualKBTest/OldMainTest.cpp</itemPath>
       <itemPath>/home/pi/ManualKBTest/clsConfig.cpp</itemPath>
       <itemPath>clsNewKeyboard.cpp</itemPath>
       <itemPath>main.cpp</itemPath>
@@ -56,6 +59,10 @@
         <rebuildPropChanged>true</rebuildPropChanged>
       </toolsSet>
       <compileType>
+        <ccTool>
+          <standard>8</standard>
+          <commandlineTool>g++</commandlineTool>
+        </ccTool>
         <asmTool>
           <warningLevel>2</warningLevel>
         </asmTool>
@@ -76,6 +83,18 @@
                             group="bin"/>
         </packFileList>
       </packaging>
+      <item path="/home/pi/ManualKBTest/CreateMenu.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="/home/pi/ManualKBTest/CreateMenu.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="/home/pi/ManualKBTest/OldMainTest.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
       <item path="/home/pi/ManualKBTest/WSE-11MT845.csv"
             ex="false"
             tool="3"
@@ -142,6 +161,7 @@
         </cTool>
         <ccTool>
           <developmentMode>5</developmentMode>
+          <standard>4</standard>
         </ccTool>
         <fortranCompilerTool>
           <developmentMode>5</developmentMode>
@@ -170,6 +190,18 @@
                             group="bin"/>
         </packFileList>
       </packaging>
+      <item path="/home/pi/ManualKBTest/CreateMenu.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="/home/pi/ManualKBTest/CreateMenu.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="/home/pi/ManualKBTest/OldMainTest.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
       <item path="/home/pi/ManualKBTest/WSE-11MT845.csv"
             ex="false"
             tool="3"
