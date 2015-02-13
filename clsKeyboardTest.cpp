@@ -106,12 +106,14 @@ int clsKeyboardTest::GetWSEFile(void)
     
     cout << endl << "Enter Firmware number: " ;
     cin >> NewKeyboard.FirmWareNumber;
+     cin.clear();
+    
     NewKeyboard.FirmWareNumber = unicomp::strtoupper(NewKeyboard.FirmWareNumber);
     NewKeyboard.WSEFilename = clsKeyboardTest::CurrentConfig.ExecutablePath;
     NewKeyboard.WSEFilename.append(NewKeyboard.FirmWareNumber);
     cout << "Firmware: " << NewKeyboard.WSEFilename << endl;
     wseresult = NewKeyboard.ReadFirmware(NewKeyboard.WSEFilename);
-   
+    clsKeyboardTest::CurrentFirmware = NewKeyboard.FirmWareNumber;
     if (wseresult==1) {
     
         NewKeyboard.InputLines.swap(clsKeyboardTest::ExpectedLines);

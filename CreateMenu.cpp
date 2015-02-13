@@ -33,10 +33,12 @@ CreateMenu::CreateMenu(std::string title, std::vector<std::string> textEntries, 
 CreateMenu::~CreateMenu() {
 }
 
-void CreateMenu::Display(void) {
+void CreateMenu::Display(std::string CurrentFirmware = "") {
     std::cout << "=== " << m_title << " ===" << std::endl;
     std::cout << "\n";
-
+    if (CurrentFirmware != "") {
+        cout << "Current Firmware: " << CurrentFirmware << endl;
+    }
     for (int i = 0; i < m_textEntries.size(); i++)
     {
         std::cout << m_SelectNumber.at(i) << " - " << m_textEntries.at(i) << std::endl;
@@ -45,30 +47,26 @@ void CreateMenu::Display(void) {
 
 int CreateMenu::GetInput()
 {
-    
-    
+     std::string s;
     std::cout << ">";
     string input;
     int result;
     //getline(cin, input);
-    
+    cin.fail();
     int x=0;
     cin.clear();
-    std::string s;
-    std::getline(std::cin, s);
-    std::stringstream stream(s);
-    stream >> x;   
-    
-    return (x);
-    
 
-    //cin.get();
-    
-    
-    
-    
-    while(cin.get() != '\n');
-    cin >> result;
-//    result = stoi(input);
-    return (result);
+    std::getline(std::cin, s);
+    if (s[0] != '\0') {
+        std::stringstream stream(s);
+        stream >> x;   
+        cin.clear();
+        return (x);
+    }
+    else
+    {
+        cout << "Found 0" << endl;
+        return(0);
+    }
+
 }

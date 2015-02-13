@@ -32,6 +32,7 @@ public:
     virtual ~clsKeyboardTest();
     void StartTest(void);
     int GetWSEFile();
+    std::string CurrentFirmware;
 private:
     clsConfig CurrentConfig;
     std::vector<std::string> ExpectedLines;

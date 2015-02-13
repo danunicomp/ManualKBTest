@@ -14,7 +14,7 @@ class CreateMenu {
 public:
     CreateMenu(std::string title, std::vector<std::string> textEntries, std::vector<int> selectnumber);
 //    CreateMenu(const CreateMenu& orig);
-    void Display(void);
+    void Display(std::string);
     virtual ~CreateMenu();
     int GetInput();
 private:
