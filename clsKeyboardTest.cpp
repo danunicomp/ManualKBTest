@@ -101,7 +101,7 @@ void clsKeyboardTest::StartTest() {
 int clsKeyboardTest::GetWSEFile(void)
 {
     int wseresult=0;
-    int x;
+
     clsNewKeyboard NewKeyboard;
     
     cout << endl << "Enter Firmware number: " ;
@@ -112,18 +112,13 @@ int clsKeyboardTest::GetWSEFile(void)
     NewKeyboard.FirmWareNumber = unicomp::strtoupper(NewKeyboard.FirmWareNumber);
     NewKeyboard.WSEFilename = clsKeyboardTest::CurrentConfig.ExecutablePath;
     NewKeyboard.WSEFilename.append(NewKeyboard.FirmWareNumber);
-   // cout << "Firmware: " << NewKeyboard.WSEFilename << endl;
+
     wseresult = NewKeyboard.ReadFirmware(NewKeyboard.WSEFilename);
     clsKeyboardTest::CurrentFirmware = NewKeyboard.FirmWareNumber;
     if (wseresult==1) {
-    
         NewKeyboard.InputLines.swap(clsKeyboardTest::ExpectedLines);
-//        for (x=0; x < clsKeyboardTest::ExpectedLines.size(); ++x) {
-//    //       cout << "Expected Lines: " << clsKeyboardTest::ExpectedLines.at(x) << endl;
-//        }
     }
-    else
-    {
+    else {
         cout << "Firmware Not Found" << endl;
     }
 }
@@ -137,11 +132,8 @@ void clsKeyboardTest::DebugShowBuffer (void) {
         wholebuffer = FullBuffer();
         if (wholebuffer[0] == 45) ++exits;
         else exits = 0;
-        //if (exits == 3) break;
         for (x=0; x<6; ++x)  {
             cout << wholebuffer[x] << "\t";
-           // wholebuffer[x] = 999;
-                //     printf("New Buf: %i\t", wholebuffer[x]);    
         }
         if (wholebuffer[18] == 1999) {
             cout << "MAKE" << endl;

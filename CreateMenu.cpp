@@ -47,27 +47,17 @@ void CreateMenu::Display(std::string CurrentFirmware = "") {
 
 int CreateMenu::GetInput()
 {
-     std::string s;
-    std::cout << ">";
-    string input;
-    int result;
-    //getline(cin, input);
+    string s;
+    cout << "> ";
     cin.fail();
     int x=0;
     cin.clear();
 
-    std::getline(std::cin, s);
-    
-    if (s[0] != '\0') {
-        std::stringstream stream(s);
-        stream >> x;   
-        cin.clear();
-        return (x);
-    }
-    else
-    {
-        cout << "Found 0" << endl;
-        return(0);
-    }
+    getline(std::cin, s);
+    stringstream stream(s);
+    stream >> x;   
+    cin.clear();
+    return (x);
+
 
 }
