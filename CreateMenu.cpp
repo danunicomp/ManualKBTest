@@ -57,6 +57,7 @@ int CreateMenu::GetInput()
     cin.clear();
 
     std::getline(std::cin, s);
+    
     if (s[0] != '\0') {
         std::stringstream stream(s);
         stream >> x;   

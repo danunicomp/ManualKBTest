@@ -111,7 +111,7 @@ void OldTest(clsConfig * CurrentConfig) {
                     if (exits == 3) break;
                 for (x=0; x<5; ++x)  {
                     cout << wholebuffer[x] << "\t";
-                    wholebuffer[x] = 999;
+                   // wholebuffer[x] = 999;
                         //     printf("New Buf: %i\t", wholebuffer[x]);    
                     }
                 cout << endl;

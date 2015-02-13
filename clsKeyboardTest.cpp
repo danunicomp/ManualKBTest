@@ -31,7 +31,7 @@ using namespace std;
 
 extern void PlayPassSound(void);
 extern void PlayFailSound(void);
- extern "C" int * FullBuffer (void);
+extern "C" int * FullBuffer (void);
  
 clsKeyboardTest::clsKeyboardTest(void) {
     cout << "No Config" << endl;
@@ -107,11 +107,12 @@ int clsKeyboardTest::GetWSEFile(void)
     cout << endl << "Enter Firmware number: " ;
     cin >> NewKeyboard.FirmWareNumber;
      cin.clear();
+     cin.get();
     
     NewKeyboard.FirmWareNumber = unicomp::strtoupper(NewKeyboard.FirmWareNumber);
     NewKeyboard.WSEFilename = clsKeyboardTest::CurrentConfig.ExecutablePath;
     NewKeyboard.WSEFilename.append(NewKeyboard.FirmWareNumber);
-    cout << "Firmware: " << NewKeyboard.WSEFilename << endl;
+   // cout << "Firmware: " << NewKeyboard.WSEFilename << endl;
     wseresult = NewKeyboard.ReadFirmware(NewKeyboard.WSEFilename);
     clsKeyboardTest::CurrentFirmware = NewKeyboard.FirmWareNumber;
     if (wseresult==1) {
@@ -124,5 +125,34 @@ int clsKeyboardTest::GetWSEFile(void)
     else
     {
         cout << "Firmware Not Found" << endl;
+    }
+}
+
+void clsKeyboardTest::DebugShowBuffer (void) {
+    usleep(900000);
+    cout << "Debug Test - Hold X to cancel" << endl;
+    int * wholebuffer;
+    int exits, x;
+    while(1 && exits < 3) {
+        wholebuffer = FullBuffer();
+        if (wholebuffer[0] == 45) ++exits;
+        else exits = 0;
+        //if (exits == 3) break;
+        for (x=0; x<6; ++x)  {
+            cout << wholebuffer[x] << "\t";
+           // wholebuffer[x] = 999;
+                //     printf("New Buf: %i\t", wholebuffer[x]);    
+        }
+        if (wholebuffer[18] == 1999) {
+            cout << "MAKE" << endl;
+        }
+        else if (wholebuffer[18] == 999) {
+            cout << "BREAK" << endl << endl;
+        }
+        else {
+            cout << endl;
+        }
+        
+        free(wholebuffer)  ;
     }
 }

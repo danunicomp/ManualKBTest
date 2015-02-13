@@ -33,6 +33,7 @@ public:
     void StartTest(void);
     int GetWSEFile();
     std::string CurrentFirmware;
+    void DebugShowBuffer (void);
 private:
     clsConfig CurrentConfig;
     std::vector<std::string> ExpectedLines;
