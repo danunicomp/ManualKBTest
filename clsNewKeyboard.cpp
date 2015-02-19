@@ -31,6 +31,29 @@ clsNewKeyboard::clsNewKeyboard(const clsNewKeyboard& orig) {
 clsNewKeyboard::~clsNewKeyboard() {
 }
 
+int clsNewKeyboard::ReadFirmware(std::string filename="")
+{
+    string line = "";
+    if (filename=="") filename=WSEFilename.c_str();
+    
+    ifstream inputFile(filename.c_str());
+    
+    // Check if problem file exists
+    if (! inputFile.is_open()) {
+        return 0;
+    }
+    
+    InputLines.clear();
+    while (getline(inputFile, line)) 
+    {
+        if (line[0] != '#' && line[0] != '=' && line[0] != '\0' && line[0] != '\n' && line != "") {
+            //if (line[0] == '=')
+            InputLines.push_back(line);
+        }
+    }
+    return 1;
+}
+
 int clsNewKeyboard::NewReadWSE (string filename) {
         string line;
     try {
@@ -44,7 +67,7 @@ int clsNewKeyboard::NewReadWSE (string filename) {
         int temp;
         while (getline(inputFile, line)) 
         {
-            if (line[0] != '#') {
+            if (line[0] != '#' && line[0] != '=') {
         //        cout << "LINE: " << line  << endl;
                 unicomp::uni_split(line, '\t', v); 
 
@@ -76,7 +99,7 @@ int clsNewKeyboard::ReadWSE(string filename) {
         int temp;
         while (getline(inputFile, line)) 
         {
-            if (line[0] != '#') {
+            if (line[0] != '#' && line[0] != '=') {
         //        cout << "LINE: " << line  << endl;
                 unicomp::uni_split(line, '\t', v); 
 
@@ -95,24 +118,3 @@ int clsNewKeyboard::ReadWSE(string filename) {
     }
 }
 
-int clsNewKeyboard::ReadFirmware(std::string filename="")
-{
-    string line = "";
-    if (filename=="") filename=WSEFilename.c_str();
-    
-    ifstream inputFile(filename.c_str());
-    
-    // Check if problem file exists
-    if (! inputFile.is_open()) {
-        return 0;
-    }
-    
-    InputLines.clear();
-    while (getline(inputFile, line)) 
-    {
-        if (line[0] != '#' && line[0] != '\0' && line[0] != '\n' && line != "") {
-            InputLines.push_back(line);
-        }
-    }
-    return 1;
-}

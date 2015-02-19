@@ -37,7 +37,6 @@
       <itemPath>/home/pi/ManualKBTest/clsKeyboardTest.cpp</itemPath>
       <itemPath>clsNewKeyboard.cpp</itemPath>
       <itemPath>main.cpp</itemPath>
-      <itemPath>/home/pi/ManualKBTest/readkeycodes.cpp</itemPath>
       <itemPath>sound.cpp</itemPath>
     </logicalFolder>
     <logicalFolder name="TestFiles"
@@ -125,11 +124,6 @@
       <item path="/home/pi/ManualKBTest/partnumbers.ini"
             ex="false"
             tool="3"
-            flavor2="0">
-      </item>
-      <item path="/home/pi/ManualKBTest/readkeycodes.cpp"
-            ex="false"
-            tool="1"
             flavor2="0">
       </item>
       <item path="/home/pi/ManualKBTest/showkey-modified.c"
@@ -242,11 +236,6 @@
       <item path="/home/pi/ManualKBTest/partnumbers.ini"
             ex="false"
             tool="3"
-            flavor2="0">
-      </item>
-      <item path="/home/pi/ManualKBTest/readkeycodes.cpp"
-            ex="false"
-            tool="1"
             flavor2="0">
       </item>
       <item path="/home/pi/ManualKBTest/showkey-modified.c"

@@ -7,6 +7,19 @@
 #include <sstream>
 #include <fstream>
 #include <unistd.h>
+#include <linux/kd.h>
+#include <linux/keyboard.h>
+#include <sys/ioctl.h>
+
+
+#include <signal.h>
+#include <termios.h>
+#include <fcntl.h>
+
+
+
+
+
 
 #include "unicomp.h"
 
@@ -16,7 +29,8 @@
 using namespace std;
 
 extern const std::string VERSION;
-
+struct termios orig_kb;
+int fd=-1, oldkbmode=K_RAW;
 
 const string EXE_FILE = "manualkbtest";
 const string ConfigPath = unicomp::FindInstallPath(EXE_FILE).c_str();
@@ -206,4 +220,17 @@ void OldTest(clsConfig * CurrentConfig) {
             break;                 
     }    
     }
+}
+
+void clean_up ( void ) {
+	//printf("CLEANING UP\n");
+	tcflush(STDIN_FILENO, TCIFLUSH);
+	system("stty echo");
+
+	ioctl ( fd, KDSKBMODE, oldkbmode );
+	tcsetattr ( fd, 0, &orig_kb );
+
+	close ( fd );
+        tcflush(STDIN_FILENO, TCIFLUSH);
+
 }

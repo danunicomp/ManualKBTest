@@ -40,7 +40,6 @@ OBJECTFILES= \
 	${OBJECTDIR}/_ext/356084796/clsConfig.o \
 	${OBJECTDIR}/_ext/356084796/clsKeyboardTest.o \
 	${OBJECTDIR}/_ext/356084796/getfd.o \
-	${OBJECTDIR}/_ext/356084796/readkeycodes.o \
 	${OBJECTDIR}/_ext/356084796/showkey-modified.o \
 	${OBJECTDIR}/clsNewKeyboard.o \
 	${OBJECTDIR}/main.o \
@@ -95,11 +94,6 @@ ${OBJECTDIR}/_ext/356084796/getfd.o: nbproject/Makefile-${CND_CONF}.mk /home/pi/
 	${MKDIR} -p ${OBJECTDIR}/_ext/356084796
 	${RM} "$@.d"
 	$(COMPILE.c) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/356084796/getfd.o /home/pi/ManualKBTest/getfd.c
-
-${OBJECTDIR}/_ext/356084796/readkeycodes.o: nbproject/Makefile-${CND_CONF}.mk /home/pi/ManualKBTest/readkeycodes.cpp 
-	${MKDIR} -p ${OBJECTDIR}/_ext/356084796
-	${RM} "$@.d"
-	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/356084796/readkeycodes.o /home/pi/ManualKBTest/readkeycodes.cpp
 
 ${OBJECTDIR}/_ext/356084796/showkey-modified.o: nbproject/Makefile-${CND_CONF}.mk /home/pi/ManualKBTest/showkey-modified.c 
 	${MKDIR} -p ${OBJECTDIR}/_ext/356084796

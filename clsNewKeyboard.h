@@ -41,6 +41,7 @@ public:
     std::vector<std::string> KeysDescription;
     
     std::vector<std::string> InputLines;
+    std::vector<std::string> Position;
     
     bool KeyboardSelected;
     

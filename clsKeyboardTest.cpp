@@ -39,7 +39,7 @@ clsKeyboardTest::clsKeyboardTest(void) {
 
 clsKeyboardTest::clsKeyboardTest(clsConfig* Config) {
     clsKeyboardTest::CurrentConfig = *Config;
-    cout << "Config from new test: " << clsKeyboardTest::CurrentConfig.Version << endl;
+  //  cout << "Config from new test: " << clsKeyboardTest::CurrentConfig.Version << endl;
     
 }
 

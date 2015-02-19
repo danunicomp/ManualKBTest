@@ -26,14 +26,15 @@ CreateMenu::~CreateMenu() {
 }
 
 void CreateMenu::Display(std::string CurrentFirmware = "") {
-    std::cout << "=== " << m_title << " ===" << std::endl;
-    std::cout << "\n";
+    cout << "=== " << m_title << " ===" << std::endl;
+    cout << endl;
     if (CurrentFirmware != "") {
         cout << "Current Firmware: " << CurrentFirmware << endl;
     }
     else {
-        cout << "NO File Slected" << endl;
+        cout << "NO FILE SELECTED" << endl;
     }
+    
     for (int i = 0; i < m_textEntries.size(); i++)
     {
         std::cout << m_SelectNumber.at(i) << " - " << m_textEntries.at(i) << std::endl;
