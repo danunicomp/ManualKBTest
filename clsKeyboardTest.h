@@ -15,13 +15,9 @@
 #include <unistd.h>
 
 #include "clsConfig.h"
-#include<stdio.h>
-//#include "clsConfig.h"
 
 #ifndef CLSKEYBOARDTEST_H
 #define	CLSKEYBOARDTEST_H
-
-
 
 class clsKeyboardTest  {
    
@@ -36,8 +32,7 @@ public:
     void DebugShowBuffer (void);
 private:
     clsConfig CurrentConfig;
-    std::vector<std::string> ExpectedLines;
-    
+    std::vector<std::string> ExpectedLines; 
 };
 
 #endif	/* CLSKEYBOARDTEST_H */

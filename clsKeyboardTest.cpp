@@ -114,12 +114,13 @@ int clsKeyboardTest::GetWSEFile(void)
     NewKeyboard.WSEFilename.append(NewKeyboard.FirmWareNumber);
 
     wseresult = NewKeyboard.ReadFirmware(NewKeyboard.WSEFilename);
-    clsKeyboardTest::CurrentFirmware = NewKeyboard.FirmWareNumber;
+    
     if (wseresult==1) {
+        clsKeyboardTest::CurrentFirmware = NewKeyboard.FirmWareNumber;
         NewKeyboard.InputLines.swap(clsKeyboardTest::ExpectedLines);
     }
     else {
-        cout << "Firmware Not Found" << endl;
+        cout << endl << "** PROBLEM LOADED FIRMWARE NUMBER **" << endl << endl;
     }
 }
 

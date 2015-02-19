@@ -7,17 +7,9 @@
 #include <string>
 #include <vector>
 #include <iostream>
-#include <stdlib.h>  
+#include <sstream>
+
 #include "CreateMenu.h"
-#include <sstream>
-#include <iostream>
-#include <string>
-#include <istream>
-#include <iostream>
-#include <string>
-#include <sstream>
-#include <string>
-#include <iostream>
 
 using namespace std;
 
@@ -39,6 +31,9 @@ void CreateMenu::Display(std::string CurrentFirmware = "") {
     if (CurrentFirmware != "") {
         cout << "Current Firmware: " << CurrentFirmware << endl;
     }
+    else {
+        cout << "NO File Slected" << endl;
+    }
     for (int i = 0; i < m_textEntries.size(); i++)
     {
         std::cout << m_SelectNumber.at(i) << " - " << m_textEntries.at(i) << std::endl;
@@ -58,6 +53,4 @@ int CreateMenu::GetInput()
     stream >> x;   
     cin.clear();
     return (x);
-
-
 }
