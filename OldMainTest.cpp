@@ -11,15 +11,9 @@
 #include <linux/keyboard.h>
 #include <sys/ioctl.h>
 
-
 #include <signal.h>
 #include <termios.h>
 #include <fcntl.h>
-
-
-
-
-
 
 #include "unicomp.h"
 
@@ -58,15 +52,10 @@ void OldTest(clsConfig * CurrentConfig) {
         cout << "Unicomp Manual Keyboard Test, Version " << CurrentConfig->Version << endl;
         cout << "MENU" << endl;
         cout << "1 - NEW TEST" << endl;
- //       cout << "2 - START TEST (New showkey function)" << endl;
-//        cout << "3 - SHOW KEYS (debugging)" << endl;
-//        cout << "4 - Getting Single Key" << endl;
         cout << "5 - DEBUG - SHOW BUFFER" << endl;
-//        cout << "6 - SHOW WHOLE BUFFER (New Showkey)" << endl;
-//        cout << "7 - TEST SOUND" << endl;
         cout << "6 - RECORD NEW KEYBOARD" << endl;
         cout << endl;
-        cout << "8 - Test Config" << endl;
+//        cout << "8 - Test Config" << endl;
 
         if (NewKeyboard.KeyboardSelected) {
             cout << "Current Part Number: " << NewKeyboard.WSEFilename << endl;
@@ -84,25 +73,7 @@ void OldTest(clsConfig * CurrentConfig) {
         string bufferline;
         ofstream outFile;      
         switch (menu) {
-
-//            case 2:
-//                cout << "Begin pressing keys" << endl;
-//                kbstat = TestNewKeyboard(NewKeyboard.KeysKeycode, NewKeyboard.KeysPosition);
-//                switch (kbstat){
-//                    case 0:
-//                        cout << "***************************  FAIL" << endl;
-//                        PlayFailSound();
-//                        break;
-//                    
-//                    case 1:
-//                        cout << "PASS PASS PASS PASS" << endl;
-//                        PlayPassSound();
-//                        break;
-//                }
-//                clean_up();
-//                break;  
-
-        case 8:
+       case 8:
             cout << "Exe Path: " << CurrentConfig->ExecutablePath << endl;
             cout << "Config file: " << CurrentConfig->ConfigFilename << endl;
             cout << "Version: " << CurrentConfig->Version << endl;
