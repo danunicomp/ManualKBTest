@@ -19,7 +19,7 @@
 // #include <libudev.h>
 
 
-const std::string VERSION = "0.9.15.0220-D";
+const std::string VERSION = "0.9.15.0220-F";
 const std::string CONFIG_FILE = "config.txt";
 
 using namespace std;
@@ -37,8 +37,6 @@ void PlayPassSound(void);
 void PlayFailSound(void);
 
 void OldTest(clsConfig *);
-
-
 
 void getusbinfo(void){
     struct usb_bus *bus;
@@ -80,7 +78,7 @@ int main ()
     cout << "OK" << endl;
 
     clsKeyboardTest KeyboardTest(&CurrentConfig);
-  
+
     while (1 && ! quit) {
         entries.clear();
         entries.push_back("Start Test");  selectnumber.push_back(1);
@@ -125,5 +123,3 @@ int main ()
     }
     cout << "Exiting program.." << endl;
 }
-
-
