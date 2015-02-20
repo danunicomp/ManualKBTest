@@ -6,6 +6,7 @@
 #include <sstream>
 #include <fstream>
 #include <unistd.h>
+#include <usb.h>
 
 #include "unicomp.h"
 
@@ -14,33 +15,51 @@
 #include "clsKeyboardTest.h"
 #include "CreateMenu.h"
 
-const std::string VERSION = "0.9.15.0213-F";
+// #include <usb.h>
+// #include <libudev.h>
+
+
+const std::string VERSION = "0.9.15.0220-D";
 const std::string CONFIG_FILE = "config.txt";
 
 using namespace std;
 
+/* TODO
+ * - add way to have position # in wse file
+*   ise LSUSB in linux to autoselect part number
+ *  */
 
-
-//const string ConfigFilename = "config.txt";
-
-//extern "C" int GetSingleKey (void);
-//extern "C" int GetKeyCode (void);
-//extern "C" int * GetWholeBuffer (void);
 extern "C" int * FullBuffer (void );
 
-int readcodes(vector<int>& keycodes, vector<string>& positions);
-int TestNewKeyboard(vector<int>& keycodes, vector<string>& positions);
 void clean_up ( void );
-int ReadSingleCode() ;
-int showkeys();
-int testsound(void);
 
 void PlayPassSound(void);
 void PlayFailSound(void);
 
 void OldTest(clsConfig *);
 
-// const string ConfigFilename = "/home/pi/ManualKBTest/config.txt";
+
+
+void getusbinfo(void){
+    struct usb_bus *bus;
+    struct usb_device *dev;
+    usb_init();
+    usb_find_busses();
+    usb_find_devices();
+    for (bus = usb_busses; bus; bus = bus->next)
+        for (dev = bus->devices; dev; dev = dev->next){
+        //    printf("Trying device %s/%s\n", bus->dirname, dev->filename);
+            if (dev->descriptor.idVendor == 0x17f6) {
+                cout << "Unicomp Device Found" << endl;
+                printf("\tID_VENDOR = 0x%04x\n", dev->descriptor.idVendor);
+                printf("\tID_PRODUCT = 0x%04x\n", dev->descriptor.idProduct);
+            }
+        }
+}
+
+// /////////////////////////////////////////
+// MAIN
+///////////////////////////////////////////
 
 int main ()
 {
@@ -62,45 +81,49 @@ int main ()
 
     clsKeyboardTest KeyboardTest(&CurrentConfig);
   
-    
     while (1 && ! quit) {
         entries.clear();
         entries.push_back("Start Test");  selectnumber.push_back(1);
         entries.push_back("Debug - Show Keycode Buffer");  selectnumber.push_back(2);
         entries.push_back("Change Firmware Number");  selectnumber.push_back(9);
         entries.push_back("Old Test"); selectnumber.push_back(10);
+        entries.push_back("Record New"); selectnumber.push_back(13);
         entries.push_back("Exit"); selectnumber.push_back(99);
 
         CreateMenu MainMenu("Unicomp Keyboard Test, Version " + CurrentConfig.Version  , entries, selectnumber);
-   //     cout << "FIRWARE: " << KeyboardTest.CurrentFirmware << endl;
         MainMenu.Display(KeyboardTest.CurrentFirmware);
         
         input = MainMenu.GetInput();
-//        cout << "Input: " << input << endl;
-        if (input != 0) {
-            switch (input)
-            {
-                case 1:  // Start Test
-                    KeyboardTest.StartTest();
-                    break;
-                case 2:     // debug - show buffer
-                    KeyboardTest.DebugShowBuffer();
-                    break;
-                case 9:    // change firmware number
-                    KeyboardTest.GetWSEFile();
-                    break;
-                case 10:    // old test
-                  OldTest(&CurrentConfig);
-                  break;
-                case 99:
-                    quit = true;
-                    break;
-            }
+
+        switch (input)
+        {
+            case 1:  // Start Test
+                KeyboardTest.StartTest();
+                break;
+            case 2:     // debug - show buffer
+                KeyboardTest.DebugShowBuffer();
+                break;
+            case 8:     // test for LSUSB
+ //               lsusb();
+                break;
+            case 9:    // change firmware number
+                KeyboardTest.GetWSEFile();
+                break;
+            case 10:    // old test
+              OldTest(&CurrentConfig);
+              break;
+            case 13:    // Record New
+              KeyboardTest.RecordNewKeyboard();
+              break;
+            case 20:
+                getusbinfo();
+                break;
+            case 99:    // exit
+                quit = true;
+                break;
         }
     }
-    //////////////////////////////
-    //Do Main Test
-//    OldTest();
-    ///////////////////////////////
     cout << "Exiting program.." << endl;
 }
+
+
