@@ -50,8 +50,8 @@ OBJECTFILES= \
 CFLAGS=
 
 # CC Compiler Flags
-CCFLAGS=
-CXXFLAGS=
+CCFLAGS=-lusb
+CXXFLAGS=-lusb
 
 # Fortran Compiler Flags
 FFLAGS=
@@ -94,11 +94,6 @@ ${OBJECTDIR}/_ext/356084796/getfd.o: /home/pi/ManualKBTest/getfd.c
 	${MKDIR} -p ${OBJECTDIR}/_ext/356084796
 	${RM} "$@.d"
 	$(COMPILE.c) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/356084796/getfd.o /home/pi/ManualKBTest/getfd.c
-
-${OBJECTDIR}/_ext/356084796/list.h.gch: /home/pi/ManualKBTest/list.h 
-	${MKDIR} -p ${OBJECTDIR}/_ext/356084796
-	${RM} "$@.d"
-	$(COMPILE.c) -O2 -MMD -MP -MF "$@.d" -o "$@" /home/pi/ManualKBTest/list.h
 
 ${OBJECTDIR}/_ext/356084796/showkey-modified.o: /home/pi/ManualKBTest/showkey-modified.c 
 	${MKDIR} -p ${OBJECTDIR}/_ext/356084796
