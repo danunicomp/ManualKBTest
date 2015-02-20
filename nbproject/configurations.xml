@@ -5,6 +5,7 @@
                    displayName="Header Files"
                    projectFiles="true">
       <itemPath>/home/pi/ManualKBTest/CreateMenu.h</itemPath>
+      <itemPath>/home/pi/ManualKBTest/GPIOClass.h</itemPath>
       <itemPath>/home/pi/ManualKBTest/clsConfig.h</itemPath>
       <itemPath>clsKeyboard.h</itemPath>
       <itemPath>/home/pi/ManualKBTest/clsKeyboardTest.h</itemPath>
@@ -32,6 +33,7 @@
         <itemPath>/home/pi/ManualKBTest/showkey-modified.c</itemPath>
       </logicalFolder>
       <itemPath>/home/pi/ManualKBTest/CreateMenu.cpp</itemPath>
+      <itemPath>/home/pi/ManualKBTest/GPIOClass.cpp</itemPath>
       <itemPath>/home/pi/ManualKBTest/OldMainTest.cpp</itemPath>
       <itemPath>/home/pi/ManualKBTest/clsConfig.cpp</itemPath>
       <itemPath>/home/pi/ManualKBTest/clsKeyboardTest.cpp</itemPath>
@@ -90,6 +92,13 @@
             flavor2="0">
       </item>
       <item path="/home/pi/ManualKBTest/CreateMenu.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="/home/pi/ManualKBTest/GPIOClass.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="/home/pi/ManualKBTest/GPIOClass.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="/home/pi/ManualKBTest/OldMainTest.cpp"
             ex="false"
@@ -203,6 +212,13 @@
             flavor2="4">
       </item>
       <item path="/home/pi/ManualKBTest/CreateMenu.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="/home/pi/ManualKBTest/GPIOClass.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="/home/pi/ManualKBTest/GPIOClass.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="/home/pi/ManualKBTest/OldMainTest.cpp"
             ex="false"

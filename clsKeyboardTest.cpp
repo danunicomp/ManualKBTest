@@ -31,6 +31,10 @@ using namespace std;
 
 extern void PlayPassSound(void);
 extern void PlayFailSound(void);
+//extern void PlayBeep(GPIOClass *);
+extern void FailBeep(void);
+extern void PassBeep(void);
+
 extern "C" int * FullBuffer (void);
  
 clsKeyboardTest::clsKeyboardTest(void) {
@@ -66,6 +70,7 @@ void clsKeyboardTest::StartTest() {
 
 //    if (NewKeyboard.ReadFirmware(NewKeyboard.WSEFilename)) {
     result=1;
+    system("stty -echo");
     usleep(900000);
     currentline = 0;
     cout << "Begin pressing keys" << endl; 
@@ -81,15 +86,20 @@ void clsKeyboardTest::StartTest() {
         } else {
              //cout << "Bad" << endl;
             cout << endl << "FAIL  FAIL FAIL FAIL" << endl;
+            clsKeyboardTest::FailResult();
             result=0;
-            PlayFailSound();
+          //  PlayFailSound();
+            FailBeep();
             break;
         }
         ++currentline;
     }
+    system("stty echo");
     if (result == 1) {
         cout << endl << "PASS  PASS PASSS" << endl;
-        PlayPassSound();
+        clsKeyboardTest::PassResult();
+        //PlayPassSound();
+        PassBeep();
     }
 //    }
 //    else {
@@ -125,6 +135,7 @@ int clsKeyboardTest::GetWSEFile(void)
 }
 
 void clsKeyboardTest::DebugShowBuffer (void) {
+    system("stty -echo");
     usleep(900000);
     cout << "Debug Test - Hold X to cancel" << endl;
     int * wholebuffer;
@@ -189,3 +200,32 @@ void clsKeyboardTest::RecordNewKeyboard(void) {
             }    
         }
 }
+
+void clsKeyboardTest::PassResult() {
+    cout << endl;
+    cout << "\tPPPPPPPPPP  AAAAAAAAAA  SSSSSSSSSS  SSSSSSSSSS   " << endl;
+    cout << "\tPP      PP  AA      AA  SS          SS           " << endl;
+    cout << "\tPP      PP  AA      AA  SS          SS           " << endl;
+    cout << "\tPP      PP  AA      AA  SS          SS           " << endl;
+    cout << "\tPPPPPPPPPP  AAAAAAAAAA  SSSSSSSSSS  SSSSSSSSSS   " << endl;
+    cout << "\tPP          AA      AA          SS          SS   " << endl;
+    cout << "\tPP          AA      AA          SS          SS   " << endl;
+    cout << "\tPP          AA      AA          SS          SS   " << endl;
+    cout << "\tPP          AA      AA   SSSSSSSSS  SSSSSSSSSS   " << endl;
+    return;
+}
+
+void clsKeyboardTest::FailResult() {
+    cout << endl;
+    cout << "\tFFFFFFFFFF  AAAAAAAAAA  IIIIIIIIIIII    LL           " << endl;
+    cout << "\tFF          AA      AA       II         LL           " << endl;
+    cout << "\tFF          AA      AA       II         LL           " << endl;
+    cout << "\tFF          AA      AA       II         LL           " << endl;
+    cout << "\tFFFFFFFFFF  AAAAAAAAAA       II         LL           " << endl;
+    cout << "\tFF          AA      AA       II         LL           " << endl;
+    cout << "\tFF          AA      AA       II         LL           " << endl;
+    cout << "\tFF          AA      AA       II         LL           " << endl;
+    cout << "\tFF          AA      AA  IIIIIIIIIIII    LLLLLLLLLLLL " << endl;
+    return;
+}
+    

@@ -30,10 +30,12 @@ public:
     int GetWSEFile();
     std::string CurrentFirmware;
     void DebugShowBuffer (void);
-    void RecordNewKeyboard(void);
+    void RecordNewKeyboard(void); 
 private:
     clsConfig CurrentConfig;
     std::vector<std::string> ExpectedLines; 
+    void PassResult(void);
+    void FailResult(void);
 };
 
 #endif	/* CLSKEYBOARDTEST_H */

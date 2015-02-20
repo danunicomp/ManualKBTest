@@ -36,6 +36,7 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 # Object Files
 OBJECTFILES= \
 	${OBJECTDIR}/_ext/356084796/CreateMenu.o \
+	${OBJECTDIR}/_ext/356084796/GPIOClass.o \
 	${OBJECTDIR}/_ext/356084796/OldMainTest.o \
 	${OBJECTDIR}/_ext/356084796/clsConfig.o \
 	${OBJECTDIR}/_ext/356084796/clsKeyboardTest.o \
@@ -74,6 +75,11 @@ ${OBJECTDIR}/_ext/356084796/CreateMenu.o: nbproject/Makefile-${CND_CONF}.mk /hom
 	${MKDIR} -p ${OBJECTDIR}/_ext/356084796
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/356084796/CreateMenu.o /home/pi/ManualKBTest/CreateMenu.cpp
+
+${OBJECTDIR}/_ext/356084796/GPIOClass.o: nbproject/Makefile-${CND_CONF}.mk /home/pi/ManualKBTest/GPIOClass.cpp 
+	${MKDIR} -p ${OBJECTDIR}/_ext/356084796
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/356084796/GPIOClass.o /home/pi/ManualKBTest/GPIOClass.cpp
 
 ${OBJECTDIR}/_ext/356084796/OldMainTest.o: nbproject/Makefile-${CND_CONF}.mk /home/pi/ManualKBTest/OldMainTest.cpp 
 	${MKDIR} -p ${OBJECTDIR}/_ext/356084796

@@ -8,6 +8,7 @@
 #include <vector>
 #include <iostream>
 #include <sstream>
+#include <stdlib.h>
 
 #include "CreateMenu.h"
 
@@ -17,6 +18,7 @@ CreateMenu::CreateMenu(std::string title, std::vector<std::string> textEntries, 
     this->m_title = title;
     this->m_textEntries = textEntries;
     this->m_SelectNumber = selectnumber;
+    system("stty echo");
 }
 
 //CreateMenu::CreateMenu(const CreateMenu& orig) {
@@ -26,7 +28,7 @@ CreateMenu::~CreateMenu() {
 }
 
 void CreateMenu::Display(std::string CurrentFirmware = "") {
-    cout << "=== " << m_title << " ===" << std::endl;
+    cout << endl << "=== " << m_title << " ===" << std::endl;
     cout << endl;
     if (CurrentFirmware != "") {
         cout << "Current Firmware: " << CurrentFirmware << endl;
