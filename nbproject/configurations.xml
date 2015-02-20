@@ -9,7 +9,11 @@
       <itemPath>clsKeyboard.h</itemPath>
       <itemPath>/home/pi/ManualKBTest/clsKeyboardTest.h</itemPath>
       <itemPath>clsNewKeyboard.h</itemPath>
+      <itemPath>/home/pi/ManualKBTest/list.h</itemPath>
+      <itemPath>/home/pi/ManualKBTest/lsusb.h</itemPath>
+      <itemPath>/home/pi/ManualKBTest/short_types.h</itemPath>
       <itemPath>/home/pi/ManualKBTest/unicomp.h</itemPath>
+      <itemPath>/home/pi/ManualKBTest/usb.h</itemPath>
     </logicalFolder>
     <logicalFolder name="ResourceFiles"
                    displayName="Resource Files"
@@ -36,7 +40,12 @@
       <itemPath>/home/pi/ManualKBTest/clsConfig.cpp</itemPath>
       <itemPath>/home/pi/ManualKBTest/clsKeyboardTest.cpp</itemPath>
       <itemPath>clsNewKeyboard.cpp</itemPath>
+      <itemPath>/home/pi/ManualKBTest/device.c</itemPath>
+      <itemPath>/home/pi/ManualKBTest/endpoint.c</itemPath>
+      <itemPath>/home/pi/ManualKBTest/interface.c</itemPath>
+      <itemPath>/home/pi/ManualKBTest/lsusb.c</itemPath>
       <itemPath>main.cpp</itemPath>
+      <itemPath>/home/pi/ManualKBTest/raw.c</itemPath>
       <itemPath>sound.cpp</itemPath>
     </logicalFolder>
     <logicalFolder name="TestFiles"
@@ -117,11 +126,30 @@
             tool="3"
             flavor2="0">
       </item>
+      <item path="/home/pi/ManualKBTest/device.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="/home/pi/ManualKBTest/endpoint.c" ex="false" tool="0" flavor2="0">
+      </item>
       <item path="/home/pi/ManualKBTest/getfd.c" ex="false" tool="0" flavor2="0">
       </item>
       <item path="/home/pi/ManualKBTest/getfd.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="/home/pi/ManualKBTest/interface.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="/home/pi/ManualKBTest/list.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="/home/pi/ManualKBTest/lsusb.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="/home/pi/ManualKBTest/lsusb.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="/home/pi/ManualKBTest/partnumbers.ini"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="/home/pi/ManualKBTest/raw.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="/home/pi/ManualKBTest/short_types.h"
             ex="false"
             tool="3"
             flavor2="0">
@@ -132,6 +160,8 @@
             flavor2="0">
       </item>
       <item path="/home/pi/ManualKBTest/unicomp.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="/home/pi/ManualKBTest/usb.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="104.wse" ex="false" tool="3" flavor2="0">
       </item>
@@ -233,7 +263,16 @@
       </item>
       <item path="/home/pi/ManualKBTest/getfd.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="/home/pi/ManualKBTest/list.h" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="/home/pi/ManualKBTest/lsusb.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="/home/pi/ManualKBTest/partnumbers.ini"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="/home/pi/ManualKBTest/short_types.h"
             ex="false"
             tool="3"
             flavor2="0">
@@ -244,6 +283,8 @@
             flavor2="0">
       </item>
       <item path="/home/pi/ManualKBTest/unicomp.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="/home/pi/ManualKBTest/usb.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="104.wse" ex="false" tool="3" flavor2="0">
       </item>
@@ -262,6 +303,9 @@
       <item path="config.txt" ex="false" tool="3" flavor2="0">
       </item>
       <item path="main.cpp" ex="false" tool="1" flavor2="0">
+        <ccTool>
+          <commandLine>-lusb</commandLine>
+        </ccTool>
       </item>
       <item path="nls.h" ex="false" tool="3" flavor2="0">
       </item>

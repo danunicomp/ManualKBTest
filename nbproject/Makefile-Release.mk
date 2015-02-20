@@ -95,6 +95,11 @@ ${OBJECTDIR}/_ext/356084796/getfd.o: /home/pi/ManualKBTest/getfd.c
 	${RM} "$@.d"
 	$(COMPILE.c) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/356084796/getfd.o /home/pi/ManualKBTest/getfd.c
 
+${OBJECTDIR}/_ext/356084796/list.h.gch: /home/pi/ManualKBTest/list.h 
+	${MKDIR} -p ${OBJECTDIR}/_ext/356084796
+	${RM} "$@.d"
+	$(COMPILE.c) -O2 -MMD -MP -MF "$@.d" -o "$@" /home/pi/ManualKBTest/list.h
+
 ${OBJECTDIR}/_ext/356084796/showkey-modified.o: /home/pi/ManualKBTest/showkey-modified.c 
 	${MKDIR} -p ${OBJECTDIR}/_ext/356084796
 	${RM} "$@.d"
@@ -108,7 +113,7 @@ ${OBJECTDIR}/clsNewKeyboard.o: clsNewKeyboard.cpp
 ${OBJECTDIR}/main.o: main.cpp 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.cc) -O2 -std=c++98 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/main.o main.cpp
+	$(COMPILE.cc) -O2 -std=c++98 -lusb -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/main.o main.cpp
 
 ${OBJECTDIR}/sound.o: sound.cpp 
 	${MKDIR} -p ${OBJECTDIR}
