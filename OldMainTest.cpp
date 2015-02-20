@@ -36,9 +36,6 @@ void PlayPassSound(void);
 void PlayFailSound(void);
 
 void OldTest(clsConfig * CurrentConfig) {
-    
-
-    
 
     int done =0, x = 0;
     int result;

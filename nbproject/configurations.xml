@@ -126,19 +126,11 @@
             tool="3"
             flavor2="0">
       </item>
-      <item path="/home/pi/ManualKBTest/device.c" ex="false" tool="0" flavor2="0">
-      </item>
-      <item path="/home/pi/ManualKBTest/endpoint.c" ex="false" tool="0" flavor2="0">
-      </item>
       <item path="/home/pi/ManualKBTest/getfd.c" ex="false" tool="0" flavor2="0">
       </item>
       <item path="/home/pi/ManualKBTest/getfd.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="/home/pi/ManualKBTest/interface.c" ex="false" tool="0" flavor2="0">
-      </item>
       <item path="/home/pi/ManualKBTest/list.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="/home/pi/ManualKBTest/lsusb.c" ex="false" tool="0" flavor2="0">
       </item>
       <item path="/home/pi/ManualKBTest/lsusb.h" ex="false" tool="3" flavor2="0">
       </item>
@@ -146,8 +138,6 @@
             ex="false"
             tool="3"
             flavor2="0">
-      </item>
-      <item path="/home/pi/ManualKBTest/raw.c" ex="false" tool="0" flavor2="0">
       </item>
       <item path="/home/pi/ManualKBTest/short_types.h"
             ex="false"

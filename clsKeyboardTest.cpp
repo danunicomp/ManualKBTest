@@ -149,3 +149,43 @@ void clsKeyboardTest::DebugShowBuffer (void) {
         free(wholebuffer)  ;
     }
 }
+
+void clsKeyboardTest::RecordNewKeyboard(void) {
+        char YN;  //for "are you sure" questions
+        string newfilename;
+        int currentline = 0;
+        string bufferline;
+        ofstream outFile; 
+        int exits;
+        int * wholebuffer;
+        
+        cout << "Are you sure you want to record new keyboard? (Y/N) ";
+        cin >> YN;
+
+        if (YN == 'y' || YN == 'Y') {
+            cout << endl << "Enter new Filename: ";
+            cin >> newfilename;
+            newfilename = unicomp::strtoupper(newfilename);
+            outFile.open(newfilename.c_str());
+            usleep(1000000);
+            cout << endl << "Begin pressing keys in order." << endl;
+            cout << "Hold X for a few seconds to end" << endl << endl;
+            while(1) {
+                wholebuffer = FullBuffer();
+
+                bufferline = unicomp::int_array_to_string(wholebuffer, 19);
+
+                if (wholebuffer[0] == 45) ++exits;
+                else exits =0;
+                if (exits == 3) {
+                    outFile.close();
+                    cout << endl << "will have to edit file: " << newfilename << endl;
+                    cout << "to remove last few rows that start with 45" << endl << endl;
+                    break;
+                }
+                outFile << bufferline << endl;
+                if (wholebuffer[18] == 1999) cout << "Make:  " << wholebuffer[0] << '\t' << wholebuffer[1] << endl;
+                if (wholebuffer[18] == 999) cout << "Break: " << wholebuffer[0] << '\t' << wholebuffer[1] << endl << endl;
+            }    
+        }
+}

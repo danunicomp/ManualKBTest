@@ -39,12 +39,7 @@ OBJECTFILES= \
 	${OBJECTDIR}/_ext/356084796/OldMainTest.o \
 	${OBJECTDIR}/_ext/356084796/clsConfig.o \
 	${OBJECTDIR}/_ext/356084796/clsKeyboardTest.o \
-	${OBJECTDIR}/_ext/356084796/device.o \
-	${OBJECTDIR}/_ext/356084796/endpoint.o \
 	${OBJECTDIR}/_ext/356084796/getfd.o \
-	${OBJECTDIR}/_ext/356084796/interface.o \
-	${OBJECTDIR}/_ext/356084796/lsusb.o \
-	${OBJECTDIR}/_ext/356084796/raw.o \
 	${OBJECTDIR}/_ext/356084796/showkey-modified.o \
 	${OBJECTDIR}/clsNewKeyboard.o \
 	${OBJECTDIR}/main.o \
@@ -95,35 +90,10 @@ ${OBJECTDIR}/_ext/356084796/clsKeyboardTest.o: nbproject/Makefile-${CND_CONF}.mk
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/356084796/clsKeyboardTest.o /home/pi/ManualKBTest/clsKeyboardTest.cpp
 
-${OBJECTDIR}/_ext/356084796/device.o: nbproject/Makefile-${CND_CONF}.mk /home/pi/ManualKBTest/device.c 
-	${MKDIR} -p ${OBJECTDIR}/_ext/356084796
-	${RM} "$@.d"
-	$(COMPILE.c) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/356084796/device.o /home/pi/ManualKBTest/device.c
-
-${OBJECTDIR}/_ext/356084796/endpoint.o: nbproject/Makefile-${CND_CONF}.mk /home/pi/ManualKBTest/endpoint.c 
-	${MKDIR} -p ${OBJECTDIR}/_ext/356084796
-	${RM} "$@.d"
-	$(COMPILE.c) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/356084796/endpoint.o /home/pi/ManualKBTest/endpoint.c
-
 ${OBJECTDIR}/_ext/356084796/getfd.o: nbproject/Makefile-${CND_CONF}.mk /home/pi/ManualKBTest/getfd.c 
 	${MKDIR} -p ${OBJECTDIR}/_ext/356084796
 	${RM} "$@.d"
 	$(COMPILE.c) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/356084796/getfd.o /home/pi/ManualKBTest/getfd.c
-
-${OBJECTDIR}/_ext/356084796/interface.o: nbproject/Makefile-${CND_CONF}.mk /home/pi/ManualKBTest/interface.c 
-	${MKDIR} -p ${OBJECTDIR}/_ext/356084796
-	${RM} "$@.d"
-	$(COMPILE.c) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/356084796/interface.o /home/pi/ManualKBTest/interface.c
-
-${OBJECTDIR}/_ext/356084796/lsusb.o: nbproject/Makefile-${CND_CONF}.mk /home/pi/ManualKBTest/lsusb.c 
-	${MKDIR} -p ${OBJECTDIR}/_ext/356084796
-	${RM} "$@.d"
-	$(COMPILE.c) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/356084796/lsusb.o /home/pi/ManualKBTest/lsusb.c
-
-${OBJECTDIR}/_ext/356084796/raw.o: nbproject/Makefile-${CND_CONF}.mk /home/pi/ManualKBTest/raw.c 
-	${MKDIR} -p ${OBJECTDIR}/_ext/356084796
-	${RM} "$@.d"
-	$(COMPILE.c) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/356084796/raw.o /home/pi/ManualKBTest/raw.c
 
 ${OBJECTDIR}/_ext/356084796/showkey-modified.o: nbproject/Makefile-${CND_CONF}.mk /home/pi/ManualKBTest/showkey-modified.c 
 	${MKDIR} -p ${OBJECTDIR}/_ext/356084796
