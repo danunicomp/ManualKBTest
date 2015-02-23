@@ -29,8 +29,10 @@ public:
     void StartTest(void);
     int GetWSEFile();
     std::string CurrentFirmware;
+    std::string CurrentPID;
     void DebugShowBuffer (void);
     void RecordNewKeyboard(void); 
+    int GetUSBPid(void);
 private:
     clsConfig CurrentConfig;
     std::vector<std::string> ExpectedLines; 
@@ -39,4 +41,3 @@ private:
 };
 
 #endif	/* CLSKEYBOARDTEST_H */
-

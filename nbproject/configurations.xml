@@ -63,8 +63,9 @@
       </toolsSet>
       <compileType>
         <ccTool>
+          <standard>4</standard>
           <commandlineTool>g++</commandlineTool>
-          <commandLine>-lusb</commandLine>
+          <commandLine>-lusb -O2</commandLine>
         </ccTool>
         <asmTool>
           <warningLevel>2</warningLevel>
@@ -158,6 +159,9 @@
       <item path="config.txt" ex="false" tool="3" flavor2="0">
       </item>
       <item path="main.cpp" ex="false" tool="1" flavor2="0">
+        <ccTool>
+          <commandLine>-lusb</commandLine>
+        </ccTool>
       </item>
       <item path="nls.h" ex="false" tool="3" flavor2="0">
       </item>

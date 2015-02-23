@@ -22,6 +22,8 @@
 #include <fstream>
 #include <unistd.h>
 
+#include <usb.h>
+
 #include "unicomp.h"
 #include "clsKeyboardTest.h"
 #include "clsConfig.h"
@@ -229,3 +231,21 @@ void clsKeyboardTest::FailResult() {
     return;
 }
     
+int clsKeyboardTest::GetUSBPid(void){
+    struct usb_bus *bus;
+    struct usb_device *dev;
+    usb_init();
+    usb_find_busses();
+    usb_find_devices();
+    for (bus = usb_busses; bus; bus = bus->next)
+        for (dev = bus->devices; dev; dev = dev->next){
+        //    printf("Trying device %s/%s\n", bus->dirname, dev->filename);
+            if (dev->descriptor.idVendor == 0x17f6) {
+            //    cout << "Unicomp Device Found" << endl;
+            //    printf("\tID_VENDOR = 0x%04x\n", dev->descriptor.idVendor);
+            //    printf("\tID_PRODUCT = 0x%04x\n", dev->descriptor.idProduct);
+                return dev->descriptor.idProduct;
+              
+            }
+        }
+}

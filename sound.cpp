@@ -1,4 +1,5 @@
 #include <stdlib.h>
+
 #include "GPIOClass.h"
 
 int testsound(void)
@@ -26,7 +27,6 @@ void PlayBeep(GPIOClass* GPIO) {
 }
 
 void FailBeep(void) {
-
     GPIOClass gpio21;
     gpio21.gpionum = "21";
     gpio21.export_gpio();
@@ -42,7 +42,6 @@ void FailBeep(void) {
 }
 
 void PassBeep(void) {
-
     GPIOClass gpio21;
     gpio21.gpionum = "21";
     gpio21.export_gpio();

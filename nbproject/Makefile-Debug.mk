@@ -51,8 +51,8 @@ OBJECTFILES= \
 CFLAGS=
 
 # CC Compiler Flags
-CCFLAGS=-lusb
-CXXFLAGS=-lusb
+CCFLAGS=-lusb -O2
+CXXFLAGS=-lusb -O2
 
 # Fortran Compiler Flags
 FFLAGS=
@@ -74,27 +74,27 @@ ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/manualkbtest: ${OBJECTFILES}
 ${OBJECTDIR}/_ext/356084796/CreateMenu.o: nbproject/Makefile-${CND_CONF}.mk /home/pi/ManualKBTest/CreateMenu.cpp 
 	${MKDIR} -p ${OBJECTDIR}/_ext/356084796
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/356084796/CreateMenu.o /home/pi/ManualKBTest/CreateMenu.cpp
+	$(COMPILE.cc) -g -std=c++98 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/356084796/CreateMenu.o /home/pi/ManualKBTest/CreateMenu.cpp
 
 ${OBJECTDIR}/_ext/356084796/GPIOClass.o: nbproject/Makefile-${CND_CONF}.mk /home/pi/ManualKBTest/GPIOClass.cpp 
 	${MKDIR} -p ${OBJECTDIR}/_ext/356084796
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/356084796/GPIOClass.o /home/pi/ManualKBTest/GPIOClass.cpp
+	$(COMPILE.cc) -g -std=c++98 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/356084796/GPIOClass.o /home/pi/ManualKBTest/GPIOClass.cpp
 
 ${OBJECTDIR}/_ext/356084796/OldMainTest.o: nbproject/Makefile-${CND_CONF}.mk /home/pi/ManualKBTest/OldMainTest.cpp 
 	${MKDIR} -p ${OBJECTDIR}/_ext/356084796
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/356084796/OldMainTest.o /home/pi/ManualKBTest/OldMainTest.cpp
+	$(COMPILE.cc) -g -std=c++98 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/356084796/OldMainTest.o /home/pi/ManualKBTest/OldMainTest.cpp
 
 ${OBJECTDIR}/_ext/356084796/clsConfig.o: nbproject/Makefile-${CND_CONF}.mk /home/pi/ManualKBTest/clsConfig.cpp 
 	${MKDIR} -p ${OBJECTDIR}/_ext/356084796
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/356084796/clsConfig.o /home/pi/ManualKBTest/clsConfig.cpp
+	$(COMPILE.cc) -g -std=c++98 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/356084796/clsConfig.o /home/pi/ManualKBTest/clsConfig.cpp
 
 ${OBJECTDIR}/_ext/356084796/clsKeyboardTest.o: nbproject/Makefile-${CND_CONF}.mk /home/pi/ManualKBTest/clsKeyboardTest.cpp 
 	${MKDIR} -p ${OBJECTDIR}/_ext/356084796
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/356084796/clsKeyboardTest.o /home/pi/ManualKBTest/clsKeyboardTest.cpp
+	$(COMPILE.cc) -g -std=c++98 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/356084796/clsKeyboardTest.o /home/pi/ManualKBTest/clsKeyboardTest.cpp
 
 ${OBJECTDIR}/_ext/356084796/getfd.o: nbproject/Makefile-${CND_CONF}.mk /home/pi/ManualKBTest/getfd.c 
 	${MKDIR} -p ${OBJECTDIR}/_ext/356084796
@@ -109,17 +109,17 @@ ${OBJECTDIR}/_ext/356084796/showkey-modified.o: nbproject/Makefile-${CND_CONF}.m
 ${OBJECTDIR}/clsNewKeyboard.o: nbproject/Makefile-${CND_CONF}.mk clsNewKeyboard.cpp 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/clsNewKeyboard.o clsNewKeyboard.cpp
+	$(COMPILE.cc) -g -std=c++98 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/clsNewKeyboard.o clsNewKeyboard.cpp
 
 ${OBJECTDIR}/main.o: nbproject/Makefile-${CND_CONF}.mk main.cpp 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/main.o main.cpp
+	$(COMPILE.cc) -g -std=c++98 -lusb -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/main.o main.cpp
 
 ${OBJECTDIR}/sound.o: nbproject/Makefile-${CND_CONF}.mk sound.cpp 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/sound.o sound.cpp
+	$(COMPILE.cc) -g -std=c++98 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/sound.o sound.cpp
 
 # Subprojects
 .build-subprojects:

@@ -12,14 +12,24 @@
 #include <sstream>
 #include <locale>
 
+#include <iostream>
+#include <fstream>
+#include <string>
+#include <sstream>
+#include <iomanip>   
+
 #ifndef UNICOMP_H
 #define	UNICOMP_H
 
 #define SSTR( x ) dynamic_cast< std::ostringstream & >( \
         ( std::ostringstream() << std::dec << x ) ).str()
 
+
+
+
 namespace unicomp
 {
+ // template< typename T >
   ///Strip leading and tailiing
   inline void strip(const std::string& in, std::string& out);
   ///Split a delimanated string
@@ -29,9 +39,19 @@ namespace unicomp
   /// Convert a string to upper case.
   inline std::string strtoupper(std::string& str);
   inline std::string int_array_to_string(int int_array[], int size_of_array);
-  //so forth...
+  inline  std::string int_to_hex( int );
 }
 
+
+//template< typename T >
+std::string unicomp::int_to_hex( int i )
+{
+  std::stringstream stream;
+  stream << "0x" 
+         << std::setfill ('0') << std::setw(4) 
+         << std::hex << i;
+  return stream.str();
+}
 
 /// strip a string, remove leading and trailing spaces
 void unicomp::strip(const std::string& in, std::string& out)
