@@ -31,7 +31,8 @@ public:
     std::string CurrentFirmware;
     std::string CurrentPID;
     void DebugShowBuffer (void);
-    void RecordNewKeyboard(void); 
+    void RecordNewKeyboard(void);
+    void RecordNewKeyboard(std::string PID);
     int GetUSBPid(void);
     std::string GetUSBPidFilename(void);
     std::string USBPID;
