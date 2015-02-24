@@ -6,7 +6,7 @@
 #include <sstream>
 #include <fstream>
 #include <unistd.h>
-#include <usb.h>
+// #include <usb.h>
 
 #include "unicomp.h"
 
@@ -18,8 +18,7 @@
 // #include <usb.h>
 // #include <libudev.h>
 
-
-const std::string VERSION = "0.9.15.0220-F";
+const std::string VERSION = "0.9.15.0224-A";
 const std::string CONFIG_FILE = "config.txt";
 
 using namespace std;
@@ -33,27 +32,7 @@ extern "C" int * FullBuffer (void );
 
 void clean_up ( void );
 
-void PlayPassSound(void);
-void PlayFailSound(void);
-
 void OldTest(clsConfig *);
-
-void getusbinfo(void){
-    struct usb_bus *bus;
-    struct usb_device *dev;
-    usb_init();
-    usb_find_busses();
-    usb_find_devices();
-    for (bus = usb_busses; bus; bus = bus->next)
-        for (dev = bus->devices; dev; dev = dev->next){
-        //    printf("Trying device %s/%s\n", bus->dirname, dev->filename);
-            if (dev->descriptor.idVendor == 0x17f6) {
-                cout << "Unicomp Device Found" << endl;
-                printf("\tID_VENDOR = 0x%04x\n", dev->descriptor.idVendor);
-                printf("\tID_PRODUCT = 0x%04x\n", dev->descriptor.idProduct);
-            }
-        }
-}
 
 // /////////////////////////////////////////
 // MAIN
@@ -96,6 +75,7 @@ int main ()
         switch (input)
         {
             case 1:  // Start Test
+                cout << "Current PID: " << unicomp::int_to_hex(KeyboardTest.GetUSBPid()) << endl;
                 KeyboardTest.StartTest();
                 break;
             case 2:     // debug - show buffer
@@ -113,13 +93,10 @@ int main ()
             case 13:    // Record New
               KeyboardTest.RecordNewKeyboard();
               break;
-            case 20:
-                getusbinfo();
-                break;
             case 99:    // exit
                 quit = true;
                 break;
         }
     }
-    cout << "Exiting program.." << endl;
+    cout << "Exiting program..." << endl;
 }
