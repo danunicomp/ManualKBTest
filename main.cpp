@@ -18,7 +18,7 @@
 // #include <usb.h>
 // #include <libudev.h>
 
-const std::string VERSION = "0.9.15.0224-D";
+const std::string VERSION = "0.9.15.0224-F";
 const std::string CONFIG_FILE = "config.txt";
 
 using namespace std;
@@ -42,6 +42,7 @@ int main ()
 {
     bool quit = false;
     int input;
+    bool autodetect = true;
     vector<string> entries;
     vector<int> selectnumber;
     
@@ -59,9 +60,7 @@ int main ()
     clsKeyboardTest KeyboardTest(&CurrentConfig);
 
     while (1 && ! quit) {
-        KeyboardTest.USBPID = KeyboardTest.GetUSBPidFilename();
-        cout << "Current PID: " << KeyboardTest.USBPID << endl;
-        KeyboardTest.LoadWseWithUSBPID(KeyboardTest.USBPID);
+
         entries.clear();
         entries.push_back("Start Test");  selectnumber.push_back(1);
         entries.push_back("Debug - Show Keycode Buffer");  selectnumber.push_back(2);
@@ -72,14 +71,25 @@ int main ()
 
         CreateMenu MainMenu("Unicomp Keyboard Test, Version " + CurrentConfig.Version  , entries, selectnumber);
         // MainMenu.Display(KeyboardTest.CurrentFirmware);
-        MainMenu.Display(KeyboardTest.USBPID);
-        
+        if (autodetect) {
+            KeyboardTest.USBPID = KeyboardTest.GetUSBPidFilename();
+            cout << "Current PID: " << KeyboardTest.USBPID << endl;
+            KeyboardTest.LoadWseWithUSBPID(KeyboardTest.USBPID);
+            MainMenu.Display(KeyboardTest.USBPID);
+        }
+        else
+        {
+            KeyboardTest.USBPID = KeyboardTest.GetUSBPidFilename();
+            cout << "Current PID: " << KeyboardTest.USBPID << endl;
+            KeyboardTest.LoadWseWithUSBPID("");
+            MainMenu.Display(KeyboardTest.USBPID);
+            
+        }
         input = MainMenu.GetInput();
 
         switch (input)
         {
             case 1:  // Start Test
-                
                 KeyboardTest.StartTest();
                 break;
             case 2:     // debug - show buffer
@@ -89,14 +99,18 @@ int main ()
  //               lsusb();
                 break;
             case 9:    // change firmware number
-                KeyboardTest.GetWSEFile();
+                autodetect = false;
+                //KeyboardTest.GetWSEFile();
                 break;
             case 10:    // old test
               OldTest(&CurrentConfig);
               break;
-            case 13:    // Record New
+            case 14:    // Record New
               KeyboardTest.RecordNewKeyboard();
               break;
+            case 13:    // record new with automatic filename
+                KeyboardTest.RecordNewKeyboard(KeyboardTest.USBPID);
+                break;
             case 99:    // exit
                 quit = true;
                 break;
