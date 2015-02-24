@@ -58,11 +58,11 @@ clsKeyboardTest::~clsKeyboardTest() {
 void clsKeyboardTest::StartTest() {
    
     clsNewKeyboard NewKeyboard;
-     int result, exits;
-     int currentline = 0;
-     int * wholebuffer;
+    int result, exits;
+    int currentline = 0;
+    int * wholebuffer;
      
-     string bufferline;
+    string bufferline;
 //    cout << endl << "Enter Firmware number: " ;
 //    cin >> NewKeyboard.FirmWareNumber;
 //    NewKeyboard.FirmWareNumber = unicomp::strtoupper(NewKeyboard.FirmWareNumber);
@@ -125,6 +125,37 @@ int clsKeyboardTest::GetWSEFile(void)
     NewKeyboard.WSEFilename = clsKeyboardTest::CurrentConfig.ExecutablePath;
     NewKeyboard.WSEFilename.append(NewKeyboard.FirmWareNumber);
 
+    wseresult = NewKeyboard.ReadFirmware(NewKeyboard.WSEFilename);
+    
+    if (wseresult==1) {
+        clsKeyboardTest::CurrentFirmware = NewKeyboard.FirmWareNumber;
+        NewKeyboard.InputLines.swap(clsKeyboardTest::ExpectedLines);
+    }
+    else {
+        cout << endl << "** PROBLEM LOADED FIRMWARE NUMBER **" << endl << endl;
+    }
+}
+
+int clsKeyboardTest::LoadWseWithUSBPID(std::string PID="") {
+        int wseresult=0;
+
+        if (PID == "" ) {
+            PID = clsKeyboardTest::USBPID;
+        }
+        
+    clsNewKeyboard NewKeyboard;
+    
+    // cout << endl << "Enter Firmware number: " ;
+    NewKeyboard.FirmWareNumber = PID;
+     //cin.clear();
+     //cin.get();
+    
+    NewKeyboard.FirmWareNumber = unicomp::strtoupper(NewKeyboard.FirmWareNumber);
+    NewKeyboard.WSEFilename = clsKeyboardTest::CurrentConfig.ExecutablePath;
+    NewKeyboard.WSEFilename.append(NewKeyboard.FirmWareNumber);
+
+    cout << "Filename " << NewKeyboard.WSEFilename;
+    
     wseresult = NewKeyboard.ReadFirmware(NewKeyboard.WSEFilename);
     
     if (wseresult==1) {
@@ -245,6 +276,25 @@ int clsKeyboardTest::GetUSBPid(void){
             //    printf("\tID_VENDOR = 0x%04x\n", dev->descriptor.idVendor);
             //    printf("\tID_PRODUCT = 0x%04x\n", dev->descriptor.idProduct);
                 return dev->descriptor.idProduct;
+              
+            }
+        }
+}
+
+string clsKeyboardTest::GetUSBPidFilename(void) {
+    struct usb_bus *bus;
+    struct usb_device *dev;
+    usb_init();
+    usb_find_busses();
+    usb_find_devices();
+    for (bus = usb_busses; bus; bus = bus->next)
+        for (dev = bus->devices; dev; dev = dev->next){
+        //    printf("Trying device %s/%s\n", bus->dirname, dev->filename);
+            if (dev->descriptor.idVendor == 0x17f6) {
+            //    cout << "Unicomp Device Found" << endl;
+            //    printf("\tID_VENDOR = 0x%04x\n", dev->descriptor.idVendor);
+            //    printf("\tID_PRODUCT = 0x%04x\n", dev->descriptor.idProduct);
+                return unicomp::int_to_hex(dev->descriptor.idProduct);
               
             }
         }

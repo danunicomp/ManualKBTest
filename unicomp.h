@@ -12,9 +12,7 @@
 #include <sstream>
 #include <locale>
 
-#include <iostream>
 #include <fstream>
-#include <string>
 #include <sstream>
 #include <iomanip>   
 
@@ -37,6 +35,7 @@ namespace unicomp
   inline std::string strtoupper(std::string& str);
   inline std::string int_array_to_string(int int_array[], int size_of_array);
   inline  std::string int_to_hex( int );
+  inline bool YesNo(std::string question);
 }
 
 
@@ -132,5 +131,19 @@ std::string unicomp::int_array_to_string(int int_array[], int size_of_array) {
   return oss.str();
 
 }
+
+bool unicomp::YesNo(std::string question) {
+    char YN;
+    std::cout << question << " (Y/N) ";
+    std::cin >> YN;
+    if (YN == 'y' || YN == 'Y') {
+       return true; 
+    }
+    else
+    {
+        return false;
+    }
+}
+
 #endif	/* UNICOMP_H */
 

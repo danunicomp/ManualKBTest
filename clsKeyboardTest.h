@@ -33,6 +33,9 @@ public:
     void DebugShowBuffer (void);
     void RecordNewKeyboard(void); 
     int GetUSBPid(void);
+    std::string GetUSBPidFilename(void);
+    std::string USBPID;
+    int LoadWseWithUSBPID(std::string);
 private:
     clsConfig CurrentConfig;
     std::vector<std::string> ExpectedLines; 

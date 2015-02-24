@@ -9,8 +9,9 @@
         <group>
             <file>rfs://pi@192.168.0.200:22/home/pi/ManualKBTest/clsKeyboardTest.cpp</file>
             <file>rfs://pi@192.168.0.200:22/home/pi/ManualKBTest/main.cpp</file>
-            <file>rfs://pi@192.168.0.200:22/home/pi/ManualKBTest/sound.cpp</file>
             <file>rfs://pi@192.168.0.200:22/home/pi/ManualKBTest/clsKeyboardTest.h</file>
+            <file>rfs://pi@192.168.0.200:22/home/pi/ManualKBTest/sound.cpp</file>
+            <file>rfs://pi@192.168.0.200:22/home/pi/ManualKBTest/CreateMenu.cpp</file>
         </group>
     </open-files>
 </project-private>
