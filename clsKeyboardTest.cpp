@@ -57,7 +57,6 @@ clsKeyboardTest::~clsKeyboardTest() {
 
 void clsKeyboardTest::StartTest() {
    
-    clsNewKeyboard NewKeyboard;
     int result, exits;
     int currentline = 0;
     int * wholebuffer;
@@ -76,6 +75,7 @@ void clsKeyboardTest::StartTest() {
     usleep(900000);
     currentline = 0;
     cout << "Begin pressing keys" << endl; 
+    cout << "Firmware: " << clsKeyboardTest::GetUSBPidFilename() << endl;
     while (currentline < clsKeyboardTest::ExpectedLines.size()) {
         wholebuffer = FullBuffer();
         bufferline = unicomp::int_array_to_string(wholebuffer, 19);
