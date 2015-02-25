@@ -1,0 +1,10 @@
+#
+#
+#	CONFIG FILE. COMMENTS START WITH #
+#	PROPERTY NAME AND VALUE NEED TO BE SEPARATED BY A COMMA
+#
+#
+#configdir,/usr/root/
+pnlist,partnumbers.ini
+WSE,11mt845,WSE-11MT845.csv
+WSE,11A1234,WSE-RANDOM.csv

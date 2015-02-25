@@ -60,7 +60,11 @@ void clsKeyboardTest::StartTest() {
     int result, exits;
     int currentline = 0;
     int * wholebuffer;
-     
+    
+    if (clsKeyboardTest::ExpectedLines.size() == 0) {
+        return;
+    }
+        
     string bufferline;
 //    cout << endl << "Enter Firmware number: " ;
 //    cin >> NewKeyboard.FirmWareNumber;
@@ -82,12 +86,12 @@ void clsKeyboardTest::StartTest() {
         if (wholebuffer[0] == 45) ++exits;
         else exits =0;
         if (exits == 3) break;
-        cout << "Read: " << bufferline << "\t" << "Expected: " << clsKeyboardTest::ExpectedLines[currentline] << endl;
+        cout << "Read: " << bufferline << "  \t  " << "Expected: " << clsKeyboardTest::ExpectedLines[currentline] << endl;
         if (bufferline == clsKeyboardTest::ExpectedLines[currentline] ) {
-            cout << "Key #" << currentline << " Good" << endl;
+        //    cout << "Key #" << currentline << " Good" << endl;
         } else {
              //cout << "Bad" << endl;
-            cout << endl << "FAIL  FAIL FAIL FAIL" << endl;
+            cout << endl << "FAIL FAIL FAIL FAIL" << endl;
             clsKeyboardTest::FailResult();
             result=0;
           //  PlayFailSound();
@@ -98,7 +102,7 @@ void clsKeyboardTest::StartTest() {
     }
     system("stty echo");
     if (result == 1) {
-        cout << endl << "PASS  PASS PASSS" << endl;
+        cout << endl << "PASS PASS PASS PASS" << endl;
         clsKeyboardTest::PassResult();
         //PlayPassSound();
         PassBeep();
@@ -121,7 +125,7 @@ int clsKeyboardTest::GetWSEFile(void)
      cin.clear();
      cin.get();
     
-    NewKeyboard.FirmWareNumber = unicomp::strtoupper(NewKeyboard.FirmWareNumber);
+    //NewKeyboard.FirmWareNumber = unicomp::strtoupper(NewKeyboard.FirmWareNumber);
     NewKeyboard.WSEFilename = clsKeyboardTest::CurrentConfig.ExecutablePath;
     NewKeyboard.WSEFilename.append(NewKeyboard.FirmWareNumber);
 
@@ -153,7 +157,7 @@ int clsKeyboardTest::LoadWseWithUSBPID(std::string PID="") {
      //cin.clear();
      //cin.get();
     
-    NewKeyboard.FirmWareNumber = unicomp::strtoupper(NewKeyboard.FirmWareNumber);
+    //NewKeyboard.FirmWareNumber = unicomp::strtoupper(NewKeyboard.FirmWareNumber);
     NewKeyboard.WSEFilename = clsKeyboardTest::CurrentConfig.ExecutablePath;
     NewKeyboard.WSEFilename.append(NewKeyboard.FirmWareNumber);
 
@@ -213,7 +217,7 @@ void clsKeyboardTest::RecordNewKeyboard(string PID) {
         if (YN == 'y' || YN == 'Y') {
             //cout << endl << "Enter new Filename: ";
             //cin >> newfilename;
-            newfilename = unicomp::strtoupper(PID);
+            newfilename = PID;
             outFile.open(newfilename.c_str());
             usleep(1000000);
             cout << endl << "Begin pressing keys in order." << endl;
@@ -254,7 +258,7 @@ void clsKeyboardTest::RecordNewKeyboard(void) {
         if (YN == 'y' || YN == 'Y') {
             cout << endl << "Enter new Filename: ";
             cin >> newfilename;
-            newfilename = unicomp::strtoupper(newfilename);
+            //newfilename = unicomp::strtoupper(newfilename);
             outFile.open(newfilename.c_str());
             usleep(1000000);
             cout << endl << "Begin pressing keys in order." << endl;

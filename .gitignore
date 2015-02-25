@@ -2,7 +2,7 @@
 *.o
 *.o.d
 build
-dist
+dist/Debug
 
 # Windows image file caches
 Thumbs.db
