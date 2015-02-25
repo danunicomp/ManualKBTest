@@ -214,6 +214,17 @@ void clsKeyboardTest::RecordNewKeyboard(string PID) {
         cout << "Are you sure you want to record new keyboard? (Y/N) ";
         cin >> YN;
 
+        // see if exists
+        if (ifstream(PID.c_str()))
+        {
+             std::cout << "File already exists" << std::endl;
+             if (! unicomp::YesNo("FILE " + PID + " EXISTS " +  "Over Write")) {
+                return;    
+             }
+        }
+        
+        ///
+        
         if (YN == 'y' || YN == 'Y') {
             //cout << endl << "Enter new Filename: ";
             //cin >> newfilename;
