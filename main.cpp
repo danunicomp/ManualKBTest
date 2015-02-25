@@ -18,7 +18,7 @@
 // #include <usb.h>
 // #include <libudev.h>
 
-const std::string VERSION = "0.9.15.0224-F";
+const std::string VERSION = "0.9.15.0225-A";
 const std::string CONFIG_FILE = "config.txt";
 
 using namespace std;
@@ -49,13 +49,13 @@ int main ()
     clsConfig CurrentConfig;
     CurrentConfig.Version = VERSION;
     // Read Config File
-    cout << "Loading Config...";
-    CurrentConfig.ExecutablePath = unicomp::FindInstallPath(CONFIG_FILE).c_str();
-    if ( ! CurrentConfig.ReadConfig(CONFIG_FILE)) {
-        cout << "ERROR OPENING CONFIG FILE: " << CONFIG_FILE << endl;
-        exit(0);
-    }
-    cout << "OK" << endl;
+//    cout << "Loading Config...";
+//    CurrentConfig.ExecutablePath = unicomp::FindInstallPath(CONFIG_FILE).c_str();
+//    if ( ! CurrentConfig.ReadConfig(CONFIG_FILE)) {
+//        cout << "ERROR OPENING CONFIG FILE: " << CONFIG_FILE << endl;
+//        exit(0);
+//    }
+//    cout << "OK" << endl;
 
     clsKeyboardTest KeyboardTest(&CurrentConfig);
 
