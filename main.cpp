@@ -18,7 +18,7 @@
 // #include <usb.h>
 // #include <libudev.h>
 
-const std::string VERSION = "0.9.15.0226-A";
+const std::string VERSION = "0.9.15.0226-B";
 const std::string CONFIG_FILE = "config.txt";
 
 using namespace std;
@@ -106,10 +106,10 @@ int main ()
               OldTest(&CurrentConfig);
               break;
             case 14:    // Record New
-              KeyboardTest.RecordNewKeyboard();
+              KeyboardTest.RecordNewKeyboard(KeyboardTest.USBPID, 1);
               break;
             case 13:    // record new with automatic filename
-                KeyboardTest.RecordNewKeyboard(KeyboardTest.USBPID);
+                KeyboardTest.RecordNewKeyboard(KeyboardTest.USBPID,1);
                 break;
             case 99:    // exit
                 quit = true;
