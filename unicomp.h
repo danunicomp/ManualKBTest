@@ -135,12 +135,24 @@ std::string unicomp::int_array_to_string(int int_array[], int size_of_array) {
 bool unicomp::YesNo(std::string question) {
     char YN;
     std::cout << question << " (Y/N) ";
-    std::cin >> YN;
+    // std::cin >> YN;
+    
+    std::string s;
+    std::cin.fail();
+    int x=0;
+    std::cin.clear();
+    getline(std::cin, s);
+    std::stringstream stream(s);
+    stream >> YN;   
+    std::cin.clear();
+    
     if (YN == 'y' || YN == 'Y') {
+        std::cin.clear();
        return true; 
     }
     else
     {
+        std::cin.clear();
         return false;
     }
 }

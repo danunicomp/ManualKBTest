@@ -15,6 +15,8 @@
 using namespace std;
 
 CreateMenu::CreateMenu(std::string title, std::vector<std::string> textEntries, std::vector<int> selectnumber) {
+    cin.fail();
+    cin.clear();
     this->m_title = title;
     this->m_textEntries = textEntries;
     this->m_SelectNumber = selectnumber;
@@ -56,4 +58,18 @@ int CreateMenu::GetInput()
     stream >> x;   
     cin.clear();
     return (x);
+}
+
+bool CreateMenu::YesNo(std::string question) {
+    char YN;
+    std::cout << question << " (Y/N) ";
+    if (YN == 'y' || YN == 'Y') {
+        std::cin.clear();
+       return true; 
+    }
+    else
+    {
+        std::cin.clear();
+        return false;
+    }
 }

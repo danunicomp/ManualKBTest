@@ -209,23 +209,19 @@ void clsKeyboardTest::RecordNewKeyboard(string PID) {
         int exits;
         int * wholebuffer;
         
-        cout << "Product ID Found " << PID << endl; 
+        cout << "Product ID Detected " << PID << endl; 
                
-        cout << "Are you sure you want to record new keyboard? (Y/N) ";
-        cin >> YN;
-
-        // see if exists
-        if (ifstream(PID.c_str()))
-        {
-             std::cout << "File already exists" << std::endl;
-             if (! unicomp::YesNo("FILE " + PID + " EXISTS " +  "Over Write")) {
-                return;    
-             }
-        }
+//        cout << "Are you sure you want to record new keyboard? (Y/N) ";
+//        cin >> YN;
         
-        ///
-        
-        if (YN == 'y' || YN == 'Y') {
+        if (unicomp::YesNo("Are you sure you want to record new keyboard? ")) {           
+            // see if exists
+            if (ifstream(PID.c_str())) {
+                 std::cout << "File already exists" << std::endl;
+                 if (! unicomp::YesNo("FILE " + PID + " EXISTS " +  "Over Write")) {
+                    return;    
+                 }
+            }
             //cout << endl << "Enter new Filename: ";
             //cin >> newfilename;
             newfilename = PID;
