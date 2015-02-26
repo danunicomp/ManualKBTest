@@ -33,6 +33,7 @@ public:
     void DebugShowBuffer (void);
     void RecordNewKeyboard(void);
     void RecordNewKeyboard(std::string PID);
+    void RecordNewKeyboard(std::string, int);
     int GetUSBPid(void);
     std::string GetUSBPidFilename(void);
     std::string USBPID;
@@ -42,6 +43,7 @@ private:
     std::vector<std::string> ExpectedLines; 
     void PassResult(void);
     void FailResult(void);
+    int GetNumberOfLinesInTextFile (std::string filename);
 };
 
 #endif	/* CLSKEYBOARDTEST_H */

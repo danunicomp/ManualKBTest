@@ -202,7 +202,6 @@ void clsKeyboardTest::DebugShowBuffer (void) {
 }
 
 void clsKeyboardTest::RecordNewKeyboard(string PID) {
-        char YN;  //for "are you sure" questions
         string newfilename;
         string bufferline;
         ofstream outFile; 
@@ -249,6 +248,67 @@ void clsKeyboardTest::RecordNewKeyboard(string PID) {
         }
 }
 
+// Record Keyboard test mode. Will remove last two lines in recorded wse
+void clsKeyboardTest::RecordNewKeyboard(string PID, int MODE) {
+        string newfilename;
+        string bufferline;
+        ofstream outFile; 
+        int exits;
+        int * wholebuffer;
+        
+        cout << "Product ID Detected " << PID << endl; 
+               
+//        cout << "Are you sure you want to record new keyboard? (Y/N) ";
+//        cin >> YN;
+        
+        if (unicomp::YesNo("Are you sure you want to record new keyboard? ")) {           
+            // see if exists
+            if (ifstream(PID.c_str())) {
+                 std::cout << "File already exists" << std::endl;
+                 if (! unicomp::YesNo("FILE " + PID + " EXISTS " +  "Over Write")) {
+                    return;    
+                 }
+            }
+            //cout << endl << "Enter new Filename: ";
+            //cin >> newfilename;
+            newfilename = PID;
+            outFile.open("newwse");
+            usleep(1000000);
+            cout << endl << "Begin pressing keys in order." << endl;
+            cout << "Hold X for a few seconds to end" << endl << endl;
+            while(1) {
+                wholebuffer = FullBuffer();
+
+                bufferline = unicomp::int_array_to_string(wholebuffer, 19);
+
+                if (wholebuffer[0] == 45) ++exits;
+                else exits =0;
+                if (exits == 3) {
+                    outFile.close();
+                    system("stty -echo");
+                    cout << endl << "will have to edit file: " << newfilename << endl;
+                    cout << "to remove last few rows that start with 45" << endl << endl;
+                    break;
+                }
+                outFile << bufferline << endl;
+                if (wholebuffer[18] == 1999) cout << "Make:  " << wholebuffer[0] << '\t' << wholebuffer[1] << endl;
+                if (wholebuffer[18] == 999) cout << "Break: " << wholebuffer[0] << '\t' << wholebuffer[1] << endl << endl;
+            }   
+            int numlines, x;
+            char str[255];
+            numlines = clsKeyboardTest::GetNumberOfLinesInTextFile("newwse")-2;
+            ifstream in("newwse");
+            outFile.open(newfilename.c_str());
+            for (x=1;  x<numlines; ++x)  {
+                in.getline(str, 255);  // delim defaults to '\n'
+                if(in) {
+                   // cout << str << endl;
+                    outFile << str << endl;
+                }
+            }
+            outFile.close();
+        }
+}
 
 void clsKeyboardTest::RecordNewKeyboard(void) {
         char YN;  //for "are you sure" questions
@@ -356,4 +416,20 @@ string clsKeyboardTest::GetUSBPidFilename(void) {
               
             }
         }
+}
+
+int clsKeyboardTest::GetNumberOfLinesInTextFile (string filename) {
+    string line;
+    int number_of_lines = 0;
+    ifstream myfile(filename.c_str());
+
+    if(myfile.is_open()){
+        while(!myfile.eof()){
+            getline(myfile,line);
+ //           cout<< line << endl;
+            number_of_lines++;
+        }
+        myfile.close();
+    }
+    return(number_of_lines);
 }
