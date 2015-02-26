@@ -73,3 +73,16 @@ bool CreateMenu::YesNo(std::string question) {
         return false;
     }
 }
+
+void CreateMenu::ShowHeader(void){
+    cout << endl;
+    cout << "UU       UU  NN       NN  IIIIIIIIII  CCCCCCCCC  OOOOOOOOOOO  MM          MM  PPPPPPPPPP" << endl;
+    cout << "UU       UU  NN N     NN      II      CC         OO       OO  MMM        MMM  PP      PP" << endl;
+    cout << "UU       UU  NN  N    NN      II      CC         OO       OO  MM  M     M MM  PP      PP" << endl;
+    cout << "UU       UU  NN   N   NN      II      CC         OO       OO  MM   M   M  MM  PPPPPPPPPP" << endl;
+    cout << "UU       UU  NN    N  NN      II      CC         OO       OO  MM    M M   MM  PP" << endl;
+    cout << "UU       UU  NN     N NN      II      CC         OO       OO  MM     M    MM  PP" << endl;
+    cout << "UU       UU  NN      NNN      II      CC         OO       OO  MM          MM  PP" << endl;
+    cout << "UUUUUUUUUUU  NN       NN  IIIIIIIIII  CCCCCCCCC  OOOOOOOOOOO  MM          MM  PP" << endl;
+    cout << endl;
+}

@@ -161,7 +161,7 @@ int clsKeyboardTest::LoadWseWithUSBPID(std::string PID="") {
     NewKeyboard.WSEFilename = clsKeyboardTest::CurrentConfig.ExecutablePath;
     NewKeyboard.WSEFilename.append(NewKeyboard.FirmWareNumber);
 
-    cout << "Filename " << NewKeyboard.WSEFilename;
+    //cout << "Filename " << NewKeyboard.WSEFilename;
     
     wseresult = NewKeyboard.ReadFirmware(NewKeyboard.WSEFilename);
     
@@ -255,11 +255,9 @@ void clsKeyboardTest::RecordNewKeyboard(string PID, int MODE) {
         ofstream outFile; 
         int exits;
         int * wholebuffer;
+        bool stop = false;
         
         cout << "Product ID Detected " << PID << endl; 
-               
-//        cout << "Are you sure you want to record new keyboard? (Y/N) ";
-//        cin >> YN;
         
         if (unicomp::YesNo("Are you sure you want to record new keyboard? ")) {           
             // see if exists
@@ -269,14 +267,12 @@ void clsKeyboardTest::RecordNewKeyboard(string PID, int MODE) {
                     return;    
                  }
             }
-            //cout << endl << "Enter new Filename: ";
-            //cin >> newfilename;
             newfilename = PID;
             outFile.open("newwse");
             usleep(1000000);
             cout << endl << "Begin pressing keys in order." << endl;
             cout << "Hold X for a few seconds to end" << endl << endl;
-            while(1) {
+            while(1 && ! stop) {
                 wholebuffer = FullBuffer();
 
                 bufferline = unicomp::int_array_to_string(wholebuffer, 19);
@@ -286,8 +282,13 @@ void clsKeyboardTest::RecordNewKeyboard(string PID, int MODE) {
                 if (exits == 3) {
                     outFile.close();
                     system("stty -echo");
-                    cout << endl << "will have to edit file: " << newfilename << endl;
-                    cout << "to remove last few rows that start with 45" << endl << endl;
+                    cout << endl << "Done: " << newfilename << endl;
+                    //cout << "to remove last few rows that start with 45" << endl << endl;
+                    usleep(100000);
+                    cin.clear();
+                    //cin.get();
+                    usleep(100000);
+                    stop = true;
                     break;
                 }
                 outFile << bufferline << endl;
@@ -313,7 +314,6 @@ void clsKeyboardTest::RecordNewKeyboard(string PID, int MODE) {
 void clsKeyboardTest::RecordNewKeyboard(void) {
         char YN;  //for "are you sure" questions
         string newfilename;
-        int currentline = 0;
         string bufferline;
         ofstream outFile; 
         int exits;
@@ -433,3 +433,4 @@ int clsKeyboardTest::GetNumberOfLinesInTextFile (string filename) {
     }
     return(number_of_lines);
 }
+

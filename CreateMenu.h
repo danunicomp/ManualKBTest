@@ -18,6 +18,7 @@ public:
     virtual ~CreateMenu();
     int GetInput();
     bool YesNo(std::string);
+    void ShowHeader(void);
 private:
     std::string m_title;
     std::vector<std::string> m_textEntries;
