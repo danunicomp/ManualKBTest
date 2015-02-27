@@ -18,7 +18,7 @@
 // #include <usb.h>
 // #include <libudev.h>
 
-const std::string VERSION = "1.0.0227-B";
+const std::string VERSION = "1.0.0227-C";
 const std::string CONFIG_FILE = "config.txt";
 
 using namespace std;
