@@ -175,29 +175,38 @@ int clsKeyboardTest::LoadWseWithUSBPID(std::string PID="") {
 }
 
 void clsKeyboardTest::DebugShowBuffer (void) {
-    system("stty -echo");
-    usleep(900000);
-    cout << "Debug Test - Hold X to cancel" << endl;
-    int * wholebuffer;
-    int exits, x;
-    while(1 && exits < 3) {
-        wholebuffer = FullBuffer();
-        if (wholebuffer[0] == 45) ++exits;
-        else exits = 0;
-        for (x=0; x<6; ++x)  {
-            cout << wholebuffer[x] << "\t";
+    string PID;
+    PID = clsKeyboardTest::GetUSBPid();
+    if (PID == "0x0000") {
+        cout << "NO UNICOMP KEYBOARD DETECTED" << endl;
+        return;
+    }
+    else {
+        system("stty -echo");
+        cout << "Detected Keyboard Product ID: " << PID << endl;
+        usleep(900000);
+        cout << "Debug Test - Hold X to cancel" << endl;
+        int * wholebuffer;
+        int exits, x;
+        while(1 && exits < 3) {
+            wholebuffer = FullBuffer();
+            if (wholebuffer[0] == 45) ++exits;
+            else exits = 0;
+            for (x=0; x<6; ++x)  {
+                cout << wholebuffer[x] << "\t";
+            }
+            if (wholebuffer[18] == 1999) {
+                cout << "MAKE" << endl;
+            }
+            else if (wholebuffer[18] == 999) {
+                cout << "BREAK" << endl << endl;
+            }
+            else {
+                cout << endl;
+            }
+
+            free(wholebuffer)  ;
         }
-        if (wholebuffer[18] == 1999) {
-            cout << "MAKE" << endl;
-        }
-        else if (wholebuffer[18] == 999) {
-            cout << "BREAK" << endl << endl;
-        }
-        else {
-            cout << endl;
-        }
-        
-        free(wholebuffer)  ;
     }
 }
 
@@ -380,7 +389,7 @@ void clsKeyboardTest::FailResult() {
     return;
 }
     
-int clsKeyboardTest::GetUSBPid(void){
+string clsKeyboardTest::GetUSBPid(void){
     struct usb_bus *bus;
     struct usb_device *dev;
     usb_init();
@@ -393,10 +402,11 @@ int clsKeyboardTest::GetUSBPid(void){
             //    cout << "Unicomp Device Found" << endl;
             //    printf("\tID_VENDOR = 0x%04x\n", dev->descriptor.idVendor);
             //    printf("\tID_PRODUCT = 0x%04x\n", dev->descriptor.idProduct);
-                return dev->descriptor.idProduct;
+                return unicomp::int_to_hex(dev->descriptor.idProduct);
               
             }
         }
+    return ("0x0000");
 }
 
 string clsKeyboardTest::GetUSBPidFilename(void) {

@@ -34,7 +34,7 @@ public:
     void RecordNewKeyboard(void);
     void RecordNewKeyboard(std::string PID);
     void RecordNewKeyboard(std::string, int);
-    int GetUSBPid(void);
+    std::string GetUSBPid(void);
     std::string GetUSBPidFilename(void);
     std::string USBPID;
     int LoadWseWithUSBPID(std::string);
