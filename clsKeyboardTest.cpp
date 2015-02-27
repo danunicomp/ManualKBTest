@@ -405,17 +405,22 @@ string clsKeyboardTest::GetUSBPidFilename(void) {
     usb_init();
     usb_find_busses();
     usb_find_devices();
+     
     for (bus = usb_busses; bus; bus = bus->next)
+         
         for (dev = bus->devices; dev; dev = dev->next){
+            
         //    printf("Trying device %s/%s\n", bus->dirname, dev->filename);
             if (dev->descriptor.idVendor == 0x17f6) {
+                
             //    cout << "Unicomp Device Found" << endl;
             //    printf("\tID_VENDOR = 0x%04x\n", dev->descriptor.idVendor);
             //    printf("\tID_PRODUCT = 0x%04x\n", dev->descriptor.idProduct);
-                return unicomp::int_to_hex(dev->descriptor.idProduct);
-              
+                  return unicomp::int_to_hex(dev->descriptor.idProduct);
             }
         }
+    cout << "NO UNICOMP USB DEVICES FOUND" << endl;
+    return ("0x0000");
 }
 
 int clsKeyboardTest::GetNumberOfLinesInTextFile (string filename) {
