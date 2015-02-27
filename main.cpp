@@ -18,7 +18,7 @@
 // #include <usb.h>
 // #include <libudev.h>
 
-const std::string VERSION = "1.0.0227-A";
+const std::string VERSION = "1.0.0227-B";
 const std::string CONFIG_FILE = "config.txt";
 
 using namespace std;
@@ -72,12 +72,14 @@ int main ()
         entries.push_back("Exit"); selectnumber.push_back(99);
 
         CreateMenu MainMenu("Unicomp Keyboard Test, Version " + CurrentConfig.Version  , entries, selectnumber);
-       
+     
         // MainMenu.Display(KeyboardTest.CurrentFirmware);
         if (autodetect) {
-            KeyboardTest.USBPID = KeyboardTest.GetUSBPidFilename();
-            cout << "Current Detected PID: " << KeyboardTest.USBPID << endl;
-            KeyboardTest.LoadWseWithUSBPID(KeyboardTest.USBPID);
+             KeyboardTest.USBPID = KeyboardTest.GetUSBPidFilename();
+            if (KeyboardTest.USBPID != "0x0000") {
+                cout << "Current Detected PID: " << KeyboardTest.USBPID << endl;
+                KeyboardTest.LoadWseWithUSBPID(KeyboardTest.USBPID);
+            }
             MainMenu.Display(KeyboardTest.USBPID);
         }
         else
@@ -86,7 +88,6 @@ int main ()
             cout << "Current PID: " << KeyboardTest.USBPID << endl;
             KeyboardTest.LoadWseWithUSBPID("");
             MainMenu.Display(KeyboardTest.USBPID);
-            
         }
         input = MainMenu.GetInput();
 
