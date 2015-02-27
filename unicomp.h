@@ -36,6 +36,7 @@ namespace unicomp
   inline std::string int_array_to_string(int int_array[], int size_of_array);
   inline  std::string int_to_hex( int );
   inline bool YesNo(std::string question);
+  inline void ShowHeader(void);
 }
 
 
@@ -156,6 +157,21 @@ bool unicomp::YesNo(std::string question) {
         return false;
     }
 }
+
+
+void unicomp::ShowHeader(void){
+    std::cout << std::endl;
+    std::cout << "UU       UU  NN       NN  IIIIIIIIII  CCCCCCCCC  OOOOOOOOOOO  MM          MM  PPPPPPPPPP" << std::endl;
+    std::cout << "UU       UU  NN N     NN      II      CC         OO       OO  MMM        MMM  PP      PP" << std::endl;
+    std::cout << "UU       UU  NN  N    NN      II      CC         OO       OO  MM  M     M MM  PP      PP" << std::endl;
+    std::cout << "UU       UU  NN   N   NN      II      CC         OO       OO  MM   M   M  MM  PPPPPPPPPP" << std::endl;
+    std::cout << "UU       UU  NN    N  NN      II      CC         OO       OO  MM    M M   MM  PP" << std::endl;
+    std::cout << "UU       UU  NN     N NN      II      CC         OO       OO  MM     M    MM  PP" << std::endl;
+    std::cout << "UU       UU  NN      NNN      II      CC         OO       OO  MM          MM  PP" << std::endl;
+    std::cout << "UUUUUUUUUUU  NN       NN  IIIIIIIIII  CCCCCCCCC  OOOOOOOOOOO  MM          MM  PP" << std::endl;
+    std::cout << std::endl;
+}
+
 
 #endif	/* UNICOMP_H */
 
