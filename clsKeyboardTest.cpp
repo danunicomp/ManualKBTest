@@ -388,7 +388,46 @@ void clsKeyboardTest::FailResult() {
     cout << endl;
     return;
 }
-    
+
+void clsKeyboardTest::ShowAllUSBInfo(void) {
+        struct usb_bus *bus;
+    struct usb_device *dev;
+    usb_init();
+    usb_find_busses();
+    usb_find_devices();
+      for (bus = usb_busses; bus; bus = bus->next)
+        for (dev = bus->devices; dev; dev = dev->next){
+            printf("Trying device %s/%s\n", bus->dirname, dev->filename);
+          //  if (dev->descriptor.idVendor == 0x17f6) {
+                                  
+//               cout << "Unicomp Device Found" << endl;
+//               cout << "dev->descriptor.bDescriptorType - " << dev->descriptor.bDescriptorType << endl;
+//                cout << "dev->descriptor.bDeviceClass: " << dev->descriptor.bDeviceClass << endl;
+//                cout << "dev->descriptor.bDeviceProtocol: " << dev->descriptor.bDeviceProtocol << endl;
+//                cout << "dev->descriptor.bDeviceSubClas" << dev->descriptor.bDeviceSubClass << endl;
+//                cout << "dev->descriptor.bLength" << dev->descriptor.bLength << endl;
+//                cout << "ev->descriptor.bcdDevice: " << unicomp::int_to_hex(dev->descriptor.bcdDevice) << endl;
+//                cout << "dev->descriptor.bcdUSB: " << unicomp::int_to_hex(dev->descriptor.bcdUSB) << endl;
+//                cout << "dev->descriptor.iManufacturer: " << dev->descriptor.iManufacturer << endl;
+//                cout << "dev->descriptor.iSerialNumber: " << dev->descriptor.iSerialNumber << endl;
+//                cout << "dev->descriptor.idVendor: " << unicomp::int_to_hex(dev->descriptor.idVendor) << endl;
+//                cout << "dev->descriptor.idProduct: " << unicomp::int_to_hex(dev->descriptor.idProduct) << endl;
+//                cout << "dev->filename: " << dev->filename << endl;
+//                cout << "dev->devnum: " << dev->devnum << endl;
+//                cout << endl;
+//           cout << "Unicomp Device Found" << endl;
+                printf("\tID_VENDOR = 0x%04x\n", dev->descriptor.idVendor);
+                printf("\tID_PRODUCT = 0x%04x\n", dev->descriptor.idProduct);
+                cout << endl;
+//                cout << "PID: " << unicomp::int_to_hex(dev->descriptor.idProduct) << endl;
+              
+         //   }
+            
+        }
+    cout << "Nothing Found" << endl;
+}
+
+
 string clsKeyboardTest::GetUSBPid(void){
     struct usb_bus *bus;
     struct usb_device *dev;
@@ -398,7 +437,7 @@ string clsKeyboardTest::GetUSBPid(void){
     for (bus = usb_busses; bus; bus = bus->next)
         for (dev = bus->devices; dev; dev = dev->next){
         //    printf("Trying device %s/%s\n", bus->dirname, dev->filename);
-            if (dev->descriptor.idVendor == 0x17f6) {
+            if (dev->descriptor.idVendor == 0x17f6 || dev->descriptor.idVendor == 0xf617) {
                                   
                cout << "Unicomp Device Found" << endl;
                 cout << "dev->descriptor.bDescriptorType - " << dev->descriptor.bDescriptorType << endl;
@@ -421,6 +460,7 @@ string clsKeyboardTest::GetUSBPid(void){
                 return unicomp::int_to_hex(dev->descriptor.idProduct);
               
             }
+            
         }
     return ("0x0000");
 }
@@ -437,7 +477,7 @@ string clsKeyboardTest::GetUSBPidFilename(void) {
         for (dev = bus->devices; dev; dev = dev->next){
             
         //    printf("Trying device %s/%s\n", bus->dirname, dev->filename);
-            if (dev->descriptor.idVendor == 0x17f6) {
+            if (dev->descriptor.idVendor == 0x17f6 || dev->descriptor.idVendor == 0xf617) {
 
             //    printf("\tID_VENDOR = 0x%04x\n", dev->descriptor.idVendor);
             //    printf("\tID_PRODUCT = 0x%04x\n", dev->descriptor.idProduct);

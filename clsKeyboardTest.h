@@ -38,6 +38,7 @@ public:
     std::string GetUSBPidFilename(void);
     std::string USBPID;
     int LoadWseWithUSBPID(std::string);
+    void ShowAllUSBInfo(void);
 private:
     clsConfig CurrentConfig;
     std::vector<std::string> ExpectedLines; 
