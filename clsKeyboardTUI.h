@@ -12,10 +12,10 @@ class clsKeyboardTUI {
 public:
     clsKeyboardTUI();
     clsKeyboardTUI(const clsKeyboardTUI& orig);
-    void Test(void);
     virtual ~clsKeyboardTUI();
+    void Test(void);
 private:
-
+void rectangle(int y1, int x1, int y2, int x2);
 };
 
 #endif	/* CLSKEYBOARDTUI_H */

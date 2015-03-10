@@ -193,7 +193,7 @@
         <ccTool>
           <developmentMode>5</developmentMode>
           <standard>4</standard>
-          <commandLine>-lusb</commandLine>
+          <commandLine>-lusb -lncurses -lcdk -lpanel</commandLine>
         </ccTool>
         <fortranCompilerTool>
           <developmentMode>5</developmentMode>
