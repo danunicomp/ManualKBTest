@@ -20,7 +20,7 @@
 // #include <usb.h>
 // #include <libudev.h>
 
-const std::string VERSION = "1.0.0310-B";
+const std::string VERSION = "1.0.0310-C";
 const std::string CONFIG_FILE = "config.txt";
 
 using namespace std;
@@ -60,7 +60,8 @@ int main ()
 //    cout << "OK" << endl;
 
     clsKeyboardTest KeyboardTest(&CurrentConfig);
-
+    clsKeyboardTUI TUI;
+    
     unicomp::ShowHeader();
     
     while (1 && ! quit) {
@@ -70,6 +71,7 @@ int main ()
         entries.push_back("Change Firmware Number");  selectnumber.push_back(9);
         entries.push_back("Old Test"); selectnumber.push_back(10);
         entries.push_back("Record New"); selectnumber.push_back(13);
+        entries.push_back("Debug - Show TUI"); selectnumber.push_back(90);
         entries.push_back("Debug - Show Keycode Buffer");  selectnumber.push_back(97);
         entries.push_back("Debug - Show all USB Devices"); selectnumber.push_back(98);
         entries.push_back("Exit"); selectnumber.push_back(99);
@@ -123,6 +125,9 @@ int main ()
                 break;
             case 99:    // exit
                 quit = true;
+                break;
+            case 90:
+                TUI.Test();
                 break;
         }
     }
