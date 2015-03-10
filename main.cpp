@@ -6,6 +6,7 @@
 #include <sstream>
 #include <fstream>
 #include <unistd.h>
+#include <ncurses.h>
 // #include <usb.h>
 
 #include "unicomp.h"
@@ -14,11 +15,12 @@
 #include "clsConfig.h"
 #include "clsKeyboardTest.h"
 #include "CreateMenu.h"
+#include "clsKeyboardTUI.h"
 
 // #include <usb.h>
 // #include <libudev.h>
 
-const std::string VERSION = "1.0.0310-A";
+const std::string VERSION = "1.0.0310-B";
 const std::string CONFIG_FILE = "config.txt";
 
 using namespace std;
