@@ -18,7 +18,7 @@
 // #include <usb.h>
 // #include <libudev.h>
 
-const std::string VERSION = "1.0.0227-E";
+const std::string VERSION = "1.0.0310-A";
 const std::string CONFIG_FILE = "config.txt";
 
 using namespace std;
@@ -65,10 +65,11 @@ int main ()
 
         entries.clear();
         entries.push_back("Start Test");  selectnumber.push_back(1);
-        entries.push_back("Debug - Show Keycode Buffer");  selectnumber.push_back(2);
         entries.push_back("Change Firmware Number");  selectnumber.push_back(9);
         entries.push_back("Old Test"); selectnumber.push_back(10);
         entries.push_back("Record New"); selectnumber.push_back(13);
+        entries.push_back("Debug - Show Keycode Buffer");  selectnumber.push_back(97);
+        entries.push_back("Debug - Show all USB Devices"); selectnumber.push_back(98);
         entries.push_back("Exit"); selectnumber.push_back(99);
 
         CreateMenu MainMenu("Unicomp Keyboard Test, Version " + CurrentConfig.Version  , entries, selectnumber);
@@ -96,7 +97,7 @@ int main ()
             case 1:  // Start Test
                 KeyboardTest.StartTest();
                 break;
-            case 2:     // debug - show buffer
+            case 97:     // debug - show buffer
                 KeyboardTest.DebugShowBuffer();
                 break;
             case 8:     // test for LSUSB
@@ -114,6 +115,9 @@ int main ()
               break;
             case 13:    // record new with automatic filename
                 KeyboardTest.RecordNewKeyboard(KeyboardTest.USBPID,1);
+                break;
+            case 98:  //DEBUG Show all USB devices
+                KeyboardTest.ShowAllUSBInfo();
                 break;
             case 99:    // exit
                 quit = true;
