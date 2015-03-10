@@ -8,6 +8,7 @@
       <itemPath>/home/pi/ManualKBTest/GPIOClass.h</itemPath>
       <itemPath>/home/pi/ManualKBTest/clsConfig.h</itemPath>
       <itemPath>clsKeyboard.h</itemPath>
+      <itemPath>/home/pi/ManualKBTest/clsKeyboardTUI.h</itemPath>
       <itemPath>/home/pi/ManualKBTest/clsKeyboardTest.h</itemPath>
       <itemPath>clsNewKeyboard.h</itemPath>
       <itemPath>/home/pi/ManualKBTest/unicomp.h</itemPath>
@@ -36,6 +37,7 @@
       <itemPath>/home/pi/ManualKBTest/GPIOClass.cpp</itemPath>
       <itemPath>/home/pi/ManualKBTest/OldMainTest.cpp</itemPath>
       <itemPath>/home/pi/ManualKBTest/clsConfig.cpp</itemPath>
+      <itemPath>/home/pi/ManualKBTest/clsKeyboardTUI.cpp</itemPath>
       <itemPath>/home/pi/ManualKBTest/clsKeyboardTest.cpp</itemPath>
       <itemPath>clsNewKeyboard.cpp</itemPath>
       <itemPath>main.cpp</itemPath>
@@ -117,6 +119,16 @@
             flavor2="0">
       </item>
       <item path="/home/pi/ManualKBTest/clsConfig.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="/home/pi/ManualKBTest/clsKeyboardTUI.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="/home/pi/ManualKBTest/clsKeyboardTUI.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
       </item>
       <item path="/home/pi/ManualKBTest/clsKeyboardTest.cpp"
             ex="false"
@@ -240,6 +252,16 @@
             flavor2="0">
       </item>
       <item path="/home/pi/ManualKBTest/clsConfig.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="/home/pi/ManualKBTest/clsKeyboardTUI.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="/home/pi/ManualKBTest/clsKeyboardTUI.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
       </item>
       <item path="/home/pi/ManualKBTest/clsKeyboardTest.cpp"
             ex="false"
