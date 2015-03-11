@@ -20,7 +20,7 @@
 // #include <usb.h>
 // #include <libudev.h>
 
-const std::string VERSION = "1.0.0311-A";
+const std::string VERSION = "1.0.0311-C";
 const std::string CONFIG_FILE = "config.txt";
 
 using namespace std;
@@ -71,6 +71,7 @@ int main ()
         entries.push_back("Change Firmware Number");  selectnumber.push_back(9);
         entries.push_back("Old Test"); selectnumber.push_back(10);
         entries.push_back("Record New"); selectnumber.push_back(13);
+        entries.push_back("Debug - Show TUI GRID"); selectnumber.push_back(80);
         entries.push_back("Debug - Show TUI"); selectnumber.push_back(90);
         entries.push_back("Debug - Show Keycode Buffer");  selectnumber.push_back(97);
         entries.push_back("Debug - Show all USB Devices"); selectnumber.push_back(98);
@@ -128,6 +129,9 @@ int main ()
                 break;
             case 90:
                 TUI.Test();
+                break;
+            case 80:
+                TUI.TestGrid();
                 break;
         }
     }
