@@ -14,6 +14,7 @@ public:
     clsKeyboardTUI(const clsKeyboardTUI& orig);
     virtual ~clsKeyboardTUI();
     void Test(void);
+    void TestGrid (void);
 private:
 void rectangle(int y1, int x1, int y2, int x2);
 };

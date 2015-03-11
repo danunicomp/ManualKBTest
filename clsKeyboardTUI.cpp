@@ -23,6 +23,41 @@ clsKeyboardTUI::clsKeyboardTUI(const clsKeyboardTUI& orig) {
 
 clsKeyboardTUI::~clsKeyboardTUI() {
 }
+void clsKeyboardTUI::TestGrid (void) {
+       int i, keys = 5;
+    WINDOW *my_wins[keys];
+    PANEL *my_panels[keys];  
+    
+    int posx=0, posy=0;
+    
+    initscr();                                                                
+    cbreak();                                                                 
+    noecho();     
+    
+    posx = 0; my_wins[0] = newwin(4, 5, posy, posx);     // escape  
+    posx +=6; my_wins[1] = newwin(4, 5, posy, posx);     // F1
+    posx +=6; my_wins[2] = newwin(4, 5, posy, posx);     // F2
+    posx +=6; my_wins[3] = newwin(4, 5, posy, posx);     // F3
+    posx +=6; my_wins[4] = newwin(4, 5, posy, posx);     // F4
+    
+            for(i = 0; i < keys; ++i)   {                                                 
+            box(my_wins[i], 0, 0);                                                                                                                  
+        /* Attach a panel to each window */     /* Order is bottom up */          
+            my_panels[i] = new_panel(my_wins[i]);   /* Push 0, order: stdscr-0 */     
+        }
+        /* Update the stacking order. 2nd panel will be on top */                 
+        update_panels();                                                          
+                                                                                  
+        /* Show it on the screen */                                               
+        doupdate();                                                               
+                                                                                  
+        getch();                                                                  
+        endwin();  
+    return ;
+    
+    
+}
+
 
 void clsKeyboardTUI::Test(void) {
     int keys = 104;
