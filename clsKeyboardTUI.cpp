@@ -14,6 +14,7 @@
 #include <cdk.h>
 #include <panel.h> 
 #include <vector>
+#include <iostream>
 
 clsKeyboardTUI::clsKeyboardTUI() {
 }
@@ -24,7 +25,7 @@ clsKeyboardTUI::clsKeyboardTUI(const clsKeyboardTUI& orig) {
 clsKeyboardTUI::~clsKeyboardTUI() {
 }
 void clsKeyboardTUI::TestGrid (void) {
-       int i, keys = 5;
+       int i=0, keys = 30;
     WINDOW *my_wins[keys];
     PANEL *my_panels[keys];  
     
@@ -34,19 +35,161 @@ void clsKeyboardTUI::TestGrid (void) {
     cbreak();                                                                 
     noecho();     
     
-    posx = 0; my_wins[0] = newwin(4, 5, posy, posx);     // escape  
-    posx +=6; my_wins[1] = newwin(4, 5, posy, posx);     // F1
-    posx +=6; my_wins[2] = newwin(4, 5, posy, posx);     // F2
-    posx +=6; my_wins[3] = newwin(4, 5, posy, posx);     // F3
-    posx +=6; my_wins[4] = newwin(4, 5, posy, posx);     // F4
+    // starting posistion
+    int Xstart = 10 , Ystart = 10;
+    i=0;
+    posx = Xstart; posy = Ystart;
+    // FUNCTION ROW
     
-            for(i = 0; i < keys; ++i)   {                                                 
-            box(my_wins[i], 0, 0);                                                                                                                  
+    my_wins[i] = newwin(3, 4, posy, posx);     // escape  
+    posx +=4;
+    ++i;posx +=4; my_wins[i] = newwin(3, 4, posy, posx);     // F1
+    ++i;posx +=4; my_wins[i] = newwin(3, 4, posy, posx);     // F2
+    ++i;posx +=4; my_wins[i] = newwin(3, 4, posy, posx);     // F3
+    ++i;posx +=4; my_wins[i] = newwin(3, 4, posy, posx);     // F4
+    posx +=4;
+    ++i;posx +=4; my_wins[i] = newwin(3, 4, posy, posx);     // F5
+    ++i;posx +=4; my_wins[i] = newwin(3, 4, posy, posx);     // F6
+    ++i;posx +=4; my_wins[i] = newwin(3, 4, posy, posx);     // F7
+    ++i;posx +=4; my_wins[i] = newwin(3, 4, posy, posx);     // F8    
+    posx +=4;
+    ++i;posx +=4; my_wins[i] = newwin(3, 4, posy, posx);     // F9
+    ++i;posx +=4; my_wins[i] = newwin(3, 4, posy, posx);     // F10
+    ++i;posx +=4; my_wins[i] = newwin(3, 4, posy, posx);     // F11
+    ++i;posx +=4; my_wins[i] = newwin(3, 4, posy, posx);     // F12
+    posx +=4;
+    ++i;posx +=4; my_wins[i] = newwin(3, 4, posy, posx);     // Fprint screen
+    ++i;posx +=4; my_wins[i] = newwin(3, 4, posy, posx);     // scroll lock
+    ++i;posx +=4; my_wins[i] = newwin(3, 4, posy, posx);     // pause
+
+    // Number Row
+    posy +=4;
+    ++i;posx = Xstart; my_wins[i] = newwin(3, 4, posy, posx);     // tilde
+    ++i;posx +=4; my_wins[i] = newwin(3, 4, posy, posx);     // 1
+    ++i;posx +=4; my_wins[i] = newwin(3, 4, posy, posx);     // 2
+    ++i;posx +=4; my_wins[i] = newwin(3, 4, posy, posx);     // 3
+    ++i;posx +=4; my_wins[i] = newwin(3, 4, posy, posx);     // 4
+    ++i;posx +=4; my_wins[i] = newwin(3, 4, posy, posx);     // 5
+    ++i;posx +=4; my_wins[i] = newwin(3, 4, posy, posx);     // 6
+    ++i;posx +=4; my_wins[i] = newwin(3, 4, posy, posx);     // 7
+    ++i;posx +=4; my_wins[i] = newwin(3, 4, posy, posx);     // 8
+    ++i;posx +=4; my_wins[i] = newwin(3, 4, posy, posx);     // 9
+    ++i;posx +=4; my_wins[i] = newwin(3, 4, posy, posx);     // 0
+    ++i;posx +=4; my_wins[i] = newwin(3, 4, posy, posx);     // dash
+    ++i;posx +=4; my_wins[i] = newwin(3, 4, posy, posx);     // equal
+    ++i;posx +=4; my_wins[i] = newwin(3, 12, posy, posx);     // backpace
+    
+    posx +=4; posx+=4; posx+=4;
+    
+    ++i;posx +=4; my_wins[i] = newwin(3, 4, posy, posx);     // insert
+    ++i;posx +=4; my_wins[i] = newwin(3, 4, posy, posx);     // home    
+    ++i;posx +=4; my_wins[i] = newwin(3, 4, posy, posx);     // page up
+    
+    posy +=3; posx -=12; 
+    ++i;posx +=4; my_wins[i] = newwin(3, 4, posy, posx);     // delete
+    ++i;posx +=4; my_wins[i] = newwin(3, 4, posy, posx);     // end  
+    ++i;posx +=4; my_wins[i] = newwin(3, 4, posy, posx);     // page down    
+    
+    // NUMBER PAD
+    posy = Ystart + 4; posx = Xstart + 80;
+    ++i;posx +=4; my_wins[i] = newwin(3, 4, posy, posx);     // numlock    
+    ++i;posx +=4; my_wins[i] = newwin(3, 4, posy, posx);     // numpad slash
+    ++i;posx +=4; my_wins[i] = newwin(3, 4, posy, posx);     // numpad asterick
+    ++i;posx +=4; my_wins[i] = newwin(3, 4, posy, posx);     // numpad minus
+    posx = Xstart + 80;
+    posy +=3;
+    ++i;posx +=4; my_wins[i] = newwin(3, 4, posy, posx);     // numpad 7    
+    ++i;posx +=4; my_wins[i] = newwin(3, 4, posy, posx);     // numpad 8
+    ++i;posx +=4; my_wins[i] = newwin(3, 4, posy, posx);     // numpad 9
+    ++i;posx +=4; my_wins[i] = newwin(6, 4, posy, posx);     // numpad plus
+    posy +=3; posx = Xstart + 80;
+    ++i;posx +=4; my_wins[i] = newwin(3, 4, posy, posx);     // numpad 4
+    ++i;posx +=4; my_wins[i] = newwin(3, 4, posy, posx);     // numpad 5
+    ++i;posx +=4; my_wins[i] = newwin(3, 4, posy, posx);     // numpad 6
+    posy +=3; posx = Xstart + 80;
+    ++i;posx +=4; my_wins[i] = newwin(3, 4, posy, posx);     // numpad 1
+    ++i;posx +=4; my_wins[i] = newwin(3, 4, posy, posx);     // numpad 2
+    ++i;posx +=4; my_wins[i] = newwin(3, 4, posy, posx);     // numpad 3
+    ++i;posx +=4; my_wins[i] = newwin(6, 4, posy, posx);     // numpad enter
+    posy +=3; posx = Xstart + 80;
+    ++i;posx +=4; my_wins[i] = newwin(3, 8, posy, posx);     // numpad 0
+    ++i;posx +=8; my_wins[i] = newwin(3, 4, posy, posx);     // numpad del
+    
+    // qwerty row
+    posx = Xstart; posy = Ystart+7;
+    ++i; my_wins[i] = newwin(3, 8, posy, posx);             // tab    
+    ++i;posx +=8; my_wins[i] = newwin(3, 4, posy, posx);     // Q
+    ++i;posx +=4; my_wins[i] = newwin(3, 4, posy, posx);     // W
+    ++i;posx +=4; my_wins[i] = newwin(3, 4, posy, posx);     // E
+    ++i;posx +=4; my_wins[i] = newwin(3, 4, posy, posx);     // R
+    ++i;posx +=4; my_wins[i] = newwin(3, 4, posy, posx);     // T
+    ++i;posx +=4; my_wins[i] = newwin(3, 4, posy, posx);     // Y
+    ++i;posx +=4; my_wins[i] = newwin(3, 4, posy, posx);     // U
+    ++i;posx +=4; my_wins[i] = newwin(3, 4, posy, posx);     // I
+    ++i;posx +=4; my_wins[i] = newwin(3, 4, posy, posx);     // O
+    ++i;posx +=4; my_wins[i] = newwin(3, 4, posy, posx);     // P
+    ++i;posx +=4; my_wins[i] = newwin(3, 4, posy, posx);     // []
+    ++i;posx +=4; my_wins[i] = newwin(3, 4, posy, posx);     // ]
+    ++i;posx +=4; my_wins[i] = newwin(3, 8, posy, posx);     // back slash
+    // home row
+    posx = Xstart; posy = Ystart+10;
+    ++i;my_wins[i] = newwin(3, 8, posy, posx);              // cap lock
+    ++i;posx +=8; my_wins[i] = newwin(3, 4, posy, posx);    // A
+    ++i;posx +=4; my_wins[i] = newwin(3, 4, posy, posx);    // S
+    ++i;posx +=4; my_wins[i] = newwin(3, 4, posy, posx);     // D
+    ++i;posx +=4; my_wins[i] = newwin(3, 4, posy, posx);     // F
+    ++i;posx +=4; my_wins[i] = newwin(3, 4, posy, posx);     // G
+    ++i;posx +=4; my_wins[i] = newwin(3, 4, posy, posx);     // H
+    ++i;posx +=4; my_wins[i] = newwin(3, 4, posy, posx);     // J
+    ++i;posx +=4; my_wins[i] = newwin(3, 4, posy, posx);     // K
+    ++i;posx +=4; my_wins[i] = newwin(3, 4, posy, posx);     // L
+    ++i;posx +=4; my_wins[i] = newwin(3, 4, posy, posx);     // semicolon
+    ++i;posx +=4; my_wins[i] = newwin(3, 4, posy, posx);     // comma
+    ++i;posx +=4; my_wins[i] = newwin(3, 12, posy, posx);     // enter
+    //zx row
+    posx = Xstart; posy = Ystart+13;
+    ++i;my_wins[i] = newwin(3, 12, posy, posx);              // left shift
+    ++i;posx +=12; my_wins[i] = newwin(3, 4, posy, posx);    // Z
+    ++i;posx +=4; my_wins[i] = newwin(3, 4, posy, posx);    // X
+    ++i;posx +=4; my_wins[i] = newwin(3, 4, posy, posx);    // C
+    ++i;posx +=4; my_wins[i] = newwin(3, 4, posy, posx);    // V
+    ++i;posx +=4; my_wins[i] = newwin(3, 4, posy, posx);    // B
+    ++i;posx +=4; my_wins[i] = newwin(3, 4, posy, posx);    // N
+    ++i;posx +=4; my_wins[i] = newwin(3, 4, posy, posx);    // M
+    ++i;posx +=4; my_wins[i] = newwin(3, 4, posy, posx);    // comma
+    ++i;posx +=4; my_wins[i] = newwin(3, 4, posy, posx);    // period
+    ++i;posx +=4; my_wins[i] = newwin(3, 4, posy, posx);    // slash
+    ++i;posx +=4; my_wins[i] = newwin(3, 12, posy, posx);    // right shift
+    
+    //spacebar row
+    posx = Xstart; posy = Ystart+16;
+    ++i;my_wins[i] = newwin(3, 6, posy, posx);              // left control
+    ++i;posx +=6; my_wins[i] = newwin(3, 6, posy, posx);    // left windows
+    ++i;posx +=6; my_wins[i] = newwin(3, 6, posy, posx);    // left alt
+    ++i;posx +=6; my_wins[i] = newwin(3, 22, posy, posx);    // space bar
+    ++i;posx +=22; my_wins[i] = newwin(3, 6, posy, posx);    // right alt
+    ++i;posx +=6; my_wins[i] = newwin(3, 6, posy, posx);    // right windows
+    ++i;posx +=6; my_wins[i] = newwin(3, 6, posy, posx);    // right application
+    ++i;posx +=6; my_wins[i] = newwin(3, 6, posy, posx);    // right control
+    
+    // arrows
+    posx = Xstart + 72; posy = Ystart+13;
+    ++i;my_wins[i] = newwin(3, 4, posy, posx);              // up arrow
+    posx = Xstart + 68; posy = Ystart+16;
+    ++i;my_wins[i] = newwin(3, 4, posy, posx);     // left arrow
+    ++i;posx +=4;my_wins[i] = newwin(3, 4, posy, posx);     // down arrow
+    ++i;posx +=4;my_wins[i] = newwin(3, 4, posy, posx);     // right arrow
+    
+    
+    
+    keys = i+1;
+    for(i = 0; i < keys; ++i)   {                                                 
+        box(my_wins[i], 0, 0);                                                                                                                  
         /* Attach a panel to each window */     /* Order is bottom up */          
-            my_panels[i] = new_panel(my_wins[i]);   /* Push 0, order: stdscr-0 */     
-        }
-        /* Update the stacking order. 2nd panel will be on top */                 
-        update_panels();                                                          
+        my_panels[i] = new_panel(my_wins[i]);   /* Push 0, order: stdscr-0 */     
+    }
+     /* Update the stacking order. 2nd panel will be on top */                 
+    update_panels();                                                          
                                                                                   
         /* Show it on the screen */                                               
         doupdate();                                                               
