@@ -11,6 +11,7 @@
       <itemPath>/home/pi/ManualKBTest/clsKeyboardTUI.h</itemPath>
       <itemPath>/home/pi/ManualKBTest/clsKeyboardTest.h</itemPath>
       <itemPath>clsNewKeyboard.h</itemPath>
+      <itemPath>/home/pi/ManualKBTest/clsTUIKey.h</itemPath>
       <itemPath>/home/pi/ManualKBTest/unicomp.h</itemPath>
     </logicalFolder>
     <logicalFolder name="ResourceFiles"
@@ -40,6 +41,7 @@
       <itemPath>/home/pi/ManualKBTest/clsKeyboardTUI.cpp</itemPath>
       <itemPath>/home/pi/ManualKBTest/clsKeyboardTest.cpp</itemPath>
       <itemPath>clsNewKeyboard.cpp</itemPath>
+      <itemPath>/home/pi/ManualKBTest/clsTUIKey.cpp</itemPath>
       <itemPath>main.cpp</itemPath>
       <itemPath>sound.cpp</itemPath>
     </logicalFolder>
@@ -139,6 +141,13 @@
             ex="false"
             tool="3"
             flavor2="0">
+      </item>
+      <item path="/home/pi/ManualKBTest/clsTUIKey.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="/home/pi/ManualKBTest/clsTUIKey.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="/home/pi/ManualKBTest/getfd.c" ex="false" tool="0" flavor2="0">
       </item>
@@ -272,6 +281,13 @@
             ex="false"
             tool="3"
             flavor2="0">
+      </item>
+      <item path="/home/pi/ManualKBTest/clsTUIKey.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="/home/pi/ManualKBTest/clsTUIKey.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="/home/pi/ManualKBTest/getfd.c" ex="false" tool="0" flavor2="0">
       </item>

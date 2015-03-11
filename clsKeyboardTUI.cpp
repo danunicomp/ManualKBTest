@@ -13,6 +13,7 @@
 #include <stdarg.h>
 #include <cdk.h>
 #include <panel.h> 
+#include <vector>
 
 clsKeyboardTUI::clsKeyboardTUI() {
 }
@@ -24,8 +25,10 @@ clsKeyboardTUI::~clsKeyboardTUI() {
 }
 
 void clsKeyboardTUI::Test(void) {
-    WINDOW *my_wins[34];
-    PANEL *my_panels[34];                                                     
+    int keys = 104;
+    WINDOW *my_wins[keys];
+    PANEL *my_panels[keys];                                                     
+    
         int lines = 2, cols = 3, y = 5, x = 5, i;                               
                                                                                   
         initscr();                                                                
@@ -74,12 +77,99 @@ void clsKeyboardTUI::Test(void) {
         my_wins[31] = newwin(lines, 6, 12, 5);       // caps lock
         my_wins[32] = newwin(lines, 7, 14, 5);       //left shift
         my_wins[33] = newwin(lines, 5, 16, 5);       // left control
-                                                                                  
+
+        my_wins[34] = newwin(lines, cols, 8, 52);    // insert
+        my_wins[35] = newwin(lines, cols, 8, 55);    // home
+        my_wins[36] = newwin(lines, cols, 8, 58);    // Page Up
+        my_wins[37] = newwin(lines, cols, 10, 52);    // delete
+        my_wins[38] = newwin(lines, cols, 10, 55);    // end
+        my_wins[39] = newwin(lines, cols, 10, 58);    // Page Down      
+
+//  NUMPAD
+        my_wins[40] = newwin(lines, cols, 8, 63);    // Numpad numlock
+        my_wins[41] = newwin(lines, cols, 8, 66);    // Numpad slash
+        my_wins[42] = newwin(lines, cols, 8, 69);    // Numpad asterick
+        my_wins[43] = newwin(lines, cols, 8, 72);    // Numpad minus
+        
+        my_wins[44] = newwin(lines, cols, 10, 63);    // Numpad 7
+        my_wins[45] = newwin(lines, cols, 10, 66);    // Numpad 8
+        my_wins[46] = newwin(lines, cols, 10, 69);    // Numpad 9
+        
+        my_wins[47] = newwin(lines, cols, 12, 63);    // Numpad 4
+        my_wins[48] = newwin(lines, cols, 12, 66);    // Numpad 5        
+        my_wins[49] = newwin(lines, cols, 12, 69);    // Numpad 6
+        
+        my_wins[50] = newwin(lines, cols, 14, 63);    // Numpad 1
+        my_wins[51] = newwin(lines, cols, 14, 66);    // Numpad 2
+        my_wins[52] = newwin(lines, cols, 14, 69);    // Numpad 3
+        
+        my_wins[53] = newwin(lines, 6, 16, 63);    // Numpad 0
+        my_wins[54] = newwin(lines, cols, 16, 69);    // Numpad decimal
+        
+        my_wins[55] = newwin(4, cols, 10, 72);    // Numpad plus
+        my_wins[56] = newwin(4, cols, 14, 72);    // Numpad enter
+
+        // arrows        
+        my_wins[57] = newwin(lines, cols, 14, 55);    // arrow up
+        my_wins[58] = newwin(lines, cols, 16, 52);    // arrow left
+        my_wins[59] = newwin(lines, cols, 16, 55);    // arrow down
+        my_wins[60] = newwin(lines, cols, 16, 58);    // arrow right
+  
+        //qwert row
+        my_wins[61] = newwin(lines, cols, 10, 10);      // Q
+        my_wins[62] = newwin(lines, cols, 10, 13);      // W
+        my_wins[63] = newwin(lines, cols, 10, 16);     // E
+        my_wins[64] = newwin(lines, cols, 10, 19);     // R
+        my_wins[65] = newwin(lines, cols, 10, 22);     // T
+        my_wins[66] = newwin(lines, cols, 10, 25);     // Y
+        my_wins[67] = newwin(lines, cols, 10, 28);     // U
+        my_wins[68] = newwin(lines, cols, 10, 31);     // I
+        my_wins[69] = newwin(lines, cols, 10, 34);     // O
+        my_wins[70] = newwin(lines, cols, 10, 37);     // P
+        my_wins[71] = newwin(lines, cols, 10, 40);     // [
+        my_wins[72] = newwin(lines, cols, 10, 43);     // ]
+        my_wins[73] = newwin(lines, 4, 10, 46);     // \
+        
+        // HOME ROW
+        my_wins[74] = newwin(lines, cols, 12, 11);     // A
+        my_wins[75] = newwin(lines, cols, 12, 14);     // S
+        my_wins[76] = newwin(lines, cols, 12, 17);     // D
+        my_wins[77] = newwin(lines, cols, 12, 20);     // F
+        my_wins[78] = newwin(lines, cols, 12, 23);     // G
+        my_wins[79] = newwin(lines, cols, 12, 26);     // H
+        my_wins[80] = newwin(lines, cols, 12, 29);     // J
+        my_wins[81] = newwin(lines, cols, 12, 32);     // K
+        my_wins[82] = newwin(lines, cols, 12, 35);     // L
+        my_wins[83] = newwin(lines, cols, 12, 38);     // ;
+        my_wins[84] = newwin(lines, cols, 12, 41);     // '
+        my_wins[85] = newwin(lines, 6, 12, 44);     // ENTER
+        
+        // zxcv
+        my_wins[86] = newwin(lines, cols, 14, 12);     // Z
+        my_wins[87] = newwin(lines, cols, 14, 15);     // X
+        my_wins[88] = newwin(lines, cols, 14, 18);     // C
+        my_wins[89] = newwin(lines, cols, 14, 21);     // V
+        my_wins[90] = newwin(lines, cols, 14, 24);     // B
+        my_wins[91] = newwin(lines, cols, 14, 27);     // N
+        my_wins[92] = newwin(lines, cols, 14, 30);     // M
+        my_wins[93] = newwin(lines, cols, 14, 33);     // ,
+        my_wins[94] = newwin(lines, cols, 14, 36);     // .
+        my_wins[95] = newwin(lines, cols, 14, 39);     // /
+        my_wins[96] = newwin(lines, 8, 14, 42);     // RIGHT SHIFT
+        
+        //BOTTOM ROW
+        my_wins[97] = newwin(lines, 4, 16, 10);       // left windows
+        my_wins[98] = newwin(lines, 4, 16, 14);       // left alt
+        my_wins[99] = newwin(lines, 17, 16, 18);       // space
+        my_wins[100] = newwin(lines, 4, 16, 35);       // right alt
+        my_wins[101] = newwin(lines, 4, 16, 39);       // right windows
+        my_wins[102] = newwin(lines, 3, 16, 43);       // right function
+        my_wins[103] = newwin(lines, 4, 16, 46);       // right control
         /*                                                                        
          * Create borders around the windows so that you can see the effect       
          * of panels                                                              
          */                                                                       
-        for(i = 0; i < 34; ++i)   {                                                 
+        for(i = 0; i < keys; ++i)   {                                                 
             box(my_wins[i], 0, 0);                                                                                                                  
         /* Attach a panel to each window */     /* Order is bottom up */          
             my_panels[i] = new_panel(my_wins[i]);   /* Push 0, order: stdscr-0 */     
