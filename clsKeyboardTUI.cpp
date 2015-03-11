@@ -25,23 +25,29 @@ clsKeyboardTUI::clsKeyboardTUI(const clsKeyboardTUI& orig) {
 clsKeyboardTUI::~clsKeyboardTUI() {
 }
 void clsKeyboardTUI::TestGrid (void) {
-       int i=0, keys = 30;
+       int i=0, keys = 105;
     WINDOW *my_wins[keys];
     PANEL *my_panels[keys];  
     
     int posx=0, posy=0;
     
-    initscr();                                                                
+    initscr(); 
+    clear();
+        printw("\n                                                Unicomp Manual Keyboard Test");
+        refresh();
     cbreak();                                                                 
     noecho();     
     
     // starting posistion
-    int Xstart = 10 , Ystart = 10;
+    int Xstart = 10 , Ystart = 5;
     i=0;
+    
     posx = Xstart; posy = Ystart;
+    //main border box
+    my_wins[i] = newwin(23, 105, posy-2, posx-3);     // escape  
     // FUNCTION ROW
     
-    my_wins[i] = newwin(3, 4, posy, posx);     // escape  
+    ++i;my_wins[i] = newwin(3, 4, posy, posx);     // escape  
     posx +=4;
     ++i;posx +=4; my_wins[i] = newwin(3, 4, posy, posx);     // F1
     ++i;posx +=4; my_wins[i] = newwin(3, 4, posy, posx);     // F2
