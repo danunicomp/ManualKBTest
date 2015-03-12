@@ -33,10 +33,10 @@ void clsKeyboardTUI::TestGrid (void) {
     
     initscr(); 
     clear();
-        printw("\n                                                Unicomp Manual Keyboard Test");
+        printw("\n                                               Unicomp Manual Keyboard Test");
         refresh();
     cbreak();                                                                 
-    noecho();     
+    noecho();      
     
     // starting posistion
     int Xstart = 10 , Ystart = 5;
