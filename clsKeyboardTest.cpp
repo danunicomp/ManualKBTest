@@ -258,6 +258,7 @@ void clsKeyboardTest::RecordNewKeyboard(string PID) {
 }
 
 // Record Keyboard test mode. Will remove last two lines in recorded wse
+// THIS IS ONE USED
 void clsKeyboardTest::RecordNewKeyboard(string PID, int MODE) {
         string newfilename;
         string bufferline;
@@ -285,7 +286,7 @@ void clsKeyboardTest::RecordNewKeyboard(string PID, int MODE) {
                 wholebuffer = FullBuffer();
 
                 bufferline = unicomp::int_array_to_string(wholebuffer, 19);
-
+                unicomp::strip(bufferline, bufferline);
                 if (wholebuffer[0] == 45) ++exits;
                 else exits =0;
                 if (exits == 3) {

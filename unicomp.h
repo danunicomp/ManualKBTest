@@ -126,10 +126,14 @@ std::string unicomp::strtoupper(std::string& str)
 }
 
 std::string unicomp::int_array_to_string(int int_array[], int size_of_array) {
-  std::ostringstream oss("");
-  for (int temp = 0; temp < size_of_array; temp++)
+    std::string line;
+    std::ostringstream oss("");
+  for (int temp = 0; temp < size_of_array; temp++) {
     oss << int_array[temp] << " ";
-  return oss.str();
+  }
+  line = oss.str();
+  unicomp::strip(line, line);
+  return line;
 
 }
 
