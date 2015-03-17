@@ -1,15 +1,16 @@
-#include <stdio.h>
-#include <unistd.h>
-#include <getopt.h>
 #include <signal.h>
-#include <fcntl.h>
 #include <termios.h>
-#include <sys/ioctl.h>
 #include <linux/kd.h>
 #include <linux/keyboard.h>
-#include <assert.h>
 #include <stdlib.h>
 #include "getfd.h"
+
+//#include <stdio.h>
+//#include <unistd.h>
+//#include <getopt.h>
+//#include <fcntl.h>
+//#include <sys/ioctl.h>
+//#include <assert.h>
 // #include "nls.h"
 //#include "version.h"
 
@@ -98,8 +99,8 @@ int * FullBuffer (void) {
     if (tcsetattr(fd, TCSAFLUSH, &new) == -1)
             perror("tcsetattr");
     if (ioctl(fd, KDSKBMODE, show_keycodes ? K_MEDIUMRAW : K_RAW)) {
-            perror("KDSKBMODE");
-            return 0;
+        perror("KDSKBMODE");
+        return 0;
     }
     /* show keycodes - 2.6 allows 3-byte reports */
     int t, kc;
@@ -115,8 +116,8 @@ int * FullBuffer (void) {
                 kc = ((buf[i+1] & 0x7f) << 7) | (buf[i+2] & 0x7f);
                 i += 3;
             } else {
-                    kc = (buf[i] & 0x7f);
-                    i++;
+                kc = (buf[i] & 0x7f);
+                i++;
             }
             // ******** SELECT MAKE OR BREAK
             if (s=="MAKE") newbuf[18] = 1999;
@@ -132,98 +133,3 @@ int * FullBuffer (void) {
         }
     }
 }
-
-int GetKeyCode (void) {
-	const char *short_opts = "haskV";
-
-	int c;
-	int show_keycodes = 1;
-	int print_ascii = 0;
-
-	struct termios new;
-     
-        static char buf[18];
-        
-	int i, n;
-
-	fd = getfd(NULL);
-
-	/* the program terminates when there is no input for 10 secs */
-	signal(SIGALRM, watch_dog);
-
-	get_mode();
-	if (tcgetattr(fd, &old) == -1)
-		perror("tcgetattr");
-	if (tcgetattr(fd, &new) == -1)
-		perror("tcgetattr");
-
-	new.c_lflag &= ~ (ICANON | ECHO | ISIG);
-	new.c_iflag = 0;
-        
-        new.c_cc[VMIN] = 1;
-	new.c_cc[VTIME] = 1;	/* 0.1 sec intercharacter timeout */
-
-	if (tcsetattr(fd, TCSAFLUSH, &new) == -1)
-		perror("tcsetattr");
-	if (ioctl(fd, KDSKBMODE, show_keycodes ? K_MEDIUMRAW : K_RAW)) {
-		perror("KDSKBMODE");
-		return 0;
-	}
-
-	/* show keycodes - 2.6 allows 3-byte reports */
-        int t;
-        int kc;
-	while (1) {
-//		alarm(100);
-		n = read(fd, buf, sizeof(buf));
-		i = 0;
-		while (i < n) {
-			
-			char *s;
-
-			s = (buf[i] & 0x80) ? "break" : "make";
-
-			if (i+2 < n && (buf[i] & 0x7f) == 0
-				&& (buf[i+1] & 0x80) != 0
-				&& (buf[i+2] & 0x80) != 0) {
-				kc = ((buf[i+1] & 0x7f) << 7) |
-					(buf[i+2] & 0x7f);
-				i += 3;
-			} else {
-				kc = (buf[i] & 0x7f);
-				i++;
-			}
-                        if (s == "make") {
-                            //printf("%i\t%i\t%i\t%i\t %i\t%i\t%i\t%i",buf[0], buf[1], buf[2], buf[3], buf[4], buf[5], buf[6], buf[7]);
- //                           printf("%s   \t", s);
-
-
-                            for (t=0;t<sizeof(buf);++t) {
- //                               if (buf[t] > 127) buf[t] = 0;
-                               printf("SM%i\t", buf[t]);
-                                if (buf[1] !=0 ) kc = buf[1];  // for double keycode
-                                buf[t] = 0;  //flush buffer
-                            }
-
-                            
-                         printf("\n");
-
-
-                            die(kc);
-                            close(fd);
-                            return kc;
-                        } 
-                        else
-                        {
-                    //        printf("%s   \t", s);
-                     //       printf("%i\t%i\n", buf[0], buf[1]);
-                        }
-                        
-		}
-	}
-
-	clean_up();
-	return 0;
-}
-
-

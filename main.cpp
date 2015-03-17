@@ -20,7 +20,7 @@
 // #include <usb.h>
 // #include <libudev.h>
 
-const std::string VERSION = "1.0.0312.A";
+const std::string VERSION = "1.0.0317.A";
 const std::string CONFIG_FILE = "config.txt";
 
 using namespace std;
@@ -61,8 +61,6 @@ int main ()
 
     clsKeyboardTest KeyboardTest(&CurrentConfig);
     clsKeyboardTUI TUI;
-    
-    
     
     while (1 && ! quit) {
         unicomp::ShowHeader();
