@@ -61,9 +61,11 @@ int main ()
 
     clsKeyboardTest KeyboardTest(&CurrentConfig);
     clsKeyboardTUI TUI;
-    
+           
+    unicomp::ShowHeader();
+           
     while (1 && ! quit) {
-        unicomp::ShowHeader();
+ 
         entries.clear();
         entries.push_back("Start Test");  selectnumber.push_back(1);
         entries.push_back("Change Firmware Number");  selectnumber.push_back(9);
