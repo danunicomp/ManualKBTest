@@ -60,6 +60,7 @@ void clsKeyboardTest::StartTest() {
     int result, exits;
     int currentline = 0;
     int * wholebuffer;
+    string fullbuff;
     
     if (clsKeyboardTest::ExpectedLines.size() == 0) {
         return;
@@ -82,12 +83,13 @@ void clsKeyboardTest::StartTest() {
     cout << "Firmware: " << clsKeyboardTest::GetUSBPidFilename() << endl;
     while (currentline < clsKeyboardTest::ExpectedLines.size()) {
         wholebuffer = FullBuffer();
-        bufferline = unicomp::int_array_to_string(wholebuffer, 19);
+        fullbuff = unicomp::int_array_to_string(wholebuffer, 19);
+        unicomp::strip(fullbuff, bufferline);
         if (wholebuffer[0] == 45) ++exits;
         else exits =0;
         if (exits == 3) break;
         cout << "Read: " << bufferline << "  \t  " << "Expected: " << clsKeyboardTest::ExpectedLines[currentline] << endl;
-        if (bufferline == clsKeyboardTest::ExpectedLines[currentline] ) {
+        if (bufferline == unicomp::stripspace(clsKeyboardTest::ExpectedLines[currentline] )) {
         //    cout << "Key #" << currentline << " Good" << endl;
         } else {
              //cout << "Bad" << endl;

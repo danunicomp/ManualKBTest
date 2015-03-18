@@ -37,6 +37,7 @@ namespace unicomp
   inline  std::string int_to_hex( int );
   inline bool YesNo(std::string question);
   inline void ShowHeader(void);
+  inline std::string stripspace(const std::string in);
 }
 
 
@@ -68,6 +69,23 @@ void unicomp::strip(const std::string& in, std::string& out)
     }
 
     out.assign(b, e);
+}
+
+//Remove trailing space
+std::string unicomp::stripspace(const std::string in)
+{
+    std::string cleanstring;
+    
+      std::string::const_iterator b = in.begin(), e = in.end();
+        if (b != e){
+        // skipping trailing spaces
+        while (isspace(*(e-1))){
+            --e;
+        }
+         cleanstring.assign(b, e);
+         
+         return cleanstring;
+    }
 }
 
 ///Split a delimanated string
