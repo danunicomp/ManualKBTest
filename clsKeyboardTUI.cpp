@@ -380,3 +380,4 @@ void clsKeyboardTUI::rectangle(int y1, int x1, int y2, int x2)
     mvaddch(y1, x2, ACS_URCORNER);
     mvaddch(y2, x2, ACS_LRCORNER);
 }
+

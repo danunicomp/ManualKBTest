@@ -15,8 +15,10 @@ public:
     virtual ~clsKeyboardTUI();
     void Test(void);
     void TestGrid (void);
+    void BIOSType(void);
 private:
 void rectangle(int y1, int x1, int y2, int x2);
+
 };
 
 #endif	/* CLSKEYBOARDTUI_H */

@@ -38,6 +38,7 @@ OBJECTFILES= \
 	${OBJECTDIR}/_ext/356084796/CreateMenu.o \
 	${OBJECTDIR}/_ext/356084796/GPIOClass.o \
 	${OBJECTDIR}/_ext/356084796/OldMainTest.o \
+	${OBJECTDIR}/_ext/356084796/clsBIOSTypeMenu.o \
 	${OBJECTDIR}/_ext/356084796/clsConfig.o \
 	${OBJECTDIR}/_ext/356084796/clsKeyboardTUI.o \
 	${OBJECTDIR}/_ext/356084796/clsKeyboardTest.o \
@@ -87,6 +88,11 @@ ${OBJECTDIR}/_ext/356084796/OldMainTest.o: /home/pi/ManualKBTest/OldMainTest.cpp
 	${MKDIR} -p ${OBJECTDIR}/_ext/356084796
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -std=c++98 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/356084796/OldMainTest.o /home/pi/ManualKBTest/OldMainTest.cpp
+
+${OBJECTDIR}/_ext/356084796/clsBIOSTypeMenu.o: /home/pi/ManualKBTest/clsBIOSTypeMenu.cpp 
+	${MKDIR} -p ${OBJECTDIR}/_ext/356084796
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -std=c++98 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/356084796/clsBIOSTypeMenu.o /home/pi/ManualKBTest/clsBIOSTypeMenu.cpp
 
 ${OBJECTDIR}/_ext/356084796/clsConfig.o: /home/pi/ManualKBTest/clsConfig.cpp 
 	${MKDIR} -p ${OBJECTDIR}/_ext/356084796

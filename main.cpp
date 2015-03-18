@@ -16,11 +16,13 @@
 #include "clsKeyboardTest.h"
 #include "CreateMenu.h"
 #include "clsKeyboardTUI.h"
+#include "clsBIOSTypeMenu.h"
+#include "clsBIOSTypeMenu.h"
 
 // #include <usb.h>
 // #include <libudev.h>
 
-const std::string VERSION = "1.0.0318.A";
+const std::string VERSION = "1.0.0318.C";
 const std::string CONFIG_FILE = "config.txt";
 
 using namespace std;
@@ -61,6 +63,8 @@ int main ()
 
     clsKeyboardTest KeyboardTest(&CurrentConfig);
     clsKeyboardTUI TUI;
+    
+    clsBIOSTypeMenu MenuBIOSType;
            
     unicomp::ShowHeader();
            
@@ -132,6 +136,10 @@ int main ()
                 break;
             case 80:
                 TUI.TestGrid();
+                break;
+            case 50:
+               
+                MenuBIOSType.mainmenu();
                 break;
         }
     }
