@@ -270,7 +270,11 @@
       <item path="/home/pi/ManualKBTest/clsBIOSTypeMenu.cpp"
             ex="false"
             tool="1"
-            flavor2="0">
+            flavor2="9">
+        <ccTool>
+          <architecture>1</architecture>
+          <warningLevel>1</warningLevel>
+        </ccTool>
       </item>
       <item path="/home/pi/ManualKBTest/clsBIOSTypeMenu.h"
             ex="false"

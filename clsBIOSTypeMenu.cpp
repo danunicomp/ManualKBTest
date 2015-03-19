@@ -9,6 +9,7 @@
 #include <ncurses.h>
 #include "clsBIOSTypeMenu.h"
 #include <iostream>
+#include <string>
 
 using namespace std;
 
@@ -114,13 +115,15 @@ void clsBIOSTypeMenu::print_menu(WINDOW *menu_win, int highlight)
 
 	x = 2;
 	y = 2;
-        int foo;
+        int foo; 
+        string choic;
    foo = 5;
 	box(menu_win, 0, 0);
 	for(i = 0; i < foo; ++i)
 	{	if(highlight == i + 1) /* High light the present choice */
 		{	wattron(menu_win, A_REVERSE); 
-			mvwprintw(menu_win, y, x, "%s", clsBIOSTypeMenu::choices[i].c_str());
+                choic = clsBIOSTypeMenu::choices[i];
+			mvwprintw(menu_win, y, x, "%s", choic.c_str());
 			wattroff(menu_win, A_REVERSE);
 		}
 		else
