@@ -44,7 +44,7 @@ void clsKeyboardTUI::TestGrid (void) {
     
     posx = Xstart; posy = Ystart;
     //main border box
-    my_wins[i] = newwin(23, 105, posy-2, posx-3);     // escape  
+    my_wins[i] = newwin(23, 105, posy-2, posx-3);     // main border  
     // FUNCTION ROW
     
     ++i;my_wins[i] = newwin(3, 4, posy, posx);     // escape  

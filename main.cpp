@@ -18,11 +18,12 @@
 #include "clsKeyboardTUI.h"
 #include "clsBIOSTypeMenu.h"
 #include "clsBIOSTypeMenu.h"
+#include "clsKeyboardDisplay.h"
 
 // #include <usb.h>
 // #include <libudev.h>
 
-const std::string VERSION = "1.1.0319.A";
+const std::string VERSION = "1.1.0319.E";
 const std::string CONFIG_FILE = "config.txt";
 
 using namespace std;
@@ -64,7 +65,7 @@ int main ()
     clsKeyboardTest KeyboardTest(&CurrentConfig);
     clsKeyboardTUI TUI;
     
-    clsBIOSTypeMenu MenuBIOSType;
+    clsBIOSTypeMenu MenuBIOSType(&CurrentConfig);
            
     unicomp::ShowHeader();
            
@@ -141,6 +142,12 @@ int main ()
                
                 MenuBIOSType.mainmenu();
                 break;
+            case 70:
+                clsKeyboardDisplay ShowKeyboard;
+                ShowKeyboard.ShowKeyboard_PC104();
+                //MenuBIOSType.ShowKeyboard();
+                break;
+                
         }
     }
     cout << "Exiting program..." << endl;

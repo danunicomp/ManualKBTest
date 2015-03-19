@@ -9,6 +9,7 @@
       <itemPath>/home/pi/ManualKBTest/clsBIOSTypeMenu.h</itemPath>
       <itemPath>/home/pi/ManualKBTest/clsConfig.h</itemPath>
       <itemPath>clsKeyboard.h</itemPath>
+      <itemPath>/home/pi/ManualKBTest/clsKeyboardDisplay.h</itemPath>
       <itemPath>/home/pi/ManualKBTest/clsKeyboardTUI.h</itemPath>
       <itemPath>/home/pi/ManualKBTest/clsKeyboardTest.h</itemPath>
       <itemPath>clsNewKeyboard.h</itemPath>
@@ -40,6 +41,7 @@
       <itemPath>/home/pi/ManualKBTest/OldMainTest.cpp</itemPath>
       <itemPath>/home/pi/ManualKBTest/clsBIOSTypeMenu.cpp</itemPath>
       <itemPath>/home/pi/ManualKBTest/clsConfig.cpp</itemPath>
+      <itemPath>/home/pi/ManualKBTest/clsKeyboardDisplay.cpp</itemPath>
       <itemPath>/home/pi/ManualKBTest/clsKeyboardTUI.cpp</itemPath>
       <itemPath>/home/pi/ManualKBTest/clsKeyboardTest.cpp</itemPath>
       <itemPath>clsNewKeyboard.cpp</itemPath>
@@ -133,6 +135,16 @@
             flavor2="0">
       </item>
       <item path="/home/pi/ManualKBTest/clsConfig.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="/home/pi/ManualKBTest/clsKeyboardDisplay.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="/home/pi/ManualKBTest/clsKeyboardDisplay.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
       </item>
       <item path="/home/pi/ManualKBTest/clsKeyboardTUI.cpp"
             ex="false"
@@ -287,6 +299,16 @@
             flavor2="0">
       </item>
       <item path="/home/pi/ManualKBTest/clsConfig.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="/home/pi/ManualKBTest/clsKeyboardDisplay.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="/home/pi/ManualKBTest/clsKeyboardDisplay.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
       </item>
       <item path="/home/pi/ManualKBTest/clsKeyboardTUI.cpp"
             ex="false"

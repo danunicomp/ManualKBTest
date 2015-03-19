@@ -40,6 +40,7 @@ OBJECTFILES= \
 	${OBJECTDIR}/_ext/356084796/OldMainTest.o \
 	${OBJECTDIR}/_ext/356084796/clsBIOSTypeMenu.o \
 	${OBJECTDIR}/_ext/356084796/clsConfig.o \
+	${OBJECTDIR}/_ext/356084796/clsKeyboardDisplay.o \
 	${OBJECTDIR}/_ext/356084796/clsKeyboardTUI.o \
 	${OBJECTDIR}/_ext/356084796/clsKeyboardTest.o \
 	${OBJECTDIR}/_ext/356084796/clsTUIKey.o \
@@ -98,6 +99,11 @@ ${OBJECTDIR}/_ext/356084796/clsConfig.o: nbproject/Makefile-${CND_CONF}.mk /home
 	${MKDIR} -p ${OBJECTDIR}/_ext/356084796
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -std=c++98 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/356084796/clsConfig.o /home/pi/ManualKBTest/clsConfig.cpp
+
+${OBJECTDIR}/_ext/356084796/clsKeyboardDisplay.o: nbproject/Makefile-${CND_CONF}.mk /home/pi/ManualKBTest/clsKeyboardDisplay.cpp 
+	${MKDIR} -p ${OBJECTDIR}/_ext/356084796
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -std=c++98 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/356084796/clsKeyboardDisplay.o /home/pi/ManualKBTest/clsKeyboardDisplay.cpp
 
 ${OBJECTDIR}/_ext/356084796/clsKeyboardTUI.o: nbproject/Makefile-${CND_CONF}.mk /home/pi/ManualKBTest/clsKeyboardTUI.cpp 
 	${MKDIR} -p ${OBJECTDIR}/_ext/356084796
