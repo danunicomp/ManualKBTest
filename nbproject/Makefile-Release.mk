@@ -55,8 +55,8 @@ OBJECTFILES= \
 CFLAGS=
 
 # CC Compiler Flags
-CCFLAGS=-lusb -lncurses -lcdk -lpanel
-CXXFLAGS=-lusb -lncurses -lcdk -lpanel
+CCFLAGS=-lusb -lncurses -lpanel
+CXXFLAGS=-lusb -lncurses -lpanel
 
 # Fortran Compiler Flags
 FFLAGS=

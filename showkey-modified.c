@@ -5,6 +5,10 @@
 #include <stdlib.h>
 #include "getfd.h"
 
+#include <sys/ioctl.h> /* ioctl */
+#include <fcntl.h> /* open */
+
+
 //#include <stdio.h>
 //#include <unistd.h>
 //#include <getopt.h>
@@ -65,6 +69,15 @@ static void
 watch_dog(int x) {
     clean_up();
     return;
+}
+
+void LEDTurnOn (void)
+{
+//  ioctl(0, KDSETLED, 255);
+    int tty = open("/dev/console", 0), led;
+    ioctl(tty,KDSETLED, 7);
+    
+    
 }
 
 int * FullBuffer (void) {

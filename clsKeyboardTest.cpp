@@ -12,7 +12,7 @@
  
  */
 
-
+#include <termios.h>
 #include <iostream>
 #include <stdio.h>
 #include <string>
@@ -23,6 +23,14 @@
 #include <unistd.h>
 
 #include <usb.h>
+
+#include <stdio.h>
+#include <unistd.h> /* close */
+#include <fcntl.h> /* open */
+#include <errno.h> /* perror */
+#include <linux/kd.h> /* Keyboard macros */
+#include <sys/ioctl.h> /* ioctl */
+
 
 #include "unicomp.h"
 #include "clsKeyboardTest.h"
@@ -114,6 +122,22 @@ void clsKeyboardTest::StartTest() {
 //        cout << "Problem opening file: " << NewKeyboard.WSEFilename << endl;
 //    }
     
+}
+
+void  clsKeyboardTest::FlashLEDs() {
+    int tty = open("/dev/console", 0), led;
+    char key;
+  do {
+        ioctl(tty,KDSETLED, 7);
+       //unicomp::YesNo("Are ALL LEDS ON?");
+            
+        key =getchar();
+        
+  //      usleep(200000);
+        ioctl(tty,KDSETLED, 0);
+        //unicomp::YesNo("Are ALL LEDS OFF?");
+   //     usleep(200000);
+    } while(! key);
 }
 
 int clsKeyboardTest::GetWSEFile(void)

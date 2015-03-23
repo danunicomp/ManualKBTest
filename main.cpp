@@ -9,6 +9,16 @@
 #include <ncurses.h>
 // #include <usb.h>
 
+
+#include <stdio.h>
+#include <unistd.h> /* close */
+#include <fcntl.h> /* open */
+#include <errno.h> /* perror */
+#include <linux/kd.h> /* Keyboard macros */
+#include <sys/ioctl.h> /* ioctl */
+
+
+
 #include "unicomp.h"
 
 #include "clsNewKeyboard.h"
@@ -22,11 +32,12 @@
 
 // #include <usb.h>
 // #include <libudev.h>
-
-const std::string VERSION = "1.1.0319.E";
-const std::string CONFIG_FILE = "config.txt";
-
 using namespace std;
+
+const string VERSION = "1.1.0323.B";
+const string CONFIG_FILE = "config.txt";
+
+
 
 /* TODO
  * - add way to have position # in wse file
@@ -34,6 +45,7 @@ using namespace std;
  *  */
 
 extern "C" int * FullBuffer (void );
+extern "C" void LEDTurnOn (void);
 
 void clean_up ( void );
 
@@ -106,6 +118,7 @@ int main ()
         {
             case 1:  // Start Test
                 KeyboardTest.StartTest();
+                KeyboardTest.FlashLEDs();
                 break;
             case 97:     // debug - show buffer
                 KeyboardTest.DebugShowBuffer();
@@ -139,8 +152,11 @@ int main ()
                 TUI.TestGrid();
                 break;
             case 50:
-               
-                MenuBIOSType.mainmenu();
+          KeyboardTest.FlashLEDs();
+         
+                
+               // LEDTurnOn();
+              // MenuBIOSType.mainmenu();
                 break;
             case 70:
                 clsKeyboardDisplay ShowKeyboard;

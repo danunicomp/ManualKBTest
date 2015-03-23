@@ -39,6 +39,7 @@ public:
     std::string USBPID;
     int LoadWseWithUSBPID(std::string);
     void ShowAllUSBInfo(void);
+    void FlashLEDs(void);
 private:
     clsConfig CurrentConfig;
     std::vector<std::string> ExpectedLines; 

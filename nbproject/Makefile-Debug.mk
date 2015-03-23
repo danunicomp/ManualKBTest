@@ -44,6 +44,7 @@ OBJECTFILES= \
 	${OBJECTDIR}/_ext/356084796/clsKeyboardTUI.o \
 	${OBJECTDIR}/_ext/356084796/clsKeyboardTest.o \
 	${OBJECTDIR}/_ext/356084796/clsTUIKey.o \
+	${OBJECTDIR}/_ext/356084796/cycleleds.o \
 	${OBJECTDIR}/_ext/356084796/getfd.o \
 	${OBJECTDIR}/_ext/356084796/showkey-modified.o \
 	${OBJECTDIR}/clsNewKeyboard.o \
@@ -119,6 +120,11 @@ ${OBJECTDIR}/_ext/356084796/clsTUIKey.o: nbproject/Makefile-${CND_CONF}.mk /home
 	${MKDIR} -p ${OBJECTDIR}/_ext/356084796
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -std=c++98 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/356084796/clsTUIKey.o /home/pi/ManualKBTest/clsTUIKey.cpp
+
+${OBJECTDIR}/_ext/356084796/cycleleds.o: nbproject/Makefile-${CND_CONF}.mk /home/pi/ManualKBTest/cycleleds.c 
+	${MKDIR} -p ${OBJECTDIR}/_ext/356084796
+	${RM} "$@.d"
+	$(COMPILE.c) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/356084796/cycleleds.o /home/pi/ManualKBTest/cycleleds.c
 
 ${OBJECTDIR}/_ext/356084796/getfd.o: nbproject/Makefile-${CND_CONF}.mk /home/pi/ManualKBTest/getfd.c 
 	${MKDIR} -p ${OBJECTDIR}/_ext/356084796
