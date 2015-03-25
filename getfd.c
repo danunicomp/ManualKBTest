@@ -61,25 +61,33 @@ int getfd(const char *fnam) {
 	}
 
 	fd = open_a_console("/proc/self/fd/0");
-	if (fd >= 0)
-		return fd;
+	if (fd >= 0) {
+            printf ("FD FOUND   /proc/self/fd/0");     
+            return fd;
+                
+        }
 
 	fd = open_a_console("/dev/tty");
-	if (fd >= 0)
-		return fd;
+	if (fd >= 0) {
+	printf ("FD FOUND   /dev/tty");
+            return fd;
+        }
 
 	fd = open_a_console("/dev/tty0");
-	if (fd >= 0)
-		return fd;
-
+	if (fd >= 0) {
+	printf ("FD FOUND   /dev/tty0");
+            return fd;
+        }
 	fd = open_a_console("/dev/vc/0");
-	if (fd >= 0)
-		return fd;
-
+	if (fd >= 0)  {
+	printf ("FD FOUND   /dev/vc/0");
+            return fd;
+        }
 	fd = open_a_console("/dev/console");
-	if (fd >= 0)
-		return fd;
-
+	if (fd >= 0)  {
+	printf ("FD FOUND   /dev/console");
+            return fd;
+        }
 	for (fd = 0; fd < 3; fd++)
 		if (is_a_console(fd))
 			return fd;

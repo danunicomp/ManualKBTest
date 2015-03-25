@@ -7,17 +7,12 @@
 #include <fstream>
 #include <unistd.h>
 #include <ncurses.h>
-// #include <usb.h>
-
-
 #include <stdio.h>
 #include <unistd.h> /* close */
 #include <fcntl.h> /* open */
 #include <errno.h> /* perror */
 #include <linux/kd.h> /* Keyboard macros */
 #include <sys/ioctl.h> /* ioctl */
-
-
 
 #include "unicomp.h"
 
@@ -30,14 +25,10 @@
 #include "clsBIOSTypeMenu.h"
 #include "clsKeyboardDisplay.h"
 
-// #include <usb.h>
-// #include <libudev.h>
 using namespace std;
 
-const string VERSION = "1.1.0323.B";
+const string VERSION = "1.1.0325.B";
 const string CONFIG_FILE = "config.txt";
-
-
 
 /* TODO
  * - add way to have position # in wse file
@@ -45,7 +36,7 @@ const string CONFIG_FILE = "config.txt";
  *  */
 
 extern "C" int * FullBuffer (void );
-extern "C" void LEDTurnOn (void);
+//extern "C" void LEDTurnOn (void);
 
 void clean_up ( void );
 
@@ -118,7 +109,7 @@ int main ()
         {
             case 1:  // Start Test
                 KeyboardTest.StartTest();
-                KeyboardTest.FlashLEDs();
+              
                 break;
             case 97:     // debug - show buffer
                 KeyboardTest.DebugShowBuffer();

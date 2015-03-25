@@ -114,6 +114,7 @@ void clsKeyboardTest::StartTest() {
     if (result == 1) {
         cout << endl << "PASS PASS PASS PASS" << endl;
         clsKeyboardTest::PassResult();
+        clsKeyboardTest::FlashLEDs();
         //PlayPassSound();
         PassBeep();
     }
@@ -138,6 +139,9 @@ void  clsKeyboardTest::FlashLEDs() {
         //unicomp::YesNo("Are ALL LEDS OFF?");
    //     usleep(200000);
     } while(! key);
+    close(tty);
+    
+    
 }
 
 int clsKeyboardTest::GetWSEFile(void)

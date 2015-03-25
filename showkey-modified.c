@@ -3,8 +3,8 @@
 #include <linux/kd.h>
 #include <linux/keyboard.h>
 #include <stdlib.h>
-#include "getfd.h"
-
+//#include "getfd.h"
+#include <stdio.h>
 #include <sys/ioctl.h> /* ioctl */
 #include <fcntl.h> /* open */
 
@@ -51,6 +51,7 @@ get_mode(void) {
 static void
 clean_up(void) {
     if (ioctl(fd, KDSKBMODE, oldkbmode)) {
+            close(fd);
         return;
     }
     if (tcsetattr(fd, 0, &old) == -1)
@@ -61,6 +62,7 @@ clean_up(void) {
 
 int
 die(int x) {
+      close(fd);
     clean_up();
     return x;
 }
@@ -91,8 +93,11 @@ int * FullBuffer (void) {
 
     int i, n;
 
-    fd = getfd(NULL);
-
+  //  fd = getfd(NULL);
+    fd = open("/proc/self/fd/0", O_RDONLY);
+ //   printf ("FD: %i\n", fd);
+    // close(fd);
+    
     /* the program terminates when there is no input for 10 secs */
     signal(SIGALRM, watch_dog);
 
