@@ -340,6 +340,8 @@
       </item>
       <item path="/home/pi/ManualKBTest/clsTUIKey.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="/home/pi/ManualKBTest/getfd.c" ex="false" tool="0" flavor2="0">
+      </item>
       <item path="/home/pi/ManualKBTest/partnumbers.ini"
             ex="false"
             tool="3"

@@ -44,6 +44,7 @@ OBJECTFILES= \
 	${OBJECTDIR}/_ext/356084796/clsKeyboardTUI.o \
 	${OBJECTDIR}/_ext/356084796/clsKeyboardTest.o \
 	${OBJECTDIR}/_ext/356084796/clsTUIKey.o \
+	${OBJECTDIR}/_ext/356084796/getfd.o \
 	${OBJECTDIR}/_ext/356084796/showkey-modified.o \
 	${OBJECTDIR}/clsNewKeyboard.o \
 	${OBJECTDIR}/main.o \
@@ -118,6 +119,11 @@ ${OBJECTDIR}/_ext/356084796/clsTUIKey.o: /home/pi/ManualKBTest/clsTUIKey.cpp
 	${MKDIR} -p ${OBJECTDIR}/_ext/356084796
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -std=c++98 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/356084796/clsTUIKey.o /home/pi/ManualKBTest/clsTUIKey.cpp
+
+${OBJECTDIR}/_ext/356084796/getfd.o: /home/pi/ManualKBTest/getfd.c 
+	${MKDIR} -p ${OBJECTDIR}/_ext/356084796
+	${RM} "$@.d"
+	$(COMPILE.c) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/356084796/getfd.o /home/pi/ManualKBTest/getfd.c
 
 ${OBJECTDIR}/_ext/356084796/showkey-modified.o: /home/pi/ManualKBTest/showkey-modified.c 
 	${MKDIR} -p ${OBJECTDIR}/_ext/356084796

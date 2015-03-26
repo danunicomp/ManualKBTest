@@ -1,3 +1,4 @@
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
@@ -50,11 +51,13 @@ open_a_console(const char *fnam) {
 
 int getfd(const char *fnam) {
 	int fd;
-
+   //     printf ("FINDING FD\n");
 	if (fnam) {
 		fd = open_a_console(fnam);
-		if (fd >= 0)
+		if (fd >= 0) {
+ //                     printf ("FD FOUND   NULL");  
 			return fd;
+                }
 		fprintf(stderr,
 			_("Couldn't open %s\n"), fnam);
 		exit(1);
@@ -62,32 +65,32 @@ int getfd(const char *fnam) {
 
 	fd = open_a_console("/proc/self/fd/0");
 	if (fd >= 0) {
-            printf ("FD FOUND   /proc/self/fd/0");     
-            return fd;
-                
+ //           printf ("FD FOUND   /proc/self/fd/0");     
+            return fd;  
         }
 
 	fd = open_a_console("/dev/tty");
 	if (fd >= 0) {
-	printf ("FD FOUND   /dev/tty");
+ //           printf ("FD FOUND   /dev/tty");
             return fd;
         }
 
 	fd = open_a_console("/dev/tty0");
 	if (fd >= 0) {
-	printf ("FD FOUND   /dev/tty0");
+ //           printf ("FD FOUND   /dev/tty0");
             return fd;
         }
 	fd = open_a_console("/dev/vc/0");
 	if (fd >= 0)  {
-	printf ("FD FOUND   /dev/vc/0");
+  //          printf ("FD FOUND   /dev/vc/0");
             return fd;
         }
 	fd = open_a_console("/dev/console");
 	if (fd >= 0)  {
-	printf ("FD FOUND   /dev/console");
+//            printf ("FD FOUND   /dev/console");
             return fd;
         }
+//            printf ("FD NOT FOUND\n");
 	for (fd = 0; fd < 3; fd++)
 		if (is_a_console(fd))
 			return fd;

@@ -3,7 +3,7 @@
 #include <linux/kd.h>
 #include <linux/keyboard.h>
 #include <stdlib.h>
-//#include "getfd.h"
+#include "getfd.h"
 #include <stdio.h>
 #include <sys/ioctl.h> /* ioctl */
 #include <fcntl.h> /* open */
@@ -93,9 +93,9 @@ int * FullBuffer (void) {
 
     int i, n;
 
-  //  fd = getfd(NULL);
-    fd = open("/proc/self/fd/0", O_RDONLY);
- //   printf ("FD: %i\n", fd);
+   fd = getfd(NULL);
+//    fd = open("/proc/self/fd/0", O_RDONLY);
+//  printf ("FD: %i\n", fd);
     // close(fd);
     
     /* the program terminates when there is no input for 10 secs */
