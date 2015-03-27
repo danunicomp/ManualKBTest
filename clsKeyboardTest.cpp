@@ -134,7 +134,7 @@ void  clsKeyboardTest::FlashLEDs() {
   do {
         ioctl(tty,KDSETLED, 7);
        //unicomp::YesNo("Are ALL LEDS ON?");
-            
+        cout << "CHECK THAT ALL THE LEDS ARE ON. PRESS ENTER" << endl;
         key =getchar();
         
   //      usleep(200000);
