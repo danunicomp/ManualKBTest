@@ -276,7 +276,8 @@ void clsKeyboardTest::DebugShowBuffer2 (void) {
             else {
                 cout << endl;
             }
-
+            wholebuffer.clear();
+            system("stty echo");
 //            free(wholebuffer)  ;
         }
     }
