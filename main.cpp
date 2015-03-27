@@ -27,7 +27,7 @@
 
 using namespace std;
 
-const string VERSION = "1.1.0325.B";
+const string VERSION = "1.1.0327.A";
 const string CONFIG_FILE = "config.txt";
 
 /* TODO
@@ -77,7 +77,7 @@ int main ()
         entries.clear();
         entries.push_back("Start Test");  selectnumber.push_back(1);
         entries.push_back("Change Firmware Number");  selectnumber.push_back(9);
-        entries.push_back("Old Test"); selectnumber.push_back(10);
+       // entries.push_back("Old Test"); selectnumber.push_back(10);
         entries.push_back("Record New"); selectnumber.push_back(13);
         entries.push_back("Debug - Show TUI GRID"); selectnumber.push_back(80);
         entries.push_back("Debug - Show TUI"); selectnumber.push_back(90);
@@ -114,6 +114,9 @@ int main ()
             case 97:     // debug - show buffer
                 KeyboardTest.DebugShowBuffer();
                 break;
+            case 87:     // debug - show buffer
+                KeyboardTest.DebugShowBuffer();
+                break;
             case 8:     // test for LSUSB
  //               lsusb();
                 break;
@@ -121,9 +124,9 @@ int main ()
                 autodetect = false;
                 //KeyboardTest.GetWSEFile();
                 break;
-            case 10:    // old test
-              OldTest(&CurrentConfig);
-              break;
+//            case 10:    // old test
+//              OldTest(&CurrentConfig);
+//              break;
             case 14:    // Record New
               KeyboardTest.RecordNewKeyboard();
               break;

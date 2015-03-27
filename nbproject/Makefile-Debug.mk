@@ -37,15 +37,14 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 OBJECTFILES= \
 	${OBJECTDIR}/_ext/356084796/CreateMenu.o \
 	${OBJECTDIR}/_ext/356084796/GPIOClass.o \
-	${OBJECTDIR}/_ext/356084796/OldMainTest.o \
 	${OBJECTDIR}/_ext/356084796/clsBIOSTypeMenu.o \
 	${OBJECTDIR}/_ext/356084796/clsConfig.o \
 	${OBJECTDIR}/_ext/356084796/clsKeyboardDisplay.o \
 	${OBJECTDIR}/_ext/356084796/clsKeyboardTUI.o \
 	${OBJECTDIR}/_ext/356084796/clsKeyboardTest.o \
 	${OBJECTDIR}/_ext/356084796/clsTUIKey.o \
-	${OBJECTDIR}/_ext/356084796/cycleleds.o \
 	${OBJECTDIR}/_ext/356084796/getfd.o \
+	${OBJECTDIR}/_ext/356084796/getscancodes.o \
 	${OBJECTDIR}/_ext/356084796/showkey-modified.o \
 	${OBJECTDIR}/clsNewKeyboard.o \
 	${OBJECTDIR}/main.o \
@@ -56,8 +55,8 @@ OBJECTFILES= \
 CFLAGS=
 
 # CC Compiler Flags
-CCFLAGS=-lusb -O2
-CXXFLAGS=-lusb -O2
+CCFLAGS=-lusb -O2 -lncurses -lpanel
+CXXFLAGS=-lusb -O2 -lncurses -lpanel
 
 # Fortran Compiler Flags
 FFLAGS=
@@ -85,11 +84,6 @@ ${OBJECTDIR}/_ext/356084796/GPIOClass.o: nbproject/Makefile-${CND_CONF}.mk /home
 	${MKDIR} -p ${OBJECTDIR}/_ext/356084796
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -std=c++98 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/356084796/GPIOClass.o /home/pi/ManualKBTest/GPIOClass.cpp
-
-${OBJECTDIR}/_ext/356084796/OldMainTest.o: nbproject/Makefile-${CND_CONF}.mk /home/pi/ManualKBTest/OldMainTest.cpp 
-	${MKDIR} -p ${OBJECTDIR}/_ext/356084796
-	${RM} "$@.d"
-	$(COMPILE.cc) -g -std=c++98 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/356084796/OldMainTest.o /home/pi/ManualKBTest/OldMainTest.cpp
 
 ${OBJECTDIR}/_ext/356084796/clsBIOSTypeMenu.o: nbproject/Makefile-${CND_CONF}.mk /home/pi/ManualKBTest/clsBIOSTypeMenu.cpp 
 	${MKDIR} -p ${OBJECTDIR}/_ext/356084796
@@ -121,15 +115,15 @@ ${OBJECTDIR}/_ext/356084796/clsTUIKey.o: nbproject/Makefile-${CND_CONF}.mk /home
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -std=c++98 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/356084796/clsTUIKey.o /home/pi/ManualKBTest/clsTUIKey.cpp
 
-${OBJECTDIR}/_ext/356084796/cycleleds.o: nbproject/Makefile-${CND_CONF}.mk /home/pi/ManualKBTest/cycleleds.c 
-	${MKDIR} -p ${OBJECTDIR}/_ext/356084796
-	${RM} "$@.d"
-	$(COMPILE.c) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/356084796/cycleleds.o /home/pi/ManualKBTest/cycleleds.c
-
 ${OBJECTDIR}/_ext/356084796/getfd.o: nbproject/Makefile-${CND_CONF}.mk /home/pi/ManualKBTest/getfd.c 
 	${MKDIR} -p ${OBJECTDIR}/_ext/356084796
 	${RM} "$@.d"
 	$(COMPILE.c) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/356084796/getfd.o /home/pi/ManualKBTest/getfd.c
+
+${OBJECTDIR}/_ext/356084796/getscancodes.o: nbproject/Makefile-${CND_CONF}.mk /home/pi/ManualKBTest/getscancodes.cpp 
+	${MKDIR} -p ${OBJECTDIR}/_ext/356084796
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -std=c++98 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/356084796/getscancodes.o /home/pi/ManualKBTest/getscancodes.cpp
 
 ${OBJECTDIR}/_ext/356084796/showkey-modified.o: nbproject/Makefile-${CND_CONF}.mk /home/pi/ManualKBTest/showkey-modified.c 
 	${MKDIR} -p ${OBJECTDIR}/_ext/356084796

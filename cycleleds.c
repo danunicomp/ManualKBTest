@@ -38,7 +38,7 @@ usage(void)
     ""
 #endif
     );
-    exit(1);
+    return(1);
 }
 
 #define onoff(a) ((a) ? _("on ") : _("off"))
@@ -85,7 +85,7 @@ getleds(char *cur_leds) {
 	perror("KDGETLED");
 	fprintf(stderr,
 	  _("Error reading current led setting. Maybe stdin is not a VT?\n"));
-	exit(1);
+	return;
     }
 }
 
@@ -105,7 +105,7 @@ getflags(char *flags) {
 	fprintf(stderr,
           _("Error reading current flags setting. "
 	    "Maybe you are not on the console?\n"));
-	exit(1);
+	return;
     }
 }
 

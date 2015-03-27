@@ -31,6 +31,7 @@ public:
     std::string CurrentFirmware;
     std::string CurrentPID;
     void DebugShowBuffer (void);
+    void DebugShowBuffer2 (void);  // *************   TEST
     void RecordNewKeyboard(void);
     void RecordNewKeyboard(std::string PID);
     void RecordNewKeyboard(std::string, int);

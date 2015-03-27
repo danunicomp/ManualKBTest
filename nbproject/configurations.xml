@@ -47,6 +47,7 @@
       <itemPath>/home/pi/ManualKBTest/clsKeyboardTest.cpp</itemPath>
       <itemPath>clsNewKeyboard.cpp</itemPath>
       <itemPath>/home/pi/ManualKBTest/clsTUIKey.cpp</itemPath>
+      <itemPath>/home/pi/ManualKBTest/getscancodes.cpp</itemPath>
       <itemPath>main.cpp</itemPath>
       <itemPath>sound.cpp</itemPath>
     </logicalFolder>
@@ -74,7 +75,7 @@
         <ccTool>
           <standard>4</standard>
           <commandlineTool>g++</commandlineTool>
-          <commandLine>-lusb -O2</commandLine>
+          <commandLine>-lusb -O2 -lncurses -lpanel</commandLine>
         </ccTool>
         <asmTool>
           <warningLevel>2</warningLevel>
@@ -109,11 +110,6 @@
             flavor2="0">
       </item>
       <item path="/home/pi/ManualKBTest/GPIOClass.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="/home/pi/ManualKBTest/OldMainTest.cpp"
-            ex="false"
-            tool="1"
-            flavor2="0">
       </item>
       <item path="/home/pi/ManualKBTest/WSE-11MT845.csv"
             ex="false"
@@ -174,11 +170,14 @@
       </item>
       <item path="/home/pi/ManualKBTest/clsTUIKey.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="/home/pi/ManualKBTest/cycleleds.c" ex="false" tool="0" flavor2="0">
-      </item>
       <item path="/home/pi/ManualKBTest/getfd.c" ex="false" tool="0" flavor2="0">
       </item>
       <item path="/home/pi/ManualKBTest/getfd.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="/home/pi/ManualKBTest/getscancodes.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
       </item>
       <item path="/home/pi/ManualKBTest/partnumbers.ini"
             ex="false"
@@ -272,11 +271,6 @@
       </item>
       <item path="/home/pi/ManualKBTest/GPIOClass.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="/home/pi/ManualKBTest/OldMainTest.cpp"
-            ex="false"
-            tool="1"
-            flavor2="0">
-      </item>
       <item path="/home/pi/ManualKBTest/WSE-11MT845.csv"
             ex="false"
             tool="3"
@@ -341,6 +335,11 @@
       <item path="/home/pi/ManualKBTest/clsTUIKey.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="/home/pi/ManualKBTest/getfd.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="/home/pi/ManualKBTest/getscancodes.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
       </item>
       <item path="/home/pi/ManualKBTest/partnumbers.ini"
             ex="false"

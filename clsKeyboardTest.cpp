@@ -21,6 +21,7 @@
 #include <sstream>
 #include <fstream>
 #include <unistd.h>
+#include <vector>
 
 #include <usb.h>
 
@@ -46,7 +47,9 @@ extern void FailBeep(void);
 extern void PassBeep(void);
 
 extern "C" int * FullBuffer (void);
- 
+
+extern std::vector<int> FullBuffer2 (void);
+
 clsKeyboardTest::clsKeyboardTest(void) {
     cout << "No Config" << endl;
 }
@@ -203,7 +206,6 @@ int clsKeyboardTest::LoadWseWithUSBPID(std::string PID="") {
         cout << endl << "** PROBLEM LOADED FIRMWARE NUMBER **" << endl << endl;
     }
 }
-
 void clsKeyboardTest::DebugShowBuffer (void) {
     string PID;
     PID = clsKeyboardTest::GetUSBPid();
@@ -239,6 +241,48 @@ void clsKeyboardTest::DebugShowBuffer (void) {
         }
     }
 }
+
+// ***************************************************
+
+void clsKeyboardTest::DebugShowBuffer2 (void) {
+    string PID;
+    PID = clsKeyboardTest::GetUSBPid();
+    if (PID == "0x0000") {
+        cout << "NO UNICOMP KEYBOARD DETECTED" << endl;
+        return;
+    }
+    else {
+        system("stty -echo");
+        cout << "Detected Keyboard Product ID: " << PID << endl;
+        usleep(900000);
+        cout << "Debug Test - Hold X to cancel" << endl;
+        //int * wholebuffer;
+        std::vector<int> wholebuffer;
+        int exits, x;
+        while(1 && exits < 3) {
+            
+            wholebuffer = FullBuffer2();
+            if (wholebuffer[0] == 45) ++exits;
+            else exits = 0;
+            for (x=0; x<6; ++x)  {
+                cout << wholebuffer[x] << "\t";
+            }
+            if (wholebuffer[18] == 1999) {
+                cout << "MAKE" << endl;
+            }
+            else if (wholebuffer[18] == 999) {
+                cout << "BREAK" << endl << endl;
+            }
+            else {
+                cout << endl;
+            }
+
+//            free(wholebuffer)  ;
+        }
+    }
+}
+// ****************************************************
+
 
 void clsKeyboardTest::RecordNewKeyboard(string PID) {
         string newfilename;
