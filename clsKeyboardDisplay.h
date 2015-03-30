@@ -19,6 +19,7 @@ public:
     virtual ~clsKeyboardDisplay();
     
     void ShowKeyboard_PC104(void);
+    void ShowKeyboard_PC122(void);
 
     struct KeyGridLayout {
         int Xwidth;

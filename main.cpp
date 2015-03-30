@@ -27,7 +27,7 @@
 
 using namespace std;
 
-const string VERSION = "1.1.0327.A";
+const string VERSION = "1.1.0330.E";
 const string CONFIG_FILE = "config.txt";
 
 /* TODO
@@ -104,7 +104,7 @@ int main ()
             MainMenu.Display(KeyboardTest.USBPID);
         }
         input = MainMenu.GetInput();
-
+                clsKeyboardDisplay ShowKeyboard;
         switch (input)
         {
             case 1:  // Start Test
@@ -153,8 +153,13 @@ int main ()
               // MenuBIOSType.mainmenu();
                 break;
             case 70:
-                clsKeyboardDisplay ShowKeyboard;
+
                 ShowKeyboard.ShowKeyboard_PC104();
+                //MenuBIOSType.ShowKeyboard();
+                break;
+            case 71:
+              //  clsKeyboardDisplay ShowKeyboard;
+                ShowKeyboard.ShowKeyboard_PC122();
                 //MenuBIOSType.ShowKeyboard();
                 break;
                 
