@@ -12,6 +12,7 @@
 
 using namespace std;
 
+
 clsKeyboardDisplay::clsKeyboardDisplay() {
 }
 
@@ -117,7 +118,9 @@ WINDOW *create_newwin2(int height, int width, int starty, int startx);
     endwin();
 }
 
+
     clsKeyboardDisplay::KeyGridLayout clsKeyboardDisplay::NewKey(int Pos, int Xgr, int Ygr, int Xwid, int Ywid) {
+    
         WINDOW *create_newwin2(int height, int width, int starty, int startx);
         clsKeyboardDisplay::KeyGridLayout nwkey;
         nwkey.position =Pos ;
@@ -146,10 +149,18 @@ WINDOW *create_newwin2(int height, int width, int starty, int startx)
 void clsKeyboardDisplay::ShowKeyboard_PC122(){
 
     //clsKeyboardDisplay::KeyGridLayout
+
+        initscr();
+    clear();
+     cbreak();  
+    refresh();
+
+
     
 WINDOW *create_newwin2(int height, int width, int starty, int startx);
     
-    KeyGridLayout currkey;
+    
+KeyGridLayout currkey;
     
     currkey = NewKey(122,    12, 0,  2,  2);    GridLayout.push_back (currkey);
     currkey = NewKey(123,    16, 0,  2,  2);    GridLayout.push_back (currkey);
@@ -220,12 +231,24 @@ WINDOW *create_newwin2(int height, int width, int starty, int startx);
     currkey = NewKey(26, 55, 14,  2,  2);    GridLayout.push_back (currkey);
     currkey = NewKey(27, 59, 14,  2,  2);    GridLayout.push_back (currkey);
     currkey = NewKey(28, 63, 14,  2,  2);    GridLayout.push_back (currkey);
+    currkey = NewKey(43, 68, 14,  2,  4);    GridLayout.push_back (currkey); // ENTER
     
     currkey = NewKey(30, 12, 18,  4,  2);    GridLayout.push_back (currkey);  ///////// CAP LOCK
-
+    currkey = NewKey(31, 20, 18,  2,  2);    GridLayout.push_back (currkey);    // A
+    currkey = NewKey(32, 24, 18,  2,  2);    GridLayout.push_back (currkey);
+    
+     currkey = NewKey(33, 28, 18,  2,  2);    GridLayout.push_back (currkey);
+     currkey = NewKey(34, 32, 18,  2,  2);    GridLayout.push_back (currkey);
+     currkey = NewKey(35, 36, 18,  2,  2);    GridLayout.push_back (currkey);
+     currkey = NewKey(36, 40, 18,  2,  2);    GridLayout.push_back (currkey);
+    currkey = NewKey(37, 44, 18,  2,  2);    GridLayout.push_back (currkey);
+    currkey = NewKey(38, 48, 18,  2,  2);    GridLayout.push_back (currkey);
+    currkey = NewKey(39, 52, 18,  2,  2);    GridLayout.push_back (currkey);
+    currkey = NewKey(40, 56, 18,  2,  2);    GridLayout.push_back (currkey);
+    currkey = NewKey(41, 60, 18,  2,  2);    GridLayout.push_back (currkey);
+    currkey = NewKey(42, 64, 18,  2,  2);    GridLayout.push_back (currkey);
     
     currkey = NewKey(44, 12, 22,  2,  2);    GridLayout.push_back (currkey);  ///////// LEFT SHIFT
-    
     currkey = NewKey(58, 12, 26,  3,  2);    GridLayout.push_back (currkey);  ///////// LEFT CONTROL
     
     
@@ -273,39 +296,37 @@ WINDOW *create_newwin2(int height, int width, int starty, int startx);
     currkey = NewKey(104, 98, 26,  2,  2);    GridLayout.push_back (currkey);
     //currkey = NewKey(105, 102, 10,  2,  2);    GridLayout.push_back (currkey);
     
-    
-    WINDOW *key;
-    initscr();
-    clear();
-    refresh();
-
-    int x;
-    for(x=0; x<GridLayout.size(); ++x) 
-    {
-    //   cout << "Key: " << x << " " << GridLayout[x].position << endl; 
         refresh();
-        box(GridLayout[x].window, 0 , 0);
-        wrefresh(GridLayout[x].window);
-
-        
-  //      key = GridLayout[x].window;
-  //      GridLayout.insert(x).base()->window=key;
-        //key = create_newwin2(GridLayout[x].Ywidth*2, GridLayout[x].Xwidth*2,  GridLayout[x].Ygridposition, GridLayout[x].Xgridposition);
-
-    }
     
-    start_color();
-    init_pair(1,COLOR_BLUE, COLOR_GREEN);
-    init_pair(2,COLOR_WHITE, COLOR_BLACK);
-    
-    for(x=0; x<GridLayout.size(); ++x) 
-    {
+   // WINDOW *key;
+
+   int x;
+   for(x=0; x<GridLayout.size(); ++x) 
+   {
 //    //   cout << "Key: " << x << " " << GridLayout[x].position << endl; 
-//        key = create_newwin2(GridLayout[x].Ywidth*2, GridLayout[x].Xwidth*2,  GridLayout[x].Ygridposition, GridLayout[x].Xgridposition);
-        wbkgd(GridLayout[x].window, COLOR_PAIR(1));
-        usleep(50000);
-        wrefresh(GridLayout[x].window);
-    }
+//        refresh();
+        box(GridLayout[x].window, 0 , 0);
+      wrefresh(GridLayout[x].window);
+//
+//        
+  //  key = GridLayout[x].window;
+      //GridLayout.insert(x).base()->window=key;
+  //  key = create_newwin2(GridLayout[x].Ywidth*2, GridLayout[x].Xwidth*2,  GridLayout[x].Ygridposition, GridLayout[x].Xgridposition);
+//
+   }
+    
+//    start_color();
+//    init_pair(1,COLOR_BLUE, COLOR_GREEN);
+//    init_pair(2,COLOR_WHITE, COLOR_BLACK);
+//    
+//    for(x=0; x<GridLayout.size(); ++x) 
+//    {
+////    //   cout << "Key: " << x << " " << GridLayout[x].position << endl; 
+////        key = create_newwin2(GridLayout[x].Ywidth*2, GridLayout[x].Xwidth*2,  GridLayout[x].Ygridposition, GridLayout[x].Xgridposition);
+//        wbkgd(GridLayout[x].window, COLOR_PAIR(1));
+//   //     usleep(50000);
+//        wrefresh(GridLayout[x].window);
+//    }
     
     mvprintw(20,20,"FInish");
     getch();
