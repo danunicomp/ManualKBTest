@@ -108,6 +108,8 @@ int main ()
         }
         input = MainMenu.GetInput();
                 clsKeyboardDisplay ShowKeyboard;
+                 cls_UniCodes GetUnicode;
+                 vector<int> UniBuffer;
         switch (input)
         {
             case 1:  // Start Test
@@ -118,6 +120,12 @@ int main ()
             case 97:     // debug - show buffer
             case 2:
                 KeyboardTest.DebugShowBuffer();
+                break;
+            case 93: // DEBUG UNICODE
+               
+               GetUnicode.GetUnicodeBuffer();
+               cout << "UNICODE DONE " << endl;
+                
                 break;
             case 87:     // debug - show buffer
                 KeyboardTest.DebugShowBuffer();

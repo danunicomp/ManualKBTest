@@ -32,13 +32,98 @@ cls_UniCodes::~cls_UniCodes() {
 
 using namespace std;
 
-///////////////////////////////////////////////////////
- std::vector<int> GetUnicodeBuffer (void) {
+/*******************   MAIN    ****************************/
+ std::vector<int> cls_UniCodes::GetUnicodeBuffer (void) {
+         int show_keycodes = 1;
+    int fd;
+    struct termios newkb;
+
+    int  buf[19];
+ //   int *newbuf = malloc(sizeof(int) * 19); 
+    //int newbuf[19];
+   // *newbuf = malloc(sizeof(int) * 19); 
+    std::vector<int> newbuf(19);
+    int i, n;
+
+    fd = cls_UniCodes::getfd(NULL);
+
+    /* the program terminates when there is no input for 10 secs */
+   // signal(SIGALRM, watch_dog(fd));
+
+    cls_UniCodes::get_mode(fd);
+    if (tcgetattr(fd, &old) == -1)
+            perror("tcgetattr");
+    if (tcgetattr(fd, &newkb) == -1)
+            perror("tcgetattr");
+
+    newkb.c_lflag &= ~ (ICANON | ECHO | ISIG);
+    newkb.c_iflag = 0;
+    
+    // new.c_cc[VMIN] = sizeof(buf);
+    newkb.c_cc[VMIN] = 1;
+    newkb.c_cc[VTIME] = 1;	/* 0.1 sec intercharacter timeout */
+
+    if (tcsetattr(fd, TCSAFLUSH, &newkb) == -1)
+            perror("tcsetattr");
+    if (ioctl(fd, KDSKBMODE, show_keycodes ? K_MEDIUMRAW : K_RAW)) {
+        cout << "Fail?? " << endl;
+        perror("KDSKBMODE");
+        return newbuf;
+    }
+    /* show keycodes - 2.6 allows 3-byte reports */
+    int t, kc;
+ //     
+    for (t=0; t<19; ++t) {
+        buf[t] = 0;
+    }
+ //    usleep(1000000);
+  while (1) {
+     //   alarm(100);
      
- }
- 
- int getfd(const char *fnam);
-//int tmp;	/* for debugging */
+        n = read(fd, buf, sizeof(buf));
+ //       cout << "N: " << n << endl; 
+        i = 0;
+        while (i < n) {
+            string s;
+            s = (buf[i] & 0x80) ? "BREAK" : "MAKE";
+            if (i+2 < n && (buf[i] & 0x7f) == 0 && (buf[i+1] & 0x80) != 0 && (buf[i+2] & 0x80) != 0) 
+            {
+                kc = ((buf[i+1] & 0x7f) << 7) | (buf[i+2] & 0x7f);
+                i += 3;
+            } else {
+                kc = (buf[i] & 0x7f);
+                i++;
+            }
+            // ******** SELECT MAKE OR BREAK
+   //       cout << s << endl;
+            if (s=="MAKE") {
+                buf[18] = 1999;
+            }
+            else
+            {
+               buf[18] = 999;
+            }
+            //cout << endl;
+            for (t=0;t<19;++t) {
+                newbuf[t] = buf[t];
+                cout << newbuf[t] << " ";
+                if ( newbuf[0] == 1) {
+                    clean_up(fd);
+                    close(fd);
+                    return newbuf;
+                }
+                buf[t] = 0;  //flush buffer
+            }
+            cout << endl;
+            clean_up(fd);
+            close(fd);
+            return newbuf;
+       }
+    }
+}
+
+ ////////////////////////////////////////////////////
+
 
 
 
@@ -76,3 +161,94 @@ void cls_UniCodes::get_mode(int fd) {
             m = "UNICODE"; break;
     }
 }
+////////////////////////////////////////////////////////
+
+// ***************** IS A CONSOLE *************************
+int cls_UniCodes::is_a_console(int fd) {
+    char arg;
+
+    arg = 0;
+    return (isatty (fd)
+        && ioctl(fd, KDGKBTYPE, &arg) == 0
+        && ((arg == KB_101) || (arg == KB_84)));
+}
+
+//////////////////////////////////////////////////////////
+
+// ***************** OPEN A CONSOLE *********************
+int cls_UniCodes::open_a_console(const char *fnam) {
+	int fd;
+
+	/*
+	 * For ioctl purposes we only need some fd and permissions
+	 * do not matter. But setfont:activatemap() does a write.
+	 */
+	fd = open(fnam, O_RDWR);
+	if (fd < 0)
+		fd = open(fnam, O_WRONLY);
+	if (fd < 0)
+		fd = open(fnam, O_RDONLY);
+	if (fd < 0)
+		return -1;
+	if (!is_a_console(fd)) {
+		close(fd);
+		return -1;
+	}
+	return fd;
+}
+
+///////////////////////////////////////////////////////////
+
+
+// ***************  GET FD *****************************
+int cls_UniCodes::getfd(const char *fnam) {
+	int fd;
+   //     printf ("FINDING FD\n");
+	if (fnam) {
+		fd = cls_UniCodes::open_a_console(fnam);
+		if (fd >= 0) {
+                   // printf ("FD FOUND   NULL");  
+			return fd;
+                }
+		fprintf(stderr,"Couldn't open %s\n", fnam);
+		exit(1);
+	}
+
+	fd = cls_UniCodes::open_a_console("/proc/self/fd/0");
+	if (fd >= 0) {
+   //        printf ("FD FOUND   /proc/self/fd/0");     
+            return fd;  
+        }
+
+	fd = cls_UniCodes::open_a_console("/dev/tty");
+	if (fd >= 0) {
+ //           printf ("FD FOUND   /dev/tty");
+            return fd;
+        }
+
+	fd = cls_UniCodes::open_a_console("/dev/tty0");
+	if (fd >= 0) {
+ //         printf ("FD FOUND   /dev/tty0");
+            return fd;
+        }
+	fd = cls_UniCodes::open_a_console("/dev/vc/0");
+	if (fd >= 0)  {
+ //         printf ("FD FOUND   /dev/vc/0");
+            return fd;
+        }
+	fd = cls_UniCodes::open_a_console("/dev/console");
+	if (fd >= 0)  {
+ //         printf ("FD FOUND   /dev/console");
+            return fd;
+        }
+//           printf ("FD NOT FOUND\n");
+	for (fd = 0; fd < 3; fd++)
+		if (is_a_console(fd))
+			return fd;
+
+	fprintf(stderr, "Couldn't get a file descriptor referring to the console\n");
+	exit(1);		/* total failure */
+}
+
+
+///////////////////////////////////////////////////////)
