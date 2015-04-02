@@ -27,6 +27,7 @@ public:
    clsKeyboardTest(const clsKeyboardTest& orig);
     virtual ~clsKeyboardTest();
     void StartTest(void);
+    void StartTestAuto(void);
     int GetWSEFile();
     std::string CurrentFirmware;
     std::string CurrentPID;

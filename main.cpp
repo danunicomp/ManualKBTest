@@ -16,6 +16,7 @@
 
 #include "unicomp.h"
 
+#include "clsMenu.h"
 #include "clsNewKeyboard.h"
 #include "clsConfig.h"
 #include "clsKeyboardTest.h"
@@ -24,10 +25,11 @@
 #include "clsBIOSTypeMenu.h"
 #include "clsBIOSTypeMenu.h"
 #include "clsKeyboardDisplay.h"
+#include "cls_UniCodes.h"
 
 using namespace std;
 
-const string VERSION = "1.1.0330.E";
+const string VERSION = "1.1.0402.C";
 const string CONFIG_FILE = "config.txt";
 
 /* TODO
@@ -76,6 +78,7 @@ int main ()
  
         entries.clear();
         entries.push_back("Start Test");  selectnumber.push_back(1);
+        entries.push_back("Debug - Show Scancodes");  selectnumber.push_back(2);
         entries.push_back("Change Firmware Number");  selectnumber.push_back(9);
        // entries.push_back("Old Test"); selectnumber.push_back(10);
         entries.push_back("Record New"); selectnumber.push_back(13);
@@ -108,10 +111,12 @@ int main ()
         switch (input)
         {
             case 1:  // Start Test
+                KeyboardTest.LoadWseWithUSBPID(KeyboardTest.USBPID);
                 KeyboardTest.StartTest();
               
                 break;
             case 97:     // debug - show buffer
+            case 2:
                 KeyboardTest.DebugShowBuffer();
                 break;
             case 87:     // debug - show buffer

@@ -12,8 +12,10 @@
       <itemPath>/home/pi/ManualKBTest/clsKeyboardDisplay.h</itemPath>
       <itemPath>/home/pi/ManualKBTest/clsKeyboardTUI.h</itemPath>
       <itemPath>/home/pi/ManualKBTest/clsKeyboardTest.h</itemPath>
+      <itemPath>/home/pi/ManualKBTest/clsMenu.h</itemPath>
       <itemPath>clsNewKeyboard.h</itemPath>
       <itemPath>/home/pi/ManualKBTest/clsTUIKey.h</itemPath>
+      <itemPath>/home/pi/ManualKBTest/cls_UniCodes.h</itemPath>
       <itemPath>/home/pi/ManualKBTest/unicomp.h</itemPath>
     </logicalFolder>
     <logicalFolder name="ResourceFiles"
@@ -47,6 +49,8 @@
       <itemPath>/home/pi/ManualKBTest/clsKeyboardTest.cpp</itemPath>
       <itemPath>clsNewKeyboard.cpp</itemPath>
       <itemPath>/home/pi/ManualKBTest/clsTUIKey.cpp</itemPath>
+      <itemPath>/home/pi/ManualKBTest/cls_Menu.cpp</itemPath>
+      <itemPath>/home/pi/ManualKBTest/cls_UniCodes.cpp</itemPath>
       <itemPath>/home/pi/ManualKBTest/getscancodes.cpp</itemPath>
       <itemPath>main.cpp</itemPath>
       <itemPath>sound.cpp</itemPath>
@@ -163,12 +167,26 @@
             tool="3"
             flavor2="0">
       </item>
+      <item path="/home/pi/ManualKBTest/clsMenu.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="/home/pi/ManualKBTest/clsTUIKey.cpp"
             ex="false"
             tool="1"
             flavor2="0">
       </item>
       <item path="/home/pi/ManualKBTest/clsTUIKey.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="/home/pi/ManualKBTest/cls_Menu.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="/home/pi/ManualKBTest/cls_UniCodes.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="/home/pi/ManualKBTest/cls_UniCodes.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
       </item>
       <item path="/home/pi/ManualKBTest/getfd.c" ex="false" tool="0" flavor2="0">
       </item>
@@ -327,12 +345,26 @@
             tool="3"
             flavor2="0">
       </item>
+      <item path="/home/pi/ManualKBTest/clsMenu.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="/home/pi/ManualKBTest/clsTUIKey.cpp"
             ex="false"
             tool="1"
             flavor2="0">
       </item>
       <item path="/home/pi/ManualKBTest/clsTUIKey.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="/home/pi/ManualKBTest/cls_Menu.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="/home/pi/ManualKBTest/cls_UniCodes.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="/home/pi/ManualKBTest/cls_UniCodes.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
       </item>
       <item path="/home/pi/ManualKBTest/getfd.c" ex="false" tool="0" flavor2="0">
       </item>

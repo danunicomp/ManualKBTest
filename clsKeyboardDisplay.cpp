@@ -248,8 +248,31 @@ KeyGridLayout currkey;
     currkey = NewKey(41, 60, 18,  2,  2);    GridLayout.push_back (currkey);
     currkey = NewKey(42, 64, 18,  2,  2);    GridLayout.push_back (currkey);
     
-    currkey = NewKey(44, 12, 22,  2,  2);    GridLayout.push_back (currkey);  ///////// LEFT SHIFT
+       
+    currkey = NewKey(44, 12, 22,  3,  2);    GridLayout.push_back (currkey);  ///////// LEFT SHIFT (SKINNY) 
+    currkey = NewKey(45, 18, 22,  2,  2);    GridLayout.push_back (currkey);  // 
+    currkey = NewKey(46, 22, 22,  2,  2);    GridLayout.push_back (currkey);  // 
+    currkey = NewKey(47, 26, 22,  2,  2);    GridLayout.push_back (currkey);  // 
+    currkey = NewKey(48, 30, 22,  2,  2);    GridLayout.push_back (currkey);  //     
+    currkey = NewKey(49, 34, 22,  2,  2);    GridLayout.push_back (currkey);  // 
+    currkey = NewKey(50, 38, 22,  2,  2);    GridLayout.push_back (currkey);  // 
+    currkey = NewKey(51, 42, 22,  2,  2);    GridLayout.push_back (currkey);  // 
+    currkey = NewKey(52, 46, 22,  2,  2);    GridLayout.push_back (currkey);  // 
+    currkey = NewKey(53, 50, 22,  2,  2);    GridLayout.push_back (currkey);  //  comma
+    currkey = NewKey(54, 54, 22,  2,  2);    GridLayout.push_back (currkey);  // Period
+    currkey = NewKey(55, 58, 22,  2,  2);    GridLayout.push_back (currkey);  // Slash
+    currkey = NewKey(56, 62, 22,  5,  2);    GridLayout.push_back (currkey);  // RIGHT Shift big
+    
+    
     currkey = NewKey(58, 12, 26,  3,  2);    GridLayout.push_back (currkey);  ///////// LEFT CONTROL
+    currkey = NewKey(58, 24, 26,  3,  2);    GridLayout.push_back (currkey);  ///////// LEFT ALT
+   
+    currkey = NewKey(61, 31, 26,  12,  2);    GridLayout.push_back (currkey);  ///////// SPACE
+    
+    currkey = NewKey(62, 56, 26,  3,  2);    GridLayout.push_back (currkey);  ///////// RIGHT ALT
+    currkey = NewKey(64, 66, 26,  3,  2);    GridLayout.push_back (currkey);  ///////// RIGHT CONTROL
+    
+    
     
     
     // ******************************************************
@@ -328,7 +351,7 @@ KeyGridLayout currkey;
 //        wrefresh(GridLayout[x].window);
 //    }
     
-    mvprintw(20,20,"FInish");
+    mvprintw(40,20,"Test Menu");
     getch();
     endwin();
 }

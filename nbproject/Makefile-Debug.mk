@@ -43,6 +43,8 @@ OBJECTFILES= \
 	${OBJECTDIR}/_ext/356084796/clsKeyboardTUI.o \
 	${OBJECTDIR}/_ext/356084796/clsKeyboardTest.o \
 	${OBJECTDIR}/_ext/356084796/clsTUIKey.o \
+	${OBJECTDIR}/_ext/356084796/cls_Menu.o \
+	${OBJECTDIR}/_ext/356084796/cls_UniCodes.o \
 	${OBJECTDIR}/_ext/356084796/getfd.o \
 	${OBJECTDIR}/_ext/356084796/getscancodes.o \
 	${OBJECTDIR}/_ext/356084796/showkey-modified.o \
@@ -114,6 +116,16 @@ ${OBJECTDIR}/_ext/356084796/clsTUIKey.o: nbproject/Makefile-${CND_CONF}.mk /home
 	${MKDIR} -p ${OBJECTDIR}/_ext/356084796
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -std=c++98 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/356084796/clsTUIKey.o /home/pi/ManualKBTest/clsTUIKey.cpp
+
+${OBJECTDIR}/_ext/356084796/cls_Menu.o: nbproject/Makefile-${CND_CONF}.mk /home/pi/ManualKBTest/cls_Menu.cpp 
+	${MKDIR} -p ${OBJECTDIR}/_ext/356084796
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -std=c++98 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/356084796/cls_Menu.o /home/pi/ManualKBTest/cls_Menu.cpp
+
+${OBJECTDIR}/_ext/356084796/cls_UniCodes.o: nbproject/Makefile-${CND_CONF}.mk /home/pi/ManualKBTest/cls_UniCodes.cpp 
+	${MKDIR} -p ${OBJECTDIR}/_ext/356084796
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -std=c++98 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/356084796/cls_UniCodes.o /home/pi/ManualKBTest/cls_UniCodes.cpp
 
 ${OBJECTDIR}/_ext/356084796/getfd.o: nbproject/Makefile-${CND_CONF}.mk /home/pi/ManualKBTest/getfd.c 
 	${MKDIR} -p ${OBJECTDIR}/_ext/356084796
