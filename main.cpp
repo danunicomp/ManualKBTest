@@ -29,7 +29,7 @@
 
 using namespace std;
 
-const string VERSION = "1.1.0402.C";
+const string VERSION = "1.1.0403.A";
 const string CONFIG_FILE = "config.txt";
 
 /* TODO
@@ -128,7 +128,7 @@ int main ()
                 
                 break;
             case 87:     // debug - show buffer
-                KeyboardTest.DebugShowBuffer();
+                KeyboardTest.DebugShowBuffer2();
                 break;
             case 8:     // test for LSUSB
  //               lsusb();

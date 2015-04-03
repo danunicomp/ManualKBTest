@@ -123,7 +123,11 @@
       <item path="/home/pi/ManualKBTest/clsBIOSTypeMenu.cpp"
             ex="false"
             tool="1"
-            flavor2="0">
+            flavor2="9">
+        <ccTool>
+          <developmentMode>5</developmentMode>
+          <architecture>1</architecture>
+        </ccTool>
       </item>
       <item path="/home/pi/ManualKBTest/clsBIOSTypeMenu.h"
             ex="false"
@@ -360,6 +364,10 @@
             ex="false"
             tool="1"
             flavor2="0">
+        <ccTool>
+          <developmentMode>5</developmentMode>
+          <additionalDep></additionalDep>
+        </ccTool>
       </item>
       <item path="/home/pi/ManualKBTest/cls_UniCodes.h"
             ex="false"

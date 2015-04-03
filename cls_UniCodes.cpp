@@ -17,6 +17,7 @@
 #include <string>
 #include <iostream>
 #include <signal.h>
+ #include <unistd.h>
 
 #include "cls_UniCodes.h"
 
@@ -36,7 +37,7 @@ using namespace std;
  std::vector<int> cls_UniCodes::GetUnicodeBuffer (void) {
          int show_keycodes = 1;
     int fd;
-    struct termios newkb;
+
 
     int  buf[19];
  //   int *newbuf = malloc(sizeof(int) * 19); 
@@ -46,16 +47,23 @@ using namespace std;
     int i, n;
 
     fd = cls_UniCodes::getfd(NULL);
-
+    cout << "FD = " << fd << endl;
     /* the program terminates when there is no input for 10 secs */
    // signal(SIGALRM, watch_dog(fd));
 
     cls_UniCodes::get_mode(fd);
+    
+
+    
+    // THIS IS THE HOOK
     if (tcgetattr(fd, &old) == -1)
             perror("tcgetattr");
     if (tcgetattr(fd, &newkb) == -1)
             perror("tcgetattr");
+    ///////////////////////////
+    
 
+    
     newkb.c_lflag &= ~ (ICANON | ECHO | ISIG);
     newkb.c_iflag = 0;
     
@@ -63,13 +71,28 @@ using namespace std;
     newkb.c_cc[VMIN] = 1;
     newkb.c_cc[VTIME] = 1;	/* 0.1 sec intercharacter timeout */
 
+int test;
+
+//test = ioctl(fd, KDSKBMODE, show_keycodes);
+
+//cout << "TEST " << test << endl;;
+//
+//clean_up(fd); 
+//return newbuf;
+    
+    
     if (tcsetattr(fd, TCSAFLUSH, &newkb) == -1)
             perror("tcsetattr");
+
+
     if (ioctl(fd, KDSKBMODE, show_keycodes ? K_MEDIUMRAW : K_RAW)) {
         cout << "Fail?? " << endl;
         perror("KDSKBMODE");
+                    clean_up(fd);
+            close(fd);
         return newbuf;
     }
+    
     /* show keycodes - 2.6 allows 3-byte reports */
     int t, kc;
  //     
@@ -124,16 +147,18 @@ using namespace std;
 
  ////////////////////////////////////////////////////
 
-
-
-
-
-
  // ******* CLEAN UP ************************
-void cls_UniCodes::clean_up(int fd) {
-    if (ioctl(fd, KDSKBMODE, cls_UniCodes::oldkbmode)) {
-        close(fd);
+void cls_UniCodes::clean_up(int fd ) {
+    cout << "CLEANINg UP" << endl;
+    cout << "OLDMODE" << oldkbmode << endl;
+    if (ioctl(fd, KDSKBMODE, oldkbmode)) {
+     cout << "closing" << endl;
         return;
+    }
+    
+    if (tcsetattr(fd, 0, &old) == -1) {
+        perror("tcsetattr");
+
     }
     //if (tcsetattr(fd, 0, &cls_UniCodes.old.) == -1)
     //    perror("tcsetattr");
@@ -146,11 +171,14 @@ void cls_UniCodes::clean_up(int fd) {
 void cls_UniCodes::get_mode(int fd) {
     string m;
 
-    if (ioctl(fd, KDGKBMODE, &cls_UniCodes::oldkbmode)) {
+    if (ioctl(fd, KDGKBMODE, &oldkbmode)) {
             perror("KDGKBMODE");
+            cout <<  "fail get_mode" << endl;
+            clean_up(fd);
+                close(fd);
             return;
     }
-    switch(cls_UniCodes::oldkbmode) {
+    switch(oldkbmode) {
         case K_RAW:
             m = "RAW"; break;
         case K_XLATE:

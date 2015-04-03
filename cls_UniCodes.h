@@ -24,8 +24,11 @@ private:
      int is_a_console(int);
      int open_a_console(const char *);
      int getfd(const char *);
-     struct termios old;
+
      int oldkbmode;
+     
+    struct termios newkb;
+    struct termios old;
 };
 
 #endif	/* CLS_UNICODES_H */

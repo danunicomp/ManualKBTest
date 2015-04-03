@@ -98,7 +98,7 @@ std::vector<int> FullBuffer2 (void) {
     int i, n;
 
     fd = getfd(NULL);
-
+    cout << "OLD SHOW BUFF FD = " << fd << endl;
     /* the program terminates when there is no input for 10 secs */
    // signal(SIGALRM, watch_dog(fd));
 
