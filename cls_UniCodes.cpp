@@ -47,7 +47,6 @@ using namespace std;
     int i, n;
 
     fd = cls_UniCodes::getfd(NULL);
-    cout << "FD = " << fd << endl;
     /* the program terminates when there is no input for 10 secs */
    // signal(SIGALRM, watch_dog(fd));
 
@@ -71,11 +70,10 @@ using namespace std;
     newkb.c_cc[VMIN] = 1;
     newkb.c_cc[VTIME] = 1;	/* 0.1 sec intercharacter timeout */
 
-int test;
 
 //test = ioctl(fd, KDSKBMODE, show_keycodes);
 
-//cout << "TEST " << test << endl;;
+
 //
 //clean_up(fd); 
 //return newbuf;
@@ -104,7 +102,7 @@ int test;
      //   alarm(100);
      
         n = read(fd, buf, sizeof(buf));
- //       cout << "N: " << n << endl; 
+
         i = 0;
         while (i < n) {
             string s;
@@ -118,7 +116,7 @@ int test;
                 i++;
             }
             // ******** SELECT MAKE OR BREAK
-   //       cout << s << endl;
+ 
             if (s=="MAKE") {
                 buf[18] = 1999;
             }
@@ -126,10 +124,9 @@ int test;
             {
                buf[18] = 999;
             }
-            //cout << endl;
+
             for (t=0;t<19;++t) {
                 newbuf[t] = buf[t];
-                cout << newbuf[t] << " ";
                 if ( newbuf[0] == 1) {
                     clean_up(fd);
                     close(fd);
@@ -137,7 +134,7 @@ int test;
                 }
                 buf[t] = 0;  //flush buffer
             }
-            cout << endl;
+
             clean_up(fd);
             close(fd);
             return newbuf;
@@ -149,10 +146,9 @@ int test;
 
  // ******* CLEAN UP ************************
 void cls_UniCodes::clean_up(int fd ) {
-    cout << "CLEANINg UP" << endl;
-    cout << "OLDMODE" << oldkbmode << endl;
+
     if (ioctl(fd, KDSKBMODE, oldkbmode)) {
-     cout << "closing" << endl;
+
         return;
     }
     

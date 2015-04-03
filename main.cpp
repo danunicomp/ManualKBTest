@@ -29,7 +29,7 @@
 
 using namespace std;
 
-const string VERSION = "1.1.0403.A";
+const string VERSION = "1.1.0403.B";
 const string CONFIG_FILE = "config.txt";
 
 /* TODO
@@ -79,6 +79,7 @@ int main ()
         entries.clear();
         entries.push_back("Start Test");  selectnumber.push_back(1);
         entries.push_back("Debug - Show Scancodes");  selectnumber.push_back(2);
+      entries.push_back("Experimental Test");  selectnumber.push_back(3);
         entries.push_back("Change Firmware Number");  selectnumber.push_back(9);
        // entries.push_back("Old Test"); selectnumber.push_back(10);
         entries.push_back("Record New"); selectnumber.push_back(13);
@@ -112,7 +113,7 @@ int main ()
                  vector<int> UniBuffer;
         switch (input)
         {
-            case 1:  // Start Test
+            case 1:  // ORiginal TEST
                 KeyboardTest.LoadWseWithUSBPID(KeyboardTest.USBPID);
                 KeyboardTest.StartTest();
               
@@ -121,14 +122,16 @@ int main ()
             case 2:
                 KeyboardTest.DebugShowBuffer();
                 break;
-            case 93: // DEBUG UNICODE
-               
-               GetUnicode.GetUnicodeBuffer();
-               cout << "UNICODE DONE " << endl;
-                
-                break;
+            case 3: // NEW TEST, USES VECTOR TO GET UNICODES
+                KeyboardTest.StartTestNEW();
+            break;
+            
+ 
             case 87:     // debug - show buffer
                 KeyboardTest.DebugShowBuffer2();
+                break;
+            case 88:     // debug - show buffer
+                KeyboardTest.DebugShowBuffer3();
                 break;
             case 8:     // test for LSUSB
  //               lsusb();

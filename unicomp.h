@@ -38,6 +38,7 @@ namespace unicomp
   inline bool YesNo(std::string question);
   inline void ShowHeader(void);
   inline std::string stripspace(const std::string in);
+  inline std::string IntVectorToString (std::vector<int>);
 }
 
 
@@ -192,6 +193,22 @@ void unicomp::ShowHeader(void){
     std::cout << "UU       UU  NN      NNN      II      CC         OO       OO  MM          MM  PP" << std::endl;
     std::cout << "UUUUUUUUUUU  NN       NN  IIIIIIIIII  CCCCCCCCC  OOOOOOOOOOO  MM          MM  PP" << std::endl;
     std::cout << std::endl;
+}
+
+std::string unicomp::IntVectorToString (std::vector<int> intvector) {
+    int x;
+    std::string line;
+       std::ostringstream oss(""); 
+
+    
+    for (x=0; x<intvector.size(); ++x) {
+    
+        oss << intvector.at(x) << " ";
+    }
+  //     oss << intvector.at(intvector.size()-1);   // do this so no space at end
+       
+      line = oss.str();
+      return line;
 }
 
 

@@ -37,6 +37,7 @@
 #include "clsKeyboardTest.h"
 #include "clsConfig.h"
 #include "clsNewKeyboard.h"
+#include "cls_UniCodes.h"
 
 using namespace std;
 
@@ -49,6 +50,7 @@ extern void PassBeep(void);
 extern "C" int * FullBuffer (void);
 
 extern std::vector<int> FullBuffer2 (void);
+extern std::vector<int> FullBuffer3 (void);
 
 clsKeyboardTest::clsKeyboardTest(void) {
     cout << "No Config" << endl;
@@ -66,6 +68,75 @@ clsKeyboardTest::clsKeyboardTest(const clsKeyboardTest& orig) {
 clsKeyboardTest::~clsKeyboardTest() {
 }
 
+
+////////////////////////////////////////////////////////////////
+void clsKeyboardTest::StartTestNEW() {
+   
+    int result, exits;
+    int currentline = 0;
+   vector<int> wholebuffer;
+    string fullbuff;
+    
+    if (clsKeyboardTest::ExpectedLines.size() == 0) {
+        return;
+    }
+    cls_UniCodes GetUnicode;
+    string bufferline;
+//    cout << endl << "Enter Firmware number: " ;
+//    cin >> NewKeyboard.FirmWareNumber;
+//    NewKeyboard.FirmWareNumber = unicomp::strtoupper(NewKeyboard.FirmWareNumber);
+//    NewKeyboard.WSEFilename = clsKeyboardTest::CurrentConfig.ExecutablePath;
+//    NewKeyboard.WSEFilename.append(NewKeyboard.FirmWareNumber);
+//    cout << "Firmware: " << NewKeyboard.WSEFilename << endl;
+
+//    if (NewKeyboard.ReadFirmware(NewKeyboard.WSEFilename)) {
+    result=1;
+    system("stty -echo");
+    usleep(900000);
+    currentline = 0;
+    cout << "Begin pressing keys" << endl; 
+    cout << "Firmware: " << clsKeyboardTest::GetUSBPidFilename() << endl;
+    while (currentline < clsKeyboardTest::ExpectedLines.size()) {
+        wholebuffer = GetUnicode.GetUnicodeBuffer();
+        fullbuff = unicomp::IntVectorToString(wholebuffer);
+        unicomp::strip(fullbuff, bufferline);
+        if (wholebuffer[0] == 45) ++exits;
+        else exits =0;
+        if (exits == 3) break;
+        cout << "Read: " << bufferline << "  \t  " << "Expected: " << clsKeyboardTest::ExpectedLines[currentline] << endl;
+        if (bufferline == unicomp::stripspace(clsKeyboardTest::ExpectedLines[currentline] )) {
+        //    cout << "Key #" << currentline << " Good" << endl;
+        } else {
+             //cout << "Bad" << endl;
+            cout << endl << "FAIL FAIL FAIL FAIL" << endl;
+            clsKeyboardTest::FailResult();
+            result=0;
+          //  PlayFailSound();
+            FailBeep();
+            break;
+        }
+        ++currentline;
+    }
+    system("stty echo");
+    if (result == 1) {
+        cout << endl << "PASS PASS PASS PASS" << endl;
+        clsKeyboardTest::PassResult();
+        clsKeyboardTest::FlashLEDs();
+        //PlayPassSound();
+        PassBeep();
+    }
+//    }
+//    else {
+//        cout << "Problem opening file: " << NewKeyboard.WSEFilename << endl;
+//    }
+    
+}
+////////////////////////////////////////////////////////////////////
+
+
+
+
+////////////////////////////////////////////////////////////////
 void clsKeyboardTest::StartTest() {
    
     int result, exits;
@@ -127,6 +198,9 @@ void clsKeyboardTest::StartTest() {
 //    }
     
 }
+////////////////////////////////////////////////////////////////////
+
+
 
 void  clsKeyboardTest::FlashLEDs() {
     int tty = open("/dev/console", 0), led;
@@ -283,7 +357,49 @@ void clsKeyboardTest::DebugShowBuffer2 (void) {
     }
 }
 // ****************************************************
+// ***************************************************
+#include "cls_UniCodes.h"
 
+void clsKeyboardTest::DebugShowBuffer3 (void) {
+       cls_UniCodes GetUnicode;
+    string PID;
+    PID = clsKeyboardTest::GetUSBPid();
+    if (PID == "0x0000") {
+        cout << "NO UNICOMP KEYBOARD DETECTED" << endl;
+        return;
+    }
+    else {
+        system("stty -echo");
+        cout << "Detected Keyboard Product ID: " << PID << endl;
+        usleep(900000);
+        cout << "Debug Test - Hold X to cancel" << endl;
+        //int * wholebuffer;
+        std::vector<int> wholebuffer;
+        int exits, x;
+        while(1 && exits < 3) {
+              system("stty -echo");
+            wholebuffer = GetUnicode.GetUnicodeBuffer();
+            if (wholebuffer[0] == 45) ++exits;
+            else exits = 0;
+            for (x=0; x<6; ++x)  {
+                cout << wholebuffer[x] << "\t";
+            }
+            if (wholebuffer[18] == 1999) {
+                cout << "MAKE" << endl;
+            }
+            else if (wholebuffer[18] == 999) {
+                cout << "BREAK" << endl << endl;
+            }
+            else {
+                cout << endl;
+            }
+            wholebuffer.clear();
+            system("stty echo");
+//            free(wholebuffer)  ;
+        }
+    }
+}
+// ****************************************************
 
 void clsKeyboardTest::RecordNewKeyboard(string PID) {
         string newfilename;
