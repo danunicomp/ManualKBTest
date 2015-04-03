@@ -162,7 +162,12 @@ void clsKeyboardTest::StartTest() {
     usleep(900000);
     currentline = 0;
     cout << "Begin pressing keys" << endl; 
-    cout << "Firmware: " << clsKeyboardTest::GetUSBPidFilename() << endl;
+    int x;
+    
+    cout << "Verify Firmware: " << clsKeyboardTest::GetUSBPidFilename() << endl;
+    cout << "Verify Firmware: " << clsKeyboardTest::GetUSBPidFilename() << endl;
+    cout << "Verify Firmware: " << clsKeyboardTest::GetUSBPidFilename() << endl;
+    cout << "Verify Firmware: " << clsKeyboardTest::GetUSBPidFilename() << endl << endl;
     while (currentline < clsKeyboardTest::ExpectedLines.size()) {
         wholebuffer = FullBuffer();
         fullbuff = unicomp::int_array_to_string(wholebuffer, 19);
