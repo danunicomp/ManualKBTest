@@ -70,13 +70,6 @@ using namespace std;
     newkb.c_cc[VMIN] = 1;
     newkb.c_cc[VTIME] = 1;	/* 0.1 sec intercharacter timeout */
 
-
-//test = ioctl(fd, KDSKBMODE, show_keycodes);
-
-
-//
-//clean_up(fd); 
-//return newbuf;
     
     
     if (tcsetattr(fd, TCSAFLUSH, &newkb) == -1)
@@ -98,13 +91,20 @@ using namespace std;
         buf[t] = 0;
     }
  //    usleep(1000000);
-  while (1) {
+  // size_t readnew(int, void *, int);
+    while (1) {
      //   alarm(100);
      
-        n = read(fd, buf, sizeof(buf));
-
+      
+         n = read(fd, buf, sizeof(buf));
+     
+        cout << "Number of Unicodes  " << n << endl;
+        for (int yy=0; yy<n; ++yy )  {cout << "BUF #" << yy << "=" << buf[yy] << " "; }
+        cout << endl;
+            if (n == -1) { cout << "ERROR"; clean_up(fd); return newbuf; }
         i = 0;
-        while (i < n) {
+        
+        while (i < n && n > 0) {
             string s;
             s = (buf[i] & 0x80) ? "BREAK" : "MAKE";
             if (i+2 < n && (buf[i] & 0x7f) == 0 && (buf[i+1] & 0x80) != 0 && (buf[i+2] & 0x80) != 0) 
@@ -124,17 +124,19 @@ using namespace std;
             {
                buf[18] = 999;
             }
-
+            newbuf.clear();
             for (t=0;t<19;++t) {
-                newbuf[t] = buf[t];
-                if ( newbuf[0] == 1) {
-                    clean_up(fd);
-                    close(fd);
-                    return newbuf;
-                }
+                newbuf.push_back(buf[t]);
+//                if ( newbuf[0] == 1) {
+//                    clean_up(fd);
+//                    close(fd);
+//                    return newbuf;
+//                }
                 buf[t] = 0;  //flush buffer
             }
 
+            
+            
             clean_up(fd);
             close(fd);
             return newbuf;
@@ -275,4 +277,8 @@ int cls_UniCodes::getfd(const char *fnam) {
 }
 
 
-///////////////////////////////////////////////////////)
+/////////////////          DIAGNOTIC        //////////////////////////////////////)
+
+ void Diagnostic (void) {
+     
+ }

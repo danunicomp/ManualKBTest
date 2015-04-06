@@ -22,7 +22,7 @@
 #include <fstream>
 #include <unistd.h>
 #include <vector>
-
+#include <fcntl.h>  //  ADD TTY
 #include <usb.h>
 
 #include <stdio.h>
@@ -96,8 +96,14 @@ void clsKeyboardTest::StartTestNEW() {
     currentline = 0;
     cout << "Begin pressing keys" << endl; 
     cout << "Firmware: " << clsKeyboardTest::GetUSBPidFilename() << endl;
+    wholebuffer.clear();
+    //cout << "Wholebuffer Cleared" << endl;
+
     while (currentline < clsKeyboardTest::ExpectedLines.size()) {
         wholebuffer = GetUnicode.GetUnicodeBuffer();
+        //////////////////////////
+        
+        ////////////////////////////
         fullbuff = unicomp::IntVectorToString(wholebuffer);
         unicomp::strip(fullbuff, bufferline);
         if (wholebuffer[0] == 45) ++exits;

@@ -17,6 +17,7 @@ public:
     virtual ~cls_UniCodes();
    //FullBuffer2 (void)
    std::vector<int> GetUnicodeBuffer (void);
+   void Diagnostic (void);
     
 private:
      void clean_up(int) ;

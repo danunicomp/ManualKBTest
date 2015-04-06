@@ -1,6 +1,6 @@
 
 
-
+#include <signal.h>
 #include <vector>
 #include <termios.h>
 #include <linux/keyboard.h>
@@ -81,6 +81,7 @@ die(int x, int fd) {
 static void
 watch_dog(int fd) {
     clean_up(fd);
+    close(fd);
     return;
 }
 
@@ -98,9 +99,10 @@ std::vector<int> FullBuffer2 (void) {
     int i, n;
 
     fd = getfd(NULL);
-    cout << "OLD SHOW BUFF FD = " << fd << endl;
+ //   cout << "OLD SHOW BUFF FD = " << fd << endl;
     /* the program terminates when there is no input for 10 secs */
-   // signal(SIGALRM, watch_dog(fd));
+ //
+//    signal(SIGALRM, watch_dog(fd));
 
     get_mode(fd);
     if (tcgetattr(fd, &old) == -1)
@@ -118,6 +120,7 @@ std::vector<int> FullBuffer2 (void) {
     if (tcsetattr(fd, TCSAFLUSH, &newkb) == -1)
             perror("tcsetattr");
     if (ioctl(fd, KDSKBMODE, show_keycodes ? K_MEDIUMRAW : K_RAW)) {
+         clean_up(fd);
         perror("KDSKBMODE");
         return newbuf;
     }
@@ -129,11 +132,12 @@ std::vector<int> FullBuffer2 (void) {
     }
  //    usleep(1000000);
   while (1) {
-     //   alarm(100);
+     alarm(100);
      
         n = read(fd, buf, sizeof(buf));
  //       cout << "N: " << n << endl; 
         i = 0;
+     //   newbuf.clear();
         while (i < n) {
             string s;
             s = (buf[i] & 0x80) ? "BREAK" : "MAKE";
@@ -155,22 +159,26 @@ std::vector<int> FullBuffer2 (void) {
                buf[18] = 999;
             }
             //cout << endl;
+      
             for (t=0;t<19;++t) {
-                newbuf[t] = buf[t];
-                cout << newbuf[t] << " ";
-                if ( newbuf[0] == 1) {
-                    clean_up(fd);
-                    close(fd);
-                    return newbuf;
-                }
+                newbuf.push_back(buf[t]);
+               // cout << newbuf[t] << " ";
+//            if ( buf[0] == 1) {
+//                clean_up(fd);
+//                close(fd);
+//           return newbuf;
+//            }
+             //   cout << "  BUF  " << buf[t];  
                 buf[t] = 0;  //flush buffer
             }
             cout << endl;
             clean_up(fd);
             close(fd);
-            return newbuf;
+       return newbuf;
        }
+    
     }
+
 }
 
 /*

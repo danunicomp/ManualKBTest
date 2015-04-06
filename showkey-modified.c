@@ -8,8 +8,9 @@
 #include <sys/ioctl.h> /* ioctl */
 #include <fcntl.h> /* open */
 
+//#include <iostream>
 
-//#include <stdio.h>
+#include <stdio.h>
 //#include <unistd.h>
 //#include <getopt.h>
 //#include <fcntl.h>
@@ -121,10 +122,18 @@ int * FullBuffer (void) {
         return 0;
     }
     /* show keycodes - 2.6 allows 3-byte reports */
-    int t, kc;
+    int t, kc,xxx;
     while (1) {
      //   alarm(100);
         n = read(fd, buf, sizeof(buf));
+      //   printf( "Size of Buff  %i\n"), n;
+     //   for(xxx=0; xxx<sizeof(buf); ++xxx) {
+     //       printf("%i ", buf[xxx]);
+      //  }
+     //    printf("\n");
+      
+        //for (int yy=0; yy<n; ++yy )  {cout << "BUF #" << yy << "=" << buf[yy] << " "; }
+        //cout << endl;
         i = 0;
         while (i < n) {
             char *s;

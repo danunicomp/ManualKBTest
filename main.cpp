@@ -29,7 +29,7 @@
 
 using namespace std;
 
-const string VERSION = "1.1.0403.B";
+const string VERSION = "1.1.0406.B";
 const string CONFIG_FILE = "config.txt";
 
 /* TODO
@@ -83,9 +83,11 @@ int main ()
         entries.push_back("Change Firmware Number");  selectnumber.push_back(9);
        // entries.push_back("Old Test"); selectnumber.push_back(10);
         entries.push_back("Record New"); selectnumber.push_back(13);
+        entries.push_back("Debug - Cyclke over keys"); selectnumber.push_back(70);
+        entries.push_back("Debug - Show 122 Layout"); selectnumber.push_back(71);
         entries.push_back("Debug - Show TUI GRID"); selectnumber.push_back(80);
         entries.push_back("Debug - Show TUI"); selectnumber.push_back(90);
-        entries.push_back("Debug - Show Keycode Buffer");  selectnumber.push_back(97);
+        entries.push_back("Debug - FROM NEW CLASS Show Keycode Buffer");  selectnumber.push_back(97);
         entries.push_back("Debug - Show all USB Devices"); selectnumber.push_back(98);
         entries.push_back("Exit"); selectnumber.push_back(99);
 
@@ -133,9 +135,6 @@ int main ()
             case 88:     // debug - show buffer
                 KeyboardTest.DebugShowBuffer3();
                 break;
-            case 8:     // test for LSUSB
- //               lsusb();
-                break;
             case 9:    // change firmware number
                 autodetect = false;
                 //KeyboardTest.GetWSEFile();
@@ -161,20 +160,11 @@ int main ()
             case 80:
                 TUI.TestGrid();
                 break;
-            case 50:
-          KeyboardTest.FlashLEDs();
-         
-                
-               // LEDTurnOn();
-              // MenuBIOSType.mainmenu();
-                break;
             case 70:
-
                 ShowKeyboard.ShowKeyboard_PC104();
                 //MenuBIOSType.ShowKeyboard();
                 break;
-            case 71:
-              //  clsKeyboardDisplay ShowKeyboard;
+            case 71:    // SHOWS MAIN 122. ALL KEYS
                 ShowKeyboard.ShowKeyboard_PC122();
                 //MenuBIOSType.ShowKeyboard();
                 break;
