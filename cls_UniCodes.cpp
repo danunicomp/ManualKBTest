@@ -84,6 +84,9 @@ using namespace std;
         return newbuf;
     }
     
+   
+    usleep(10);
+    
     /* show keycodes - 2.6 allows 3-byte reports */
     int t, kc;
  //     
@@ -92,46 +95,50 @@ using namespace std;
     }
  //    usleep(1000000);
   // size_t readnew(int, void *, int);
-    while (1) {
+
      //   alarm(100);
-     
+        int fullcode;
       
          n = read(fd, buf, sizeof(buf));
      
-        cout << "Number of Unicodes  " << n << endl;
-        for (int yy=0; yy<n; ++yy )  {cout << "BUF #" << yy << "=" << buf[yy] << " "; }
-        cout << endl;
+ //       cout << "Number of Unicodes  " << n << "   ";
+  //     for (int yy=0; yy<n; ++yy )  {cout << "BUF #" << yy << "=" << buf[yy] << " "; }
+  // cout << endl;
             if (n == -1) { cout << "ERROR"; clean_up(fd); return newbuf; }
         i = 0;
+        int y = buf[0];
+        fullcode = y;
         
-        while (i < n && n > 0) {
-            string s;
-            s = (buf[i] & 0x80) ? "BREAK" : "MAKE";
-            if (i+2 < n && (buf[i] & 0x7f) == 0 && (buf[i+1] & 0x80) != 0 && (buf[i+2] & 0x80) != 0) 
-            {
-                kc = ((buf[i+1] & 0x7f) << 7) | (buf[i+2] & 0x7f);
-                i += 3;
-            } else {
-                kc = (buf[i] & 0x7f);
-                i++;
-            }
-            // ******** SELECT MAKE OR BREAK
- 
-            if (s=="MAKE") {
-                buf[18] = 1999;
-            }
-            else
-            {
-               buf[18] = 999;
-            }
+
+        //cout << "12026240 & 255 = " <<  r << endl;
+        
+ //       int res = fullcode & test;
+ //   cout << "BUFF[0]=" << buf[0] << endl;
+        cout;
+        for (i=0;i<n; ++i) {
+          buf[i] = ((fullcode & (255 << (8*i))) >> (8*i) );
+        }
+
+        if (buf[0] < 128) {
+            buf[18] = 1999;
+        }
+        else
+        {
+            buf[18] = 999;
+        }
+        
+        
+
+        i=0;
+
             newbuf.clear();
             for (t=0;t<19;++t) {
                 newbuf.push_back(buf[t]);
-//                if ( newbuf[0] == 1) {
-//                    clean_up(fd);
-//                    close(fd);
-//                    return newbuf;
-//                }
+               if ( newbuf[0] == 1) {
+                   clean_up(fd);
+                   close(fd);
+                   return newbuf;
+               }
                 buf[t] = 0;  //flush buffer
             }
 
@@ -140,9 +147,11 @@ using namespace std;
             clean_up(fd);
             close(fd);
             return newbuf;
-       }
-    }
+     
+
 }
+
+
 
  ////////////////////////////////////////////////////
 
