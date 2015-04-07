@@ -130,7 +130,7 @@ int main ()
             
  
             case 87:     // debug - show buffer
-                KeyboardTest.DebugShowBuffer2();
+                KeyboardTest.DebugShowBuffer3();
                 break;
             case 88:     // debug - show buffer
                 KeyboardTest.DebugShowBuffer3();

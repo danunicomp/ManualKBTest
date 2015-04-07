@@ -52,8 +52,7 @@ using namespace std;
 
     cls_UniCodes::get_mode(fd);
     
-
-    
+  
     // THIS IS THE HOOK
     if (tcgetattr(fd, &old) == -1)
             perror("tcgetattr");
@@ -62,7 +61,6 @@ using namespace std;
     ///////////////////////////
     
 
-    
     newkb.c_lflag &= ~ (ICANON | ECHO | ISIG);
     newkb.c_iflag = 0;
     
@@ -83,8 +81,7 @@ using namespace std;
             close(fd);
         return newbuf;
     }
-    
-   
+     
     usleep(10);
     
     /* show keycodes - 2.6 allows 3-byte reports */
@@ -94,16 +91,13 @@ using namespace std;
         buf[t] = 0;
     }
  //    usleep(1000000);
-  // size_t readnew(int, void *, int);
+
 
      //   alarm(100);
         int fullcode;
       
          n = read(fd, buf, sizeof(buf));
      
- //       cout << "Number of Unicodes  " << n << "   ";
-  //     for (int yy=0; yy<n; ++yy )  {cout << "BUF #" << yy << "=" << buf[yy] << " "; }
-  // cout << endl;
             if (n == -1) { cout << "ERROR"; clean_up(fd); return newbuf; }
         i = 0;
         int y = buf[0];
@@ -126,10 +120,6 @@ using namespace std;
         {
             buf[18] = 999;
         }
-        
-        
-
-        i=0;
 
             newbuf.clear();
             for (t=0;t<19;++t) {
@@ -141,9 +131,7 @@ using namespace std;
                }
                 buf[t] = 0;  //flush buffer
             }
-
-            
-            
+ 
             clean_up(fd);
             close(fd);
             return newbuf;

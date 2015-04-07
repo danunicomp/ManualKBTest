@@ -174,35 +174,23 @@ KeyGridLayout currkey;
     currkey = NewKey(131,    48, 0,  2,  2);    GridLayout.push_back (currkey);
     currkey = NewKey(132,    52, 0,  2,  2);    GridLayout.push_back (currkey);    
     currkey = NewKey(133,    56, 0,  2,  2);    GridLayout.push_back (currkey);    
-    
-    currkey = NewKey(110,    12, 4,  2,  2);    GridLayout.push_back (currkey);    
-    currkey = NewKey(111,    16, 4,  2,  2);    GridLayout.push_back (currkey);    
-    currkey = NewKey(112,    20, 4,  2,  2);    GridLayout.push_back (currkey);    
-    currkey = NewKey(113,    24, 4,  2,  2);    GridLayout.push_back (currkey);    
-    currkey = NewKey(114,    28, 4,  2,  2);    GridLayout.push_back (currkey);    
-    currkey = NewKey(115,    32, 4,  2,  2);    GridLayout.push_back (currkey);    
-    currkey = NewKey(116,    36, 4,  2,  2);    GridLayout.push_back (currkey);    
-    currkey = NewKey(117,    40, 4,  2,  2);    GridLayout.push_back (currkey);    
-    currkey = NewKey(118,    44, 4,  2,  2);    GridLayout.push_back (currkey);    
- currkey = NewKey(119,    48, 4,  2,  2);    GridLayout.push_back (currkey);    
-    // currkey = NewKey(119,70   48, 4  2,  2);    GridLayout.push_back (currkey);    
+
+    currkey = NewKey(121,   56, 4,  2,  2);    GridLayout.push_back (currkey);  
     currkey = NewKey(120,    52, 4,  2,  2);    GridLayout.push_back (currkey);    
-    currkey = NewKey(121,   56, 4,  2,  2);    GridLayout.push_back (currkey);    
-    
-    
+    currkey = NewKey(119,    48, 4,  2,  2);    GridLayout.push_back (currkey);    
+    currkey = NewKey(118,    44, 4,  2,  2);    GridLayout.push_back (currkey);    
+    currkey = NewKey(117,    40, 4,  2,  2);    GridLayout.push_back (currkey);    
+    currkey = NewKey(116,    36, 4,  2,  2);    GridLayout.push_back (currkey);    
+    currkey = NewKey(115,    32, 4,  2,  2);    GridLayout.push_back (currkey);    
+    currkey = NewKey(114,    28, 4,  2,  2);    GridLayout.push_back (currkey);    
+    currkey = NewKey(113,    24, 4,  2,  2);    GridLayout.push_back (currkey);    
+    currkey = NewKey(112,    20, 4,  2,  2);    GridLayout.push_back (currkey);        
+    currkey = NewKey(111,    16, 4,  2,  2);    GridLayout.push_back (currkey);        
+    currkey = NewKey(110,    12, 4,  2,  2);    GridLayout.push_back (currkey);    
+
     
     currkey = NewKey(70, 0, 10,  2,  2);    GridLayout.push_back (currkey);  // Pos 70. Left F1
-    currkey = NewKey(71, 0, 14,  2,  2);    GridLayout.push_back (currkey);
-    currkey = NewKey(72, 0, 18,  2,  2);    GridLayout.push_back (currkey);
-    currkey = NewKey(73, 0, 22,  2,  2);    GridLayout.push_back (currkey);
-    currkey = NewKey(74, 0, 26,  2,  2);    GridLayout.push_back (currkey);
-    
     currkey = NewKey(65, 4, 10,  2,  2);    GridLayout.push_back (currkey);
-    currkey = NewKey(66, 4, 14,  2,  2);    GridLayout.push_back (currkey);
-    currkey = NewKey(67, 4, 18,  2,  2);    GridLayout.push_back (currkey);
-    currkey = NewKey(68, 4, 22,  2,  2);    GridLayout.push_back (currkey);
-    currkey = NewKey(69, 4, 26,  2,  2);    GridLayout.push_back (currkey);
-    
     currkey = NewKey(1, 12, 10,  2,  2);    GridLayout.push_back (currkey);
     currkey = NewKey(2, 16, 10,  2,  2);    GridLayout.push_back (currkey);
     currkey = NewKey(3, 20, 10,  2,  2);    GridLayout.push_back (currkey);
@@ -217,26 +205,47 @@ KeyGridLayout currkey;
     currkey = NewKey(12, 56, 10,  2,  2);    GridLayout.push_back (currkey);    
     currkey = NewKey(13, 60, 10,  2,  2);    GridLayout.push_back (currkey);
     currkey = NewKey(15, 64, 10,  4,  2);    GridLayout.push_back (currkey);
+    
+    currkey = NewKey(75, 75, 10,  2,  2);    GridLayout.push_back (currkey);
+    currkey = NewKey(80, 79, 10,  2,  2);    GridLayout.push_back (currkey);    
+    currkey = NewKey(85, 83, 10,  2,  2);    GridLayout.push_back (currkey);
 
-    currkey = NewKey(16, 12, 14,  3,  2);    GridLayout.push_back (currkey); // TAB
-    currkey = NewKey(17, 19, 14,  2,  2);    GridLayout.push_back (currkey); // Q
-    currkey = NewKey(18, 23, 14,  2,  2);    GridLayout.push_back (currkey);
-    currkey = NewKey(19, 27, 14,  2,  2);    GridLayout.push_back (currkey);
-    currkey = NewKey(20, 31, 14,  2,  2);    GridLayout.push_back (currkey);
-    currkey = NewKey(21, 35, 14,  2,  2);    GridLayout.push_back (currkey);
-    currkey = NewKey(22, 39, 14,  2,  2);    GridLayout.push_back (currkey);
+    currkey = NewKey(90, 90, 10,  2,  2);    GridLayout.push_back (currkey);
+    currkey = NewKey(95, 94, 10,  2,  2);    GridLayout.push_back (currkey);
+    currkey = NewKey(100, 98, 10,  2,  2);    GridLayout.push_back (currkey);
+    currkey = NewKey(105, 102, 10,  2,  2);    GridLayout.push_back (currkey);    
+    
+        currkey = NewKey(106, 102, 14,  2,  2);    GridLayout.push_back (currkey);  
+        currkey = NewKey(101, 98, 14,  2,  2);    GridLayout.push_back (currkey);
+        currkey = NewKey(96, 94, 14,  2,  2);    GridLayout.push_back (currkey);
+        currkey = NewKey(91, 90, 14,  2,  2);    GridLayout.push_back (currkey);
+        
+          currkey = NewKey(86, 83, 14,  2,  2);    GridLayout.push_back (currkey);     
+        currkey = NewKey(81, 79, 14,  2,  2);    GridLayout.push_back (currkey);  
+         currkey = NewKey(76, 75, 14,  2,  2);    GridLayout.push_back (currkey);   
+    
+        currkey = NewKey(28, 63, 14,  2,  2);    GridLayout.push_back (currkey);
+         currkey = NewKey(27, 59, 14,  2,  2);    GridLayout.push_back (currkey);   
+         currkey = NewKey(26, 55, 14,  2,  2);    GridLayout.push_back (currkey);
+     currkey = NewKey(25, 51, 14,  2,  2);    GridLayout.push_back (currkey);
+     currkey = NewKey(24, 47, 14,  2,  2);    GridLayout.push_back (currkey);
     currkey = NewKey(23, 43, 14,  2,  2);    GridLayout.push_back (currkey);
-    currkey = NewKey(24, 47, 14,  2,  2);    GridLayout.push_back (currkey);
-    currkey = NewKey(25, 51, 14,  2,  2);    GridLayout.push_back (currkey);
-    currkey = NewKey(26, 55, 14,  2,  2);    GridLayout.push_back (currkey);
-    currkey = NewKey(27, 59, 14,  2,  2);    GridLayout.push_back (currkey);
-    currkey = NewKey(28, 63, 14,  2,  2);    GridLayout.push_back (currkey);
-    currkey = NewKey(43, 68, 14,  2,  4);    GridLayout.push_back (currkey); // ENTER
-    
-    currkey = NewKey(30, 12, 18,  4,  2);    GridLayout.push_back (currkey);  ///////// CAP LOCK
-    currkey = NewKey(31, 20, 18,  2,  2);    GridLayout.push_back (currkey);    // A
+    currkey = NewKey(22, 39, 14,  2,  2);    GridLayout.push_back (currkey);
+    currkey = NewKey(21, 35, 14,  2,  2);    GridLayout.push_back (currkey);
+     currkey = NewKey(20, 31, 14,  2,  2);    GridLayout.push_back (currkey);
+    currkey = NewKey(19, 27, 14,  2,  2);    GridLayout.push_back (currkey);
+    currkey = NewKey(18, 23, 14,  2,  2);    GridLayout.push_back (currkey);
+    currkey = NewKey(17, 19, 14,  2,  2);    GridLayout.push_back (currkey); // Q
+    currkey = NewKey(16, 12, 14,  3,  2);    GridLayout.push_back (currkey); // TAB
+
+     currkey = NewKey(66, 4, 14,  2,  2);    GridLayout.push_back (currkey);   
+       currkey = NewKey(71, 0, 14,  2,  2);    GridLayout.push_back (currkey); 
+       currkey = NewKey(72, 0, 18,  2,  2);    GridLayout.push_back (currkey);
+      currkey = NewKey(67, 4, 18,  2,  2);    GridLayout.push_back (currkey);    
+       
+     currkey = NewKey(30, 12, 18,  4,  2);    GridLayout.push_back (currkey);  ///////// CAP LOCK
+         currkey = NewKey(31, 20, 18,  2,  2);    GridLayout.push_back (currkey);    // A
     currkey = NewKey(32, 24, 18,  2,  2);    GridLayout.push_back (currkey);
-    
      currkey = NewKey(33, 28, 18,  2,  2);    GridLayout.push_back (currkey);
      currkey = NewKey(34, 32, 18,  2,  2);    GridLayout.push_back (currkey);
      currkey = NewKey(35, 36, 18,  2,  2);    GridLayout.push_back (currkey);
@@ -247,76 +256,126 @@ KeyGridLayout currkey;
     currkey = NewKey(40, 56, 18,  2,  2);    GridLayout.push_back (currkey);
     currkey = NewKey(41, 60, 18,  2,  2);    GridLayout.push_back (currkey);
     currkey = NewKey(42, 64, 18,  2,  2);    GridLayout.push_back (currkey);
+     
+       currkey = NewKey(43, 68, 14,  2,  4);    GridLayout.push_back (currkey); // ENTER 
+     
+         currkey = NewKey(82, 79, 18,  2,  2);    GridLayout.push_back (currkey);       // UP ARROW
+         
+             currkey = NewKey(92, 90, 18,  2,  2);    GridLayout.push_back (currkey);
+              currkey = NewKey(97, 94, 18,  2,  2);    GridLayout.push_back (currkey);
+               currkey = NewKey(102, 98, 18,  2,  2);    GridLayout.push_back (currkey);   
+               currkey = NewKey(107, 102, 18,  2,  2);    GridLayout.push_back (currkey);     
+             currkey = NewKey(108, 102, 22,  2,  4);    GridLayout.push_back (currkey);  
+             currkey = NewKey(103, 98, 22,  2,  2);    GridLayout.push_back (currkey);
+             currkey = NewKey(98, 94, 22,  2,  2);    GridLayout.push_back (currkey);
+          currkey = NewKey(93, 90, 22,  2,  2);    GridLayout.push_back (currkey);
+          
+             currkey = NewKey(88, 83, 22,  2,  2);    GridLayout.push_back (currkey);       // RIGHT ARROW 
+       currkey = NewKey(83, 79, 22,  2,  2);    GridLayout.push_back (currkey);       // MIDDLE ARROW   
+currkey = NewKey(78, 75, 22,  2,  2);    GridLayout.push_back (currkey);       // LEFT ARROW       
+    
+currkey = NewKey(57, 62, 22,  5,  2);    GridLayout.push_back (currkey);  // RIGHT Shift big
+    currkey = NewKey(55, 58, 22,  2,  2);    GridLayout.push_back (currkey);  // Slash
+    currkey = NewKey(54, 54, 22,  2,  2);    GridLayout.push_back (currkey);  // Period
+    currkey = NewKey(53, 50, 22,  2,  2);    GridLayout.push_back (currkey);  //  comma
+    currkey = NewKey(52, 46, 22,  2,  2);    GridLayout.push_back (currkey);  // 
+        currkey = NewKey(51, 42, 22,  2,  2);    GridLayout.push_back (currkey);  // 
+        currkey = NewKey(50, 38, 22,  2,  2);    GridLayout.push_back (currkey);  // 
+        currkey = NewKey(49, 34, 22,  2,  2);    GridLayout.push_back (currkey);  // 
+            currkey = NewKey(48, 30, 22,  2,  2);    GridLayout.push_back (currkey);  //    
+            currkey = NewKey(47, 26, 22,  2,  2);    GridLayout.push_back (currkey);  // 
+            currkey = NewKey(46, 22, 22,  2,  2);    GridLayout.push_back (currkey);  // 
+        currkey = NewKey(45, 18, 22,  2,  2);    GridLayout.push_back (currkey);  // 
+    currkey = NewKey(44, 12, 22,  3,  2);    GridLayout.push_back (currkey);  ///////// LEFT SHIFT (SKINNY) 
+        currkey = NewKey(68, 4, 22,  2,  2);    GridLayout.push_back (currkey);
+        currkey = NewKey(73, 0, 22,  2,  2);    GridLayout.push_back (currkey);
+        currkey = NewKey(74, 0, 26,  2,  2);    GridLayout.push_back (currkey);
+        currkey = NewKey(69, 4, 26,  2,  2);    GridLayout.push_back (currkey);
+
+
+    currkey = NewKey(58, 12, 26,  3,  2);    GridLayout.push_back (currkey);  ///////// LEFT CONTROL
+    currkey = NewKey(60, 24, 26,  3,  2);    GridLayout.push_back (currkey);  ///////// LEFT ALT
     
        
-    currkey = NewKey(44, 12, 22,  3,  2);    GridLayout.push_back (currkey);  ///////// LEFT SHIFT (SKINNY) 
-    currkey = NewKey(45, 18, 22,  2,  2);    GridLayout.push_back (currkey);  // 
-    currkey = NewKey(46, 22, 22,  2,  2);    GridLayout.push_back (currkey);  // 
-    currkey = NewKey(47, 26, 22,  2,  2);    GridLayout.push_back (currkey);  // 
-    currkey = NewKey(48, 30, 22,  2,  2);    GridLayout.push_back (currkey);  //     
-    currkey = NewKey(49, 34, 22,  2,  2);    GridLayout.push_back (currkey);  // 
-    currkey = NewKey(50, 38, 22,  2,  2);    GridLayout.push_back (currkey);  // 
-    currkey = NewKey(51, 42, 22,  2,  2);    GridLayout.push_back (currkey);  // 
-    currkey = NewKey(52, 46, 22,  2,  2);    GridLayout.push_back (currkey);  // 
-    currkey = NewKey(53, 50, 22,  2,  2);    GridLayout.push_back (currkey);  //  comma
-    currkey = NewKey(54, 54, 22,  2,  2);    GridLayout.push_back (currkey);  // Period
-    currkey = NewKey(55, 58, 22,  2,  2);    GridLayout.push_back (currkey);  // Slash
-    currkey = NewKey(56, 62, 22,  5,  2);    GridLayout.push_back (currkey);  // RIGHT Shift big
-    
-    
-    currkey = NewKey(58, 12, 26,  3,  2);    GridLayout.push_back (currkey);  ///////// LEFT CONTROL
-    currkey = NewKey(58, 24, 26,  3,  2);    GridLayout.push_back (currkey);  ///////// LEFT ALT
-   
     currkey = NewKey(61, 31, 26,  12,  2);    GridLayout.push_back (currkey);  ///////// SPACE
     
     currkey = NewKey(62, 56, 26,  3,  2);    GridLayout.push_back (currkey);  ///////// RIGHT ALT
     currkey = NewKey(64, 66, 26,  3,  2);    GridLayout.push_back (currkey);  ///////// RIGHT CONTROL
     
+   currkey = NewKey(84, 79, 26,  2,  2);    GridLayout.push_back (currkey);       // DOWN ARROW
+
+        currkey = NewKey(99, 90, 26,  4,  2);    GridLayout.push_back (currkey);
+        currkey = NewKey(104, 98, 26,  2,  2);    GridLayout.push_back (currkey);
+
+
+
     
+
+
+
+
+ 
+    
+  
+
+    
+       
+    
+
+
+
+ 
+
+
+
+
+
+
+
+    
+    
+    
+
+ 
     
     
     // ******************************************************
     
-    currkey = NewKey(75, 75, 10,  2,  2);    GridLayout.push_back (currkey);
-    currkey = NewKey(80, 79, 10,  2,  2);    GridLayout.push_back (currkey);    
-    currkey = NewKey(85, 83, 10,  2,  2);    GridLayout.push_back (currkey);
-    currkey = NewKey(76, 75, 14,  2,  2);    GridLayout.push_back (currkey);
-    currkey = NewKey(81, 79, 14,  2,  2);    GridLayout.push_back (currkey);    
-    currkey = NewKey(86, 83, 14,  2,  2);    GridLayout.push_back (currkey);    
+
+
+  
+ 
     
     // **************  ARROWS **********************************
 
-    currkey = NewKey(82, 79, 18,  2,  2);    GridLayout.push_back (currkey);       // UP ARROW
-    currkey = NewKey(83, 79, 22,  2,  2);    GridLayout.push_back (currkey);       // MIDDLE ARROW
-    currkey = NewKey(84, 79, 26,  2,  2);    GridLayout.push_back (currkey);       // DOWN ARROW
-    currkey = NewKey(88, 83, 22,  2,  2);    GridLayout.push_back (currkey);       // RIGHT ARROW
-    currkey = NewKey(78, 75, 22,  2,  2);    GridLayout.push_back (currkey);       // LEFT ARROW
+
+    
+    
+
+    
     
     
     // ****************  NUMPAD ************************************************
-    currkey = NewKey(90, 90, 10,  2,  2);    GridLayout.push_back (currkey);
-    currkey = NewKey(95, 94, 10,  2,  2);    GridLayout.push_back (currkey);
-    currkey = NewKey(100, 98, 10,  2,  2);    GridLayout.push_back (currkey);
-    currkey = NewKey(105, 102, 10,  2,  2);    GridLayout.push_back (currkey);
 
-    currkey = NewKey(91, 90, 14,  2,  2);    GridLayout.push_back (currkey);
-    currkey = NewKey(96, 94, 14,  2,  2);    GridLayout.push_back (currkey);
-    currkey = NewKey(101, 98, 14,  2,  2);    GridLayout.push_back (currkey);
-    currkey = NewKey(106, 102, 14,  2,  2);    GridLayout.push_back (currkey);    
-    
-    currkey = NewKey(92, 90, 18,  2,  2);    GridLayout.push_back (currkey);
-    currkey = NewKey(97, 94, 18,  2,  2);    GridLayout.push_back (currkey);
-    currkey = NewKey(102, 98, 18,  2,  2);    GridLayout.push_back (currkey);
-    currkey = NewKey(107, 102, 18,  2,  2);    GridLayout.push_back (currkey);    
 
-    currkey = NewKey(93, 90, 22,  2,  2);    GridLayout.push_back (currkey);
-    currkey = NewKey(98, 94, 22,  2,  2);    GridLayout.push_back (currkey);
-    currkey = NewKey(103, 98, 22,  2,  2);    GridLayout.push_back (currkey);
-    currkey = NewKey(108, 102, 22,  2,  4);    GridLayout.push_back (currkey);    
+
+
+
+  
     
-    currkey = NewKey(99, 90, 26,  4,  2);    GridLayout.push_back (currkey);
+
+ 
+
+  
+
+ 
+
+
+  
+    
+
     //currkey = NewKey(95, 94, 10,  2,  2);    GridLayout.push_back (currkey);
-    currkey = NewKey(104, 98, 26,  2,  2);    GridLayout.push_back (currkey);
+
     //currkey = NewKey(105, 102, 10,  2,  2);    GridLayout.push_back (currkey);
     
         refresh();
@@ -330,14 +389,26 @@ KeyGridLayout currkey;
 //        refresh();
         box(GridLayout[x].window, 0 , 0);
       wrefresh(GridLayout[x].window);
-//
-//        
-  //  key = GridLayout[x].window;
-      //GridLayout.insert(x).base()->window=key;
-  //  key = create_newwin2(GridLayout[x].Ywidth*2, GridLayout[x].Xwidth*2,  GridLayout[x].Ygridposition, GridLayout[x].Xgridposition);
-//
+
+
    }
     
+      start_color();
+    init_pair(1,COLOR_BLUE, COLOR_GREEN);
+    init_pair(2,COLOR_WHITE, COLOR_BLACK);
+    
+    for(x=0; x<GridLayout.size(); ++x) 
+    {
+//    //   cout << "Key: " << x << " " << GridLayout[x].position << endl; 
+//        key = create_newwin2(GridLayout[x].Ywidth*2, GridLayout[x].Xwidth*2,  GridLayout[x].Ygridposition, GridLayout[x].Xgridposition);
+        wbkgd(GridLayout[x].window, COLOR_PAIR(1));
+        usleep(150000);
+        wrefresh(GridLayout[x].window);
+    }
+    
+    mvprintw(20,20,"FInish");
+    getch();
+   
 //    start_color();
 //    init_pair(1,COLOR_BLUE, COLOR_GREEN);
 //    init_pair(2,COLOR_WHITE, COLOR_BLACK);
