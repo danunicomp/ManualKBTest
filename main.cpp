@@ -29,7 +29,7 @@
 
 using namespace std;
 
-const string VERSION = "1.1.0406.B";
+const string VERSION = "1.2.0407.F";
 const string CONFIG_FILE = "config.txt";
 
 /* TODO
