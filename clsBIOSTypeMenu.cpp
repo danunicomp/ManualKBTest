@@ -30,9 +30,6 @@ clsBIOSTypeMenu::~clsBIOSTypeMenu() {
 #define WIDTH 30
 #define HEIGHT 10 
 
-
-
-
 //void print_menu(WINDOW *menu_win, int highlight);
 
 int clsBIOSTypeMenu::mainmenu() {
@@ -47,12 +44,7 @@ int clsBIOSTypeMenu::mainmenu() {
          //cout << "IN Loop" << endl;
 
       clsBIOSTypeMenu::nchoices = 5;
-      
-      
-        
-      
-      
-      
+
 	WINDOW *menu_win;
 	int highlight = 1;
 	int choice = 0;

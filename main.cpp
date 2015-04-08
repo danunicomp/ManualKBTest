@@ -29,7 +29,7 @@
 
 using namespace std;
 
-const string VERSION = "1.2.0407.F";
+const string VERSION = "1.2.0408.A";
 const string CONFIG_FILE = "config.txt";
 
 /* TODO
@@ -168,7 +168,9 @@ int main ()
                 ShowKeyboard.ShowKeyboard_PC122();
                 //MenuBIOSType.ShowKeyboard();
                 break;
-                
+            case 60:
+                MenuBIOSType.mainmenu();
+                break;
         }
     }
     cout << "Exiting program..." << endl;

@@ -291,6 +291,8 @@ int clsKeyboardTest::LoadWseWithUSBPID(std::string PID="") {
         cout << endl << "** PROBLEM LOADED FIRMWARE NUMBER **" << endl << endl;
     }
 }
+
+
 void clsKeyboardTest::DebugShowBuffer (void) {
     string PID;
     PID = clsKeyboardTest::GetUSBPid();
@@ -710,4 +712,6 @@ int clsKeyboardTest::GetNumberOfLinesInTextFile (string filename) {
     }
     return(number_of_lines);
 }
+
+
 
