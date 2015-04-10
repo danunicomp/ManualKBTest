@@ -54,6 +54,7 @@ int clsNewKeyboard::ReadFirmware(std::string filename="")
     return 1;
 }
 
+//  THIS ONE NOT USED ANYMORE
 int clsNewKeyboard::NewReadWSE (string filename) {
         string line;
     try {
@@ -86,6 +87,7 @@ int clsNewKeyboard::NewReadWSE (string filename) {
     }
 }
 
+//NOT USED
 int clsNewKeyboard::ReadWSE(string filename) {
     string line;
     try {

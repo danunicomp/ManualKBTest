@@ -15,7 +15,7 @@
 #include <fstream>
 #include <sstream>
 #include <iomanip>   
-
+#include <usb.h>
 #ifndef UNICOMP_H
 #define	UNICOMP_H
 

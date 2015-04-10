@@ -1,5 +1,7 @@
 #include <stdlib.h>
 #include "GPIOClass.h"
+#include <unistd.h>
+
 
 int testsound(void)
 {

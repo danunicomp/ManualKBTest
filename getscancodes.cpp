@@ -7,6 +7,7 @@
 #include <stdlib.h>
 #include <sys/ioctl.h> /* ioctl */
 #include <fcntl.h> /* open */
+#include <unistd.h> /* close */
 #include <stdio.h>
 #include <linux/kd.h>
 #include <string>
