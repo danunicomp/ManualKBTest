@@ -70,6 +70,8 @@ clsKeyboardTest::~clsKeyboardTest() {
 
 
 ////////////////////////////////////////////////////////////////
+//  THIS IS ONE THAT USES PURE C++ AND VECTOR
+///////////////////////////////////
 void clsKeyboardTest::StartTestNEW() {
    
     int result, exits;
@@ -139,10 +141,15 @@ void clsKeyboardTest::StartTestNEW() {
 }
 ////////////////////////////////////////////////////////////////////
 
+std::vector<int> DebugTestingKeyPress (void) {
+  
+}
 
 
 
 ////////////////////////////////////////////////////////////////
+//    USES C AND ARRAY
+//////////////////////////////
 void clsKeyboardTest::StartTest() {
    
     int result, exits;

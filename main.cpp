@@ -29,7 +29,7 @@
 
 using namespace std;
 
-const string VERSION = "1.2.0408.A";
+const string VERSION = "1.2.0410.A";
 const string CONFIG_FILE = "config.txt";
 
 /* TODO
@@ -79,7 +79,7 @@ int main ()
         entries.clear();
         entries.push_back("Start Test");  selectnumber.push_back(1);
         entries.push_back("Debug - Show Scancodes");  selectnumber.push_back(2);
-      entries.push_back("Experimental Test");  selectnumber.push_back(3);
+        entries.push_back("Experimental Test");  selectnumber.push_back(3);
         entries.push_back("Change Firmware Number");  selectnumber.push_back(9);
        // entries.push_back("Old Test"); selectnumber.push_back(10);
         entries.push_back("Record New"); selectnumber.push_back(13);
@@ -125,10 +125,9 @@ int main ()
                 KeyboardTest.DebugShowBuffer();
                 break;
             case 3: // NEW TEST, USES VECTOR TO GET UNICODES
+                KeyboardTest.LoadWseWithUSBPID(KeyboardTest.USBPID);
                 KeyboardTest.StartTestNEW();
-            break;
-            
- 
+                break;
             case 87:     // debug - show buffer
                 KeyboardTest.DebugShowBuffer3();
                 break;
@@ -166,7 +165,7 @@ int main ()
                 break;
             case 71:    // SHOWS MAIN 122. ALL KEYS
                 ShowKeyboard.ShowKeyboard_PC122();
-                //MenuBIOSType.ShowKeyboard();
+                MenuBIOSType.mainmenu();
                 break;
             case 60:
                 MenuBIOSType.mainmenu();

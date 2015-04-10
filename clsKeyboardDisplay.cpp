@@ -6,9 +6,17 @@
  */
 
 #include "clsKeyboardDisplay.h"
+#include "cls_UniCodes.h"
 #include <vector>
 #include <iostream>
 #include <ncurses.h>
+#include <cstdlib>  // system calls
+#include <string>
+#include <sstream>
+
+#include "unicomp.h"
+#include "clsConfig.h"
+#include "clsKeyboardTest.h"
 
 using namespace std;
 
@@ -79,11 +87,11 @@ WINDOW *create_newwin2(int height, int width, int starty, int startx);
 //    currkey = NewKey(95, 15, 0,  2,  2);    GridLayout.push_back (currkey);    
     
     
-    WINDOW *key;
+//    WINDOW *key;
     initscr();
     clear();
     refresh();
-
+// THIS SHOWS THE GRID
     int x;
     for(x=0; x<GridLayout.size(); ++x) 
     {
@@ -91,15 +99,15 @@ WINDOW *create_newwin2(int height, int width, int starty, int startx);
         refresh();
         box(GridLayout[x].window, 0 , 0);
         wrefresh(GridLayout[x].window);
-
-        
-  //      key = GridLayout[x].window;
-  //      GridLayout.insert(x).base()->window=key;
-        //key = create_newwin2(GridLayout[x].Ywidth*2, GridLayout[x].Xwidth*2,  GridLayout[x].Ygridposition, GridLayout[x].Xgridposition);
-
     }
      refresh();
-             doupdate(); 
+////////////////////////////////////////////////
+     
+     
+     
+     
+     
+     doupdate(); 
     start_color();
     init_pair(1,COLOR_BLUE, COLOR_GREEN);
     init_pair(2,COLOR_WHITE, COLOR_BLACK);
@@ -303,32 +311,53 @@ currkey = NewKey(99, 90, 26,  4,  2);    GridLayout.push_back (currkey);
 currkey = NewKey(104, 98, 26,  2,  2);    GridLayout.push_back (currkey);
 
 
-        refresh();
+    //    refresh();
     
-   // WINDOW *key;
+    WINDOW *mainwindow = newwin(10,20,5,15);
 
-   int x;
-   for(x=0; x<GridLayout.size(); ++x) 
-   {
+    int x;
+    for(x=0; x<GridLayout.size(); ++x) 
+    {
         box(GridLayout[x].window, 0 , 0);
         wrefresh(GridLayout[x].window);
-   }
+    }
     
+
+    
+   clsKeyboardTest KeyboardTest();
+      cls_UniCodes GetUnicode;
+      vector<int> buffer;
+   
+      
+      
     start_color();
     init_pair(1,COLOR_BLUE, COLOR_GREEN);
     init_pair(2,COLOR_WHITE, COLOR_BLACK);
     
+    string status;
+    int i;
     for(x=0; x<GridLayout.size(); ++x) 
     {
 //    //   cout << "Key: " << x << " " << GridLayout[x].position << endl; 
 //        key = create_newwin2(GridLayout[x].Ywidth*2, GridLayout[x].Xwidth*2,  GridLayout[x].Ygridposition, GridLayout[x].Xgridposition);
         if (x>0) {wbkgd(GridLayout[x-1].window, COLOR_PAIR(2)); }
+      
         wbkgd(GridLayout[x].window, COLOR_PAIR(1));
-        usleep(150000);
+        system("stty -echo");
+      buffer = GetUnicode.GetUnicodeBuffer();
+      status = unicomp::IntVectorToString(buffer);
+      //status = to_string(10);
+      
+      //status = buffer[0].str();
+        mvprintw(0,0,status.c_str());
+             refresh();
+        i =10;
+   //     status = i.c_str();
+        system("stty echo");
         wrefresh(GridLayout[x].window);
         if(x>0) {wrefresh(GridLayout[x-1].window);}
     }
-    
+
     mvprintw(20,30,"FInish");
     getch();
    

@@ -44,6 +44,7 @@ public:
     void FlashLEDs(void);
     void DebugShowBuffer3 (void);
     void StartTestNEW(void);
+    std::vector<int> DebugTestingKeyPress (void);
 private:
     clsConfig CurrentConfig;
     std::vector<std::string> ExpectedLines; 
