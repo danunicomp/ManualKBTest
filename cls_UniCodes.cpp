@@ -85,7 +85,7 @@ using namespace std;
     usleep(10);
     
     /* show keycodes - 2.6 allows 3-byte reports */
-    int t, kc;
+    int t;
  //     
     for (t=0; t<19; ++t) {
         buf[t] = 0;
@@ -103,12 +103,6 @@ using namespace std;
         int y = buf[0];
         fullcode = y;
         
-
-        //cout << "12026240 & 255 = " <<  r << endl;
-        
- //       int res = fullcode & test;
- //   cout << "BUFF[0]=" << buf[0] << endl;
-        cout;
         for (i=0;i<n; ++i) {
           buf[i] = ((fullcode & (255 << (8*i))) >> (8*i) );
         }
@@ -124,11 +118,11 @@ using namespace std;
             newbuf.clear();
             for (t=0;t<19;++t) {
                 newbuf.push_back(buf[t]);
-               if ( newbuf[0] == 1) {
-                   clean_up(fd);
-                   close(fd);
-                   return newbuf;
-               }
+//               if ( newbuf[0] == 1) {
+//                   clean_up(fd);
+//                   close(fd);
+//                   return newbuf;
+//               }
                 buf[t] = 0;  //flush buffer
             }
  
@@ -224,6 +218,7 @@ int cls_UniCodes::open_a_console(const char *fnam) {
 
 
 // ***************  GET FD *****************************
+//  GET FILE DISCRIPTER. INPUT
 int cls_UniCodes::getfd(const char *fnam) {
 	int fd;
    //     printf ("FINDING FD\n");

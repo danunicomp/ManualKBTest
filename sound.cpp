@@ -3,7 +3,7 @@
 #include <unistd.h>
 
 
-int testsound(void)
+void testsound(void)
 {
  system("omxplayer /home/pi/ManualKBTest/exitfree wavraspberry  >/dev/null");
 }

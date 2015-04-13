@@ -79,12 +79,12 @@ die(int x, int fd) {
     return x;
 }
 
-static void
-watch_dog(int fd) {
-    clean_up(fd);
-    close(fd);
-    return;
-}
+//static void
+//watch_dog(int fd) {
+//    clean_up(fd);
+//    close(fd);
+//    return;
+//}
 
 std::vector<int> FullBuffer2 (void) {
 
@@ -126,7 +126,7 @@ std::vector<int> FullBuffer2 (void) {
         return newbuf;
     }
     /* show keycodes - 2.6 allows 3-byte reports */
-    int t, kc;
+    int t;
  //     
     for (t=0; t<19; ++t) {
         buf[t] = 0;
@@ -144,10 +144,10 @@ std::vector<int> FullBuffer2 (void) {
             s = (buf[i] & 0x80) ? "BREAK" : "MAKE";
             if (i+2 < n && (buf[i] & 0x7f) == 0 && (buf[i+1] & 0x80) != 0 && (buf[i+2] & 0x80) != 0) 
             {
-                kc = ((buf[i+1] & 0x7f) << 7) | (buf[i+2] & 0x7f);
+    //            kc = ((buf[i+1] & 0x7f) << 7) | (buf[i+2] & 0x7f);
                 i += 3;
             } else {
-                kc = (buf[i] & 0x7f);
+  //              kc = (buf[i] & 0x7f);
                 i++;
             }
             // ******** SELECT MAKE OR BREAK

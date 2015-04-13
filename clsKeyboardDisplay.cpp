@@ -92,7 +92,7 @@ WINDOW *create_newwin2(int height, int width, int starty, int startx);
     clear();
     refresh();
 // THIS SHOWS THE GRID
-    int x;
+    unsigned int x;
     for(x=0; x<GridLayout.size(); ++x) 
     {
     //   cout << "Key: " << x << " " << GridLayout[x].position << endl; 
@@ -313,9 +313,9 @@ currkey = NewKey(104, 98, 26,  2,  2);    GridLayout.push_back (currkey);
 
     //    refresh();
     
-    WINDOW *mainwindow = newwin(10,20,5,15);
+ //   WINDOW *mainwindow = newwin(10,20,5,15);
 
-    int x;
+    unsigned int x;
     for(x=0; x<GridLayout.size(); ++x) 
     {
         box(GridLayout[x].window, 0 , 0);
@@ -335,7 +335,7 @@ currkey = NewKey(104, 98, 26,  2,  2);    GridLayout.push_back (currkey);
     init_pair(2,COLOR_WHITE, COLOR_BLACK);
     
     string status;
-    int i;
+
     for(x=0; x<GridLayout.size(); ++x) 
     {
 //    //   cout << "Key: " << x << " " << GridLayout[x].position << endl; 
@@ -351,7 +351,7 @@ currkey = NewKey(104, 98, 26,  2,  2);    GridLayout.push_back (currkey);
       //status = buffer[0].str();
         mvprintw(0,0,status.c_str());
              refresh();
-        i =10;
+   
    //     status = i.c_str();
         system("stty echo");
         wrefresh(GridLayout[x].window);

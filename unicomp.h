@@ -77,16 +77,17 @@ std::string unicomp::stripspace(const std::string in)
 {
     std::string cleanstring;
     
-      std::string::const_iterator b = in.begin(), e = in.end();
-        if (b != e){
+    std::string::const_iterator b = in.begin(), e = in.end();
+    if (b != e){
         // skipping trailing spaces
         while (isspace(*(e-1))){
             --e;
         }
          cleanstring.assign(b, e);
-         
+
          return cleanstring;
     }
+    return in;
 }
 
 ///Split a delimanated string
@@ -138,7 +139,7 @@ std::string unicomp::strtoupper(std::string& str)
 	std::locale settings;
 	std::string converted;
 
-	for(short i = 0; i < str.size(); ++i)
+	for(unsigned int i = 0; i < str.size(); ++i)
 		converted += (std::toupper(str[i], settings));
 	
 	return converted;
@@ -163,7 +164,6 @@ bool unicomp::YesNo(std::string question) {
     
     std::string s;
     std::cin.fail();
-    int x=0;
     std::cin.clear();
     getline(std::cin, s);
     std::stringstream stream(s);
@@ -196,7 +196,7 @@ void unicomp::ShowHeader(void){
 }
 
 std::string unicomp::IntVectorToString (std::vector<int> intvector) {
-    int x;
+    unsigned int x;
     std::string line;
        std::ostringstream oss(""); 
 

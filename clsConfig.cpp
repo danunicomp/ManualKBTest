@@ -43,8 +43,6 @@ int clsConfig::ReadConfig(string filename) {
         ifstream inputFile(pathandfile.c_str());
         if (! inputFile.good()) return 0;
         vector<string> v; 
-        int i = 0;
-        int temp;
         string property;
         
         while (getline(inputFile, line)) 

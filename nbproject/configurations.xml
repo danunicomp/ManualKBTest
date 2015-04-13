@@ -249,8 +249,9 @@
         </cTool>
         <ccTool>
           <developmentMode>5</developmentMode>
-          <standard>4</standard>
+          <standard>8</standard>
           <commandLine>-lusb -lncurses -lpanel</commandLine>
+          <warningLevel>2</warningLevel>
         </ccTool>
         <fortranCompilerTool>
           <developmentMode>5</developmentMode>
@@ -282,7 +283,7 @@
       <item path="/home/pi/ManualKBTest/CreateMenu.cpp"
             ex="false"
             tool="1"
-            flavor2="4">
+            flavor2="8">
       </item>
       <item path="/home/pi/ManualKBTest/CreateMenu.h" ex="false" tool="3" flavor2="0">
       </item>
@@ -301,9 +302,9 @@
       <item path="/home/pi/ManualKBTest/clsBIOSTypeMenu.cpp"
             ex="false"
             tool="1"
-            flavor2="9">
+            flavor2="0">
         <ccTool>
-          <architecture>1</architecture>
+          <architecture>0</architecture>
           <warningLevel>1</warningLevel>
         </ccTool>
       </item>
@@ -366,6 +367,7 @@
             flavor2="0">
         <ccTool>
           <developmentMode>5</developmentMode>
+          <warningLevel>2</warningLevel>
           <additionalDep></additionalDep>
         </ccTool>
       </item>
@@ -412,6 +414,7 @@
       <item path="main.cpp" ex="false" tool="1" flavor2="0">
         <ccTool>
           <commandLine>-lusb</commandLine>
+          <warningLevel>2</warningLevel>
         </ccTool>
       </item>
       <item path="nls.h" ex="false" tool="3" flavor2="0">

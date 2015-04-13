@@ -80,12 +80,12 @@ ${CND_DISTDIR}/${CND_CONF}/manualkbtest: ${OBJECTFILES}
 ${OBJECTDIR}/_ext/356084796/CreateMenu.o: /home/pi/ManualKBTest/CreateMenu.cpp 
 	${MKDIR} -p ${OBJECTDIR}/_ext/356084796
 	${RM} "$@.d"
-	$(COMPILE.cc) -O2 -std=c++98 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/356084796/CreateMenu.o /home/pi/ManualKBTest/CreateMenu.cpp
+	$(COMPILE.cc) -O2 -Wall -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/356084796/CreateMenu.o /home/pi/ManualKBTest/CreateMenu.cpp
 
 ${OBJECTDIR}/_ext/356084796/GPIOClass.o: /home/pi/ManualKBTest/GPIOClass.cpp 
 	${MKDIR} -p ${OBJECTDIR}/_ext/356084796
 	${RM} "$@.d"
-	$(COMPILE.cc) -O2 -std=c++98 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/356084796/GPIOClass.o /home/pi/ManualKBTest/GPIOClass.cpp
+	$(COMPILE.cc) -O2 -Wall -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/356084796/GPIOClass.o /home/pi/ManualKBTest/GPIOClass.cpp
 
 ${OBJECTDIR}/_ext/356084796/clsBIOSTypeMenu.o: /home/pi/ManualKBTest/clsBIOSTypeMenu.cpp 
 	${MKDIR} -p ${OBJECTDIR}/_ext/356084796
@@ -95,37 +95,37 @@ ${OBJECTDIR}/_ext/356084796/clsBIOSTypeMenu.o: /home/pi/ManualKBTest/clsBIOSType
 ${OBJECTDIR}/_ext/356084796/clsConfig.o: /home/pi/ManualKBTest/clsConfig.cpp 
 	${MKDIR} -p ${OBJECTDIR}/_ext/356084796
 	${RM} "$@.d"
-	$(COMPILE.cc) -O2 -std=c++98 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/356084796/clsConfig.o /home/pi/ManualKBTest/clsConfig.cpp
+	$(COMPILE.cc) -O2 -Wall -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/356084796/clsConfig.o /home/pi/ManualKBTest/clsConfig.cpp
 
 ${OBJECTDIR}/_ext/356084796/clsKeyboardDisplay.o: /home/pi/ManualKBTest/clsKeyboardDisplay.cpp 
 	${MKDIR} -p ${OBJECTDIR}/_ext/356084796
 	${RM} "$@.d"
-	$(COMPILE.cc) -O2 -std=c++98 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/356084796/clsKeyboardDisplay.o /home/pi/ManualKBTest/clsKeyboardDisplay.cpp
+	$(COMPILE.cc) -O2 -Wall -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/356084796/clsKeyboardDisplay.o /home/pi/ManualKBTest/clsKeyboardDisplay.cpp
 
 ${OBJECTDIR}/_ext/356084796/clsKeyboardTUI.o: /home/pi/ManualKBTest/clsKeyboardTUI.cpp 
 	${MKDIR} -p ${OBJECTDIR}/_ext/356084796
 	${RM} "$@.d"
-	$(COMPILE.cc) -O2 -std=c++98 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/356084796/clsKeyboardTUI.o /home/pi/ManualKBTest/clsKeyboardTUI.cpp
+	$(COMPILE.cc) -O2 -Wall -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/356084796/clsKeyboardTUI.o /home/pi/ManualKBTest/clsKeyboardTUI.cpp
 
 ${OBJECTDIR}/_ext/356084796/clsKeyboardTest.o: /home/pi/ManualKBTest/clsKeyboardTest.cpp 
 	${MKDIR} -p ${OBJECTDIR}/_ext/356084796
 	${RM} "$@.d"
-	$(COMPILE.cc) -O2 -std=c++98 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/356084796/clsKeyboardTest.o /home/pi/ManualKBTest/clsKeyboardTest.cpp
+	$(COMPILE.cc) -O2 -Wall -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/356084796/clsKeyboardTest.o /home/pi/ManualKBTest/clsKeyboardTest.cpp
 
 ${OBJECTDIR}/_ext/356084796/clsTUIKey.o: /home/pi/ManualKBTest/clsTUIKey.cpp 
 	${MKDIR} -p ${OBJECTDIR}/_ext/356084796
 	${RM} "$@.d"
-	$(COMPILE.cc) -O2 -std=c++98 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/356084796/clsTUIKey.o /home/pi/ManualKBTest/clsTUIKey.cpp
+	$(COMPILE.cc) -O2 -Wall -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/356084796/clsTUIKey.o /home/pi/ManualKBTest/clsTUIKey.cpp
 
 ${OBJECTDIR}/_ext/356084796/cls_Menu.o: /home/pi/ManualKBTest/cls_Menu.cpp 
 	${MKDIR} -p ${OBJECTDIR}/_ext/356084796
 	${RM} "$@.d"
-	$(COMPILE.cc) -O2 -std=c++98 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/356084796/cls_Menu.o /home/pi/ManualKBTest/cls_Menu.cpp
+	$(COMPILE.cc) -O2 -Wall -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/356084796/cls_Menu.o /home/pi/ManualKBTest/cls_Menu.cpp
 
 ${OBJECTDIR}/_ext/356084796/cls_UniCodes.o: /home/pi/ManualKBTest/cls_UniCodes.cpp 
 	${MKDIR} -p ${OBJECTDIR}/_ext/356084796
 	${RM} "$@.d"
-	$(COMPILE.cc) -O2 -std=c++98 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/356084796/cls_UniCodes.o /home/pi/ManualKBTest/cls_UniCodes.cpp
+	$(COMPILE.cc) -O2 -Wall -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/356084796/cls_UniCodes.o /home/pi/ManualKBTest/cls_UniCodes.cpp
 
 ${OBJECTDIR}/_ext/356084796/getfd.o: /home/pi/ManualKBTest/getfd.c 
 	${MKDIR} -p ${OBJECTDIR}/_ext/356084796
@@ -135,7 +135,7 @@ ${OBJECTDIR}/_ext/356084796/getfd.o: /home/pi/ManualKBTest/getfd.c
 ${OBJECTDIR}/_ext/356084796/getscancodes.o: /home/pi/ManualKBTest/getscancodes.cpp 
 	${MKDIR} -p ${OBJECTDIR}/_ext/356084796
 	${RM} "$@.d"
-	$(COMPILE.cc) -O2 -std=c++98 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/356084796/getscancodes.o /home/pi/ManualKBTest/getscancodes.cpp
+	$(COMPILE.cc) -O2 -Wall -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/356084796/getscancodes.o /home/pi/ManualKBTest/getscancodes.cpp
 
 ${OBJECTDIR}/_ext/356084796/showkey-modified.o: /home/pi/ManualKBTest/showkey-modified.c 
 	${MKDIR} -p ${OBJECTDIR}/_ext/356084796
@@ -145,17 +145,17 @@ ${OBJECTDIR}/_ext/356084796/showkey-modified.o: /home/pi/ManualKBTest/showkey-mo
 ${OBJECTDIR}/clsNewKeyboard.o: clsNewKeyboard.cpp 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.cc) -O2 -std=c++98 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/clsNewKeyboard.o clsNewKeyboard.cpp
+	$(COMPILE.cc) -O2 -Wall -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/clsNewKeyboard.o clsNewKeyboard.cpp
 
 ${OBJECTDIR}/main.o: main.cpp 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.cc) -O2 -std=c++98 -lusb -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/main.o main.cpp
+	$(COMPILE.cc) -O2 -Wall -std=c++11 -lusb -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/main.o main.cpp
 
 ${OBJECTDIR}/sound.o: sound.cpp 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.cc) -O2 -std=c++98 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/sound.o sound.cpp
+	$(COMPILE.cc) -O2 -Wall -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/sound.o sound.cpp
 
 # Subprojects
 .build-subprojects:

@@ -74,8 +74,8 @@ clsKeyboardTest::~clsKeyboardTest() {
 ///////////////////////////////////
 void clsKeyboardTest::StartTestNEW() {
    
-    int result, exits;
-    int currentline = 0;
+    int result, exits =0;
+    int unsigned currentline = 0;
    vector<int> wholebuffer;
     string fullbuff;
     
@@ -141,9 +141,9 @@ void clsKeyboardTest::StartTestNEW() {
 }
 ////////////////////////////////////////////////////////////////////
 
-std::vector<int> DebugTestingKeyPress (void) {
-  
-}
+//std::vector<int> DebugTestingKeyPress (void) {
+//  
+//}
 
 
 
@@ -152,8 +152,8 @@ std::vector<int> DebugTestingKeyPress (void) {
 //////////////////////////////
 void clsKeyboardTest::StartTest() {
    
-    int result, exits;
-    int currentline = 0;
+    int result, exits =0;
+    int unsigned currentline = 0;
     int * wholebuffer;
     string fullbuff;
     
@@ -175,7 +175,7 @@ void clsKeyboardTest::StartTest() {
     usleep(900000);
     currentline = 0;
     cout << "Begin pressing keys" << endl; 
-    int x;
+
     
     cout << "Verify Firmware: " << clsKeyboardTest::GetUSBPidFilename() << endl;
     cout << "Verify Firmware: " << clsKeyboardTest::GetUSBPidFilename() << endl;
@@ -221,7 +221,7 @@ void clsKeyboardTest::StartTest() {
 
 
 void  clsKeyboardTest::FlashLEDs() {
-    int tty = open("/dev/console", 0), led;
+    int tty = open("/dev/console", 0);
     char key;
   do {
         ioctl(tty,KDSETLED, 7);
@@ -262,7 +262,9 @@ int clsKeyboardTest::GetWSEFile(void)
     }
     else {
         cout << endl << "** PROBLEM LOADED FIRMWARE NUMBER **" << endl << endl;
+        return 0;
     }
+    return 1;
 }
 
 int clsKeyboardTest::LoadWseWithUSBPID(std::string PID="") {
@@ -296,7 +298,9 @@ int clsKeyboardTest::LoadWseWithUSBPID(std::string PID="") {
     }
     else {
         cout << endl << "** PROBLEM LOADED FIRMWARE NUMBER **" << endl << endl;
+        return 0;
     }
+    return 1;
 }
 
 
@@ -429,7 +433,7 @@ void clsKeyboardTest::RecordNewKeyboard(string PID) {
         string newfilename;
         string bufferline;
         ofstream outFile; 
-        int exits;
+        int exits = 0;
         int * wholebuffer;
         
         cout << "Product ID Detected " << PID << endl; 
@@ -478,7 +482,7 @@ void clsKeyboardTest::RecordNewKeyboard(string PID, int MODE) {
         string newfilename;
         string bufferline;
         ofstream outFile; 
-        int exits;
+        int exits = 0;
         int * wholebuffer;
         bool stop = false;
         
@@ -541,7 +545,7 @@ void clsKeyboardTest::RecordNewKeyboard(void) {
         string newfilename;
         string bufferline;
         ofstream outFile; 
-        int exits;
+        int exits = 0;
         int * wholebuffer;
         
         cout << "Are you sure you want to record new keyboard? (Y/N) ";

@@ -213,7 +213,7 @@ void clsKeyboardTUI::Test(void) {
     WINDOW *my_wins[keys];
     PANEL *my_panels[keys];                                                     
     
-        int lines = 2, cols = 3, y = 5, x = 5, i;                               
+        int lines = 2, cols = 3, i;                               
                                                                                   
         initscr();                                                                
         cbreak();                                                                 
@@ -312,7 +312,7 @@ void clsKeyboardTUI::Test(void) {
         my_wins[70] = newwin(lines, cols, 10, 37);     // P
         my_wins[71] = newwin(lines, cols, 10, 40);     // [
         my_wins[72] = newwin(lines, cols, 10, 43);     // ]
-        my_wins[73] = newwin(lines, 4, 10, 46);     // \
+        my_wins[73] = newwin(lines, 4, 10, 46);     // 
         
         // HOME ROW
         my_wins[74] = newwin(lines, cols, 12, 11);     // A

@@ -39,7 +39,7 @@ void CreateMenu::Display(std::string CurrentFirmware = "") {
         cout << "NO FILE SELECTED" << endl;
     }
     
-    for (int i = 0; i < m_textEntries.size(); i++)
+    for (unsigned int i = 0; i < m_textEntries.size(); i++)
     {
         std::cout << m_SelectNumber.at(i) << " - " << m_textEntries.at(i) << std::endl;
     }
@@ -58,19 +58,5 @@ int CreateMenu::GetInput()
     stream >> x;   
     cin.clear();
     return (x);
-}
-
-bool CreateMenu::YesNo(std::string question) {
-    char YN;
-    std::cout << question << " (Y/N) ";
-    if (YN == 'y' || YN == 'Y') {
-        std::cin.clear();
-       return true; 
-    }
-    else
-    {
-        std::cin.clear();
-        return false;
-    }
 }
 

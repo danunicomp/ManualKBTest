@@ -4,8 +4,10 @@
  *
  * Created on January 26, 2015, 7:45 AM
  */
-#include <string>
-#include <vector>
+
+//#include <string>
+//#include <vector>
+
 //#include <boolean>
 
 #ifndef CLSNEWKEYBOARD_H

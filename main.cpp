@@ -29,7 +29,7 @@
 
 using namespace std;
 
-const string VERSION = "1.2.0410.A";
+const string VERSION = "1.2.0413.A";
 const string CONFIG_FILE = "config.txt";
 
 /* TODO
@@ -40,9 +40,6 @@ const string CONFIG_FILE = "config.txt";
 extern "C" int * FullBuffer (void );
 //extern "C" void LEDTurnOn (void);
 
-void clean_up ( void );
-
-void OldTest(clsConfig *);
 
 // /////////////////////////////////////////
 // MAIN
@@ -79,7 +76,7 @@ int main ()
         entries.clear();
         entries.push_back("Start Test");  selectnumber.push_back(1);
         entries.push_back("Debug - Show Scancodes");  selectnumber.push_back(2);
-        entries.push_back("Experimental Test");  selectnumber.push_back(3);
+        entries.push_back("TEST (old, C usage code");  selectnumber.push_back(3);
         entries.push_back("Change Firmware Number");  selectnumber.push_back(9);
        // entries.push_back("Old Test"); selectnumber.push_back(10);
         entries.push_back("Record New"); selectnumber.push_back(13);
@@ -115,7 +112,7 @@ int main ()
                  vector<int> UniBuffer;
         switch (input)
         {
-            case 1:  // ORiginal TEST
+            case 3:  // ORiginal TEST
                 KeyboardTest.LoadWseWithUSBPID(KeyboardTest.USBPID);
                 KeyboardTest.StartTest();
               
@@ -124,7 +121,7 @@ int main ()
             case 2:
                 KeyboardTest.DebugShowBuffer();
                 break;
-            case 3: // NEW TEST, USES VECTOR TO GET UNICODES
+            case 1: // NEW TEST, USES VECTOR TO GET UNICODES
                 KeyboardTest.LoadWseWithUSBPID(KeyboardTest.USBPID);
                 KeyboardTest.StartTestNEW();
                 break;
@@ -138,9 +135,6 @@ int main ()
                 autodetect = false;
                 //KeyboardTest.GetWSEFile();
                 break;
-//            case 10:    // old test
-//              OldTest(&CurrentConfig);
-//              break;
             case 14:    // Record New
               KeyboardTest.RecordNewKeyboard();
               break;

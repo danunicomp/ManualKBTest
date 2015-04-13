@@ -64,7 +64,6 @@ int clsNewKeyboard::NewReadWSE (string filename) {
         KeysKeycode.clear();
         KeysDescription.clear();
         vector<string> v; 
-        int i = 0;
         int temp;
         while (getline(inputFile, line)) 
         {
@@ -97,7 +96,6 @@ int clsNewKeyboard::ReadWSE(string filename) {
         KeysKeycode.clear();
         KeysDescription.clear();
         vector<string> v; 
-        int i = 0;
         int temp;
         while (getline(inputFile, line)) 
         {

@@ -17,7 +17,6 @@ public:
     void Display(std::string);
     virtual ~CreateMenu();
     int GetInput();
-    bool YesNo(std::string);
     void ShowHeader(void);
 private:
     std::string m_title;
