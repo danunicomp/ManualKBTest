@@ -1,10 +1,12 @@
 #include <iostream>
-#include <stdio.h>
 #include <string>
 #include <vector>
 #include <algorithm>  
 #include <sstream>
 #include <fstream>
+
+#include <stdio.h>
+#include <sys/ioctl.h> /* ioctl */
 #include <unistd.h>
 #include <ncurses.h>
 #include <stdio.h>
@@ -12,7 +14,6 @@
 #include <fcntl.h> /* open */
 #include <errno.h> /* perror */
 #include <linux/kd.h> /* Keyboard macros */
-#include <sys/ioctl.h> /* ioctl */
 
 #include "unicomp.h"
 

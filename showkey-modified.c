@@ -3,6 +3,7 @@
 #include <linux/kd.h>
 #include <linux/keyboard.h>
 #include <stdlib.h>
+#include <unistd.h> /* close */
 #include "getfd.h"
 #include <stdio.h>
 #include <sys/ioctl.h> /* ioctl */

@@ -79,6 +79,9 @@
         <ccTool>
           <standard>4</standard>
           <commandlineTool>g++</commandlineTool>
+          <incDir>
+            <pElem>/usr/include/c++/4.7</pElem>
+          </incDir>
           <commandLine>-lusb -O2 -lncurses -lpanel</commandLine>
         </ccTool>
         <asmTool>
@@ -239,19 +242,22 @@
     </conf>
     <conf name="Release" type="1">
       <toolsSet>
-        <compilerSet>default</compilerSet>
+        <compilerSet>GNU|GNU</compilerSet>
         <dependencyChecking>true</dependencyChecking>
         <rebuildPropChanged>false</rebuildPropChanged>
       </toolsSet>
       <compileType>
         <cTool>
           <developmentMode>5</developmentMode>
+          <standard>10</standard>
         </cTool>
         <ccTool>
           <developmentMode>5</developmentMode>
           <standard>8</standard>
+          <incDir>
+            <pElem>/usr/include/c++/4.7</pElem>
+          </incDir>
           <commandLine>-lusb -lncurses -lpanel</commandLine>
-          <warningLevel>2</warningLevel>
         </ccTool>
         <fortranCompilerTool>
           <developmentMode>5</developmentMode>
