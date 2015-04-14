@@ -6,20 +6,6 @@
     </data>
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-            <file>rfs://pi@192.168.0.210:22/home/pi/ManualKBTest/CreateMenu.h</file>
-            <file>rfs://pi@192.168.0.210:22/home/pi/ManualKBTest/unicomp.h</file>
-            <file>rfs://pi@192.168.0.210:22/home/pi/ManualKBTest/clsKeyboardDisplay.cpp</file>
-            <file>rfs://pi@192.168.0.210:22/home/pi/ManualKBTest/clsNewKeyboard.cpp</file>
-            <file>rfs://pi@192.168.0.210:22/home/pi/ManualKBTest/getscancodes.cpp</file>
-            <file>rfs://pi@192.168.0.210:22/home/pi/ManualKBTest/sound.cpp</file>
-            <file>rfs://pi@192.168.0.210:22/home/pi/ManualKBTest/clsNewKeyboard.h</file>
-            <file>rfs://pi@192.168.0.210:22/home/pi/ManualKBTest/clsConfig.cpp</file>
-            <file>rfs://pi@192.168.0.210:22/home/pi/ManualKBTest/clsKeyboardTUI.cpp</file>
-            <file>rfs://pi@192.168.0.210:22/home/pi/ManualKBTest/clsKeyboardTest.cpp</file>
-            <file>rfs://pi@192.168.0.210:22/home/pi/ManualKBTest/cls_UniCodes.cpp</file>
-            <file>rfs://pi@192.168.0.210:22/home/pi/ManualKBTest/CreateMenu.cpp</file>
-            <file>rfs://pi@192.168.0.210:22/home/pi/ManualKBTest/main.cpp</file>
-        </group>
+        <group/>
     </open-files>
 </project-private>
