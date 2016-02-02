@@ -249,13 +249,12 @@
       <compileType>
         <cTool>
           <developmentMode>5</developmentMode>
-          <standard>10</standard>
         </cTool>
         <ccTool>
           <developmentMode>5</developmentMode>
-          <standard>8</standard>
           <incDir>
-            <pElem>/usr/include/c++/4.7</pElem>
+            <pElem>/usr/include/c++/4.6</pElem>
+            <pElem>/usr/include/arm-linux-gnueabihf/</pElem>
           </incDir>
           <commandLine>-lusb -lncurses -lpanel</commandLine>
         </ccTool>
@@ -289,7 +288,7 @@
       <item path="/home/pi/ManualKBTest/CreateMenu.cpp"
             ex="false"
             tool="1"
-            flavor2="8">
+            flavor2="0">
       </item>
       <item path="/home/pi/ManualKBTest/CreateMenu.h" ex="false" tool="3" flavor2="0">
       </item>
