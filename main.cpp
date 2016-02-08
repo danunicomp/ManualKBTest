@@ -26,7 +26,7 @@
 
 using namespace std;
 
-const string VERSION = "1.3.20160208.C";
+const string VERSION = "1.3.20160208.D";
 const string CONFIG_FILE = "config.txt";
 
 /* TODO

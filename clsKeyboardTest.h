@@ -41,7 +41,7 @@ public:
     std::string USBPID;
     int LoadWseWithUSBPID(std::string);
     void ShowAllUSBInfo(void);
-    void FlashLEDs(void);
+    int FlashLEDs(void);
     void DebugShowBuffer3 (void);
     void StartTestNEW(void);
     std::vector<int> DebugTestingKeyPress (void);

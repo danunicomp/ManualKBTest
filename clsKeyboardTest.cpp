@@ -24,7 +24,7 @@
 #include <vector>
 #include <fcntl.h>  //  ADD TTY
 #include <usb.h>
-
+#include <string.h>
 #include <stdio.h>
 #include <unistd.h> /* close */
 #include <fcntl.h> /* open */
@@ -41,12 +41,6 @@
 
 using namespace std;
 
-//extern void PlayPassSound(void);
-//extern void PlayFailSound(void);
-//extern void PlayBeep(GPIOClass *);
-//extern void FailBeep(void);
-//extern void PassBeep(void);
-
 extern "C" int * FullBuffer (void);
 
 extern std::vector<int> FullBuffer2 (void);
@@ -58,8 +52,7 @@ clsKeyboardTest::clsKeyboardTest(void) {
 
 clsKeyboardTest::clsKeyboardTest(clsConfig* Config) {
     clsKeyboardTest::CurrentConfig = *Config;
-  //  cout << "Config from new test: " << clsKeyboardTest::CurrentConfig.Version << endl;
-    
+
 }
 
 clsKeyboardTest::clsKeyboardTest(const clsKeyboardTest& orig) {
@@ -73,7 +66,8 @@ clsKeyboardTest::~clsKeyboardTest() {
 //  THIS IS ONE THAT USES PURE C++ AND VECTOR
 ///////////////////////////////////
 void clsKeyboardTest::StartTestNEW() {
-   
+        clsKeyboardTest::FlashLEDs();
+        
     int result, exits =0;
     int unsigned currentline = 0;
    vector<int> wholebuffer;
@@ -84,23 +78,16 @@ void clsKeyboardTest::StartTestNEW() {
     }
     cls_UniCodes GetUnicode;
     string bufferline;
-//    cout << endl << "Enter Firmware number: " ;
-//    cin >> NewKeyboard.FirmWareNumber;
-//    NewKeyboard.FirmWareNumber = unicomp::strtoupper(NewKeyboard.FirmWareNumber);
-//    NewKeyboard.WSEFilename = clsKeyboardTest::CurrentConfig.ExecutablePath;
-//    NewKeyboard.WSEFilename.append(NewKeyboard.FirmWareNumber);
-//    cout << "Firmware: " << NewKeyboard.WSEFilename << endl;
 
-//    if (NewKeyboard.ReadFirmware(NewKeyboard.WSEFilename)) {
-    result=1;
-    system("stty -echo");
+  
     usleep(900000);
     currentline = 0;
+
     cout << "Begin pressing keys" << endl; 
     cout << "Firmware: " << clsKeyboardTest::GetUSBPidFilename() << endl;
     wholebuffer.clear();
-    //cout << "Wholebuffer Cleared" << endl;
 
+    
     while (currentline < clsKeyboardTest::ExpectedLines.size()) {
         wholebuffer = GetUnicode.GetUnicodeBuffer();
         //////////////////////////
@@ -114,32 +101,28 @@ void clsKeyboardTest::StartTestNEW() {
         cout << "Read: " << bufferline << "  \t  " << "Expected: " << clsKeyboardTest::ExpectedLines[currentline] << endl;
         if (bufferline == unicomp::stripspace(clsKeyboardTest::ExpectedLines[currentline] )) {
         //    cout << "Key #" << currentline << " Good" << endl;
+              result=1;
         } else {
              //cout << "Bad" << endl;
             cout << endl << "FAIL FAIL FAIL FAIL" << endl;
             clsKeyboardTest::FailResult();
             result=0;
-          //  PlayFailSound();
- //           FailBeep();
             break;
         }
         ++currentline;
     }
-    system("stty echo");
     if (result == 1) {
         clsKeyboardTest::FlashLEDs();
         cout << endl << "PASS PASS PASS PASS" << endl;
         clsKeyboardTest::PassResult();
-        
-        //PlayPassSound();
-//        PassBeep();
+
     }
 //    }
 //    else {
 //        cout << "Problem opening file: " << NewKeyboard.WSEFilename << endl;
 //    }
     
-}
+} // END TEST
 ////////////////////////////////////////////////////////////////////
 
 //std::vector<int> DebugTestingKeyPress (void) {
@@ -204,20 +187,22 @@ void clsKeyboardTest::StartTest() {
 ////////////////////////////////////////////////////////////////////
 
 
-void  clsKeyboardTest::FlashLEDs() {
+int  clsKeyboardTest::FlashLEDs() {
     int tty = open("/dev/console", 0);
     char key;
   do {
         ioctl(tty,KDSETLED, 7);
        //unicomp::YesNo("Are ALL LEDS ON?");
         cout << "CHECK THAT ALL THE LEDS ARE ON. PRESS ENTER" << endl;
-        key =getchar();
+        //key = getch();
+         key =getchar();
         
   //      usleep(200000);
         ioctl(tty,KDSETLED, 0);
         //unicomp::YesNo("Are ALL LEDS OFF?");
    //     usleep(200000);
     } while(! key);
+    cout << key;
     close(tty);
     
     
