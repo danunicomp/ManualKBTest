@@ -1,20 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<configurationDescriptor version="95">
+<configurationDescriptor version="97">
   <logicalFolder name="root" displayName="root" projectFiles="true" kind="ROOT">
     <logicalFolder name="HeaderFiles"
                    displayName="Header Files"
                    projectFiles="true">
       <itemPath>/home/pi/ManualKBTest/CreateMenu.h</itemPath>
       <itemPath>/home/pi/ManualKBTest/GPIOClass.h</itemPath>
-      <itemPath>/home/pi/ManualKBTest/clsBIOSTypeMenu.h</itemPath>
       <itemPath>/home/pi/ManualKBTest/clsConfig.h</itemPath>
       <itemPath>clsKeyboard.h</itemPath>
-      <itemPath>/home/pi/ManualKBTest/clsKeyboardDisplay.h</itemPath>
-      <itemPath>/home/pi/ManualKBTest/clsKeyboardTUI.h</itemPath>
       <itemPath>/home/pi/ManualKBTest/clsKeyboardTest.h</itemPath>
       <itemPath>/home/pi/ManualKBTest/clsMenu.h</itemPath>
       <itemPath>clsNewKeyboard.h</itemPath>
-      <itemPath>/home/pi/ManualKBTest/clsTUIKey.h</itemPath>
       <itemPath>/home/pi/ManualKBTest/cls_UniCodes.h</itemPath>
       <itemPath>/home/pi/ManualKBTest/unicomp.h</itemPath>
     </logicalFolder>
@@ -42,13 +38,9 @@
       <itemPath>/home/pi/ManualKBTest/CreateMenu.cpp</itemPath>
       <itemPath>/home/pi/ManualKBTest/GPIOClass.cpp</itemPath>
       <itemPath>/home/pi/ManualKBTest/OldMainTest.cpp</itemPath>
-      <itemPath>/home/pi/ManualKBTest/clsBIOSTypeMenu.cpp</itemPath>
       <itemPath>/home/pi/ManualKBTest/clsConfig.cpp</itemPath>
-      <itemPath>/home/pi/ManualKBTest/clsKeyboardDisplay.cpp</itemPath>
-      <itemPath>/home/pi/ManualKBTest/clsKeyboardTUI.cpp</itemPath>
       <itemPath>/home/pi/ManualKBTest/clsKeyboardTest.cpp</itemPath>
       <itemPath>clsNewKeyboard.cpp</itemPath>
-      <itemPath>/home/pi/ManualKBTest/clsTUIKey.cpp</itemPath>
       <itemPath>/home/pi/ManualKBTest/cls_Menu.cpp</itemPath>
       <itemPath>/home/pi/ManualKBTest/cls_UniCodes.cpp</itemPath>
       <itemPath>/home/pi/ManualKBTest/getscancodes.cpp</itemPath>
@@ -77,12 +69,12 @@
       </toolsSet>
       <compileType>
         <ccTool>
-          <standard>4</standard>
           <commandlineTool>g++</commandlineTool>
           <incDir>
-            <pElem>/usr/include/c++/4.7</pElem>
+            <pElem>/usr/include/c++/4.6</pElem>
+            <pElem>/usr/include/arm-linux-gnueabihf/</pElem>
           </incDir>
-          <commandLine>-lusb -O2 -lncurses -lpanel</commandLine>
+          <commandLine>-lusb</commandLine>
         </ccTool>
         <asmTool>
           <warningLevel>2</warningLevel>
@@ -123,46 +115,12 @@
             tool="3"
             flavor2="0">
       </item>
-      <item path="/home/pi/ManualKBTest/clsBIOSTypeMenu.cpp"
-            ex="false"
-            tool="1"
-            flavor2="9">
-        <ccTool>
-          <developmentMode>5</developmentMode>
-          <architecture>1</architecture>
-        </ccTool>
-      </item>
-      <item path="/home/pi/ManualKBTest/clsBIOSTypeMenu.h"
-            ex="false"
-            tool="3"
-            flavor2="0">
-      </item>
       <item path="/home/pi/ManualKBTest/clsConfig.cpp"
             ex="false"
             tool="1"
             flavor2="0">
       </item>
       <item path="/home/pi/ManualKBTest/clsConfig.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="/home/pi/ManualKBTest/clsKeyboardDisplay.cpp"
-            ex="false"
-            tool="1"
-            flavor2="0">
-      </item>
-      <item path="/home/pi/ManualKBTest/clsKeyboardDisplay.h"
-            ex="false"
-            tool="3"
-            flavor2="0">
-      </item>
-      <item path="/home/pi/ManualKBTest/clsKeyboardTUI.cpp"
-            ex="false"
-            tool="1"
-            flavor2="0">
-      </item>
-      <item path="/home/pi/ManualKBTest/clsKeyboardTUI.h"
-            ex="false"
-            tool="3"
-            flavor2="0">
       </item>
       <item path="/home/pi/ManualKBTest/clsKeyboardTest.cpp"
             ex="false"
@@ -175,13 +133,6 @@
             flavor2="0">
       </item>
       <item path="/home/pi/ManualKBTest/clsMenu.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="/home/pi/ManualKBTest/clsTUIKey.cpp"
-            ex="false"
-            tool="1"
-            flavor2="0">
-      </item>
-      <item path="/home/pi/ManualKBTest/clsTUIKey.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="/home/pi/ManualKBTest/cls_Menu.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -256,7 +207,7 @@
             <pElem>/usr/include/c++/4.6</pElem>
             <pElem>/usr/include/arm-linux-gnueabihf/</pElem>
           </incDir>
-          <commandLine>-lusb -lncurses -lpanel</commandLine>
+          <commandLine>-lusb</commandLine>
         </ccTool>
         <fortranCompilerTool>
           <developmentMode>5</developmentMode>
@@ -304,46 +255,12 @@
             tool="3"
             flavor2="0">
       </item>
-      <item path="/home/pi/ManualKBTest/clsBIOSTypeMenu.cpp"
-            ex="false"
-            tool="1"
-            flavor2="0">
-        <ccTool>
-          <architecture>0</architecture>
-          <warningLevel>1</warningLevel>
-        </ccTool>
-      </item>
-      <item path="/home/pi/ManualKBTest/clsBIOSTypeMenu.h"
-            ex="false"
-            tool="3"
-            flavor2="0">
-      </item>
       <item path="/home/pi/ManualKBTest/clsConfig.cpp"
             ex="false"
             tool="1"
             flavor2="0">
       </item>
       <item path="/home/pi/ManualKBTest/clsConfig.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="/home/pi/ManualKBTest/clsKeyboardDisplay.cpp"
-            ex="false"
-            tool="1"
-            flavor2="0">
-      </item>
-      <item path="/home/pi/ManualKBTest/clsKeyboardDisplay.h"
-            ex="false"
-            tool="3"
-            flavor2="0">
-      </item>
-      <item path="/home/pi/ManualKBTest/clsKeyboardTUI.cpp"
-            ex="false"
-            tool="1"
-            flavor2="0">
-      </item>
-      <item path="/home/pi/ManualKBTest/clsKeyboardTUI.h"
-            ex="false"
-            tool="3"
-            flavor2="0">
       </item>
       <item path="/home/pi/ManualKBTest/clsKeyboardTest.cpp"
             ex="false"
@@ -356,13 +273,6 @@
             flavor2="0">
       </item>
       <item path="/home/pi/ManualKBTest/clsMenu.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="/home/pi/ManualKBTest/clsTUIKey.cpp"
-            ex="false"
-            tool="1"
-            flavor2="0">
-      </item>
-      <item path="/home/pi/ManualKBTest/clsTUIKey.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="/home/pi/ManualKBTest/cls_Menu.cpp" ex="false" tool="1" flavor2="0">
       </item>

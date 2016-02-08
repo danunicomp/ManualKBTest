@@ -22,15 +22,11 @@
 #include "clsConfig.h"
 #include "clsKeyboardTest.h"
 #include "CreateMenu.h"
-#include "clsKeyboardTUI.h"
-#include "clsBIOSTypeMenu.h"
-#include "clsBIOSTypeMenu.h"
-#include "clsKeyboardDisplay.h"
 #include "cls_UniCodes.h"
 
 using namespace std;
 
-const string VERSION = "1.2.20160208.A";
+const string VERSION = "1.3.20160208.C";
 const string CONFIG_FILE = "config.txt";
 
 /* TODO
@@ -66,9 +62,7 @@ int main ()
 //    cout << "OK" << endl;
 
     clsKeyboardTest KeyboardTest(&CurrentConfig);
-    clsKeyboardTUI TUI;
-    
-    clsBIOSTypeMenu MenuBIOSType(&CurrentConfig);
+
            
     unicomp::ShowHeader();
            
@@ -108,7 +102,6 @@ int main ()
             MainMenu.Display(KeyboardTest.USBPID);
         }
         input = MainMenu.GetInput();
-                clsKeyboardDisplay ShowKeyboard;
                  cls_UniCodes GetUnicode;
                  vector<int> UniBuffer;
         switch (input)
@@ -148,23 +141,7 @@ int main ()
             case 99:    // exit
                 quit = true;
                 break;
-            case 90:
-                TUI.Test();
-                break;
-            case 80:
-                TUI.TestGrid();
-                break;
-            case 70:
-                ShowKeyboard.ShowKeyboard_PC104();
-                //MenuBIOSType.ShowKeyboard();
-                break;
-            case 71:    // SHOWS MAIN 122. ALL KEYS
-                ShowKeyboard.ShowKeyboard_PC122();
-                MenuBIOSType.mainmenu();
-                break;
-            case 60:
-                MenuBIOSType.mainmenu();
-                break;
+
         }
     }
     cout << "Exiting program..." << endl;

@@ -163,14 +163,7 @@ void clsKeyboardTest::StartTest() {
     }
         
     string bufferline;
-//    cout << endl << "Enter Firmware number: " ;
-//    cin >> NewKeyboard.FirmWareNumber;
-//    NewKeyboard.FirmWareNumber = unicomp::strtoupper(NewKeyboard.FirmWareNumber);
-//    NewKeyboard.WSEFilename = clsKeyboardTest::CurrentConfig.ExecutablePath;
-//    NewKeyboard.WSEFilename.append(NewKeyboard.FirmWareNumber);
-//    cout << "Firmware: " << NewKeyboard.WSEFilename << endl;
 
-//    if (NewKeyboard.ReadFirmware(NewKeyboard.WSEFilename)) {
     result=1;
     system("stty -echo");
     usleep(900000);
@@ -197,8 +190,6 @@ void clsKeyboardTest::StartTest() {
             cout << endl << "FAIL FAIL FAIL FAIL" << endl;
             clsKeyboardTest::FailResult();
             result=0;
-          //  PlayFailSound();
-//            FailBeep();
             break;
         }
         ++currentline;
@@ -208,18 +199,9 @@ void clsKeyboardTest::StartTest() {
         cout << endl << "PASS PASS PASS PASS" << endl;
         clsKeyboardTest::FlashLEDs();
         clsKeyboardTest::PassResult();
-       
-        //PlayPassSound();
-//        PassBeep();
     }
-//    }
-//    else {
-//        cout << "Problem opening file: " << NewKeyboard.WSEFilename << endl;
-//    }
-    
 }
 ////////////////////////////////////////////////////////////////////
-
 
 
 void  clsKeyboardTest::FlashLEDs() {

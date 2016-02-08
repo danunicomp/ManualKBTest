@@ -37,12 +37,8 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 OBJECTFILES= \
 	${OBJECTDIR}/_ext/eac693c4/CreateMenu.o \
 	${OBJECTDIR}/_ext/eac693c4/GPIOClass.o \
-	${OBJECTDIR}/_ext/eac693c4/clsBIOSTypeMenu.o \
 	${OBJECTDIR}/_ext/eac693c4/clsConfig.o \
-	${OBJECTDIR}/_ext/eac693c4/clsKeyboardDisplay.o \
-	${OBJECTDIR}/_ext/eac693c4/clsKeyboardTUI.o \
 	${OBJECTDIR}/_ext/eac693c4/clsKeyboardTest.o \
-	${OBJECTDIR}/_ext/eac693c4/clsTUIKey.o \
 	${OBJECTDIR}/_ext/eac693c4/cls_Menu.o \
 	${OBJECTDIR}/_ext/eac693c4/cls_UniCodes.o \
 	${OBJECTDIR}/_ext/eac693c4/getfd.o \
@@ -57,8 +53,8 @@ OBJECTFILES= \
 CFLAGS=
 
 # CC Compiler Flags
-CCFLAGS=-lusb -lncurses -lpanel
-CXXFLAGS=-lusb -lncurses -lpanel
+CCFLAGS=-lusb
+CXXFLAGS=-lusb
 
 # Fortran Compiler Flags
 FFLAGS=
@@ -87,35 +83,15 @@ ${OBJECTDIR}/_ext/eac693c4/GPIOClass.o: /home/pi/ManualKBTest/GPIOClass.cpp
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -I/usr/include/c++/4.6 -I/usr/include/arm-linux-gnueabihf/ -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/eac693c4/GPIOClass.o /home/pi/ManualKBTest/GPIOClass.cpp
 
-${OBJECTDIR}/_ext/eac693c4/clsBIOSTypeMenu.o: /home/pi/ManualKBTest/clsBIOSTypeMenu.cpp 
-	${MKDIR} -p ${OBJECTDIR}/_ext/eac693c4
-	${RM} "$@.d"
-	$(COMPILE.cc) -O2 -I/usr/include/c++/4.6 -I/usr/include/arm-linux-gnueabihf/ -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/eac693c4/clsBIOSTypeMenu.o /home/pi/ManualKBTest/clsBIOSTypeMenu.cpp
-
 ${OBJECTDIR}/_ext/eac693c4/clsConfig.o: /home/pi/ManualKBTest/clsConfig.cpp 
 	${MKDIR} -p ${OBJECTDIR}/_ext/eac693c4
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -I/usr/include/c++/4.6 -I/usr/include/arm-linux-gnueabihf/ -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/eac693c4/clsConfig.o /home/pi/ManualKBTest/clsConfig.cpp
 
-${OBJECTDIR}/_ext/eac693c4/clsKeyboardDisplay.o: /home/pi/ManualKBTest/clsKeyboardDisplay.cpp 
-	${MKDIR} -p ${OBJECTDIR}/_ext/eac693c4
-	${RM} "$@.d"
-	$(COMPILE.cc) -O2 -I/usr/include/c++/4.6 -I/usr/include/arm-linux-gnueabihf/ -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/eac693c4/clsKeyboardDisplay.o /home/pi/ManualKBTest/clsKeyboardDisplay.cpp
-
-${OBJECTDIR}/_ext/eac693c4/clsKeyboardTUI.o: /home/pi/ManualKBTest/clsKeyboardTUI.cpp 
-	${MKDIR} -p ${OBJECTDIR}/_ext/eac693c4
-	${RM} "$@.d"
-	$(COMPILE.cc) -O2 -I/usr/include/c++/4.6 -I/usr/include/arm-linux-gnueabihf/ -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/eac693c4/clsKeyboardTUI.o /home/pi/ManualKBTest/clsKeyboardTUI.cpp
-
 ${OBJECTDIR}/_ext/eac693c4/clsKeyboardTest.o: /home/pi/ManualKBTest/clsKeyboardTest.cpp 
 	${MKDIR} -p ${OBJECTDIR}/_ext/eac693c4
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -I/usr/include/c++/4.6 -I/usr/include/arm-linux-gnueabihf/ -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/eac693c4/clsKeyboardTest.o /home/pi/ManualKBTest/clsKeyboardTest.cpp
-
-${OBJECTDIR}/_ext/eac693c4/clsTUIKey.o: /home/pi/ManualKBTest/clsTUIKey.cpp 
-	${MKDIR} -p ${OBJECTDIR}/_ext/eac693c4
-	${RM} "$@.d"
-	$(COMPILE.cc) -O2 -I/usr/include/c++/4.6 -I/usr/include/arm-linux-gnueabihf/ -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/eac693c4/clsTUIKey.o /home/pi/ManualKBTest/clsTUIKey.cpp
 
 ${OBJECTDIR}/_ext/eac693c4/cls_Menu.o: /home/pi/ManualKBTest/cls_Menu.cpp 
 	${MKDIR} -p ${OBJECTDIR}/_ext/eac693c4
