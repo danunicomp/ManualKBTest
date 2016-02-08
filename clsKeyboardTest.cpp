@@ -205,8 +205,9 @@ void clsKeyboardTest::StartTest() {
     system("stty echo");
     if (result == 1) {
         cout << endl << "PASS PASS PASS PASS" << endl;
-        clsKeyboardTest::PassResult();
         clsKeyboardTest::FlashLEDs();
+        clsKeyboardTest::PassResult();
+       
         //PlayPassSound();
         PassBeep();
     }

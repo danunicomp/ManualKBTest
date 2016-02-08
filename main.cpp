@@ -30,7 +30,7 @@
 
 using namespace std;
 
-const string VERSION = "1.2.20160202.A";
+const string VERSION = "1.2.20160208.A";
 const string CONFIG_FILE = "config.txt";
 
 /* TODO
