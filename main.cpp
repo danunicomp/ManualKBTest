@@ -72,7 +72,7 @@ int main ()
         entries.push_back("Start Test");  selectnumber.push_back(1);
         entries.push_back("Debug - Show Scancodes");  selectnumber.push_back(2);
         entries.push_back("TEST (old, C usage code");  selectnumber.push_back(3);
-        entries.push_back("Change Firmware Number");  selectnumber.push_back(9);
+      //  entries.push_back("Change Firmware Number");  selectnumber.push_back(9);
        // entries.push_back("Old Test"); selectnumber.push_back(10);
         entries.push_back("Record New"); selectnumber.push_back(13);
        // entries.push_back("Debug - Cycle over keys"); selectnumber.push_back(70);
@@ -80,7 +80,7 @@ int main ()
        //entries.push_back("Debug - Show TUI GRID"); selectnumber.push_back(80);
        //entries.push_back("Debug - Show TUI"); selectnumber.push_back(90);
        //entries.push_back("Debug - FROM NEW CLASS Show Keycode Buffer");  selectnumber.push_back(97);
-        entries.push_back("Debug - Show all USB Devices"); selectnumber.push_back(98);
+    //    entries.push_back("Debug - Show all USB Devices"); selectnumber.push_back(98);
         entries.push_back("Exit"); selectnumber.push_back(99);
 
         CreateMenu MainMenu("Unicomp Keyboard Test, Version " + CurrentConfig.Version  , entries, selectnumber);
