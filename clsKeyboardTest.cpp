@@ -41,11 +41,11 @@
 
 using namespace std;
 
-extern void PlayPassSound(void);
-extern void PlayFailSound(void);
+//extern void PlayPassSound(void);
+//extern void PlayFailSound(void);
 //extern void PlayBeep(GPIOClass *);
-extern void FailBeep(void);
-extern void PassBeep(void);
+//extern void FailBeep(void);
+//extern void PassBeep(void);
 
 extern "C" int * FullBuffer (void);
 
@@ -120,18 +120,19 @@ void clsKeyboardTest::StartTestNEW() {
             clsKeyboardTest::FailResult();
             result=0;
           //  PlayFailSound();
-            FailBeep();
+ //           FailBeep();
             break;
         }
         ++currentline;
     }
     system("stty echo");
     if (result == 1) {
+        clsKeyboardTest::FlashLEDs();
         cout << endl << "PASS PASS PASS PASS" << endl;
         clsKeyboardTest::PassResult();
-        clsKeyboardTest::FlashLEDs();
+        
         //PlayPassSound();
-        PassBeep();
+//        PassBeep();
     }
 //    }
 //    else {
@@ -197,7 +198,7 @@ void clsKeyboardTest::StartTest() {
             clsKeyboardTest::FailResult();
             result=0;
           //  PlayFailSound();
-            FailBeep();
+//            FailBeep();
             break;
         }
         ++currentline;
@@ -209,7 +210,7 @@ void clsKeyboardTest::StartTest() {
         clsKeyboardTest::PassResult();
        
         //PlayPassSound();
-        PassBeep();
+//        PassBeep();
     }
 //    }
 //    else {
