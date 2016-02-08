@@ -5,11 +5,9 @@
                    displayName="Header Files"
                    projectFiles="true">
       <itemPath>/home/pi/ManualKBTest/CreateMenu.h</itemPath>
-      <itemPath>/home/pi/ManualKBTest/GPIOClass.h</itemPath>
       <itemPath>/home/pi/ManualKBTest/clsConfig.h</itemPath>
       <itemPath>clsKeyboard.h</itemPath>
       <itemPath>/home/pi/ManualKBTest/clsKeyboardTest.h</itemPath>
-      <itemPath>/home/pi/ManualKBTest/clsMenu.h</itemPath>
       <itemPath>clsNewKeyboard.h</itemPath>
       <itemPath>/home/pi/ManualKBTest/cls_UniCodes.h</itemPath>
       <itemPath>/home/pi/ManualKBTest/unicomp.h</itemPath>
@@ -36,16 +34,13 @@
         <itemPath>/home/pi/ManualKBTest/showkey-modified.c</itemPath>
       </logicalFolder>
       <itemPath>/home/pi/ManualKBTest/CreateMenu.cpp</itemPath>
-      <itemPath>/home/pi/ManualKBTest/GPIOClass.cpp</itemPath>
       <itemPath>/home/pi/ManualKBTest/OldMainTest.cpp</itemPath>
       <itemPath>/home/pi/ManualKBTest/clsConfig.cpp</itemPath>
       <itemPath>/home/pi/ManualKBTest/clsKeyboardTest.cpp</itemPath>
       <itemPath>clsNewKeyboard.cpp</itemPath>
-      <itemPath>/home/pi/ManualKBTest/cls_Menu.cpp</itemPath>
       <itemPath>/home/pi/ManualKBTest/cls_UniCodes.cpp</itemPath>
       <itemPath>/home/pi/ManualKBTest/getscancodes.cpp</itemPath>
       <itemPath>main.cpp</itemPath>
-      <itemPath>sound.cpp</itemPath>
     </logicalFolder>
     <logicalFolder name="TestFiles"
                    displayName="Test Files"
@@ -103,13 +98,6 @@
       </item>
       <item path="/home/pi/ManualKBTest/CreateMenu.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="/home/pi/ManualKBTest/GPIOClass.cpp"
-            ex="false"
-            tool="1"
-            flavor2="0">
-      </item>
-      <item path="/home/pi/ManualKBTest/GPIOClass.h" ex="false" tool="3" flavor2="0">
-      </item>
       <item path="/home/pi/ManualKBTest/WSE-11MT845.csv"
             ex="false"
             tool="3"
@@ -131,10 +119,6 @@
             ex="false"
             tool="3"
             flavor2="0">
-      </item>
-      <item path="/home/pi/ManualKBTest/clsMenu.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="/home/pi/ManualKBTest/cls_Menu.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="/home/pi/ManualKBTest/cls_UniCodes.cpp"
             ex="false"
@@ -187,8 +171,6 @@
         </ccTool>
       </item>
       <item path="nls.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="sound.cpp" ex="false" tool="1" flavor2="0">
       </item>
     </conf>
     <conf name="Release" type="1">
@@ -243,13 +225,6 @@
       </item>
       <item path="/home/pi/ManualKBTest/CreateMenu.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="/home/pi/ManualKBTest/GPIOClass.cpp"
-            ex="false"
-            tool="1"
-            flavor2="0">
-      </item>
-      <item path="/home/pi/ManualKBTest/GPIOClass.h" ex="false" tool="3" flavor2="0">
-      </item>
       <item path="/home/pi/ManualKBTest/WSE-11MT845.csv"
             ex="false"
             tool="3"
@@ -271,10 +246,6 @@
             ex="false"
             tool="3"
             flavor2="0">
-      </item>
-      <item path="/home/pi/ManualKBTest/clsMenu.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="/home/pi/ManualKBTest/cls_Menu.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="/home/pi/ManualKBTest/cls_UniCodes.cpp"
             ex="false"
@@ -333,8 +304,6 @@
         </ccTool>
       </item>
       <item path="nls.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="sound.cpp" ex="false" tool="1" flavor2="0">
       </item>
     </conf>
   </confs>

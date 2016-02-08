@@ -117,19 +117,9 @@ void clsKeyboardTest::StartTestNEW() {
         clsKeyboardTest::PassResult();
 
     }
-//    }
-//    else {
-//        cout << "Problem opening file: " << NewKeyboard.WSEFilename << endl;
-//    }
     
 } // END TEST
 ////////////////////////////////////////////////////////////////////
-
-//std::vector<int> DebugTestingKeyPress (void) {
-//  
-//}
-
-
 
 ////////////////////////////////////////////////////////////////
 //    USES C AND ARRAY
@@ -186,13 +176,12 @@ void clsKeyboardTest::StartTest() {
 }
 ////////////////////////////////////////////////////////////////////
 
-
 int  clsKeyboardTest::FlashLEDs() {
     int tty = open("/dev/console", 0);
     char key;
   do {
         ioctl(tty,KDSETLED, 7);
-       //unicomp::YesNo("Are ALL LEDS ON?");
+       // unicomp::YesNo("Are ALL LEDS ON?");
         cout << "CHECK THAT ALL THE LEDS ARE ON. PRESS ENTER" << endl;
         //key = getch();
          key =getchar();
@@ -204,8 +193,6 @@ int  clsKeyboardTest::FlashLEDs() {
     } while(! key);
     cout << key;
     close(tty);
-    
-    
 }
 
 int clsKeyboardTest::GetWSEFile(void)
@@ -692,6 +679,3 @@ int clsKeyboardTest::GetNumberOfLinesInTextFile (string filename) {
     }
     return(number_of_lines);
 }
-
-
-

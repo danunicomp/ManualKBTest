@@ -17,7 +17,7 @@
 
 #include "unicomp.h"
 
-#include "clsMenu.h"
+// #include "clsMenu.h"
 #include "clsNewKeyboard.h"
 #include "clsConfig.h"
 #include "clsKeyboardTest.h"
@@ -26,7 +26,7 @@
 
 using namespace std;
 
-const string VERSION = "1.3.20160208.D";
+const string VERSION = "1.3.20160208.E";
 const string CONFIG_FILE = "config.txt";
 
 /* TODO
