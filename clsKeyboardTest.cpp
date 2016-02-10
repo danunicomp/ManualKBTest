@@ -66,7 +66,7 @@ clsKeyboardTest::~clsKeyboardTest() {
 //  THIS IS ONE THAT USES PURE C++ AND VECTOR
 ///////////////////////////////////
 void clsKeyboardTest::StartTestNEW() {
-        clsKeyboardTest::FlashLEDs();
+  //      clsKeyboardTest::FlashLEDs();
         
     int result, exits =0;
     int unsigned currentline = 0;
@@ -169,8 +169,9 @@ void clsKeyboardTest::StartTest() {
     }
     system("stty echo");
     if (result == 1) {
+          clsKeyboardTest::FlashLEDs();
         cout << endl << "PASS PASS PASS PASS" << endl;
-        clsKeyboardTest::FlashLEDs();
+      
         clsKeyboardTest::PassResult();
     }
 }
