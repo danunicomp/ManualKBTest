@@ -67,7 +67,7 @@ clsKeyboardTest::~clsKeyboardTest() {
 ///////////////////////////////////
 void clsKeyboardTest::StartTestNEW() {
   //      clsKeyboardTest::FlashLEDs();
-        
+    clsKeyboardTest::FlashLEDs();   
     int result, exits =0;
     int unsigned currentline = 0;
    vector<int> wholebuffer;
@@ -112,7 +112,7 @@ void clsKeyboardTest::StartTestNEW() {
         ++currentline;
     }
     if (result == 1) {
-        clsKeyboardTest::FlashLEDs();
+ //       clsKeyboardTest::FlashLEDs();
         cout << endl << "PASS PASS PASS PASS" << endl;
         clsKeyboardTest::PassResult();
 
@@ -184,6 +184,7 @@ int  clsKeyboardTest::FlashLEDs() {
         ioctl(tty,KDSETLED, 7);
        // unicomp::YesNo("Are ALL LEDS ON?");
         cout << "CHECK THAT ALL THE LEDS ARE ON. PRESS ENTER" << endl;
+        cout << "IF THEY ARE NOT, PRESS ENTER TWICE" << endl;
         //key = getch();
          key =getchar();
         
