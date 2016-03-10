@@ -34,12 +34,11 @@
         <itemPath>/home/pi/ManualKBTest/showkey-modified.c</itemPath>
       </logicalFolder>
       <itemPath>/home/pi/ManualKBTest/CreateMenu.cpp</itemPath>
-      <itemPath>/home/pi/ManualKBTest/OldMainTest.cpp</itemPath>
       <itemPath>/home/pi/ManualKBTest/clsConfig.cpp</itemPath>
       <itemPath>/home/pi/ManualKBTest/clsKeyboardTest.cpp</itemPath>
       <itemPath>clsNewKeyboard.cpp</itemPath>
       <itemPath>/home/pi/ManualKBTest/cls_UniCodes.cpp</itemPath>
-      <itemPath>/home/pi/ManualKBTest/getscancodes.cpp</itemPath>
+      <itemPath>getscancodes.cpp</itemPath>
       <itemPath>main.cpp</itemPath>
     </logicalFolder>
     <logicalFolder name="TestFiles"
@@ -66,14 +65,10 @@
         <ccTool>
           <commandlineTool>g++</commandlineTool>
           <incDir>
-            <pElem>/usr/include/c++/4.6</pElem>
             <pElem>/usr/include/arm-linux-gnueabihf/</pElem>
           </incDir>
-          <commandLine>-lusb</commandLine>
+          <commandLine>-lusb -g</commandLine>
         </ccTool>
-        <asmTool>
-          <warningLevel>2</warningLevel>
-        </asmTool>
         <linkerTool>
           <output>${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/manualkbtest</output>
           <commandlineTool>g++</commandlineTool>
@@ -134,11 +129,6 @@
       </item>
       <item path="/home/pi/ManualKBTest/getfd.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="/home/pi/ManualKBTest/getscancodes.cpp"
-            ex="false"
-            tool="1"
-            flavor2="0">
-      </item>
       <item path="/home/pi/ManualKBTest/partnumbers.ini"
             ex="false"
             tool="3"
@@ -165,6 +155,8 @@
       </item>
       <item path="config.txt" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="getscancodes.cpp" ex="false" tool="1" flavor2="0">
+      </item>
       <item path="main.cpp" ex="false" tool="1" flavor2="0">
         <ccTool>
           <commandLine>-lusb</commandLine>
@@ -186,7 +178,6 @@
         <ccTool>
           <developmentMode>5</developmentMode>
           <incDir>
-            <pElem>/usr/include/c++/4.6</pElem>
             <pElem>/usr/include/arm-linux-gnueabihf/</pElem>
           </incDir>
           <commandLine>-lusb</commandLine>
@@ -264,11 +255,6 @@
       </item>
       <item path="/home/pi/ManualKBTest/getfd.c" ex="false" tool="0" flavor2="0">
       </item>
-      <item path="/home/pi/ManualKBTest/getscancodes.cpp"
-            ex="false"
-            tool="1"
-            flavor2="0">
-      </item>
       <item path="/home/pi/ManualKBTest/partnumbers.ini"
             ex="false"
             tool="3"
@@ -296,6 +282,8 @@
       <item path="clsNewKeyboard.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="config.txt" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="getscancodes.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="main.cpp" ex="false" tool="1" flavor2="0">
         <ccTool>

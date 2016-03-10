@@ -21,7 +21,7 @@ FC=gfortran
 AS=as
 
 # Macros
-CND_PLATFORM=GNU-Linux-x86
+CND_PLATFORM=GNU-Linux
 CND_DLIB_EXT=so
 CND_CONF=Debug
 CND_DISTDIR=dist
@@ -40,9 +40,9 @@ OBJECTFILES= \
 	${OBJECTDIR}/_ext/eac693c4/clsKeyboardTest.o \
 	${OBJECTDIR}/_ext/eac693c4/cls_UniCodes.o \
 	${OBJECTDIR}/_ext/eac693c4/getfd.o \
-	${OBJECTDIR}/_ext/eac693c4/getscancodes.o \
 	${OBJECTDIR}/_ext/eac693c4/showkey-modified.o \
 	${OBJECTDIR}/clsNewKeyboard.o \
+	${OBJECTDIR}/getscancodes.o \
 	${OBJECTDIR}/main.o
 
 
@@ -50,8 +50,8 @@ OBJECTFILES= \
 CFLAGS=
 
 # CC Compiler Flags
-CCFLAGS=-lusb
-CXXFLAGS=-lusb
+CCFLAGS=-lusb -g
+CXXFLAGS=-lusb -g
 
 # Fortran Compiler Flags
 FFLAGS=
@@ -73,32 +73,27 @@ ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/manualkbtest: ${OBJECTFILES}
 ${OBJECTDIR}/_ext/eac693c4/CreateMenu.o: nbproject/Makefile-${CND_CONF}.mk /home/pi/ManualKBTest/CreateMenu.cpp 
 	${MKDIR} -p ${OBJECTDIR}/_ext/eac693c4
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -I/usr/include/c++/4.6 -I/usr/include/arm-linux-gnueabihf/ -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/eac693c4/CreateMenu.o /home/pi/ManualKBTest/CreateMenu.cpp
+	$(COMPILE.cc) -g -I/usr/include/arm-linux-gnueabihf/ -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/eac693c4/CreateMenu.o /home/pi/ManualKBTest/CreateMenu.cpp
 
 ${OBJECTDIR}/_ext/eac693c4/clsConfig.o: nbproject/Makefile-${CND_CONF}.mk /home/pi/ManualKBTest/clsConfig.cpp 
 	${MKDIR} -p ${OBJECTDIR}/_ext/eac693c4
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -I/usr/include/c++/4.6 -I/usr/include/arm-linux-gnueabihf/ -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/eac693c4/clsConfig.o /home/pi/ManualKBTest/clsConfig.cpp
+	$(COMPILE.cc) -g -I/usr/include/arm-linux-gnueabihf/ -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/eac693c4/clsConfig.o /home/pi/ManualKBTest/clsConfig.cpp
 
 ${OBJECTDIR}/_ext/eac693c4/clsKeyboardTest.o: nbproject/Makefile-${CND_CONF}.mk /home/pi/ManualKBTest/clsKeyboardTest.cpp 
 	${MKDIR} -p ${OBJECTDIR}/_ext/eac693c4
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -I/usr/include/c++/4.6 -I/usr/include/arm-linux-gnueabihf/ -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/eac693c4/clsKeyboardTest.o /home/pi/ManualKBTest/clsKeyboardTest.cpp
+	$(COMPILE.cc) -g -I/usr/include/arm-linux-gnueabihf/ -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/eac693c4/clsKeyboardTest.o /home/pi/ManualKBTest/clsKeyboardTest.cpp
 
 ${OBJECTDIR}/_ext/eac693c4/cls_UniCodes.o: nbproject/Makefile-${CND_CONF}.mk /home/pi/ManualKBTest/cls_UniCodes.cpp 
 	${MKDIR} -p ${OBJECTDIR}/_ext/eac693c4
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -I/usr/include/c++/4.6 -I/usr/include/arm-linux-gnueabihf/ -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/eac693c4/cls_UniCodes.o /home/pi/ManualKBTest/cls_UniCodes.cpp
+	$(COMPILE.cc) -g -I/usr/include/arm-linux-gnueabihf/ -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/eac693c4/cls_UniCodes.o /home/pi/ManualKBTest/cls_UniCodes.cpp
 
 ${OBJECTDIR}/_ext/eac693c4/getfd.o: nbproject/Makefile-${CND_CONF}.mk /home/pi/ManualKBTest/getfd.c 
 	${MKDIR} -p ${OBJECTDIR}/_ext/eac693c4
 	${RM} "$@.d"
 	$(COMPILE.c) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/eac693c4/getfd.o /home/pi/ManualKBTest/getfd.c
-
-${OBJECTDIR}/_ext/eac693c4/getscancodes.o: nbproject/Makefile-${CND_CONF}.mk /home/pi/ManualKBTest/getscancodes.cpp 
-	${MKDIR} -p ${OBJECTDIR}/_ext/eac693c4
-	${RM} "$@.d"
-	$(COMPILE.cc) -g -I/usr/include/c++/4.6 -I/usr/include/arm-linux-gnueabihf/ -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/eac693c4/getscancodes.o /home/pi/ManualKBTest/getscancodes.cpp
 
 ${OBJECTDIR}/_ext/eac693c4/showkey-modified.o: nbproject/Makefile-${CND_CONF}.mk /home/pi/ManualKBTest/showkey-modified.c 
 	${MKDIR} -p ${OBJECTDIR}/_ext/eac693c4
@@ -108,12 +103,17 @@ ${OBJECTDIR}/_ext/eac693c4/showkey-modified.o: nbproject/Makefile-${CND_CONF}.mk
 ${OBJECTDIR}/clsNewKeyboard.o: nbproject/Makefile-${CND_CONF}.mk clsNewKeyboard.cpp 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -I/usr/include/c++/4.6 -I/usr/include/arm-linux-gnueabihf/ -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/clsNewKeyboard.o clsNewKeyboard.cpp
+	$(COMPILE.cc) -g -I/usr/include/arm-linux-gnueabihf/ -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/clsNewKeyboard.o clsNewKeyboard.cpp
+
+${OBJECTDIR}/getscancodes.o: nbproject/Makefile-${CND_CONF}.mk getscancodes.cpp 
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -I/usr/include/arm-linux-gnueabihf/ -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/getscancodes.o getscancodes.cpp
 
 ${OBJECTDIR}/main.o: nbproject/Makefile-${CND_CONF}.mk main.cpp 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -I/usr/include/c++/4.6 -I/usr/include/arm-linux-gnueabihf/ -lusb -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/main.o main.cpp
+	$(COMPILE.cc) -g -I/usr/include/arm-linux-gnueabihf/ -lusb -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/main.o main.cpp
 
 # Subprojects
 .build-subprojects:

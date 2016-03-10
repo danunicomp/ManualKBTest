@@ -7,21 +7,21 @@ CND_BASEDIR=`pwd`
 CND_BUILDDIR=build
 CND_DISTDIR=dist
 # Debug configuration
-CND_PLATFORM_Debug=GNU-Linux-x86
-CND_ARTIFACT_DIR_Debug=dist/Debug/GNU-Linux-x86
+CND_PLATFORM_Debug=GNU-Linux
+CND_ARTIFACT_DIR_Debug=dist/Debug/GNU-Linux
 CND_ARTIFACT_NAME_Debug=manualkbtest
-CND_ARTIFACT_PATH_Debug=dist/Debug/GNU-Linux-x86/manualkbtest
+CND_ARTIFACT_PATH_Debug=dist/Debug/GNU-Linux/manualkbtest
 CND_PACKAGE_DIR_Debug=dist/Debug/package
 CND_PACKAGE_NAME_Debug=manualkbtest.tar
 CND_PACKAGE_PATH_Debug=dist/Debug/package/manualkbtest.tar
 # Release configuration
-CND_PLATFORM_Release=GNU-Linux-x86
+CND_PLATFORM_Release=GNU-Linux
 CND_ARTIFACT_DIR_Release=dist/Release
 CND_ARTIFACT_NAME_Release=manualkbtest
 CND_ARTIFACT_PATH_Release=dist/Release/manualkbtest
-CND_PACKAGE_DIR_Release=dist/Release/GNU-Linux-x86/package
+CND_PACKAGE_DIR_Release=dist/Release/GNU-Linux/package
 CND_PACKAGE_NAME_Release=manualkbtest.tar
-CND_PACKAGE_PATH_Release=dist/Release/GNU-Linux-x86/package/manualkbtest.tar
+CND_PACKAGE_PATH_Release=dist/Release/GNU-Linux/package/manualkbtest.tar
 #
 # include compiler specific variables
 #

@@ -22,24 +22,7 @@ int oldkbmode;
 struct termios old;
 using namespace std;
 
-/*
- * 
- */
 std::vector<int> FullBuffer2 (void);
-
-/*
-int main(int argc, char** argv) {
-
-    system("stty -echo");
-    usleep(1000000);
-    while (FullBuffer() > 0) {
-        
-        //cout << "DONE";
-    }
-    system("stty echo");
-    return 0;
-}
-*/
 
 static void
 clean_up(int fd) {
@@ -79,13 +62,6 @@ die(int x, int fd) {
     return x;
 }
 
-//static void
-//watch_dog(int fd) {
-//    clean_up(fd);
-//    close(fd);
-//    return;
-//}
-
 std::vector<int> FullBuffer2 (void) {
 
     int show_keycodes = 1;
@@ -93,17 +69,10 @@ std::vector<int> FullBuffer2 (void) {
     struct termios newkb;
 
     int  buf[19];
- //   int *newbuf = malloc(sizeof(int) * 19); 
-    //int newbuf[19];
-   // *newbuf = malloc(sizeof(int) * 19); 
     std::vector<int> newbuf(19);
     int i, n;
 
     fd = getfd(NULL);
- //   cout << "OLD SHOW BUFF FD = " << fd << endl;
-    /* the program terminates when there is no input for 10 secs */
- //
-//    signal(SIGALRM, watch_dog(fd));
 
     get_mode(fd);
     if (tcgetattr(fd, &old) == -1)
@@ -136,22 +105,22 @@ std::vector<int> FullBuffer2 (void) {
      alarm(100);
      
         n = read(fd, buf, sizeof(buf));
- //       cout << "N: " << n << endl; 
+ 
         i = 0;
-     //   newbuf.clear();
+  
         while (i < n) {
             string s;
             s = (buf[i] & 0x80) ? "BREAK" : "MAKE";
             if (i+2 < n && (buf[i] & 0x7f) == 0 && (buf[i+1] & 0x80) != 0 && (buf[i+2] & 0x80) != 0) 
             {
-    //            kc = ((buf[i+1] & 0x7f) << 7) | (buf[i+2] & 0x7f);
+  
                 i += 3;
             } else {
-  //              kc = (buf[i] & 0x7f);
+  
                 i++;
             }
             // ******** SELECT MAKE OR BREAK
-   //       cout << s << endl;
+  
             if (s=="MAKE") {
                 buf[18] = 1999;
             }
@@ -159,17 +128,9 @@ std::vector<int> FullBuffer2 (void) {
             {
                buf[18] = 999;
             }
-            //cout << endl;
       
             for (t=0;t<19;++t) {
                 newbuf.push_back(buf[t]);
-               // cout << newbuf[t] << " ";
-//            if ( buf[0] == 1) {
-//                clean_up(fd);
-//                close(fd);
-//           return newbuf;
-//            }
-             //   cout << "  BUF  " << buf[t];  
                 buf[t] = 0;  //flush buffer
             }
             cout << endl;
@@ -179,16 +140,8 @@ std::vector<int> FullBuffer2 (void) {
        }
     
     }
-
 }
 
-/*
- * getfd.c
- *
- * Get an fd for use with kbd/console ioctls.
- * We try several things because opening /dev/console will fail
- * if someone else used X (which does a chown on /dev/console).
- */
 
 static int
 is_a_console(int fd) {
@@ -224,11 +177,11 @@ open_a_console(const char *fnam) {
 
 int getfd(const char *fnam) {
 	int fd;
-   //     printf ("FINDING FD\n");
+
 	if (fnam) {
 		fd = open_a_console(fnam);
 		if (fd >= 0) {
-                   // printf ("FD FOUND   NULL");  
+
 			return fd;
                 }
 		fprintf(stderr,"Couldn't open %s\n", fnam);
@@ -237,32 +190,32 @@ int getfd(const char *fnam) {
 
 	fd = open_a_console("/proc/self/fd/0");
 	if (fd >= 0) {
-   //        printf ("FD FOUND   /proc/self/fd/0");     
+
             return fd;  
         }
 
 	fd = open_a_console("/dev/tty");
 	if (fd >= 0) {
- //           printf ("FD FOUND   /dev/tty");
+
             return fd;
         }
 
 	fd = open_a_console("/dev/tty0");
 	if (fd >= 0) {
- //         printf ("FD FOUND   /dev/tty0");
+
             return fd;
         }
 	fd = open_a_console("/dev/vc/0");
 	if (fd >= 0)  {
- //         printf ("FD FOUND   /dev/vc/0");
+
             return fd;
         }
 	fd = open_a_console("/dev/console");
 	if (fd >= 0)  {
- //         printf ("FD FOUND   /dev/console");
+
             return fd;
         }
-//           printf ("FD NOT FOUND\n");
+
 	for (fd = 0; fd < 3; fd++)
 		if (is_a_console(fd))
 			return fd;

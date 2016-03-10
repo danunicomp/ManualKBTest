@@ -5,7 +5,6 @@
 #include <sstream>
 #include <fstream>
 
-
 #include <sys/ioctl.h> /* ioctl */
 #include <unistd.h>
 #include <ncurses.h>
@@ -26,7 +25,7 @@
 
 using namespace std;
 
-const string VERSION = "1.3.20160210.B";
+const string VERSION = "1.3.20160212.A";
 const string CONFIG_FILE = "config.txt";
 
 /* TODO
